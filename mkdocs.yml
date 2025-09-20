@@ -1,0 +1,77 @@
+site_name: LibrePhone
+site_description: Free the phone!
+# strict: true
+# site_url: "https:fsf.org"
+
+repo_name: "librephone"
+repo_url: "https://codeberg.org/rsavoye/librephone.git"
+edit_uri: "edit/main/docs/"
+
+extra:
+  copyright: Copyright &copy; 2025 FSF
+  generator: false
+
+theme:
+  name: material
+  palette:
+    primary: custom
+  favicon: assets/favicon.ico
+  logo: campaigns_gnu.small.png
+  # custom_dir: docs/overrides
+
+extra_css:
+  - css/extra.css
+
+markdown_extensions:
+  - tables
+  - toc:
+      permalink: true
+      title: Page contents
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight
+  - pymdownx.extra
+  - pymdownx.emoji:
+  - pymdownx.tabbed:
+      alternate_style: true
+
+plugins:
+  - search
+  - git-revision-date-localized
+  - exclude:
+      glob:
+        - plugins/*
+        - __pycache__/*
+  - mkdocstrings:
+      handlers:
+        python:
+          paths: [.]
+          options:
+            members_order: source
+            separate_signature: true
+            filters: ["!^_"]
+            docstring_options:
+              ignore_init_summary: true
+            merge_init_into_class: true
+
+nav:
+  - Home: index.md
+  - Get Started:
+      - License: LICENSE.md
+#      - Changelog: CHANGELOG.md
+#      - Code of Conduct: https://docs.hotosm.org/code-of-conduct
+  - Comparing Devices: comparing.md
+  - Current Status: builds.md
+  - Code Bindings: stubs.md
+  # - Extracting: extracting.md
+  # - Previous: previous.md
+  - Utilities:
+      - Extracting Metadata: extractor.md
+      - Importing file metadata: import-device.md
+      - Query The Database: query-device.md
+      - Processing Everything: images_util.md
+      - Generating Bindings: generator.md
+#  - Some Data:
+#      - Total Count of files: total.md
+#      - File Sizes: 
