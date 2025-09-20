@@ -1,0 +1,103 @@
+[project]
+name = "librephone"
+dynamic = ["version"]
+description = "Tools for reverse engineering binary blobs on Android."
+authors = [
+    {name = "Rob Savoye", email = "rob@fsf.org"},
+]
+dependencies = [
+    "psycopg>=3.2.1",
+    "python_magic>=0.4.27",
+    "sdat2img-brotli>=1.0.3",
+    "unblob>=25.5.26",
+]
+requires-python = ">=3.10"
+readme = "README.md"
+license = "AGPL-3.0-later"
+keywords = ["fsf", "blob", "android"]
+classifiers = [
+    "Topic :: Utilities",
+    "Topic :: Scientific/Engineering :: GIS",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
+
+[project.urls]
+repository = "https://codeberg.org/rsavoye/librephone.git"
+
+[build-system]
+requires = [
+	 "pdm-pep517>=1.1.4",
+	 "setuptools",
+]
+build-backend = "pdm.pep517.api"
+
+[tool.pytest.ini_options]
+addopts = "-ra -q -p no:warnings"
+testpaths = [
+    "tests",
+]
+pythonpath = "librephone"
+
+[tool.commitizen]
+name = "cz_conventional_commits"
+version = "0.2.0"
+version_files = [
+    "pyproject.toml:version",
+    "osm_merge/__version__.py",
+]
+update_changelog_on_bump = true
+
+[tool.pdm]
+version = {from = "librephone/__version__.py"}
+[tool.pdm.build]
+includes = ["librephone"]
+source-includes = ["LICENSE.md", "README.md"]
+[tool.pdm.dev-dependencies]
+dev = [
+    "black>=23.7.0",
+    "commitizen>=3.6.0",
+    "pre-commit>=3.3.3",
+]
+debug = [
+    "debugpy>=1.6.7.post1",
+    "ipdb>=0.13.13",
+]
+test = [
+    "pytest>=7.4.0",
+]
+docs = [
+    "mkdocs>=1.5.2",
+    "mkdocs-material>=9.2.3",
+    "mkdocstrings-python>=1.5.2",
+    "mkdocs-exclude>=1.0.2",
+]
+
+[tool.black]
+line-length = 132
+target-versions = ["py310", "py311"]
+
+[tool.ruff]
+fix = true
+line-length = 132
+target-version = "py310"
+select = ["I", "E", "W", "D", "B", "F", "N", "Q"]
+ignore = ["N805", "B008"]
+exclude = [
+    ".git",
+    ".ruff_cache",
+    ".vscode",
+    "__pypackages__",
+    "build",
+    "dist",
+    "osm_merge/__version__.py",
+]
+[tool.ruff.pydocstyle]
+convention = "google"
+
+[project.scripts]
+# The primary conflation script
+extractor = "librephone.extractor:main"
+import-device = "librephone.import_dev:main"
+query-device = "librephone.query_dev:main"
