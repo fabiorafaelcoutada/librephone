@@ -1,0 +1,98 @@
+---
+# This file is used to generate the SQL to create database
+# types, as well as the python Enum files. I guess I should
+# use the psycopg support for mapping python enums to postgresql
+# enums, but this does the same thing, just more static file based.
+
+- cputypes:
+    - CORTEX
+    - KRYO
+    - EXPYNOS
+    - MEDIATEC
+
+- gpumodels:
+    - MALI
+    - ADRENO
+
+- devstatus:
+    - AVAILABLE
+    - DISCONTINUED
+
+- imgtypes:
+    - ELF64
+    - MBR
+    - BOOT
+    - DATA
+    - AVB0
+    - MSDOS
+    - SD
+    - DTB
+    - VNDRBOOT
+    - UNKNOWN
+
+- filesystems:
+    - EXT2
+    - EXT3
+    - EXT4
+    
+- bintypes:
+    - CAMERA
+    - RTPSTREAM
+    - CONFIG
+    - FIRMWARE
+    - FIRMWARE1
+    - FIRMWARE2
+    - FIRMWARE3
+    - FIRMWARE4
+    - FIRMWARE5
+    - FIRMWARE6
+    - FIRMWARE7
+    - FIRMWARE8
+    - FIRMWARE9
+    - FIRMWARE10
+
+- archtypes:
+    - ARM64
+    - AARCH64
+    - RISCV
+    - WE32100
+    - XTENSA
+    - MIPS
+    - DSP
+
+- celltypes:
+    - GSM
+    - CDMA
+    - HSPA
+    - EVDO
+    - LTE
+    - FiveG
+    
+- nettypes:
+    - TWOG
+    - THREEG
+    - FOURG
+    - FIVEG
+    
+- wifitypes:
+    - A
+    - B
+    - BE
+    - G
+    - N
+    - AC
+    - AX
+
+- filetypes:
+    - BASH
+    - JAR
+    - APK
+    - LIBRARY
+    - TEXT
+    - KEY
+    
+- blobtypes:
+    - DATA
+    - HEX
+    - LIBRARY
+
