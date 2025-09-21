@@ -1,1313 +1,1313 @@
-file,7,devices
-anc_wide.bin,3,FP5
-com.qti.tuned.tsp_imx582.bin,3,FP4
-com.qti.sensormodule_mtf.fp5_imx858_marco.bin,3,FP5
-com.qti.tuned.fp5_imx858_marco_mtf.bin,3,FP5
-com.qti.sensormodule_mtf.fp5_imx858.bin,3,FP5
-com.qti.tuned.fp5_imx758.bin,3,FP5
-com.qti.sensormodule.fp5_imx858_marco.bin,3,FP5
-com.qti.tuned.nubia_imx519.bin,3,Z18
-com.qti.sensormodule.imx582.bin,3,FP4
-com.qti.sensormodule_mtf.fp5_s5kjn1.bin,3,FP5
-com.qti.tuned.fp5_imx858_marco.bin,3,FP5
-com.qti.sensormodule_mtf.fp5_imx800.bin,3,FP5
-st21nfc_fw7.bin,3,FP5
-com.qti.sensormodule.nubia_ov8856.bin,3,Z18
-com.qti.sensormodule.qti_tpg5.bin,3,FP5
-com.qti.tuned.sl846_tmus.bin,3,V40
-com.qti.tuned.sl556_tmus.bin,3,V40
-com.qti.tuned.tsp_imx582_sma_2nd.bin,3,FP4
-com.qti.tuned.fp5_imx858.bin,3,FP5
-com.qti.tuned.tsp_imx582_sma.bin,3,FP4
-com.qti.tuned.sunny_imx576_fp4.bin,3,FP4
-com.qti.sensormodule.fp5_s5kjn1.bin,3,FP5
-com.qti.tuned.s5k3m5.bin,3,V40
-com.qti.tuned.fp5_imx858_mtf.bin,3,FP5
-com.qti.sensormodule.nubia_imx519.bin,3,Z18
-com.qti.sensormodule.imx582_sma.bin,3,FP4
-com.qti.tuned.fp5_imx800.bin,3,FP5
-com.qti.tuned.fp5_s5kjn1_mtf.bin,3,FP5
-com.qti.tuned.fp5_imx800_mtf.bin,3,FP5
-com.qti.tuned.nubia_ov8856.bin,3,Z18
-anc_front.bin,3,FP5
-st21nfc_fw.bin,3,FP5
-com.qti.sensormodule.qti_tpg6.bin,3,FP5
-com.qti.sensormodule.s5k3m5.bin,3,V40
-com.qti.sensormodule.fp5_imx858.bin,3,FP5
-haptic_ram.bin,3,FP5
-GT9897_05.01.FF.17_4D6C5476.bin,3,FP5
-com.qti.tuned.imx363.bin,3,V40
-com.qti.sensormodule.fp5_imx800.bin,3,FP5
-com.qti.sensormodule.fp5_imx758.bin,3,FP5
-anc_main.bin,3,FP5
-com.qti.tuned.fp5_s5kjn1.bin,3,FP5
-com.qti.sensormodule.liteon_s5k3m3sn03.bin,4,Mi_8
-com.qti.sensormodule.s5k3t1_qtech.bin,4,Mi_8
-com.qti.sensormodule.liteon_imx333.bin,4,Mi_8
-com.qti.tuned.qtech_s5k3t1.bin,4,Mi_8
-com.qti.tuned.lisa_semco_s5kgw3_wide.bin,5,Mi_11
-com.qti.tuned.fuxi_semco_s5k3k1_tele.bin,5,Mi_13
-com.qti.tuned.umi_sunny_gc02m1_depth.bin,5,Mi_10
-com.qti.sensormodule.cupid_ofilm_ov32b40_front.bin,5,Mi_12
-com.qti.sensormodule.cupid_sunny_s5k5e9_macro.bin,5,Mi_12
-com.qti.tuned.cupid_sunny_s5k5e9_macro.bin,5,Mi_12
-com.qti.tuned.lisa_ofilm_s5k5e9yx04_macro.bin,5,Mi_11
-com.qti.sensormodule.lisa_ofilm_s5k5e9yx04_macro.bin,5,Mi_11
-com.qti.sensormodule.cupid_sunny_ov13b10_ultra.bin,5,Mi_12
-goodix_gt9897t_fw_k9d.bin,5,Mi_11
-com.qti.tuned.cupid_ofilm_ov32b40_front.bin,5,Mi_12
-com.qti.tuned.lisa_ofilm_imx355_ultra.bin,5,Mi_11
-com.qti.tuned.lisa_sunny_s5k3t2_front.bin,5,Mi_11
-com.qti.tuned.umi_sunny_ov13b10.bin,5,Mi_10
-com.qti.sensormodule.lisa_sunny_s5k5e9yx04_macro.bin,5,Mi_11
-com.qti.sensormodule.lisa_ofilm_imx355_ultra.bin,5,Mi_11
-com.qti.tuned.fuxi_semco_s5k3k1_tele_ii.bin,5,Mi_13
-com.qti.tuned.fuxi_ofilm_ov13b10_ultra.bin,5,Mi_13
-com.qti.sensormodule.cupid_semco_imx707_wide.bin,5,Mi_12
-com.qti.sensormodule.fuxi_sunny_imx800_wide_ii.bin,5,Mi_13
-com.qti.sensormodule.lisa_ofilm_s5kgw3_wide.bin,5,Mi_11
-com.qti.tuned.umi_sunny_s5k3t2.bin,5,Mi_10
-com.qti.sensormodule.umi_sunny_ov16e10.bin,5,Mi_10
-com.qti.tuned.lisa_sunny_s5k5e9yx04_macro.bin,5,Mi_11
-com.qti.sensormodule.umi_sunny_s5k5e8yx_depth.bin,5,Mi_10
-com.qti.sensormodule.fuxi_semco_s5k3k1_tele.bin,5,Mi_13
-com.qti.tuned.fuxi_sunny_imx800_wide.bin,5,Mi_13
-com.qti.sensormodule.fuxi_semco_imx800_wide.bin,5,Mi_13
-com.qti.sensormodule.cupid_semco_imx766_wide.bin,5,Mi_12
-com.qti.tuned.fuxi_sunny_ov32c_front_global.bin,5,Mi_13
-com.qti.sensormodule.lisa_sunny_s5k3t2_front.bin,5,Mi_11
-com.qti.sensormodule.fuxi_semco_s5k3k1_tele_ii.bin,5,Mi_13
-goodix_gt9897t_fw_k9d_csot.bin,5,Mi_11
-com.qti.tuned.cupid_sunny_ov13b10_ultra.bin,5,Mi_12
-com.qti.tuned.cupid_semco_imx707_wide.bin,5,Mi_12
-com.qti.sensormodule.lisa_semco_s5kgw3_wide.bin,5,Mi_11
-com.qti.sensormodule.fuxi_ofilm_ov13b10_ultra.bin,5,Mi_13
-com.qti.tuned.fuxi_semco_imx800_wide.bin,5,Mi_13
-com.qti.tuned.fuxi_sunny_ov32c_front.bin,5,Mi_13
-com.qti.sensormodule.cupid_semco_imx700_wide.bin,5,Mi_12
-com.qti.tuned.lisa_ofilm_s5kgw3_wide.bin,5,Mi_11
-com.qti.tuned.umi_sunny_gc02m1_macro.bin,5,Mi_10
-com.qti.sensormodule.fuxi_sunny_ov32c_front.bin,5,Mi_13
-com.qti.tuned.umi_semco_s5khmx.bin,5,Mi_10
-com.qti.tuned.cupid_semco_imx766_wide.bin,5,Mi_12
-com.qti.sensormodule.umi_sunny_s5k5e8yx_macro.bin,5,Mi_10
-com.qti.sensormodule.apollo_ofilm_s5k5e9yx04_macro.bin,6,Mi_10T
-com.qti.sensormodule.s5k3t1_largan.bin,6,Mi_9SE
-com.qti.tuned.chicony_s5k3h7.bin,6,Phone2
-com.qti.sensormodule.s5k3t1_II.bin,6,Mi_9SE
-com.qti.tuned.thyme_sunny_gc02m1_depth.bin,6,Mi_10S
-com.qti.sensormodule.pyxis_luxvisions_imx582_cn_i.bin,6,Mi_CC9
-com.qti.sensormodule.haydn_sunny_s5k5e9yx04_macro.bin,6,Mi_11I
-com.qti.tuned.thyme_sunny_ov13b10_ultra.bin,6,Mi_10S
-com.qti.tuned.haydn_sunny_s5k3t2_front.bin,6,Mi_11I
-com.qti.tuned.mot_nio_ov64b.bin,6,Edge_S
-com.qti.tuned.apollo_sunny_imx682_wide.bin,6,Mi_10T
-com.qti.sensormodule.ofilm_ov16885.bin,6,Z6_Pro
-com.qti.tuned.haydn_sunny_imx686_wide.bin,6,Mi_11I
-com.qti.sensormodule.apollo_semco_s5khmx_wide_global.bin,6,Mi_10T
-com.qti.tuned.lce_imx582.bin,6,Pro_1X
-com.qti.sensormodule.chicony_s5k3h7.bin,6,Phone2
-com.qti.sensormodule.apollo_ofilm_s5k3t2_front.bin,6,Mi_10T
-com.qti.sensormodule.ofilm_s5kgm1.bin,6,Z6_Pro
-com.qti.tuned.thyme_semco_s5khmx_wide.bin,6,Mi_10S
-com.qti.tuned.haydn_sunny_s5k5e9yx04_macro.bin,6,Mi_11I
-com.qti.sensormodule.hi1634.bin,6,Velvet
-com.qti.tuned.ofilm_s5kgd1.bin,6,Z6_Pro
-com.qti.tuned.apollo_ofilm_s5k3t2_front.bin,6,Mi_10T
-com.qti.tuned.ofilm_ov16885.bin,6,Z6_Pro
-com.qti.sensormodule.mot_nio_ov64b.bin,6,Edge_S
-com.qti.sensormodule.s5kgm2.bin,6,Velvet
-com.qti.tuned.pyxis_luxvisions_imx582_cn_i.bin,6,Mi_CC9
-com.qti.tuned.ofilm_s5kgm1.bin,6,Z6_Pro
-com.qti.tuned.thyme_sunny_gc02m1_macro.bin,6,Mi_10S
-com.qti.tuned.grus_ofilm_ov8856.bin,6,Mi_9SE
-com.qti.tuned.pyxis_sunny_s5kgd1_cn_i_global.bin,6,Mi_CC9
-com.qti.sensormodule.ofilm_ov02c20.bin,6,Z6_Pro
-com.qti.sensormodule.imx586.bin,6,Mi_9SE
-com.qti.tuned.hi1634.bin,6,Velvet
-com.qti.sensormodule.haydn_sunny_imx686_wide.bin,6,Mi_11I
-com.qti.tuned.mot_nio_s5k4h7.bin,6,Edge_S
-com.qti.tuned.s5kgm2.bin,6,Velvet
-com.qti.sensormodule.haydn_sunny_s5k3t2_front.bin,6,Mi_11I
-com.qti.sm_cts.ofilm_s5kgd1.bin,6,Z6_Pro
-com.qti.tuned.ofilm_ov02c20.bin,6,Z6_Pro
-com.qti.sensormodule.pyxis_ofilm_imx582_cn_ii.bin,6,Mi_CC9
-com.qti.tuned.grus_sunny_s5k3l6.bin,6,Mi_9SE
-com.qti.sensormodule.mot_nio_ov16a1q.bin,6,Edge_S
-com.qti.tuned.haydn_sunny_s5khm2_wide.bin,6,Mi_11I
-com.qti.tuned.mot_nio_ov02b1b.bin,6,Edge_S
-com.qti.tuned.thyme_sunny_s5k3t2_front.bin,6,Mi_10S
-com.qti.tuned.liteon_imx351.bin,6,Phone2
-com.qti.sensormodule.liteon_imx351.bin,6,Phone2
-com.qti.sensormodule.s5k3l6_II.bin,6,Mi_9SE
-com.qti.tuned.pyxis_ofilm_s5kgd1_cn_ii_global.bin,6,Mi_CC9
-com.qti.tuned.mot_nio_ov16a10.bin,6,Edge_S
-com.qti.sensormodule.ofilm_s5kgd1.bin,6,Z6_Pro
-com.qti.tuned.grus_ofilm_imx586.bin,6,Mi_9SE
-com.qti.sensormodule.lce_imx582.bin,6,Pro_1X
-com.qti.sensormodule.mot_nio_ov02b1b.bin,6,Edge_S
-com.qti.tuned.cts_ofilm_s5kgd1.bin,6,Z6_Pro
-com.qti.tuned.apollo_ofilm_ov13b10_ultra.bin,6,Mi_10T
-com.qti.sensormodule.mot_nio_ov16a10.bin,6,Edge_S
-com.qti.tuned.grus_sunny_imx586.bin,6,Mi_9SE
-com.qti.sensormodule.apollo_ofilm_ov13b10_ultra_wide.bin,6,Mi_10T
-com.qti.sensormodule.imx586_II.bin,6,Mi_9SE
-com.qti.sensormodule.apollo_sunny_imx682_wide_cn.bin,6,Mi_10T
-com.qti.tuned.apollo_ofilm_s5k5e9yx_macro.bin,6,Mi_10T
-com.qti.sensormodule.s5k3l6.bin,6,Mi_9SE
-com.qti.sensormodule.haydn_ofilm_imx355_ultra.bin,6,Mi_11I
-com.qti.tuned.pyxis_ofilm_imx582_cn_ii.bin,6,Mi_CC9
-com.qti.tuned.mot_nio_ov16a1q.bin,6,Edge_S
-com.qti.tuned.grus_ofilm_s5k3t1.bin,6,Mi_9SE
-com.qti.sensormodule.haydn_sunny_s5khm2_wide.bin,6,Mi_11I
-com.qti.sensormodule.ov8856_II.bin,6,Mi_9SE
-com.qti.tuned.apollo_semco_s5khmx_wide.bin,6,Mi_10T
-com.qti.tuned.grus_sunny_ov8856.bin,6,Mi_9SE
-com.qti.tuned.cts_ofilm_s5kgm1.bin,6,Z6_Pro
-com.qti.tuned.haydn_ofilm_imx355_ultra.bin,6,Mi_11I
-com.qti.sensormodule.ov8856.bin,6,Mi_9SE
-com.qti.tuned.grus_sunny_s5k3t1.bin,6,Mi_9SE
-com.qti.sensormodule.mot_nio_s5k4h7_front.bin,6,Edge_S
-com.qti.tuned.grus_ofilm_s5k3l6.bin,6,Mi_9SE
-com.qti.tuned.sunny_imx363.bin,7,Poco_F1
-com.qti.sensormodule.marble_sunny_s5k3p9sp04_front_i.bin,7,Poco_F5
-com.qti.tuned.truly_imx563.bin,7,Phone_2
-com.qti.tuned.fillmore_qtech_imx766.bin,7,Phone_2
-com.qti.tuned.mot_dubai_s5kjn1.bin,7,Edge_30
-com.qti.sensormodule.tp1803_imx586.bin,7,Mini_5G
-com.qti.tuned.fillmore_truly_s5kjd1sp.bin,7,Phone_2
-com.qti.sensormodule.mot_berlin_ov08a10_qtech.bin,7,Edge_20
-com.qti.sensormodule.munch_sunny_ov64b40_wide.bin,7,Poco_F4
-com.qti.tuned.mot_berlin_ov16a10.bin,7,Edge_20
-com.qti.tuned.ofilm_s5k3t1_INDIA.bin,7,Poco_F1
-com.qti.sensormodule.abra_qtech_imx471_front.bin,7,Phone_1
-com.qti.sensormodule.munch_sunny_imx596_front.bin,7,Poco_F4
-com.qti.sensormodule.marble_ofilm_imx355_ultra_i.bin,7,Poco_F5
-com.qti.tuned.marble_ofilm_gc02m1_macro_i.bin,7,Poco_F5
-com.qti.sensormodule.abra_qtech_imx766_wide.bin,7,Phone_1
-com.qti.tuned.qtech_s5k5e8yx_INDIA.bin,7,Poco_F1
-com.qti.tuned.abra_qtech_imx766_wide.bin,7,Phone_1
-aw869x_rtp_Brilliant_Times.bin,7,Moto_G7
-com.qti.tuned.fillmore_default.bin,7,Phone_2
-com.qti.tuned.munch_ofilm_imx596_front.bin,7,Poco_F4
-com.qti.tuned.agenda_qtech_imx615_front.bin,7,Phone_2
-com.qti.tuned.munch_ofilm_gc02m1_macro.bin,7,Poco_F4
-com.qti.sensormodule.marble_ofilm_ov64b40_wide_i.bin,7,Poco_F5
-aw869x_rtp_Modular.bin,7,Moto_G7
-com.qti.tuned.mot_dubai_ov32b40.bin,7,Edge_30
-com.qti.sensormodule.abra_qtech_s5kjn1_uw.bin,7,Phone_1
-com.google.tuned.lito2_imx363.bin,7,Pixel_5
-com.qti.sensormodule.mot_dubai_gc02m1b_tsp.bin,7,Edge_30
-com.qti.sensormodule.alioth_ofilm_imx582_wide.bin,7,Poco_F3
-com.qti.sensormodule.qtech_imx333.bin,7,Poco_F1
-com.qti.sensormodule.mot_dubai_ov32b40_ofilm.bin,7,Edge_30
-com.qti.sensormodule.mot_dubai_ov50a_sunny.bin,7,Edge_30
-com.qti.tuned.qtech_imx363.bin,7,Poco_F1
-com.qti.tuned.alioth_ofilm_s5k3t2_front.bin,7,Poco_F3
-com.qti.tuned.sunny_s5k3t1_INDIA.bin,7,Poco_F1
-com.qti.sensormodule.sunny_s5k5e8yx.bin,7,Poco_F1
-com.qti.tuned.fillmore_sunny_s5k3m5.bin,7,Phone_2
-com.qti.tuned.munch_sunny_gc02m1_macro.bin,7,Poco_F4
-com.qti.sensormodule.agenda_qtech_s5kjn1_uw.bin,7,Phone_2
-com.qti.tuned.alioth_ofilm_imx582_wide.bin,7,Poco_F3
-com.qti.tuned.alioth_sunny_s5k3t2_front.bin,7,Poco_F3
-com.qti.tuned.agenda_qtech_s5kjn1_uw.bin,7,Phone_2
-com.qti.sensormodule.mot_berlin_ov16a10_qtech.bin,7,Edge_20
-com.qti.tuned.abra_qtech_imx471_front.bin,7,Phone_1
-com.qti.sensormodule.agenda_qtech_imx890_wide.bin,7,Phone_2
-com.qti.tuned.fillmore_sunny_s5kjd1sp.bin,7,Phone_2
-com.qti.sensormodule.munch_sunny_gc02m1_macro.bin,7,Poco_F4
-com.qti.tuned.munch_sunny_imx596_front.bin,7,Poco_F4
-aw869x_rtp_Organ_Dub.bin,7,Moto_G7
-com.qti.tuned.mot_dubai_ov50a.bin,7,Edge_30
-com.qti.tuned.sunny_s5k3m5.bin,7,Phone_2
-com.qti.tuned.abra_qtech_s5kjn1_uw.bin,7,Phone_1
-com.qti.tuned.sunny_s5k5e8yx_INDIA.bin,7,Poco_F1
-com.qti.tuned.truly_s5kjd1sp.bin,7,Phone_2
-com.qti.sensormodule.alioth_ofilm_s5k3t2_front.bin,7,Poco_F3
-com.qti.tuned.abra_truly_imx471_front.bin,7,Phone_1
-com.qti.sensormodule.s5k5e8yx.bin,7,Poco_F1
-com.qti.tuned.munch_sunny_ov64b40_wide.bin,7,Poco_F4
-com.qti.tuned.agenda_qtech_imx890_wide.bin,7,Phone_2
-com.qti.tuned.sunny_s5k5e8yx.bin,7,Poco_F1
-com.qti.sensormodule.mot_berlin_s5khm2_qtech.bin,7,Edge_20
-com.qti.tuned.munch_ofilm_imx582_wide.bin,7,Poco_F4
-dof_l11r_mecp.bin,7,Poco_F4
-com.qti.tuned.qtech_imx766.bin,7,Phone_2
-com.qti.sensormodule.marble_ofilm_gc02m1_macro_i.bin,7,Poco_F5
-com.qti.tuned.fillmore_sunny_imx686.bin,7,Phone_2
-com.qti.sensormodule.mot_dubai_s5kjn1_qtech.bin,7,Edge_30
-com.qti.sensormodule.mot_berlin_ov32b40_qtech.bin,7,Edge_20
-com.qti.tuned.mot_berlin_ov32b40.bin,7,Edge_20
-com.qti.sensormodule.alioth_ofilm_imx355_ultra.bin,7,Poco_F3
-com.qti.sensormodule.primax_imx355_lito2.bin,7,Pixel_5
-com.qti.sensormodule.tp1803_ov8856.bin,7,Mini_5G
-com.qti.sensormodule.munch_ofilm_gc02m1_macro.bin,7,Poco_F4
-com.google.tuned.lito2_imx355.bin,7,Pixel_5
-com.qti.tuned.alioth_sunny_imx582_wide.bin,7,Poco_F3
-com.qti.tuned.mot_berlin_ov08a10.bin,7,Edge_20
-com.qti.tuned.sunny_s5kjd1sp.bin,7,Phone_2
-com.qti.tuned.qtech_imx363_INDIA.bin,7,Poco_F1
-com.qti.tuned.marble_sunny_s5k3p9sp04_front_i.bin,7,Poco_F5
-com.qti.tuned.alioth_sunny_s5k5e9yx04_macro.bin,7,Poco_F3
-com.qti.tuned.tp1803_imx586.bin,7,Mini_5G
-com.qti.tuned.sunny_imx363_INDIA.bin,7,Poco_F1
-com.qti.sensormodule.alioth_sunny_imx355_ultra.bin,7,Poco_F3
-com.qti.sensormodule.abra_truly_imx471_front.bin,7,Phone_1
-com.qti.tuned.alioth_ofilm_hi556_macro.bin,7,Poco_F3
-com.qti.sensormodule.alioth_sunny_s5k5e9yx04_macro.bin,7,Poco_F3
-com.qti.tuned.munch_aac_ov8856_ultra.bin,7,Poco_F4
-com.qti.tuned.sunny_imx686.bin,7,Phone_2
-com.qti.tuned.mot_dubai_gc02m1b.bin,7,Edge_30
-com.qti.tuned.marble_ofilm_imx355_ultra_i.bin,7,Poco_F5
-com.qti.sensormodule.agenda_qtech_imx615_front.bin,7,Phone_2
-intsense_config_undistort.bin,7,Poco_F4
-com.qti.sensormodule.alioth_sunny_s5k3t2_front.bin,7,Poco_F3
-com.qti.sensormodule.alioth_ofilm_hi556_macro.bin,7,Poco_F3
-com.qti.sensormodule.metric_imx363_lito2.bin,7,Pixel_5
-com.qti.tuned.alioth_ofilm_imx355_ultra.bin,7,Poco_F3
-com.qti.sensormodule.sunny_imx363.bin,7,Poco_F1
-com.qti.tuned.munch_sunny_ov8856_ultra.bin,7,Poco_F4
-com.qti.tuned.qtech_s5k5e8yx.bin,7,Poco_F1
-com.qti.sensormodule.munch_ofilm_imx596_front.bin,7,Poco_F4
-com.qti.sensormodule.metric_imx481_lito2.bin,7,Pixel_5
-com.qti.sensormodule.ofilm_s5k3t1.bin,7,Poco_F1
-com.qti.sensorsocmap.socid_map.bin,7,Phone_2
-com.qti.tuned.marble_ofilm_ov64b40_wide_i.bin,7,Poco_F5
-com.qti.sensormodule.munch_sunny_ov8856_ultra.bin,7,Poco_F4
-com.qti.tuned.alioth_sunny_imx355_ultra.bin,7,Poco_F3
-com.qti.tuned.mot_berlin_s5khm2.bin,7,Edge_20
-com.qti.sensormodule.munch_aac_ov8856_ultra.bin,7,Poco_F4
-com.qti.sensormodule.alioth_sunny_imx582_wide.bin,7,Poco_F3
-com.google.tuned.lito2_imx481.bin,7,Pixel_5
-com.qti.sensormodule.qtech_imx363.bin,7,Poco_F1
-com.qti.tuned.mot_capri_s5kgm1st.bin,8,Moto_G10
-com.qti.tuned.mot_caprip_ov02b1b.bin,8,Moto_G30
-com.qti.tuned.mot_rhode_gc02m1.bin,8,Moto_G52
-com.qti.sensormodule.mot_devon_ov02d10_sunwin.bin,8,Moto_G32
-com.qti.tuned.mot_devon_s5k4h7.bin,8,Moto_G32
-goodix_gt9897t_fw_k9.bin,8,Mi_11_5G
-com.qti.tuned.mot_caprip_ov02b10.bin,8,Moto_G30
-com.google.tuned.lito3_imx355.bin,8,Pixel_5A
-com.qti.tuned.renoir_sunny_s5k5e9yx04_macro.bin,8,Mi_11_5G
-com.qti.tuned.mot_rhode_ov16a1q.bin,8,Moto_G52
-com.qti.sensormodule.mot_rhode_s5kjn1_qtech.bin,8,Moto_G52
-com.qti.sensormodule.mot_devon_s5k4h7_ofilm.bin,8,Moto_G32
-com.qti.sensormodule.mot_capri_s5k4h7_ofilm.bin,8,Moto_G10
-com.qti.sensormodule.ov02b10_macro.bin,8,Nord_N30
-com.qti.sensormodule.renoir_ofilm_s5kgw3_wide.bin,8,Mi_11_5G
-com.qti.tuned.mot_capri_s5k4h7_front.bin,8,Moto_G10
-com.qti.tuned.sunny_imx576.bin,8,Mi_Mix_3
-com.qti.tuned.mot_devon_hi1634q.bin,8,Moto_G32
-com.qti.sensormodule.mot_caprip_ov8856_ofilm.bin,8,Moto_G30
-com.qti.sensormodule.mot_capri_ov02b10_ofilm.bin,8,Moto_G10
-com.qti.tuned.mot_devon_ov02b10.bin,8,Moto_G32
-com.qti.sensormodule.mot_caprip_gc02m1_union.bin,8,Moto_G30
-com.google.tuned.s5_imx363.bin,8,Pixel_4A
-com.qti.sensormodule.mot_rhode_s5k4h7_ofilm.bin,8,Moto_G52
-com.google.tuned.lito3_imx363.bin,8,Pixel_5A
-com.qti.sensormodule.mot_devon_hi1634q_ofilm.bin,8,Moto_G32
-com.google.tuned.lito3_imx481.bin,8,Pixel_5A
-com.qti.sensormodule.mot_caprip_s5k3l6_ofilm.bin,8,Moto_G30
-com.qti.sensormodule.ov02b1b.bin,8,Nord_N30
-com.qti.sensormodule.mot_devon_s5kjn1_qtech.bin,8,Moto_G32
-com.qti.sensormodule.perseus_liteon_s5k3m3sn03.bin,8,Mi_Mix_3
-com.qti.tuned.mot_rhode_s5k4h7.bin,8,Moto_G52
-com.qti.sensormodule.renoir_sunny_s5k3t2_front.bin,8,Mi_11_5G
-com.qti.sensormodule.perseus_s5k3m3sn03.bin,8,Mi_Mix_3
-com.qti.tuned.mot_caprip_s5k3l6.bin,8,Moto_G30
-com.qti.tuned.mot_capri_gc02m1.bin,8,Moto_G10
-com.qti.tuned.mot_capri_ov02b10.bin,8,Moto_G10
-com.qti.sensormodule.mot_capri_s5kgm1st_ofilm.bin,8,Moto_G10
-com.qti.sensormodule.perseus_liteon_imx363.bin,8,Mi_Mix_3
-com.qti.sensormodule.mot_rhode_ov16a1q_ofilm.bin,8,Moto_G52
-com.qti.tuned.mot_caprip_s5k4h7.bin,8,Moto_G30
-com.qti.sensormodule.perseus_imx363.bin,8,Mi_Mix_3
-com.qti.sensormodule.mot_capri_ov02b1b.bin,8,Moto_G10
-com.qti.sensormodule.mot_capri_gc02m1_union.bin,8,Moto_G10
-com.qti.sensormodule.qtech_s5khm6_rear_a303.bin,8,Nord_N30
-com.qti.tuned.mot_devon_s5kjn1.bin,8,Moto_G32
-com.qti.tuned.qt_ov13b10.bin,8,Nord_200
-com.qti.tuned.sunny_imx576_GLOBAL.bin,8,Mi_Mix_3
-com.qti.sensormodule.mot_rhode_gc02m1_sunwin.bin,8,Moto_G52
-com.qti.sensormodule.mot_caprip_ov02b1b.bin,8,Moto_G30
-com.qti.tuned.mot_capri_s5k4h7.bin,8,Moto_G10
-com.qti.tuned.qtech_s5khm6_rear.bin,8,Nord_N30
-com.qti.tuned.renoir_ofilm_imx355_ultra.bin,8,Mi_11_5G
-com.qti.sensormodule.mot_caprip_ov64b_ofilm.bin,8,Moto_G30
-com.qti.sensormodule.renoir_sunny_s5k5e9yx04_macro.bin,8,Mi_11_5G
-com.qti.sensormodule.mot_capri_s5k4h7_front_ofilm.bin,8,Moto_G10
-com.qti.sensormodule.odin_jk_ov02b10_macro.bin,8,Nord_200
-com.qti.tuned.mot_caprip_ov8856.bin,8,Moto_G30
-com.qti.sensormodule.odin_hlt_gc02m1b_mono.bin,8,Nord_200
-com.qti.sensormodule.renoir_ofilm_imx355_ultra.bin,8,Mi_11_5G
-com.qti.tuned.ov02b1b_mono.bin,8,Nord_N30
-com.qti.sensormodule.mot_devon_ov02b10_ofilm.bin,8,Moto_G32
-com.qti.tuned.mot_capri_ov8856.bin,8,Moto_G10
-com.qti.tuned.mot_caprip_gc02m1.bin,8,Moto_G30
-com.qti.sensormodule.qtech_s5khm6_rear.bin,8,Nord_N30
-com.qti.sensormodule.metric_imx363_lito3.bin,8,Pixel_5A
-com.google.tuned.s5_imx355.bin,8,Pixel_4A
-com.qti.tuned.ov02b10.bin,8,Nord_200
-com.qti.sensormodule.ov02a10.bin,8,Mi_Mix_3
-com.qti.tuned.sunny_ov02a10.bin,8,Mi_Mix_3
-com.qti.sensormodule.primax_imx355_lito3.bin,8,Pixel_5A
-com.qti.sensormodule.mot_capri_ov8856_ofilm.bin,8,Moto_G10
-com.qti.sensormodule.mot_caprip_s5k4h7_ofilm.bin,8,Moto_G30
-com.qti.tuned.mot_rhode_s5kjn1.bin,8,Moto_G52
-com.qti.sensormodule.odin_qt_ov13b10_rear.bin,8,Nord_200
-com.qti.sensormodule.mot_caprip_ov02b10_cxt.bin,8,Moto_G30
-com.qti.tuned.renoir_sunny_s5k3t2_front.bin,8,Mi_11_5G
-com.qti.tuned.mot_caprip_ov64b.bin,8,Moto_G30
-com.qti.tuned.mot_capri_ov02b1b.bin,8,Moto_G10
-com.qti.sensormodule.metric_imx481_lito3.bin,8,Pixel_5A
-com.qti.tuned.renoir_ofilm_s5kgw3_wide.bin,8,Mi_11_5G
-com.qti.sensormodule.perseus_imx363_st.bin,8,Mi_Mix_3
-com.qti.tuned.mot_devon_ov02d10.bin,8,Moto_G32
-com.qti.tuned.ov02b10_macro.bin,8,Nord_N30
-com.qti.sensormodule.ofilm_imx576.bin,9,Z5_Pro_GT
-com.qti.tuned.ofilm_imx576.bin,9,Z5_Pro_GT
-com.qti.sensormodule.zizhan_ofilm_imx663_tele_i.bin,9,Mi_Fold_2
-com.qti.sensormodule.mot_kiev_s5k4h7_rear.bin,9,Moto_G_5G
-com.qti.tuned.zeus_semco_imx707_wide.bin,9,Mi_12_Pro
-com.qti.sensormodule.mot_berlna_ov02b1b_sunwin.bin,9,Edge_2021
-com.qti.tuned.mot_xpeng_s5khm2.bin,9,Moto_G200
-com.qti.tuned.gauguin_sunny_ov8856_ultra.bin,9,Mi_10T_5G
-com.qti.tuned.mot_berlna_ov02b1b.bin,9,Edge_2021
-com.qti.sensormodule.ov5675.bin,9,Mi_Mix_2S
-com.qti.sensormodule.zeus_semco_imx707_wide.bin,9,Mi_12_Pro
-com.qti.sensormodule.ofilm_imx519.bin,9,Z5_Pro_GT
-com.qti.sensormodule.mot_berlna_s5k4h7_qtech.bin,9,Edge_2021
-com.qti.tuned.semco_imx586_18821.bin,9,OnePlus_7
-com.qti.sensormodule.sunny_s5k3p9sp.bin,9,Shift_6MQ
-com.qti.tuned.cmi_ofilm_s5k3t2.bin,9,Mi_10_Pro
-com.qti.sensormodule.shine_gc2375.bin,9,OnePlus_8
-com.qti.tuned.mot_berlna_s5k4h7.bin,9,Edge_2021
-com.qti.tuned.mot_berlna_ov32b40.bin,9,Edge_2021
-com.qti.tuned.mot_kiev_s5kgm1st.bin,9,Moto_G_5G
-com.qti.tuned.nuwa_sunny_ov32c_front.bin,9,Mi_13_Pro
-com.qti.sensormodule.cmi_semco_s5khmx_wide.bin,9,Mi_10_Pro
-com.qti.tuned.zizhan_ofilm_imx663_tele_i.bin,9,Mi_Fold_2
-com.qti.tuned.mot_xpeng_ov16a1q.bin,9,Moto_G200
-com.qti.tuned.gauguin_sunny_s5khm2_wide.bin,9,Mi_10T_5G
-com.qti.sensormodule.gcoreinc_gc5035.bin,9,OnePlus_7
-com.qti.sensormodule.nuwa_sunny_ov32c_front.bin,9,Mi_13_Pro
-com.qti.tuned.ofilm_ov8356.bin,9,Z5_Pro_GT
-com.qti.sensormodule.mot_xpeng_ov02b1b_sunwin.bin,9,Moto_G200
-com.qti.sensormodule.zizhan_sunny_imx766_wide_ii.bin,9,Mi_Fold_2
-com.qti.sensormodule.zizhan_sunny_imx596_front_i.bin,9,Mi_Fold_2
-com.qti.sensormodule.sunny_ov02b1b.bin,9,Mi_10T_5G
-com.qti.sensormodule.hawkeye_semco_ov48c_wide.bin,9,Mi_10_Pro
-com.qti.tuned.zizhan_sunny_imx596_front_i.bin,9,Mi_Fold_2
-com.qti.sensormodule.sunny_s5k2x7sp.bin,9,Shift_6MQ
-com.qti.tuned.zeus_sunny_s5kjn1_ultra.bin,9,Mi_12_Pro
-com.qti.sensormodule.zeus_ofilm_ov32b40_front.bin,9,Mi_12_Pro
-com.qti.tuned.nuwa_sunny_ov32c_front_global.bin,9,Mi_13_Pro
-com.qti.sensormodule.nuwa_ofilm_s5kjn1_tele.bin,9,Mi_13_Pro
-com.qti.tuned.sunny_s5k2x7sp.bin,9,Shift_6MQ
-com.qti.tuned.cmi_semco_ov08a10_tele4x.bin,9,Mi_10_Pro
-com.qti.sensormodule.mot_kiev_s5kgm1st_ofilm.bin,9,Moto_G_5G
-com.qti.tuned.gcoreinc_gc5035_18821.bin,9,OnePlus_7
-com.qti.sensormodule.mot_berlna_s5khm2_qtech.bin,9,Edge_2021
-com.qti.sensormodule.sunny_hi259.bin,9,Mi_10T_5G
-com.qti.tuned.mot_xpeng_hi1336.bin,9,Moto_G200
-com.qti.tuned.gauguin_sunny_ov16a1q_front.bin,9,Mi_10T_5G
-com.qti.sensormodule.mot_xpeng_s5khm2sd03_qtech.bin,9,Moto_G200
-aw8624_rtp_silk.bin,9,Moto_G_5G
-com.qti.sensormodule.sunny_s5khm2.bin,9,Mi_10T_5G
-com.qti.tuned.nuwa_ofilm_s5kjn1_ultra.bin,9,Mi_13_Pro
-com.qti.sensormodule.cmi_semco_s5khmx_wide_v1.bin,9,Mi_10_Pro
-com.qti.sensormodule.mot_kiev_ov02b10_ofilm.bin,9,Moto_G_5G
-com.qti.tuned.gauguin_ofilm_s5khm2_wide.bin,9,Mi_10T_5G
-com.qti.sensormodule.zizhan_ofilm_ov13b10_ultra_ii.bin,9,Mi_Fold_2
-com.qti.tuned.mot_kiev_ov16a1q.bin,9,Moto_G_5G
-com.qti.tuned.nuwa_semco_imx989_wide.bin,9,Mi_13_Pro
-com.qti.tuned.mot_xpeng_ov02b1b.bin,9,Moto_G200
-com.qti.sensormodule.cmi_semco_ov08a10_tele4x_v1.bin,9,Mi_10_Pro
-com.qti.sensormodule.zeus_sunny_s5kjn1_ultra.bin,9,Mi_12_Pro
-com.qti.tuned.cmi_sunny_imx350_ultra_wide.bin,9,Mi_10_Pro
-com.qti.sensormodule.cmi_semco_s5k2l7_tele2x.bin,9,Mi_10_Pro
-com.qti.tuned.mot_xpeng_s5khm2sd03.bin,9,Moto_G200
-com.qti.tuned.sunny_s5k3p9sp.bin,9,Shift_6MQ
-com.qti.tuned.shine_gc2375.bin,9,OnePlus_8
-com.qti.tuned.gauguin_sunny_ov02b1b_depth.bin,9,Mi_10T_5G
-com.qti.sensormodule.ofilm_ov8356.bin,9,Z5_Pro_GT
-com.qti.tuned.zizhan_sunny_imx766_wide_i.bin,9,Mi_Fold_2
-com.qti.tuned.gauguin_sunny_imx682_wide.bin,9,Mi_10T_5G
-com.qti.sensormodule.zeus_sunny_s5kjn1_tele.bin,9,Mi_12_Pro
-com.qti.sensormodule.sunny_imx520.bin,9,OnePlus_7
-com.qti.tuned.mot_kiev_s5k4h7_rear.bin,9,Moto_G_5G
-com.qti.sensormodule.ofilm_s5khm2.bin,9,Mi_10T_5G
-com.qti.tuned.gauguin_sunny_hi259_macro.bin,9,Mi_10T_5G
-com.qti.tuned.ofilm_s5k3p9sx.bin,9,Z5_Pro_GT
-com.qti.sensormodule.zizhan_ofilm_ov13b10_ultra_i.bin,9,Mi_Fold_2
-com.qti.tuned.ofilm_imx519.bin,9,Z5_Pro_GT
-com.qti.sensormodule.nuwa_semco_imx989_wide.bin,9,Mi_13_Pro
-aw8624_rtp_lighthouse.bin,9,Moto_G_5G
-com.qti.tuned.mot_kiev_ov02b10.bin,9,Moto_G_5G
-com.qti.sensormodule.nuwa_ofilm_s5kjn1_ultra.bin,9,Mi_13_Pro
-com.qti.tuned.zizhan_ofilm_ov13b10_ultra_i.bin,9,Mi_Fold_2
-com.qti.sensormodule.mot_kiev_ov16a1q_ofilm.bin,9,Moto_G_5G
-com.qti.tuned.primax_ov5675.bin,9,Mi_Mix_2S
-com.qti.tuned.mot_berlna_s5khm2.bin,9,Edge_2021
-com.qti.tuned.cmi_semco_s5khmx_wide.bin,9,Mi_10_Pro
-com.qti.sensormodule.zizhan_sunny_imx596_front_ii.bin,9,Mi_Fold_2
-com.qti.tuned.gcoreinc_gc5035.bin,9,OnePlus_7
-com.qti.sensormodule.mot_xpeng_s5khm2_qtech.bin,9,Moto_G200
-com.qti.sensormodule.ofilm_s5k3p9sx.bin,9,Z5_Pro_GT
-com.qti.sensormodule.zizhan_ofilm_imx663_tele_ii.bin,9,Mi_Fold_2
-com.qti.sensormodule.sunny_imx682.bin,9,Mi_10T_5G
-com.qti.tuned.nuwa_ofilm_s5kjn1_tele.bin,9,Mi_13_Pro
-com.qti.tuned.zeus_ofilm_ov32b40_front.bin,9,Mi_12_Pro
-com.qti.sensormodule.mot_berlna_ov32b40_qtech.bin,9,Edge_2021
-com.qti.tuned.zeus_sunny_s5kjn1_tele.bin,9,Mi_12_Pro
-com.qti.tuned.sunny_imx471_18821.bin,9,OnePlus_7
-com.qti.sensormodule.s5k3m3.bin,9,Mi_Mix_2S
-com.qti.sensormodule.mot_xpeng_hi1336_qtech.bin,9,Moto_G200
-com.qti.sensormodule.mot_xpeng_ov16a1q_qtech.bin,9,Moto_G200
-com.qti.sensormodule.cmi_ofilm_s5k3t2.bin,9,Mi_10_Pro
-com.qti.sensormodule.cmi_sunny_imx350_ultra_wide.bin,9,Mi_10_Pro
-com.qti.sensormodule.ofilm_imx481_SFK.bin,9,OnePlus_8
-com.qti.tuned.cmi_semco_s5k2l7_tele2x.bin,9,Mi_10_Pro
-com.qti.sensormodule.zizhan_sunny_imx766_wide_i.bin,9,Mi_Fold_2
-com.qti.tuned.zizhan_ofilm_imx663_tele_ii.bin,9,Mi_Fold_2
-com.qti.tuned.zte_imx363_hz.bin,10,Axon_9_Pro
-com.samsung.tuned.lsi_s5kgw1s.bin,10,Galaxy_A71
-com.qti.sensormodule.zte_imx363_hz_invens.bin,10,Axon_9_Pro
-com.qti.tuned.diting_ofilm_gc02m1_macro.bin,10,Mi_12T_Pro
-com.qti.sensormodule.diting_ofilm_gc02m1_macro.bin,10,Mi_12T_Pro
-com.qti.sensormodule.ofilm_s5k3m5_no_otp.bin,10,OnePlus_7T
-com.qti.tuned.mot_bronco_ov32b40.bin,10,ThinkPhone
-com.qti.sensormodule.ofilm_imx481_no_otp.bin,10,OnePlus_7T
-com.qti.tuned.unicorn_ofilm_ov32b40_front.bin,10,Mi_12S_Pro
-com.qti.sensormodule.diting_sunny_imx596_front.bin,10,Mi_12T_Pro
-com.qti.tuned.mot_bronco_gc02m1b.bin,10,ThinkPhone
-com.samsung.sensormodule.0_0_lsi_s5kgw1s_old.bin,10,Galaxy_A71
-intsense_config_singlebokeh.bin,10,"FP4', 'FP5"
-com.sony.sensormodule.poodle_imx258.bin,10,Xperia_XZ3
-anc_eu.bin,10,Mi_12T_Pro
-com.samsung.sensormodule.0_0_lsi_s5kgw1s_new.bin,10,Galaxy_A71
-com.qti.sensormodule.unicorn_semco_imx707_wide.bin,10,Mi_12S_Pro
-com.qti.tuned.diting_sunny_s5khm6_wide.bin,10,Mi_12T_Pro
-com.qti.sensormodule.mot_bronco_ov50a_sunny.bin,10,ThinkPhone
-com.samsung.sensormodule.3_1_hynix_dv_hi847_hw_2.bin,10,Galaxy_A72
-com.qti.tuned.unicorn_sunny_s5kjn1_tele.bin,10,Mi_12S_Pro
-com.qti.sensormodule.diting_sunny_s5k4h7_ultra.bin,10,Mi_12T_Pro
-com.qti.tuned.mot_bronco_hi1336.bin,10,ThinkPhone
-com.qti.sensormodule.zte_s5k3t1sp_aux.bin,10,Axon_9_Pro
-com.qti.tuned.unicorn_semco_imx707_wide.bin,10,Mi_12S_Pro
-com.qti.tuned.zte_s5k3t1sp_aux.bin,10,Axon_9_Pro
-com.qti.sensormodule.zte_imx363_hz.bin,10,Axon_9_Pro
-com.qti.tuned.zte_imx363_ak7374.bin,10,Axon_9_Pro
-anc_cn.bin,10,Mi_12T_Pro
-com.sony.tuned.camino_imx650.bin,10,Xperia_1_V
-com.qti.sensormodule.zte_s5k3t1sp_front.bin,10,Axon_9_Pro
-com.samsung.sensormodule.0_2_sony_dv_imx682_hw_2.bin,10,Galaxy_A72
-com.qti.sensormodule.zte_imx363_ak7374.bin,10,Axon_9_Pro
-com.qti.tuned.zte_imx363.bin,10,Axon_9_Pro
-com.qti.sensormodule.diting_semco_s5khp1_wide.bin,10,Mi_12T_Pro
-com.qti.sensormodule.unicorn_sunny_s5kjn1_ultra.bin,10,Mi_12S_Pro
-com.sony.sensormodule.crocus_kai_imx663.bin,10,Xperia_5_V
-com.sony.sensormodule.camino_imx650.bin,10,Xperia_1_V
-com.samsung.sensormodule.0_3_lsi_dv_s5kgw1p_hw_2.bin,10,Galaxy_A72
-com.qti.tuned.diting_sunny_s5k4h7_ultra.bin,10,Mi_12T_Pro
-com.qti.sensormodule.ofilm_imx481_z_865_t0.bin,10,OnePlus_7T
-com.qti.sensormodule.mot_bronco_gc02m1b_tsp.bin,10,ThinkPhone
-com.qti.sensormodule.diting_sunny_s5khm6_wide.bin,10,Mi_12T_Pro
-com.qti.tuned.zte_s5k3t1sp_front.bin,10,Axon_9_Pro
-com.samsung.sensormodule.3_0_hynix_hi847.bin,10,Galaxy_A72
-com.qti.sensormodule.zte_imx363_3spi.bin,10,Axon_9_Pro
-com.samsung.sensormodule.8_sony_imx616_full.bin,10,Galaxy_A71
-com.qti.tuned.mot_bronco_ov50a.bin,10,ThinkPhone
-com.qti.tuned.diting_semco_s5khp1_wide.bin,10,Mi_12T_Pro
-com.qti.sensormodule.mot_bronco_ov32b40_qtech.bin,10,ThinkPhone
-com.qti.sensormodule.unicorn_sunny_s5kjn1_tele.bin,10,Mi_12S_Pro
-com.samsung.sensormodule.2_hynix_hi1336.bin,10,Galaxy_A71
-com.qti.tuned.diting_sunny_imx596_front.bin,10,Mi_12T_Pro
-com.qti.sensormodule.ofilm_imx586_no_otp.bin,10,OnePlus_7T
-com.qti.sensormodule.mot_bronco_hi1336_qtech.bin,10,ThinkPhone
-com.qti.tuned.unicorn_sunny_s5kjn1_ultra.bin,10,Mi_12S_Pro
-com.qti.sensormodule.unicorn_ofilm_ov32b40_front.bin,10,Mi_12S_Pro
-com.samsung.sensormodule.0_3_lsi_dv_s5kgw1p_hw_2_otp.bin,10,Galaxy_A72
-com.sony.sensormodule.crocus_imx663.bin,10,Xperia_1_V
-com.qti.tuned.j20c_aac_hi1337_ultra_global.bin,11,Poco_X3_NFC
-com.qti.tuned.mot_miami_ov32b40.bin,11,Edge_30_Neo
-com.qti.tuned.vayu_sunny_imx582.bin,11,Poco_X3_Pro
-com.qti.tuned.j20c_ofilm_s5k3t2_front_global.bin,11,Poco_X3_NFC
-com.qti.sensormodule.mot_fogor_sc202acs_sunny.bin,11,Moto_G34_5G
-com.qti.tuned.lmi_sunny_s5k3t2_front.bin,11,Poco_F2_Pro
-com.qti.tuned.vayu_ofilm_ov02b1b.bin,11,Poco_X3_Pro
-com.qti.tuned.mot_rtwo_imx663.bin,11,Edge_40_Pro
-com.qti.sensormodule.mondrian_sunny_ov08d10_ultra_ii.bin,11,Poco_F5_Pro
-com.qti.tuned.j20c_ofilm_ov02b1b_depth_global.bin,11,Poco_X3_NFC
-com.google.tuned.lito1_imx363.bin,11,Pixel_4A_5G
-com.qti.tuned.lmi_sunny_ov13b10_ultra.bin,11,Poco_F2_Pro
-com.qti.tuned.mot_pstar_ov16a10.bin,11,Edge_20_Pro
-com.qti.tuned.mot_bangkk_s5kgn9_ak7377_india.bin,11,Moto_G84_5G
-com.qti.sensormodule.vayu_ofilm_ov8856.bin,11,Poco_X3_Pro
-com.qti.tuned.mot_bangkk_s5kgn9_ak7377.bin,11,Moto_G84_5G
-com.qti.tuned.mondrian_aac_ov64b40_wide_ii.bin,11,Poco_F5_Pro
-com.qti.sensormodule.mondrian_ofilm_ov08d10_ultra_i.bin,11,Poco_F5_Pro
-com.qti.sensormodule.mot_fogor_s5kjns_qtech.bin,11,Moto_G34_5G
-com.qti.tuned.mot_rhodep_s5kjn1.bin,11,Moto_G82_5G
-com.google.tuned.b4s4_imx363.bin,11,Pixel_3A_XL
-com.qti.sensormodule.mot_bangkk_s5k4h7_qtech.bin,11,Moto_G84_5G
-com.qti.tuned.j20c_aac_hi259_macro_india.bin,11,Poco_X3_NFC
-com.qti.tuned.mot_bangkk_ov16a1q_india.bin,11,Moto_G84_5G
-com.qti.tuned.shark_imx486vcm.bin,11,Black_Shark
-com.qti.sensormodule.vayu_ofilm_s5k3t2.bin,11,Poco_X3_Pro
-com.qti.tuned.lmi_sunny_ov13b10_ultra_pro.bin,11,Poco_F2_Pro
-com.qti.sensormodule.vayu_ofilm_ov02b1b.bin,11,Poco_X3_Pro
-com.qti.tuned.mondrian_sunny_ov08d10_ultra_ii.bin,11,Poco_F5_Pro
-com.qti.sensormodule.vayu_aac_hi259.bin,11,Poco_X3_Pro
-com.qti.tuned.mot_bangkk_s5kgn9_india.bin,11,Moto_G84_5G
-com.qti.sensormodule.metric_imx481_lito1.bin,11,Pixel_4A_5G
-com.qti.tuned.shark_imx376otp.bin,11,Black_Shark
-com.qti.sensormodule.lmi_sunny_ov13b10_ultra.bin,11,Poco_F2_Pro
-com.qti.tuned.mot_rhodep_gc02m1.bin,11,Moto_G82_5G
-com.qti.sensormodule.mot_bangkk_s5kgn9_ak7377.bin,11,Moto_G84_5G
-com.qti.tuned.j20c_sunny_hi1337_ultra_global.bin,11,Poco_X3_NFC
-com.sony.sensormodule.cervin_s5k3t2.bin,11,Xperia_5_II
-com.qti.tuned.vayu_sunny_s5k3t2.bin,11,Poco_X3_Pro
-com.qti.tuned.mondrian_ofilm_ov16a1q_front_i.bin,11,Poco_F5_Pro
-com.qti.sensormodule.ov64b_sy7806e.bin,11,Nord_N20_5G
-com.qti.sensormodule.shark_imx486.bin,11,Black_Shark
-com.qti.tuned.vayu_aac_hi259.bin,11,Poco_X3_Pro
-com.qti.sensormodule.j20c_aac_hi259_macro.bin,11,Poco_X3_NFC
-com.qti.sensormodule.mot_bangkk_s5kgn9_ofilm.bin,11,Moto_G84_5G
-com.qti.sensormodule.mondrian_aac_ov16a1q_front_ii.bin,11,Poco_F5_Pro
-com.qti.tuned.vayu_sunny_ov8856.bin,11,Poco_X3_Pro
-com.qti.sensormodule.mot_fogos_ov16a1q_ofilm.bin,11,Moto_G34_5G
-com.qti.tuned.mot_miami_ov32c4c.bin,11,Edge_30_Neo
-com.google.tuned.b4s4_imx355_s.bin,11,Pixel_3A_XL
-com.qti.sensormodule.mot_fogos_s5k3p9_qtech.bin,11,Moto_G34_5G
-com.qti.sensormodule.lce_hi847.bin,11,Xperia_10_V
-com.qti.tuned.j20c_aac_hi1337_ultra_india.bin,11,Poco_X3_NFC
-com.qti.sensormodule.mot_rtwo_imx663_sunny.bin,11,Edge_40_Pro
-com.qti.tuned.mot_miami_hi1336.bin,11,Edge_30_Neo
-com.sony.sensormodule.cervin_imx557.bin,11,Xperia_5_II
-com.qti.tuned.shark_imx376aux.bin,11,Black_Shark
-com.sony.sensormodule.cervin_imx363.bin,11,Xperia_5_II
-com.qti.sensormodule.mot_bangkk_ov16a1q_ofilm.bin,11,Moto_G84_5G
-com.qti.sensormodule.j20c_sunny_imx682_ver2_wide.bin,11,Poco_X3_NFC
-com.qti.sensormodule.mot_rtwo_ov50a_qtech.bin,11,Edge_40_Pro
-com.qti.tuned.j20c_ofilm_ov02b1b_depth_india.bin,11,Poco_X3_NFC
-com.qti.sensormodule.j20c_ofilm_s5k3t2_front.bin,11,Poco_X3_NFC
-com.qti.sensormodule.metric_imx363_lito1.bin,11,Pixel_4A_5G
-com.qti.tuned.mondrian_aac_ov16a1q_front_ii.bin,11,Poco_F5_Pro
-com.qti.sensormodule.vayu_sunny_imx582.bin,11,Poco_X3_Pro
-com.qti.tuned.j20c_sunny_s5k3t2_front_global.bin,11,Poco_X3_NFC
-com.qti.sensormodule.mot_miami_ov32b40_qtech.bin,11,Edge_30_Neo
-com.qti.sensormodule.j20c_aac_hi1337_ultra.bin,11,Poco_X3_NFC
-com.qti.sensormodule.j20c_ofilm_imx682_ver2_wide.bin,11,Poco_X3_NFC
-com.qti.sensormodule.gc02m1_aw36515.bin,11,Nord_N20_5G
-com.qti.sensormodule.lmi_sunny_s5k5e9yx04_macro.bin,11,Poco_F2_Pro
-com.qti.sensormodule.lmi_ofilm_gc02m1_depth.bin,11,Poco_F2_Pro
-com.qti.sensormodule.shark_imx376auxvcm.bin,11,Black_Shark
-com.qti.sensormodule.lmi_sunny_imx686_wide_st.bin,11,Poco_F2_Pro
-com.qti.sensormodule.mondrian_sunny_ov64b40_wide_i.bin,11,Poco_F5_Pro
-com.qti.tuned.mot_bangkk_ov16a1q.bin,11,Moto_G84_5G
-com.qti.sensormodule.mot_rhodep_s5kjn1_sunny.bin,11,Moto_G82_5G
-com.qti.sensormodule.lmi_sunny_ov08a10_tele_lc124.bin,11,Poco_F2_Pro
-com.qti.tuned.mot_rhodep_ov16a1q.bin,11,Moto_G82_5G
-com.qti.sensormodule.ov16a1q.bin,11,Nord_N20_5G
-com.qti.sensormodule.ov64b_aw36515.bin,11,Nord_N20_5G
-com.qti.tuned.j20c_ofilm_hi259_macro_india.bin,11,Poco_X3_NFC
-com.qti.sensormodule.vayu_sunny_s5k3t2.bin,11,Poco_X3_Pro
-com.qti.sensormodule.vayu_ofilm_imx582.bin,11,Poco_X3_Pro
-com.qti.sensormodule.mot_rtwo_s5kjn1_qtech.bin,11,Edge_40_Pro
-com.qti.tuned.mot_rhodep_s5kjn1_2nd.bin,11,Moto_G82_5G
-com.qti.tuned.mot_pstar_ov16a1q.bin,11,Edge_20_Pro
-com.qti.tuned.blair_qtech_imx582.bin,11,Xperia_10_V
-com.qti.sensormodule.j20c_sunny_imx682_wide.bin,11,Poco_X3_NFC
-com.qti.tuned.mot_bangkk_s5kgn9.bin,11,Moto_G84_5G
-com.qti.tuned.vayu_aac_ov02b1b.bin,11,Poco_X3_Pro
-com.qti.sensormodule.j20c_ofilm_imx682_wide.bin,11,Poco_X3_NFC
-com.qti.tuned.mondrian_ofilm_ov08d10_ultra_i.bin,11,Poco_F5_Pro
-com.qti.sensormodule.j20c_sunny_hi1337_ultra.bin,11,Poco_X3_NFC
-com.qti.sensormodule.mot_rhodep_s5kjn1_qtech.bin,11,Moto_G82_5G
-com.qti.tuned.vayu_ofilm_imx582.bin,11,Poco_X3_Pro
-com.qti.tuned.j20c_ofilm_imx682_wide_india.bin,11,Poco_X3_NFC
-com.qti.sensormodule.shark_imx486vcm.bin,11,Black_Shark
-com.qti.sensormodule.vayu_aac_ov02b1b.bin,11,Poco_X3_Pro
-com.qti.tuned.shark_imx376auxvcm.bin,11,Black_Shark
-com.qti.sensormodule.primax_imx355_lito1.bin,11,Pixel_4A_5G
-com.qti.sensormodule.lmi_sunny_s5k3t2_front.bin,11,Poco_F2_Pro
-com.qti.sensormodule.j20c_sunny_s5k3t2_front.bin,11,Poco_X3_NFC
-com.qti.sensormodule.primax_imx355_s.bin,11,Pixel_3A_XL
-com.qti.sensormodule.lmi_sunny_ov08a10_tele.bin,11,Poco_F2_Pro
-com.qti.sensormodule.lmi_sunny_imx686_wide_mp.bin,11,Poco_F2_Pro
-com.qti.tuned.mot_bangkk_s5k4h7af_india.bin,11,Moto_G84_5G
-com.qti.sensormodule.mot_miami_s5kgw3_qtech.bin,11,Edge_30_Neo
-com.qti.tuned.mot_rtwo_ov50a.bin,11,Edge_40_Pro
-com.qti.tuned.mot_miami_s5kgw3.bin,11,Edge_30_Neo
-com.qti.tuned.mondrian_sunny_ov02b10_macro_i.bin,11,Poco_F5_Pro
-com.sony.sensormodule.eiger_imx557.bin,11,Xperia_1_II
-com.qti.tuned.mot_fogos_s5k3p9.bin,11,Moto_G34_5G
-com.sony.sensormodule.eiger_imx363.bin,11,Xperia_1_II
-com.qti.sensormodule.gc02m1_sy7806e.bin,11,Nord_N20_5G
-com.qti.tuned.mot_fogos_ov16a1q.bin,11,Moto_G34_5G
-com.qti.sensormodule.mot_pstar_s5khm2.bin,11,Edge_20_Pro
-com.qti.sensormodule.mot_rtwo_ov60a_qtech.bin,11,Edge_40_Pro
-com.qti.tuned.j20c_aac_hi259_macro_global.bin,11,Poco_X3_NFC
-com.qti.tuned.vayu_ofilm_s5k3t2.bin,11,Poco_X3_Pro
-com.qti.sensormodule.mondrian_sunny_ov02b10_macro_i.bin,11,Poco_F5_Pro
-com.qti.sensormodule.mot_miami_ov32c4c_qtech.bin,11,Edge_30_Neo
-com.qti.sensormodule.mot_pstar_ov16a10.bin,11,Edge_20_Pro
-com.qti.sensormodule.mot_rhodep_ov16a1q_ofilm.bin,11,Moto_G82_5G
-com.qti.tuned.blair_lce_hi847.bin,11,Xperia_10_V
-com.qti.tuned.mot_pstar_ov08a10.bin,11,Edge_20_Pro
-com.qti.sensormodule.lmi_sunny_imx686_wide.bin,11,Poco_F2_Pro
-com.qti.sensormodule.lmi_sunny_imx686_wide_mp_st.bin,11,Poco_F2_Pro
-com.google.tuned.b4s4_imx355.bin,11,Pixel_3A_XL
-com.qti.sensormodule.mot_pstar_ov08a10.bin,11,Edge_20_Pro
-com.qti.tuned.j20c_sunny_hi1337_ultra_india.bin,11,Poco_X3_NFC
-com.qti.sensormodule.qtech_imx582.bin,11,Xperia_10_V
-com.qti.sensormodule.shark_imx376.bin,11,Black_Shark
-com.qti.tuned.vayu_ofilm_ov8856.bin,11,Poco_X3_Pro
-com.qti.tuned.ov16a1q.bin,11,Nord_N20_5G
-com.qti.tuned.mot_pstar_ov32b.bin,11,Edge_20_Pro
-com.qti.sensormodule.mondrian_ofilm_ov16a1q_front_i.bin,11,Poco_F5_Pro
-com.qti.tuned.mot_rhodep_s5k4h7ff.bin,11,Moto_G82_5G
-com.qti.sensormodule.mondrian_aac_ov64b40_wide_ii.bin,11,Poco_F5_Pro
-com.sony.sensormodule.icarus_imx316.bin,11,Xperia_1_II
-com.qti.tuned.shark_imx486.bin,11,Black_Shark
-com.qti.sensormodule.mot_rhodep_s5k4h7_qtech_ff.bin,11,Moto_G82_5G
-com.qti.tuned.mondrian_sunny_ov64b40_wide_i.bin,11,Poco_F5_Pro
-com.qti.sensormodule.mot_rhodep_gc02m1_sunwin.bin,11,Moto_G82_5G
-com.google.tuned.lito1_imx481.bin,11,Pixel_4A_5G
-aw87xxx_acf.bin,11,Moto_G84_5G
-com.qti.sensormodule.j20c_ofilm_hi259_macro.bin,11,Poco_X3_NFC
-com.qti.sensormodule.mot_pstar_ov16a1q.bin,11,Edge_20_Pro
-com.qti.tuned.j20c_ofilm_hi259_macro_global.bin,11,Poco_X3_NFC
-com.google.tuned.lito1_imx355.bin,11,Pixel_4A_5G
-com.qti.tuned.j20c_sunny_s5k3t2_front_india.bin,11,Poco_X3_NFC
-com.sony.sensormodule.eiger_s5k3t2.bin,11,Xperia_1_II
-com.qti.tuned.mot_rtwo_ov60a.bin,11,Edge_40_Pro
-com.qti.tuned.mot_rtwo_s5kjn1.bin,11,Edge_40_Pro
-com.qti.tuned.lmi_sunny_imx686_wide_st.bin,11,Poco_F2_Pro
-com.qti.tuned.lmi_sunny_ov08a10_tele.bin,11,Poco_F2_Pro
-com.qti.tuned.j20c_sunny_imx682_wide_india.bin,11,Poco_X3_NFC
-com.qti.sensormodule.j20c_ofilm_ov02b1b_depth.bin,11,Poco_X3_NFC
-com.qti.sensormodule.j20c_aac_gc02m1b_depth.bin,11,Poco_X3_NFC
-com.qti.tuned.j20c_ofilm_s5k3t2_front_india.bin,11,Poco_X3_NFC
-com.qti.tuned.lmi_ofilm_gc02m1_depth.bin,11,Poco_F2_Pro
-com.qti.tuned.shark_imx376.bin,11,Black_Shark
-com.qti.tuned.lmi_sunny_imx686_wide.bin,11,Poco_F2_Pro
-com.qti.tuned.j20c_aac_gc02m1b_depth_india.bin,11,Poco_X3_NFC
-com.qti.sensormodule.mot_miami_hi1336_ofilm.bin,11,Edge_30_Neo
-com.qti.sensormodule.shark_imx376aux.bin,11,Black_Shark
-com.qti.tuned.vayu_ofilm_hi259.bin,11,Poco_X3_Pro
-com.qti.tuned.j20c_sunny_imx682_wide_global.bin,11,Poco_X3_NFC
-com.qti.tuned.mot_bangkk_s5k4h7af.bin,11,Moto_G84_5G
-com.qti.sensormodule.mot_pstar_ov32b.bin,11,Edge_20_Pro
-com.qti.sensormodule.vayu_ofilm_hi259.bin,11,Poco_X3_Pro
-com.qti.tuned.j20c_ofilm_imx682_wide_global.bin,11,Poco_X3_NFC
-com.qti.tuned.lmi_sunny_s5k5e9yx04_macro.bin,11,Poco_F2_Pro
-com.qti.tuned.j20c_aac_gc02m1b_depth_global.bin,11,Poco_X3_NFC
-com.qti.tuned.mot_pstar_s5khm2.bin,11,Edge_20_Pro
-com.qti.sensormodule.shark_imx376otp.bin,11,Black_Shark
-com.qti.sensormodule.vayu_sunny_ov8856.bin,11,Poco_X3_Pro
-com.sony.sensormodule.hohgant_imx557.bin,12,Xperia_5_III
-com.qti.tuned.thor_semco_imx586_tele5x.bin,12,Mi_12S_Ultra
-Outdoor_D50.bin,12,Mi_CC9_Meitu
-com.qti.sensormodule.mot_guam_s5k4h7_ofilm.bin,12,Moto_E7_Plus
-com.qti.tuned.thor_semco_imx989_wide.bin,12,Mi_12S_Ultra
-Outdoor_CWF.bin,12,Mi_CC9_Meitu
-com.qti.sensormodule.nx659j_rear_aux_wide.bin,12,Red_Magic_5G
-com.sony.tuned.lohner_imx663.bin,12,Xperia_5_III
-com.qti.tuned.thor_semco_imx586_ultra.bin,12,Mi_12S_Ultra
-com.qti.tuned.mot_borneo_ov02b1b.bin,12,Moto_G_Power
-com.qti.sensormodule.nx659j_fa95_imx686.bin,12,Red_Magic_5G
-com.qti.tuned.nx659j_imx582.bin,12,Red_Magic_5G
-com.qti.tuned.nx659j_ov02a10_le.bin,12,Red_Magic_5G
-com.qti.sensormodule.nx659j_imx582.bin,12,Red_Magic_5G
-com.qti.tuned.mot_borneo_ov02b10.bin,12,Moto_G_Power
-com.qti.tuned.nx659j_front_sensor.bin,12,Red_Magic_5G
-com.sony.sensormodule.hohgant_imx363.bin,12,Xperia_5_III
-com.sony.tuned.hohgant_imx557.bin,12,Xperia_5_III
-com.qti.tuned.thor_ofilm_ov32c_front.bin,12,Mi_12S_Ultra
-com.qti.sensormodule.mot_borneo_s5kgm1st_ofilm.bin,12,Moto_G_Power
-com.qti.sensormodule.mot_guam_ov02b1b_ofilm.bin,12,Moto_E7_Plus
-com.qti.tuned.blair_txd_hi847.bin,12,Xperia_10_IV
-com.qti.sensormodule.mot_borneo_ov02b1b_ofilm.bin,12,Moto_G_Power
-com.qti.tuned.mot_borneo_s5k4h7.bin,12,Moto_G_Power
-com.qti.sensormodule.nx659j_mp_imx686.bin,12,Red_Magic_5G
-Ori.bin,12,Mi_CC9_Meitu
-com.sony.sensormodule.ayame_s5k4h7.bin,12,Xperia_5_III
-com.qti.tuned.nx659j_front_sw2.bin,12,Red_Magic_5G
-com.qti.tuned.nx659j_front_le.bin,12,Red_Magic_5G
-com.sony.tuned.hohgant_imx363.bin,12,Xperia_5_III
-com.qti.sensormodule.nx659j_imx686.bin,12,Red_Magic_5G
-com.qti.tuned.blair_qtech_imx486.bin,12,Xperia_10_IV
-com.qti.tuned.mot_guam_ov02b1b.bin,12,Moto_E7_Plus
-com.qti.tuned.nx659j_mp_imx686.bin,12,Red_Magic_5G
-com.qti.tuned.mot_borneo_s5kgm1st.bin,12,Moto_G_Power
-com.qti.tuned.nx659j_imx686.bin,12,Red_Magic_5G
-com.qti.tuned.mot_guam_s5k4h7.bin,12,Moto_E7_Plus
-com.qti.sensormodule.thor_ofilm_ov32c_front.bin,12,Mi_12S_Ultra
-Indoor_D50.bin,12,Mi_CC9_Meitu
-com.qti.sensormodule.nx659j_front_sensor.bin,12,Red_Magic_5G
-com.qti.tuned.nx659j_ov02a10.bin,12,Red_Magic_5G
-Outdoor_A.bin,12,Mi_CC9_Meitu
-Indoor_D65.bin,12,Mi_CC9_Meitu
-com.qti.tuned.mot_guam_s5kgm1st.bin,12,Moto_E7_Plus
-com.qti.sensormodule.mot_guam_s5k3l6_ofilm.bin,12,Moto_E7_Plus
-com.qti.sensormodule.thor_semco_imx586_tele5x.bin,12,Mi_12S_Ultra
-com.qti.sensormodule.mot_guam_s5kgm1st_ofilm.bin,12,Moto_E7_Plus
-com.qti.sensormodule.thor_semco_imx586_ultra.bin,12,Mi_12S_Ultra
-com.qti.sensormodule.mot_borneo_s5k4h7_ofilm.bin,12,Moto_G_Power
-Indoor_Hor.bin,12,Mi_CC9_Meitu
-com.sony.sensormodule.lohner_imx663.bin,12,Xperia_5_III
-com.qti.sensormodule.nx659j_ov02a10.bin,12,Red_Magic_5G
-com.qti.tuned.nx659j_fa95_imx686.bin,12,Red_Magic_5G
-Indoor_A.bin,12,Mi_CC9_Meitu
-com.sony.tuned.ayame_s5k4h7.bin,12,Xperia_5_III
-Outdoor_Hor.bin,12,Mi_CC9_Meitu
-com.qti.sensormodule.nx659j_s5k3t2.bin,12,Red_Magic_5G
-com.qti.sensormodule.thor_semco_imx989_wide.bin,12,Mi_12S_Ultra
-Outdoor_D75.bin,12,Mi_CC9_Meitu
-com.qti.tuned.nx659j_rear_aux_wide.bin,12,Red_Magic_5G
-com.qti.sensormodule.qtech_imx486.bin,12,Xperia_10_IV
-com.qti.sensormodule.txd_hi847.bin,12,Xperia_10_IV
-Indoor_CWF.bin,12,Mi_CC9_Meitu
-com.qti.sensormodule.mot_borneo_ov02b10_ofilm.bin,12,Moto_G_Power
-com.qti.tuned.nx659j_ov02a10_sw2.bin,12,Red_Magic_5G
-com.qti.tuned.mot_guam_s5k3l6.bin,12,Moto_E7_Plus
-com.qti.tuned.sc201cs_depth.bin,13,Realme_10_Pro
-com.qti.sensormodule.semco_imx689.bin,13,OnePlus_8_Pro
-com.qti.sensormodule.lemonadep.sunny_imx766_ak7375c.bin,13,OnePlus_9_Pro
-libafCustomParamWide.bin,13,OnePlus_11_5G
-libafCustomParamFrontMain.bin,13,OnePlus_11_5G
-com.qti.sensormodule.qtech_imx709.bin,13,OnePlus_11_5G
-com.qti.sensormodule.sy_s5k3p9.bin,13,Realme_10_Pro
-com.qti.sensormodule.semco_imx586_BG.bin,13,OnePlus_8_Pro
-com.qti.tuned.socrates_semco_imx800_wide.bin,13,Redmi_K60_Pro
-com.qti.sensormodule.lemonadep.qtech_ov08a10.bin,13,OnePlus_9_Pro
-libafCustomParamMain.bin,13,OnePlus_11_5G
-com.qti.tuned.semco_imx689.bin,13,OnePlus_8_Pro
-libafCustomParamTele.bin,13,OnePlus_11_5G
-com.samsung.tuned.lsi_s5khm6.bin,13,Galaxy_A73_5G
-libaecCustomParam_Cam1.bin,13,OnePlus_11_5G
-com.qti.sensormodule.lemonadep.sunny_imx766_MP.bin,13,OnePlus_9_Pro
-anc_1080p.bin,13,Redmi_K60_Pro
-com.qti.sensormodule.qtech_imx890.bin,13,OnePlus_11_5G
-com.samsung.sensormodule.0_lsi_s5khm6.bin,13,Galaxy_A73_5G
-com.qti.tuned.sunny_s5k3p9.bin,13,OnePlus_11_5G
-com.samsung.sensormodule.0_lsi_s5khm6_evt1.bin,13,Galaxy_A73_5G
-com.samsung.sensormodule.3_hynix_hi847.bin,13,Galaxy_S20_FE
-com.qti.sensormodule.mot_cebu_ov64b_ofilm_evt.bin,13,Moto_G9_Power
-com.samsung.sensormodule.4_0_lsi_gc5035_macro.bin,13,Galaxy_A52_4G
-com.qti.sensormodule.lemonadep.semco_imx789_MP.bin,13,OnePlus_9_Pro
-com.samsung.sensormodule.0_lsi_s5kgw3.bin,13,Galaxy_M52_5G
-com.qti.tuned.socrates_ofilm_ov16a1q_front.bin,13,Redmi_K60_Pro
-com.qti.sensormodule.lemonadep.holitech_gc02m1b.bin,13,OnePlus_9_Pro
-com.samsung.sensormodule.4_1_lsi_dv_gc5035_macro_hw_2.bin,13,Galaxy_A52_4G
-com.qti.sensormodule.s5khm6_rear_a303.bin,13,Realme_10_Pro
-com.samsung.tuned.sony_imx555.bin,13,Galaxy_S20_FE
-libaecCustomParam_Cam2.bin,13,OnePlus_11_5G
-eyesMaskNew.bin,13,OnePlus_11_5G
-com.qti.sensormodule.mot_cebu_ov16a1q_qtech.bin,13,Moto_G9_Power
-com.qti.tuned.socrates_sunny_ov02b10_macro.bin,13,Redmi_K60_Pro
-com.qti.sensormodule.sc201cs_depth.bin,13,Realme_10_Pro
-libaecCustomParam_Cam3.bin,13,OnePlus_11_5G
-anc_4k.bin,13,Redmi_K60_Pro
-com.qti.sensormodule.lemonadep.truly_imx471.bin,13,OnePlus_9_Pro
-com.samsung.sensormodule.12_sony_imx616_full.bin,13,Galaxy_S20_FE
-com.qti.sensormodule.socrates_semco_imx800_wide.bin,13,Redmi_K60_Pro
-com.samsung.sensormodule.0_0_sony_imx555.bin,13,Galaxy_S20_FE
-com.qti.tuned.qtech_imx581.bin,13,OnePlus_11_5G
-com.qti.tuned.s5khm6_rear.bin,13,Realme_10_Pro
-com.qti.tuned.socrates_ofilm_ov08d10_ultra.bin,13,Redmi_K60_Pro
-com.qti.sensormodule.sl556.bin,13,"Velvet', 'V40"
-com.qti.tuned.semco_imx789.bin,13,OnePlus_9_Pro
-com.qti.sensormodule.socrates_sunny_ov02b10_macro.bin,13,Redmi_K60_Pro
-com.samsung.sensormodule.0_1_lsi_s5kgw1p_otp.bin,13,Galaxy_A52_4G
-com.qti.sensormodule.mot_cebu_s5k4h7_ofilm.bin,13,Moto_G9_Power
-com.qti.tuned.sunny_imx766.bin,13,OnePlus_9_Pro
-com.qti.tuned.mot_cebu_s5k4h7.bin,13,Moto_G9_Power
-com.qti.sensormodule.mot_cebu_ov02b10_ofilm.bin,13,Moto_G9_Power
-com.samsung.sensormodule.0_lsi_s5khm6_evt1_otp.bin,13,Galaxy_A73_5G
-com.qti.tuned.mot_cebu_ov16a1q.bin,13,Moto_G9_Power
-com.qti.sensormodule.lemonadep.sunny_imx766.bin,13,OnePlus_9_Pro
-com.qti.sensormodule.qtech_imx581.bin,13,OnePlus_11_5G
-com.qti.sensormodule.socrates_ofilm_ov08d10_ultra.bin,13,Redmi_K60_Pro
-com.qti.sensormodule.s5khm6_rear.bin,13,Realme_10_Pro
-com.qti.sensormodule.mot_cebu_ov64b_ofilm.bin,13,Moto_G9_Power
-com.qti.tuned.qtech_imx709.bin,13,OnePlus_11_5G
-com.qti.tuned.mot_cebu_ov64b.bin,13,Moto_G9_Power
-com.qti.tuned.qtech_imx890.bin,13,OnePlus_11_5G
-libaecCustomParam_Cam0.bin,13,OnePlus_11_5G
-com.qti.tuned.semco_imx586_BG.bin,13,OnePlus_8_Pro
-com.samsung.tuned.lsi_s5kgw3.bin,13,Galaxy_M52_5G
-com.qti.sensormodule.mot_cebu_ov02b1b_holitech.bin,13,Moto_G9_Power
-com.qti.tuned.sl556.bin,13,"Velvet', 'V40"
-com.qti.tuned.mot_cebu_ov02b10.bin,13,Moto_G9_Power
-com.qti.sensormodule.lemonadep.semco_imx789.bin,13,OnePlus_9_Pro
-com.qti.sensormodule.socrates_ofilm_ov16a1q_front.bin,13,Redmi_K60_Pro
-com.qti.tuned.qtech_ov08a10.bin,13,OnePlus_9_Pro
-com.qti.tuned.mot_cebu_ov02b1b.bin,13,Moto_G9_Power
-com.qti.sensormodule.semco_imx689_MP.bin,13,OnePlus_8_Pro
-com.qti.tuned.mot_nairo_s5k4h7_front.bin,14,Moto_G_5G_Plus
-com.qti.sensormodule.davinci_luxvisions_ov8856.bin,14,Redmi_K20_Mi_9
-com.qti.sensormodule.davinci_sunny_s5k3t2.bin,14,Redmi_K20_Mi_9
-com.qti.tuned.nubia_nx619_imx519.bin,14,Red_Magic_Mars
-com.samsung.sensormodule.0_0_lsi_s5kgw1p_otp.bin,14,Galaxy_A52s_5G
-com.qti.sensormodule.mot_nairo_s5k5e9_ofilm.bin,14,Moto_G_5G_Plus
-com.qti.tuned.mot_nairo_ov16a1q.bin,14,Moto_G_5G_Plus
-haptic_rtp_silk.bin,14,"Phone_2', 'FP5"
-com.qti.sensormodule.mot_tundra_gc02m1b_tsp.bin,14,Edge_30_Fusion
-com.samsung.sensormodule.1_0_lsi_s5kgd2_otp.bin,14,Galaxy_A52s_5G
-com.qti.sensormodule.mot_tundra_ov50a_sunny.bin,14,Edge_30_Fusion
-com.qti.sensormodule.mot_nairo_ov16a1q_ofilm.bin,14,Moto_G_5G_Plus
-com.qti.sensormodule.mot_tundra_s5kgd2_ofilm.bin,14,Edge_30_Fusion
-com.qti.sensormodule.semco_imx586_no_otp.bin,14,OnePlus_7T_Pro
-com.qti.tuned.davinci_sunny_s5k3t2.bin,14,Redmi_K20_Mi_9
-com.qti.tuned.mot_nairo_ov02b1b.bin,14,Moto_G_5G_Plus
-com.qti.tuned.mot_nairo_s5k5e9.bin,14,Moto_G_5G_Plus
-com.qti.sensormodule.mot_nairo_s5k5e9_ofilm_main_flash.bin,14,Moto_G_5G_Plus
-com.qti.tuned.mot_tundra_gc02m1b.bin,14,Edge_30_Fusion
-com.qti.sensormodule.mot_nairo_s5k4h7_rear.bin,14,Moto_G_5G_Plus
-com.qti.sensormodule.nubia_nx619_ov8856.bin,14,Red_Magic_Mars
-com.qti.sensormodule.mot_nairo_s5kgm1sp_ofilm.bin,14,Moto_G_5G_Plus
-com.qti.sensormodule.davinci_ofilm_ov8856.bin,14,Redmi_K20_Mi_9
-com.qti.tuned.davinci_ofilm_ov8856.bin,14,Redmi_K20_Mi_9
-com.qti.tuned.davinci_ofilm_imx582.bin,14,Redmi_K20_Mi_9
-com.qti.sensormodule.mot_fogo_s5k4h7_sunny.bin,14,Moto_G_5G_2024
-com.qti.sensormodule.davinci_ofilm_s5k3l6.bin,14,Redmi_K20_Mi_9
-com.qti.tuned.mot_nairo_ov2180.bin,14,Moto_G_5G_Plus
-com.qti.tuned.mot_fogo_s5k4h7.bin,14,Moto_G_5G_2024
-haptic_rtp_lighthouse.bin,14,"Phone_2', 'FP5"
-com.qti.sensormodule.mot_fogo_sc202acs_sunny.bin,14,Moto_G_5G_2024
-com.qti.sensormodule.nubia_nx619_imx519.bin,14,Red_Magic_Mars
-com.qti.sensormodule.davinci_ofilm_imx582.bin,14,Redmi_K20_Mi_9
-com.qti.tuned.nubia_imx519front.bin,14,Red_Magic_Mars
-haptic_rtp.bin,14,"Phone_2', 'FP5"
-com.samsung.sensormodule.13_0_lsi_s5kgd2_full_otp.bin,14,Galaxy_A52s_5G
-com.qti.tuned.mot_tundra_hi1336.bin,14,Edge_30_Fusion
-com.qti.sensormodule.davinci_luxvisions_imx582.bin,14,Redmi_K20_Mi_9
-com.qti.sensormodule.davinci_luxvisions_s5k3l6.bin,14,Redmi_K20_Mi_9
-com.qti.sensormodule.mot_nairo_ov2180_ofilm.bin,14,Moto_G_5G_Plus
-com.qti.tuned.mot_tundra_ov50a.bin,14,Edge_30_Fusion
-com.samsung.sensormodule.1_1_sony_imx616.bin,14,Galaxy_A52s_5G
-com.samsung.sensormodule.13_1_sony_imx616_full.bin,14,Galaxy_A52s_5G
-com.qti.sensormodule.mot_nairo_ov02b1b_ofilm.bin,14,Moto_G_5G_Plus
-com.qti.tuned.davinci_luxvisions_s5k3l6.bin,14,Redmi_K20_Mi_9
-com.qti.sensormodule.mot_fogo_s5kjns_qtech.bin,14,Moto_G_5G_2024
-com.qti.sensormodule.mot_nairo_s5k4h7_front.bin,14,Moto_G_5G_Plus
-com.qti.tuned.davinci_luxvisions_imx582.bin,14,Redmi_K20_Mi_9
-com.qti.tuned.mot_nairo_s5k4h7_rear.bin,14,Moto_G_5G_Plus
-com.samsung.sensormodule.1_0_lsi_s5kgd2.bin,14,Galaxy_A52s_5G
-com.qti.tuned.mot_nairo_s5kgm1sp.bin,14,Moto_G_5G_Plus
-com.qti.sensormodule.mot_tundra_hi1336_ofilm.bin,14,Edge_30_Fusion
-com.qti.tuned.davinci_ofilm_s5k3l6.bin,14,Redmi_K20_Mi_9
-com.qti.sensormodule.semco_imx481_no_otp.bin,14,OnePlus_7T_Pro
-com.qti.tuned.davinci_luxvisions_ov8856.bin,14,Redmi_K20_Mi_9
-com.qti.tuned.mot_tundra_s5kgd2.bin,14,Edge_30_Fusion
-com.qti.tuned.nubia_nx619_ov8856.bin,14,Red_Magic_Mars
-com.samsung.sensormodule.13_0_lsi_s5kgd2_full.bin,14,Galaxy_A52s_5G
-com.qti.sensormodule.semco_s5k3m5_no_otp.bin,14,OnePlus_7T_Pro
-com.samsung.sensormodule.0_0_lsi_s5kgw1p.bin,14,Galaxy_A52s_5G
-com.qti.sensormodule.umi_sunny_gc02m1_macro.bin,15,"Mi_10', 'Mi_10S"
-com.qti.sensormodule.imx351_wide.bin,15,"G7_ThinQ', 'V35"
-com.qti.tuned.imx351_wide.bin,15,"G7_ThinQ', 'V35"
-com.qti.sensormodule.umi_semco_s5khmx.bin,15,"Mi_10', 'Mi_10S"
-com.qti.tuned.sunny_ov7251.bin,15,"Mi_8', 'Poco_F1"
-com.qti.sensormodule.umi_sunny_ov13b10.bin,15,"Mi_10', 'Mi_10S"
-com.qti.sensormodule.ov7251.bin,15,"Mi_8', 'Poco_F1"
-com.qti.sensormodule.umi_sunny_s5k3t2.bin,15,"Mi_10', 'Mi_10S"
-com.qti.sensormodule.imx576.bin,15,"FP4', 'Mi_Mix_3"
-com.qti.tuned.sunny_s5k3t1.bin,15,"Mi_8', 'Poco_F1"
-com.qti.sensormodule.umi_sunny_gc02m1_depth.bin,15,"Mi_10', 'Mi_10S"
-com.qti.tuned.ofilm_ov16a1q.bin,16,Redmi_Note_9_Pro
-com.qti.sensormodule.sunny_ov2281.bin,16,Redmi_Note_7_Pro
-com.qti.tuned.liteon_s5k3m3.bin,16,"Mi_8', 'Mi_Mix_3"
-com.qti.sensormodule.liteon_max7366_ov9282.bin,16,Redmi_Note_7_Pro
-com.qti.tuned.semco_imx258.bin,16,Redmi_Note_7_Pro
-com.qti.tuned.sunny_s5kgw1.bin,16,Redmi_Note_9_Pro
-com.qti.sensormodule.sunny_imx586.bin,16,Redmi_Note_7_Pro
-com.qti.tuned.sunny_gc02m1.bin,16,Redmi_Note_9_Pro
-com.qti.sensormodule.ofilm_ov12a10_front.bin,16,Redmi_Note_7_Pro
-com.qti.sensormodule.ofilm_s5kgw1.bin,16,Redmi_Note_9_Pro
-com.qti.sensormodule.ofilm_s5kgm2.bin,16,Redmi_Note_9_Pro
-com.qti.tuned.ofilm_ov12a10_front.bin,16,Redmi_Note_7_Pro
-com.qti.sensormodule.ofilm_ov16a1q.bin,16,Redmi_Note_9_Pro
-com.qti.sensormodule.altek_imx577.bin,16,Redmi_Note_7_Pro
-com.qti.sensormodule.truly_ov8856.bin,16,Redmi_Note_7_Pro
-com.qti.tuned.sunny_s5k2l7.bin,16,Redmi_Note_7_Pro
-com.qti.tuned.truly_ov8856.bin,16,Redmi_Note_7_Pro
-com.qti.sensormodule.ofilm_ov13855.bin,16,Redmi_Note_7_Pro
-com.qti.tuned.sunny_gc8034.bin,16,Redmi_Note_9_Pro
-com.qti.sensormodule.ofilm_s5kgw1_mirrorflip.bin,16,Redmi_Note_9_Pro
-com.qti.sensormodule.semco_s5k5e8.bin,16,Redmi_Note_7_Pro
-com.qti.tuned.semco_imx386.bin,16,Redmi_Note_7_Pro
-com.qti.sensormodule.liteon_max7366_6dof.bin,16,Redmi_Note_7_Pro
-com.qti.sensormodule.pmd_irs1645.bin,16,Redmi_Note_7_Pro
-com.qti.tuned.sunny_s5kgm2.bin,16,Redmi_Note_9_Pro
-com.qti.sensormodule.sunny_imx582.bin,16,Redmi_Note_9_Pro
-com.qti.tuned.semco_s5k5e8.bin,16,Redmi_Note_7_Pro
-com.qti.tuned.sunny_hi556.bin,16,Redmi_Note_9_Pro
-com.qti.sensormodule.sunny_gc8034.bin,16,Redmi_Note_9_Pro
-com.qti.sensormodule.sunny_ov13855.bin,16,Redmi_Note_7_Pro
-com.qti.tuned.sunny_imx586_cn.bin,16,Redmi_Note_7_Pro
-com.qti.sensormodule.ofilm_s5k5e9.bin,16,Redmi_Note_9_Pro
-com.qti.sensormodule.ofilm_gc02m1.bin,16,Redmi_Note_9_Pro
-com.qti.sensormodule.liteon_max7366_eyetrack.bin,16,Redmi_Note_7_Pro
-com.qti.sensormodule.liteon_max7366_ov6211.bin,16,Redmi_Note_7_Pro
-com.qti.sensormodule.ofilm_ov2180.bin,16,Redmi_Note_9_Pro
-com.qti.tuned.liteon_max7366_eyetrack.bin,16,Redmi_Note_7_Pro
-com.qti.tuned.altek_imx577.bin,16,Redmi_Note_7_Pro
-com.qti.sensormodule.ofilm_ov12a10.bin,16,Redmi_Note_7_Pro
-com.qti.tuned.ofilm_ov2180.bin,16,Redmi_Note_9_Pro
-com.qti.tuned.semco_imx258_mono.bin,16,Redmi_Note_7_Pro
-com.qti.tuned.ofilm_s5kgm2.bin,16,Redmi_Note_9_Pro
-com.qti.tuned.ofilm_s5kgw1.bin,16,Redmi_Note_9_Pro
-com.qti.tuned.sony_imx334.bin,16,Redmi_Note_7_Pro
-com.qti.tuned.liteon_max7366_ov9282.bin,16,Redmi_Note_7_Pro
-com.qti.sensormodule.sunny_ov2180.bin,16,Redmi_Note_9_Pro
-com.qti.sensormodule.sunny_s5kgw1_mirrorflip.bin,16,Redmi_Note_9_Pro
-com.qti.tuned.ofilm_s5k5e8.bin,16,Redmi_Note_7_Pro
-com.qti.tuned.ofilm_gc02m1_filter.bin,16,Redmi_Note_9_Pro
-com.qti.sensormodule.altek2_imx577.bin,16,Redmi_Note_7_Pro
-com.qti.tuned.sunny_ov2180.bin,16,Redmi_Note_9_Pro
-com.qti.tuned.sunny_ov16a1q.bin,16,Redmi_Note_9_Pro
-com.qti.sensormodule.semco_imx258.bin,16,Redmi_Note_7_Pro
-com.qti.tuned.liteon_max7366_6dof.bin,16,Redmi_Note_7_Pro
-com.qti.tuned.ofilm_ov13880.bin,16,Redmi_Note_7_Pro
-com.qti.sensormodule.sunny_s5k5e8.bin,16,Redmi_Note_7_Pro
-com.qti.sensormodule.sunny_s5kgm2.bin,16,Redmi_Note_9_Pro
-com.qti.tuned.ofilm_ov13855.bin,16,Redmi_Note_7_Pro
-com.qti.tuned.sunny_imx582.bin,16,Redmi_Note_9_Pro
-com.qti.tuned.ofilm_imx586_cn.bin,16,Redmi_Note_7_Pro
-com.qti.tuned.sunny_ov13855_cn.bin,16,Redmi_Note_7_Pro
-com.qti.sensormodule.ofilm_ov13880.bin,16,Redmi_Note_7_Pro
-com.qti.tuned.ofilm_gc02m1.bin,16,Redmi_Note_9_Pro
-com.qti.sensormodule.sunny_s5k5e9yu05.bin,16,Redmi_Note_7_Pro
-com.qti.sensormodule.sunny_s5kgw1.bin,16,Redmi_Note_9_Pro
-com.qti.sensormodule.sunny_ov32a1q.bin,16,Redmi_Note_9_Pro
-com.qti.tuned.sunny_imx586.bin,16,Redmi_Note_7_Pro
-com.qti.sensormodule.semco_imx386.bin,16,Redmi_Note_7_Pro
-com.qti.sensormodule.liteon_imx318.bin,16,Redmi_Note_7_Pro
-com.qti.tuned.sunny_ov13855.bin,16,Redmi_Note_7_Pro
-com.qti.sensormodule.sunny_hi556.bin,16,Redmi_Note_9_Pro
-com.qti.sensormodule.sunny_s5k5e9.bin,16,Redmi_Note_9_Pro
-com.qti.tuned.sunny_s5k5e8.bin,16,Redmi_Note_7_Pro
-com.qti.sensormodule.ofilm_imx376.bin,16,Redmi_Note_7_Pro
-com.qti.sensormodule.sunny_gc02m1.bin,16,Redmi_Note_9_Pro
-com.qti.sensormodule.sony_imx334.bin,16,Redmi_Note_7_Pro
-com.qti.tuned.sunny_ov32a1q.bin,16,Redmi_Note_9_Pro
-com.qti.tuned.liteon_imx318.bin,16,Redmi_Note_7_Pro
-com.qti.tuned.ofilm_s5k5e9.bin,16,Redmi_Note_9_Pro
-com.qti.sensormodule.ofilm_s5k5e8.bin,16,Redmi_Note_7_Pro
-com.qti.tuned.liteon_ov7251.bin,16,Redmi_Note_7_Pro
-com.qti.tuned.ofilm_ov12a10.bin,16,Redmi_Note_7_Pro
-com.qti.sensormodule.ofilm_gc02m1_filter.bin,16,Redmi_Note_9_Pro
-com.qti.sensormodule.sunny_imx576.bin,16,Redmi_Note_7_Pro
-com.qti.sensormodule.sunny_s5k2l7.bin,16,Redmi_Note_7_Pro
-com.qti.tuned.altek1_imx577.bin,16,Redmi_Note_7_Pro
-com.qti.tuned.ofilm_ov13855_cn.bin,16,Redmi_Note_7_Pro
-com.qti.tuned.ofilm_imx376.bin,16,Redmi_Note_7_Pro
-com.qti.sensormodule.altek1_imx577.bin,16,Redmi_Note_7_Pro
-com.qti.tuned.sunny_s5k5e9.bin,16,Redmi_Note_9_Pro
-com.qti.sensormodule.sweet_ofilm_s5khm2.bin,17,Redmi_Note_10_Pro
-intsense_config_optical_zoom_2sat.bin,17,"Mi_11', 'Mi_11_5G"
-com.qti.tuned.sweet_sunny_imx471_front.bin,17,Redmi_Note_10_Pro
-com.qti.tuned.sweet_sunny_gc02m1_depth.bin,17,Redmi_Note_10_Pro
-com.qti.tuned.sweet_sunny_imx355_ultra.bin,17,Redmi_Note_10_Pro
-com.qti.sensormodule.sweet_ofilm_imx355_ultra.bin,17,Redmi_Note_10_Pro
-com.qti.sensormodule.sweet_sunny_imx471_front.bin,17,Redmi_Note_10_Pro
-com.qti.tuned.sweet_ofilm_ov02b1b_depth.bin,17,Redmi_Note_10_Pro
-com.qti.tuned.sweet_sunny_s5khm2_wide.bin,17,Redmi_Note_10_Pro
-com.qti.tuned.sweet_sunny_s5kgw3_wide.bin,17,Redmi_Note_10_Pro
-com.qti.sensormodule.sweet_ofilm_ov5675_macro.bin,17,Redmi_Note_10_Pro
-com.qti.sensormodule.sweet_sunny_ov5675_macro.bin,17,Redmi_Note_10_Pro
-com.qti.sensormodule.sweet_ofilm_s5kgw3.bin,17,Redmi_Note_10_Pro
-com.xiaomi_k9_mecp_for_nocali.bin,17,"Mi_11', 'Mi_11_5G"
-com.qti.tuned.sweet_ofilm_imx355_ultra.bin,17,Redmi_Note_10_Pro
-com.qti.sensormodule.sweet_ofilm_ov02b1b.bin,17,Redmi_Note_10_Pro
-com.qti.tuned.sweet_ofilm_s5kgw3_wide.bin,17,Redmi_Note_10_Pro
-aw882xx_pid_2032_acf.bin,17,Redmi_Note_10_Pro
-com.qti.sensormodule.sweet_sunny_imx355_ultra.bin,17,Redmi_Note_10_Pro
-com.qti.tuned.sweet_ofilm_s5khm2_wide.bin,17,Redmi_Note_10_Pro
-com.qti.tuned.sweet_ofilm_ov5675_macro.bin,17,Redmi_Note_10_Pro
-com.qti.tuned.sweet_ofilm_imx471_front.bin,17,Redmi_Note_10_Pro
-com.qti.sensormodule.sweet_sunny_s5kgw3.bin,17,Redmi_Note_10_Pro
-com.qti.tuned.sweet_sunny_ov5675_macro.bin,17,Redmi_Note_10_Pro
-com.qti.sensormodule.sweet_ofilm_imx471_front.bin,17,Redmi_Note_10_Pro
-com.qti.sensormodule.sweet_sunny_gc02m1.bin,17,Redmi_Note_10_Pro
-com.qti.sensormodule.sweet_sunny_s5khm2.bin,17,Redmi_Note_10_Pro
-com.xiaomi_k9_mecp.bin,17,"Mi_11', 'Mi_11_5G"
-com.sony.sensormodule.cooper_imx400.bin,18,Xperia_XZ2_Premium
-com.sony.sensormodule.cooper_imx379.bin,18,Xperia_XZ2_Premium
-com.sony.sensormodule.beagle_imx258.bin,18,Xperia_XZ2_Premium
-com.qti.sensormodule.mot_guamp_s5kgm1st_ofilm.bin,20,"Defy_2021', 'Moto_G9"
-com.qti.tuned.mot_guamp_s5k4h7.bin,20,"Defy_2021', 'Moto_G9"
-com.qti.sensormodule.primax_imx355_normal.bin,20,"Pixel_3XL', 'Pixel_3"
-com.google.tuned.pixel4_ovm7251_ir.bin,20,"Pixel_4XL', 'Pixel_4"
-com.qti.sensormodule.primax_imx355_wide.bin,20,"Pixel_3XL', 'Pixel_3"
-com.qti.sensormodule.mot_guamp_ov02b1b_ofilm.bin,20,"Defy_2021', 'Moto_G9"
-com.google.tuned.pixel4_imx363_wide.bin,20,"Pixel_4XL', 'Pixel_4"
-com.qti.tuned.mot_guamp_ov02b1b.bin,20,"Defy_2021', 'Moto_G9"
-com.qti.sensormodule.mot_guamp_ov02b10_ofilm.bin,20,"Defy_2021', 'Moto_G9"
-com.qti.sensormodule.mot_guamp_s5k4h7_ofilm.bin,20,"Defy_2021', 'Moto_G9"
-com.qti.sensormodule.metric_imx481.bin,20,"Pixel_4XL', 'Pixel_4"
-com.qti.sensormodule.metric_imx520.bin,20,"Pixel_4XL', 'Pixel_4"
-com.qti.sensormodule.liteon_ov7251_follower.bin,20,"Pixel_4XL', 'Pixel_4"
-com.qti.sensormodule.liteon_ov7251_lead.bin,20,"Pixel_4XL', 'Pixel_4"
-aw8695_rtp_Brilliant_Times.bin,20,"Edge_2021', 'Edge_20"
-aw8695_rtp_Organ_Dub.bin,20,"Edge_2021', 'Edge_20"
-com.qti.tuned.mot_guamp_s5kgm1st.bin,20,"Defy_2021', 'Moto_G9"
-com.google.tuned.pixel3_imx355_wide.bin,20,"Pixel_3XL', 'Pixel_3"
-com.google.tuned.pixel3_imx363.bin,20,"Pixel_3XL', 'Pixel_3"
-com.google.tuned.pixel3_imx355_normal.bin,20,"Pixel_3XL', 'Pixel_3"
-aw8695_rtp_Modular.bin,20,"Edge_2021', 'Edge_20"
-com.google.tuned.pixel4_imx481_tele.bin,20,"Pixel_4XL', 'Pixel_4"
-com.qti.tuned.mot_guamp_ov02b10.bin,20,"Defy_2021', 'Moto_G9"
-com.google.tuned.pixel4_imx520_front.bin,20,"Pixel_4XL', 'Pixel_4"
-bm2n42.bin,21,"Phone_2', 'ThinkPhone"
-bm2n54.bin,21,"Phone_2', 'ThinkPhone"
-bm2n49.bin,21,"Phone_2', 'ThinkPhone"
-bm2n39.bin,21,"Phone_2', 'ThinkPhone"
-com.qti.tuned.nubia_s5k2x7.bin,21,"Red_Magic_Mars', 'Z18"
-bm2n55.bin,21,"Phone_2', 'ThinkPhone"
-bm2n37.bin,21,"Phone_2', 'ThinkPhone"
-bm2n51.bin,21,"Phone_2', 'ThinkPhone"
-bm2n44.bin,21,"Phone_2', 'ThinkPhone"
-bm2n41.bin,21,"Phone_2', 'ThinkPhone"
-bm2n40.bin,21,"Phone_2', 'ThinkPhone"
-bm2n50.bin,21,"Phone_2', 'ThinkPhone"
-com.qti.tuned.nubia_imx499.bin,21,"Red_Magic_Mars', 'Z18"
-bm2n45.bin,21,"Phone_2', 'ThinkPhone"
-com.qti.sensormodule.nubia_imx499.bin,21,"Red_Magic_Mars', 'Z18"
-bm2n38.bin,21,"Phone_2', 'ThinkPhone"
-bm2n31.bin,21,"Phone_2', 'ThinkPhone"
-bm2n53.bin,21,"Phone_2', 'ThinkPhone"
-bm2n52.bin,21,"Phone_2', 'ThinkPhone"
-bm2n48.bin,21,"Phone_2', 'ThinkPhone"
-com.qti.sensormodule.nubia_s5k2x7.bin,21,"Red_Magic_Mars', 'Z18"
-bm2n46.bin,21,"Phone_2', 'ThinkPhone"
-bm2n47.bin,21,"Phone_2', 'ThinkPhone"
-bm2n43.bin,21,"Phone_2', 'ThinkPhone"
-com.qti.sensormodule.sony_imx000.bin,21,"Red_Magic_Mars', 'Z18"
-com.qti.sensormodule.pyxis_luxvisions_s5k4h7_cn_i.bin,22,"Mi_CC9_Meitu', 'Mi_CC9"
-com.qti.sensormodule.imx351.bin,22,"G7_ThinQ', 'V40', 'V35"
-com.qti.tuned.tpg.bin,22,"Redmi_K60_Pro', 'Mi_13"
-com.qti.sensormodule.pyxis_sunny_s5kgd1_cn_i.bin,22,"Mi_CC9_Meitu', 'Mi_CC9"
-com.qti.sensormodule.pyxis_luxvisions_imx586_cn_i.bin,22,"Mi_CC9_Meitu', 'Mi_CC9"
-com.qti.tuned.pyxis_luxvisions_imx586_cn_i.bin,22,"Mi_CC9_Meitu', 'Mi_CC9"
-com.qti.tuned.pyxis_sunny_s5kgd1_cn_i.bin,22,"Mi_CC9_Meitu', 'Mi_CC9"
-com.qti.tuned.imx351.bin,22,"G7_ThinQ', 'V40', 'V35"
-com.qti.tuned.pyxis_luxvisions_s5k4h7_cn_i.bin,22,"Mi_CC9_Meitu', 'Mi_CC9"
-com.qti.sensormodule.pyxis_luxvisions_ov02a10_cn_i.bin,22,"Mi_CC9_Meitu', 'Mi_CC9"
-com.qti.tuned.pyxis_ofilm_s5kgd1_cn_ii.bin,22,"Mi_CC9_Meitu', 'Mi_CC9"
-com.qti.tuned.pyxis_ofilm_s5k4h7_cn_ii.bin,22,"Mi_CC9_Meitu', 'Mi_CC9"
-com.qti.sensormodule.pyxis_ofilm_ov02a10_cn_ii.bin,22,"Mi_CC9_Meitu', 'Mi_CC9"
-com.qti.tuned.pyxis_luxvisions_ov02a10_cn_i.bin,22,"Mi_CC9_Meitu', 'Mi_CC9"
-com.qti.sensormodule.pyxis_ofilm_s5kgd1_cn_ii.bin,22,"Mi_CC9_Meitu', 'Mi_CC9"
-com.qti.tuned.pyxis_ofilm_ov02a10_cn_ii.bin,22,"Mi_CC9_Meitu', 'Mi_CC9"
-com.qti.sensormodule.pyxis_ofilm_s5k4h7_cn_ii.bin,22,"Mi_CC9_Meitu', 'Mi_CC9"
-com.qti.sensormodule.liteon_imx376k_lc898217xc_actuator.bin,23,"OnePlus_6', 'OnePlus_6T"
-com.qti.sensormodule.liteon_imx519_sa3103_actuator.bin,23,"OnePlus_6', 'OnePlus_6T"
-com.qti.sensormodule.liteon_imx376k_sa3103_actuator.bin,23,"OnePlus_6', 'OnePlus_6T"
-com.qti.sensormodule.liteon_imx519_lc898217xc_actuator.bin,23,"OnePlus_6', 'OnePlus_6T"
-com.qti.sensormodule.primax_imx355.bin,23,"Pixel_4A', 'Pixel_3A_XL"
-com.qti.tuned.oflim_imx371.bin,23,"OnePlus_6', 'OnePlus_6T"
-com.qti.tuned.oflim_imx371_fat.bin,23,"OnePlus_6', 'OnePlus_6T"
-com.qti.tuned.semco_imx519.bin,23,"OnePlus_6', 'OnePlus_6T"
-com.qti.tuned.semco_imx376k.bin,23,"OnePlus_6', 'OnePlus_6T"
-com.qti.tuned.semco_imx519_fatt.bin,23,"OnePlus_6', 'OnePlus_6T"
-com.qti.sensormodule.liteon_imx371.bin,23,"OnePlus_6', 'OnePlus_6T"
-com.sony.tuned.maunakea_imx888.bin,24,"Xperia_5_V', 'Xperia_1_V"
-com.sony.tuned.maunakea_imx563.bin,24,"Xperia_5_V', 'Xperia_1_V"
-com.sony.sensormodule.maunakea_imx563.bin,24,"Xperia_5_V', 'Xperia_1_V"
-com.sony.sensormodule.maunakea_imx888.bin,24,"Xperia_5_V', 'Xperia_1_V"
-com.qti.sensormodule.qtech_imx481.bin,24,"OnePlus_8T', 'OnePlus_9R"
-com.sony.tuned.crocus_imx663.bin,24,"Xperia_5_V', 'Xperia_1_V"
-com.qti.sensormodule.holitech_gc02m1b.bin,24,"OnePlus_8T', 'OnePlus_9R"
-com.qti.tuned.qtech_imx481.bin,24,"OnePlus_8T', 'OnePlus_9R"
-com.qti.tuned.ofilm_ov9282.bin,25,"Mi_8_Pro', 'Mi_8_Explorer"
-com.qti.sensormodule.ov9282.bin,25,"Mi_8_Pro', 'Mi_8_Explorer"
-com.qti.tuned.sm6375_s5k3p9_sunny.bin,25,"Realme_10_Pro', 'Nord_N30"
-com.qti.sensormodule.sunny_s5k3p9.bin,25,"Nord_N30', 'OnePlus_11_5G"
-com.qti.tuned.liteon_imx363.bin,26,"Phone2', 'Mi_8', 'Mi_Mix_3"
-com.qti.tuned.ofilm_ov8856.bin,26,"Redmi_Note_9_Pro', 'Z6_Pro"
-com.qti.sensormodule.liteon_ov7251.bin,26,"Redmi_Note_7_Pro', 'Phone2"
-com.qti.sensormodule.ofilm_ov8856.bin,26,"Redmi_Note_9_Pro', 'Z6_Pro"
-com.sony.sensormodule.rose_s5k4h7.bin,26,"Xperia_1_II', 'Xperia_5_II"
-com.samsung.sensormodule.1_1_lsi_s5kgd2.bin,27,"Galaxy_A52_4G', 'Galaxy_A72"
-com.qti.sensormodule.le_hi846_front.bin,27,"Xperia_10_V', 'Xperia_10_IV"
-com.samsung.sensormodule.1_1_lsi_s5kgd2_otp.bin,27,"Galaxy_A52_4G', 'Galaxy_A72"
-com.samsung.sensormodule.0_1_lsi_s5kgw1p.bin,27,"Galaxy_A52_4G', 'Galaxy_A72"
-com.samsung.sensormodule.8_1_lsi_s5kgd2_full.bin,27,"Galaxy_A52_4G', 'Galaxy_A72"
-com.qti.tuned.le_hi846_back.bin,27,"Xperia_10_V', 'Xperia_10_IV"
-com.samsung.sensormodule.2_1_hynix_hi1336.bin,27,"Galaxy_A52_4G', 'Galaxy_A72"
-com.samsung.sensormodule.0_0_sony_imx682.bin,27,"Galaxy_A52_4G', 'Galaxy_A72"
-com.samsung.sensormodule.2_0_lsi_s5k3l6.bin,27,"Galaxy_A52_4G', 'Galaxy_A72"
-com.samsung.sensormodule.1_0_sony_imx616.bin,27,"Galaxy_A52_4G', 'Galaxy_A72"
-com.samsung.sensormodule.8_0_sony_imx616_full.bin,27,"Galaxy_A52_4G', 'Galaxy_A72"
-com.qti.sensormodule.le_hi846_back.bin,27,"Xperia_10_V', 'Xperia_10_IV"
-com.samsung.sensormodule.8_1_lsi_s5kgd2_full_otp.bin,27,"Galaxy_A52_4G', 'Galaxy_A72"
-com.qti.tuned.le_hi846_front.bin,27,"Xperia_10_V', 'Xperia_10_IV"
-com.samsung.tuned.hynix_hi847.bin,27,"Galaxy_S20_FE', 'Galaxy_A72"
-com.qti.tuned.s5kjn1.bin,27,"Nord_N20_5G', 'Realme_9_Pro"
-com.samsung.sensormodule.0_1_sony_imx682.bin,28,"Galaxy_A52s_5G', 'Galaxy_A71"
-com.qti.tuned.mot_fogor_s5kjns.bin,29,"Moto_G34_5G', 'Moto_G_5G_2024"
-com.qti.sensormodule.sunny_ov8856.bin,29,"Redmi_Note_9_Pro', 'Mi_10T_5G"
-com.qti.sensormodule.sunny_ov16a1q.bin,29,"Redmi_Note_9_Pro', 'Mi_10T_5G"
-com.qti.tuned.mot_fogo_sc202acs.bin,29,"Moto_G34_5G', 'Moto_G_5G_2024"
-com.samsung.sensormodule.2_sony_imx258.bin,30,"Galaxy_A73_5G', 'Galaxy_M52_5G"
-com.samsung.sensormodule.13_sony_imx616_full.bin,30,"Galaxy_A73_5G', 'Galaxy_M52_5G"
-com.samsung.tuned.sony_imx258.bin,30,"Galaxy_A73_5G', 'Galaxy_M52_5G"
-com.samsung.sensormodule.2_lsi_s5k3l6.bin,31,"Galaxy_S20_FE', 'Galaxy_A52s_5G"
-aw8624_rtp_1.bin,31,"Redmi_Note_9_Pro', 'Poco_X3_NFC"
-com.sony.sensormodule.pansy_imx241.bin,32,"Xperia_XZ2_Compact', 'Xperia_XZ2"
-com.qti.tuned.sl846.bin,32,"G7_ThinQ', 'Velvet', 'V40', 'V35"
-com.qti.sensormodule.sl846.bin,32,"G7_ThinQ', 'Velvet', 'V40', 'V35"
-anc.bin,33,"Edge_40_Pro', 'FP5', 'Poco_F5_Pro"
-com.qti.tuned.ofilm_s5k3t1.bin,36,"Mi_8_Pro', 'Mi_8_Explorer', 'Poco_F1"
-com.samsung.tuned.lsi_s5k4ha.bin,39,"Galaxy_Tab_S7_LTE', 'Galaxy_Tab_S7_Wifi"
-aw8624_rtp.bin,39,"Moto_G_5G', 'Redmi_Note_10_Pro', 'Mi_11"
-com.samsung.sensormodule.0_lsi_s5k3m5.bin,39,"Galaxy_Tab_S7_LTE', 'Galaxy_Tab_S7_Wifi"
-com.samsung.tuned.lsi_s5k5e9yu05.bin,39,"Galaxy_Tab_S7_LTE', 'Galaxy_Tab_S7_Wifi"
-com.samsung.sensormodule.12_lsi_s5k4ha_full.bin,39,"Galaxy_Tab_S7_LTE', 'Galaxy_Tab_S7_Wifi"
-com.samsung.sensormodule.2_lsi_s5k5e9yu05.bin,39,"Galaxy_Tab_S7_LTE', 'Galaxy_Tab_S7_Wifi"
-com.samsung.sensormodule.1_lsi_s5k4ha.bin,39,"Galaxy_Tab_S7_LTE', 'Galaxy_Tab_S7_Wifi"
-com.qti.sensormodule.s5kjn1.bin,39,"Nord_CE2', 'Nord_N20_5G', 'Realme_9_Pro"
-com.samsung.tuned.lsi_s5k3m5.bin,39,"Galaxy_Tab_S7_LTE', 'Galaxy_Tab_S7_Wifi"
-com.samsung.sensormodule.0_s5k3m5.bin,41,"Galaxy_Tab_S5e_Wifi', 'Galaxy_Tab_S5e_LTE"
-com.samsung.sensormodule.1_s5k4ha.bin,41,"Galaxy_Tab_S5e_Wifi', 'Galaxy_Tab_S5e_LTE"
-com.qti.sensormodule.shine_gc5035.bin,41,"OnePlus_8T', 'OnePlus_9R', 'OnePlus_8_Pro"
-com.qti.tuned.holitech_gc02m1b.bin,41,"OnePlus_9_Pro', 'OnePlus_8T', 'OnePlus_9R"
-s5k3m5tuned.bin,41,"Galaxy_Tab_S5e_Wifi', 'Galaxy_Tab_S5e_LTE"
-com.qti.tuned.shine_gc5035.bin,41,"OnePlus_8T', 'OnePlus_9R', 'OnePlus_8_Pro"
-s5k4hatuned.bin,41,"Galaxy_Tab_S5e_Wifi', 'Galaxy_Tab_S5e_LTE"
-eebindriver.bin,41,"Galaxy_Tab_S5e_Wifi', 'Galaxy_Tab_S5e_LTE"
-com.samsung.tuned.hynix_hi1336.bin,41,"Galaxy_A52_4G', 'Galaxy_A71', 'Galaxy_A72"
-com.qti.tuned.agatti_lce_s5k4h7.bin,42,"Galaxy_TabA_10.4_LTE', 'Galaxy_Tab_A7_Wifi"
-com.qti.tuned.agatti_lce_s5k5e9yx04.bin,42,"Galaxy_TabA_10.4_LTE', 'Galaxy_Tab_A7_Wifi"
-com.qti.sensormodule.n19_gc5035_front_unionimage.bin,42,"Galaxy_TabA_10.4_LTE', 'Galaxy_Tab_A7_Wifi"
-com.qti.sensormodule.n19_hi556_front_shengtai.bin,42,"Galaxy_TabA_10.4_LTE', 'Galaxy_Tab_A7_Wifi"
-com.qti.tuned.lce_s5k5e9yx04.bin,42,"Galaxy_TabA_10.4_LTE', 'Galaxy_Tab_A7_Wifi"
-com.qti.sensormodule.n19_gc5035_front_qunhui.bin,42,"Galaxy_TabA_10.4_LTE', 'Galaxy_Tab_A7_Wifi"
-com.qti.sensormodule.lce_s5k3p9.bin,42,"Galaxy_TabA_10.4_LTE', 'Galaxy_Tab_A7_Wifi"
-com.qti.tuned.divar_lce_s5k5e9yx04.bin,42,"Galaxy_TabA_10.4_LTE', 'Galaxy_Tab_A7_Wifi"
-com.qti.sensormodule.lce_s5k5e9yx04.bin,42,"Galaxy_TabA_10.4_LTE', 'Galaxy_Tab_A7_Wifi"
-com.qti.tuned.n19_c8490_back_dongci.bin,42,"Galaxy_TabA_10.4_LTE', 'Galaxy_Tab_A7_Wifi"
-com.qti.sensormodule.n19_s5k4h7yx_back_helitai.bin,42,"Galaxy_TabA_10.4_LTE', 'Galaxy_Tab_A7_Wifi"
-com.qti.sensormodule.n19_gc5035_front_cxt_7e.bin,42,"Galaxy_TabA_10.4_LTE', 'Galaxy_Tab_A7_Wifi"
-com.qti.sensormodule.n19_gc5035_front_cxt.bin,42,"Galaxy_TabA_10.4_LTE', 'Galaxy_Tab_A7_Wifi"
-com.qti.tuned.n19_s5k4h7yx_back_dongci.bin,42,"Galaxy_TabA_10.4_LTE', 'Galaxy_Tab_A7_Wifi"
-com.qti.tuned.ofilm_imx563.bin,42,"Red_Magic_5G', 'Xperia_1_II', 'Xperia_5_II"
-com.qti.tuned.n19_gc5035_front_cxt.bin,42,"Galaxy_TabA_10.4_LTE', 'Galaxy_Tab_A7_Wifi"
-com.qti.tuned.n19_gc8034_back_cxt.bin,42,"Galaxy_TabA_10.4_LTE', 'Galaxy_Tab_A7_Wifi"
-com.qti.sensormodule.n19_gc8034_back_cxt.bin,42,"Galaxy_TabA_10.4_LTE', 'Galaxy_Tab_A7_Wifi"
-com.qti.tuned.divar_lce_s5k4h7.bin,42,"Galaxy_TabA_10.4_LTE', 'Galaxy_Tab_A7_Wifi"
-com.qti.sensormodule.ofilm_imx563.bin,42,"Red_Magic_5G', 'Xperia_1_II', 'Xperia_5_II"
-com.qti.tuned.agatti_truly_imx476.bin,42,"Galaxy_TabA_10.4_LTE', 'Galaxy_Tab_A7_Wifi"
-com.qti.tuned.n19_hi846_back_txd.bin,42,"Galaxy_TabA_10.4_LTE', 'Galaxy_Tab_A7_Wifi"
-com.qti.tuned.agatti_no_mfnr_lce_s5k3p9.bin,42,"Galaxy_TabA_10.4_LTE', 'Galaxy_Tab_A7_Wifi"
-com.qti.tuned.divar_truly_imx476.bin,42,"Galaxy_TabA_10.4_LTE', 'Galaxy_Tab_A7_Wifi"
-com.qti.tuned.agatti_lce_s5k3p9.bin,42,"Galaxy_TabA_10.4_LTE', 'Galaxy_Tab_A7_Wifi"
-com.qti.tuned.n19_hi556_front_shengtai.bin,42,"Galaxy_TabA_10.4_LTE', 'Galaxy_Tab_A7_Wifi"
-com.qti.tuned.n19_s5k4h7yx_back_helitai.bin,42,"Galaxy_TabA_10.4_LTE', 'Galaxy_Tab_A7_Wifi"
-com.qti.tuned.divar_lce_s5k3p9.bin,42,"Galaxy_TabA_10.4_LTE', 'Galaxy_Tab_A7_Wifi"
-com.qti.sensormodule.n19_c8490_back_dongci.bin,42,"Galaxy_TabA_10.4_LTE', 'Galaxy_Tab_A7_Wifi"
-com.qti.sensormodule.n19_hi846_back_txd.bin,42,"Galaxy_TabA_10.4_LTE', 'Galaxy_Tab_A7_Wifi"
-com.qti.tuned.lce_s5k3p9.bin,42,"Galaxy_TabA_10.4_LTE', 'Galaxy_Tab_A7_Wifi"
-com.qti.tuned.n19_gc5035_front_unionimage.bin,42,"Galaxy_TabA_10.4_LTE', 'Galaxy_Tab_A7_Wifi"
-com.qti.tuned.n19_gc5035_front_qunhui.bin,42,"Galaxy_TabA_10.4_LTE', 'Galaxy_Tab_A7_Wifi"
-com.qti.sensormodule.n19_s5k4h7yx_back_dongci.bin,42,"Galaxy_TabA_10.4_LTE', 'Galaxy_Tab_A7_Wifi"
-com.qti.sensormodule.liteon_imx363.bin,43,"Phone2', 'Mi_8', 'Mi_8_Pro', 'Mi_8_Explorer"
-com.qti.tuned.ofilm_s5k3m5.bin,45,"OnePlus_7_Pro', 'OnePlus_7T', 'OnePlus_7T_Pro"
-com.samsung.tuned.lsi_s5kgw1p.bin,45,"Galaxy_A52_4G', 'Galaxy_A52s_5G', 'Galaxy_A72"
-com.qti.sensormodule.ofilm_s5k3m5.bin,45,"OnePlus_7_Pro', 'OnePlus_7T', 'OnePlus_7T_Pro"
-com.samsung.tuned.lsi_s5kgd2.bin,45,"Galaxy_A52_4G', 'Galaxy_A52s_5G', 'Galaxy_A72"
-com.qti.sensormodule.semco_2nd_lens_imx586.bin,45,"OnePlus_7_Pro', 'OnePlus_7T', 'OnePlus_7T_Pro"
-com.qti.sensormodule.s5k3m3sn03.bin,46,"Mi_8', 'Mi_Mix_2S', 'Mi_8_Pro', 'Mi_8_Explorer"
-fdconfigsecure.bin,46,"Xperia_5_V', 'Xperia_1_V', 'Mi_13_Pro', 'Mi_13"
-com.sony.sensormodule.blakiston_imx400.bin,46,"Xperia_XZ3', 'Xperia_XZ2_Compact', 'Xperia_XZ2"
-com.qti.sensormodule.imx333.bin,46,"Mi_8', 'Mi_Mix_2S', 'Mi_8_Pro', 'Mi_8_Explorer"
-aw8622x_rtp.bin,48,"Edge_30', 'Pro_1X', 'Xperia_10_IV', 'Edge_30_Neo"
-com.qti.sensormodule.lce_s5k4h7.bin,52,"Galaxy_TabA_10.4_LTE', 'Galaxy_Tab_A7_Wifi', 'Pro_1X"
-com.qti.tuned.lce_s5k4h7.bin,52,"Galaxy_TabA_10.4_LTE', 'Galaxy_Tab_A7_Wifi', 'Pro_1X"
-com.qti.tuned.ov08d10.bin,53,"Realme_10_Pro', 'Nord_CE2', 'Nord_N30', 'Realme_9_Pro"
-com.qti.sensormodule.imx363.bin,53,"Mi_8', 'Mi_Mix_2S', 'Mi_8_Pro', 'Mi_8_Explorer', 'V40"
-com.qti.sensormodule.truly_imx471.bin,54,"OnePlus_8', 'OnePlus_8T', 'OnePlus_9R', 'OnePlus_8_Pro"
-com.qti.sensormodule.s5k3t1.bin,54,"Mi_9SE', 'Mi_8', 'Mi_8_Pro', 'Mi_8_Explorer', 'Poco_F1"
-fusion_mecp.bin,54,"Mi_12S_Ultra', 'Mi_Fold_2', 'Mi_12T_Pro', 'Poco_F5_Pro"
-com.qti.sensormodule.gc02m1b.bin,56,"Realme_10_Pro', 'Nord_CE2', 'Nord_N20_5G', 'Realme_9_Pro"
-com.qti.tuned.semco_s5k3m3.bin,58,"Mi_8', 'Mi_Mix_2S', 'Mi_8_Pro', 'Mi_8_Explorer', 'Mi_Mix_3"
-com.qti.tuned.ofilm_imx481.bin,58,"OnePlus_7_Pro', 'OnePlus_8', 'OnePlus_7T', 'OnePlus_7T_Pro"
-com.qti.tuned.sunny_imx471.bin,58,"OnePlus_7_Pro', 'OnePlus_7', 'OnePlus_7T', 'OnePlus_7T_Pro"
-com.qti.sensormodule.ofilm_imx481.bin,58,"OnePlus_7_Pro', 'OnePlus_8', 'OnePlus_7T', 'OnePlus_7T_Pro"
-com.qti.sensormodule.sunny_imx471.bin,58,"OnePlus_7_Pro', 'OnePlus_7', 'OnePlus_7T', 'OnePlus_7T_Pro"
-com.samsung.tuned.sony_imx682.bin,59,"Galaxy_A52_4G', 'Galaxy_A52s_5G', 'Galaxy_A71', 'Galaxy_A72"
-aw882xx_acf.bin,60,"Xperia_10_V', 'Xperia_10_IV', 'FP5', 'Poco_F5_Pro', 'Poco_F5"
-com.samsung.sensormodule.1_sony_imx616.bin,61,"Galaxy_S20_FE', 'Galaxy_A73_5G', 'Galaxy_M52_5G', 'Galaxy_A71"
-com.qti.tuned.liteon_imx362.bin,62,"Red_Magic_5G', 'Xperia_1_II', 'Xperia_5_II', 'Redmi_Note_7_Pro"
-com.samsung.tuned.lsi_gc5035.bin,62,"Galaxy_A73_5G', 'Galaxy_A52_4G', 'Galaxy_A52s_5G', 'Galaxy_A71"
-com.samsung.tuned.lsi_s5k3l6.bin,62,"Galaxy_S20_FE', 'Galaxy_A52_4G', 'Galaxy_A52s_5G', 'Galaxy_A72"
-com.samsung.sensormodule.3_lsi_gc5035.bin,62,"Galaxy_A73_5G', 'Galaxy_A52_4G', 'Galaxy_A52s_5G', 'Galaxy_A71"
-com.qti.tuned.sunny_s5k5e9yu05.bin,62,"Red_Magic_5G', 'Xperia_1_II', 'Xperia_5_II', 'Redmi_Note_7_Pro"
-com.qti.sensormodule.pmd_irs2381c.bin,62,"Red_Magic_5G', 'Xperia_1_II', 'Xperia_5_II', 'Redmi_Note_7_Pro"
-com.qti.sensormodule.liteon_imx362.bin,62,"Red_Magic_5G', 'Xperia_1_II', 'Xperia_5_II', 'Redmi_Note_7_Pro"
-com.qti.sensormodule.ofilm_imx586.bin,65,"OnePlus_7_Pro', 'Redmi_Note_7_Pro', 'OnePlus_7T', 'OnePlus_7T_Pro"
-com.qti.tuned.ofilm_imx586.bin,65,"OnePlus_7_Pro', 'Redmi_Note_7_Pro', 'OnePlus_7T', 'OnePlus_7T_Pro"
-com.qti.tuned.gc02m1b.bin,68,"Realme_10_Pro', 'Nord_CE2', 'Nord_N20_5G', 'Realme_9_Pro', 'Nord_200"
-com.qti.tuned.ov64b.bin,68,"Realme_10_Pro', 'Nord_CE2', 'Nord_N30', 'Nord_N20_5G', 'Realme_9_Pro"
-com.qti.tuned.gc02m1.bin,68,"Realme_10_Pro', 'Nord_CE2', 'Nord_N30', 'Nord_N20_5G', 'Realme_9_Pro"
-com.qti.sensormodule.ov64b.bin,68,"Realme_10_Pro', 'Nord_CE2', 'Nord_N30', 'Nord_N20_5G', 'Realme_9_Pro"
-com.qti.sensormodule.ov08d10.bin,68,"Realme_10_Pro', 'Nord_CE2', 'Nord_N30', 'Nord_N20_5G', 'Realme_9_Pro"
-com.qti.sensormodule.gc02m1.bin,68,"Realme_10_Pro', 'Nord_CE2', 'Nord_N30', 'Nord_N20_5G', 'Realme_9_Pro"
-com.qti.tuned.semco_imx363.bin,69,"Phone_2', 'Mi_8', 'Mi_Mix_2S', 'Mi_8_Pro', 'Mi_8_Explorer', 'Mi_Mix_3"
-com.qti.tuned.truly_imx471.bin,71,"OnePlus_9_Pro', 'OnePlus_8', 'OnePlus_8T', 'OnePlus_9R', 'OnePlus_8_Pro"
-com.qti.sensormodule.metric_imx363.bin,71,"Pixel_4A', 'Pixel_3XL', 'Pixel_4XL', 'Pixel_3A_XL', 'Pixel_4', 'Pixel_3"
-com.qti.tuned.sunny_imx519.bin,75,"Red_Magic_5G', 'Xperia_1_II', 'Xperia_5_II', 'Redmi_Note_7_Pro', 'Shift_6MQ"
-com.samsung.sensormodule.4_lsi_gc5035_macro.bin,76,"Galaxy_A73_5G', 'Galaxy_A52s_5G', 'Galaxy_M52_5G', 'Galaxy_A71', 'Galaxy_A72"
-com.qti.tuned.imx471.bin,80,"Realme_10_Pro', 'Nord_CE2', 'Nord_N30', 'Nord_N20_5G', 'Realme_9_Pro', 'Nord_200"
-com.qti.sensormodule.sy_imx471.bin,80,"Realme_10_Pro', 'Nord_CE2', 'Nord_N30', 'Nord_N20_5G', 'Realme_9_Pro', 'Nord_200"
-aw882xx_pid_1852_acf.bin,83,"Moto_G52', 'Moto_G200', 'Redmi_Note_10_Pro', 'Edge_30', 'Edge_30_Fusion', 'Moto_G32"
-aw8697_rtp_silk.bin,85,"OnePlus_9_Pro', 'OnePlus_8', 'OnePlus_8T', 'OnePlus_9R', 'OnePlus_8_Pro', 'OnePlus_7T"
-com.qti.tuned.truly_imx476.bin,88,"Red_Magic_5G', 'Galaxy_TabA_10.4_LTE', 'Galaxy_Tab_A7_Wifi', 'Xperia_1_II', 'Xperia_5_II"
-com.qti.sensormodule.semco_imx481.bin,91,"Red_Magic_5G', 'OnePlus_7_Pro', 'Xperia_1_II', 'Xperia_5_II', 'OnePlus_7T', 'OnePlus_7T_Pro"
-com.samsung.tuned.lsi_gc5035_macro.bin,93,"Galaxy_A73_5G', 'Galaxy_A52_4G', 'Galaxy_A52s_5G', 'Galaxy_M52_5G', 'Galaxy_A71', 'Galaxy_A72"
-aw_skt.bin,97,"Moto_G52', 'Edge_30', 'Edge_30_Fusion', 'Moto_G32', 'Moto_G_5G_2024', 'Moto_G82_5G', 'Edge_30_Neo"
-com.qti.sensormodule.qti_tpg1.bin,99,"Galaxy_TabA_10.4_LTE', 'Galaxy_Tab_A7_Wifi', 'Xperia_10_V', 'Redmi_K60_Pro', 'Mi_13', 'Xperia_10_IV"
-com.qti.sensormodule.qti_tpg2.bin,99,"Galaxy_TabA_10.4_LTE', 'Galaxy_Tab_A7_Wifi', 'Xperia_10_V', 'Redmi_K60_Pro', 'Mi_13', 'Xperia_10_IV"
-com.qti.sensormodule.qti_tpg0.bin,99,"Galaxy_TabA_10.4_LTE', 'Galaxy_Tab_A7_Wifi', 'Xperia_10_V', 'Redmi_K60_Pro', 'Mi_13', 'Xperia_10_IV"
-skinLUTs03.bin,102,"Realme_10_Pro', 'Nord_CE2', 'OnePlus_9_Pro', 'Nord_N30', 'Nord_N20_5G', 'Realme_9_Pro', 'OnePlus_11_5G"
-skinLUTs02.bin,102,"Realme_10_Pro', 'Nord_CE2', 'OnePlus_9_Pro', 'Nord_N30', 'Nord_N20_5G', 'Realme_9_Pro', 'OnePlus_11_5G"
-bm2n32.bin,104,"Phone_2', 'Mi_12S_Ultra', 'Mi_Fold_2', 'Mi_12S_Pro', 'ThinkPhone', 'Mi_12T_Pro', 'Poco_F5_Pro', 'Poco_F5"
-bm2n34.bin,104,"Phone_2', 'Mi_12S_Ultra', 'Mi_Fold_2', 'Mi_12S_Pro', 'ThinkPhone', 'Mi_12T_Pro', 'Poco_F5_Pro', 'Poco_F5"
-bm2n33.bin,104,"Phone_2', 'Mi_12S_Ultra', 'Mi_Fold_2', 'Mi_12S_Pro', 'ThinkPhone', 'Mi_12T_Pro', 'Poco_F5_Pro', 'Poco_F5"
-bm2n36.bin,104,"Phone_2', 'Mi_12S_Ultra', 'Mi_Fold_2', 'Mi_12S_Pro', 'ThinkPhone', 'Mi_12T_Pro', 'Poco_F5_Pro', 'Poco_F5"
-bm2n35.bin,104,"Phone_2', 'Mi_12S_Ultra', 'Mi_Fold_2', 'Mi_12S_Pro', 'ThinkPhone', 'Mi_12T_Pro', 'Poco_F5_Pro', 'Poco_F5"
-aw8695_rtp.bin,107,"One_Action', 'One_Vision', 'Red_Magic_5G', 'Edge_2021', 'Moto_G_5G_Plus', 'Edge_20', 'Edge_S', 'Edge_20_Pro"
-com.qti.sensormodule.truly_imx476.bin,108,"Red_Magic_5G', 'Galaxy_TabA_10.4_LTE', 'Galaxy_Tab_A7_Wifi', 'Xperia_1_II', 'Xperia_5_II', 'Redmi_Note_7_Pro"
-com.qti.sensormodule.semco_s5k3m5.bin,108,"Red_Magic_5G', 'OnePlus_7_Pro', 'Xperia_1_II', 'Xperia_5_II', 'OnePlus_8_Pro', 'OnePlus_7T', 'OnePlus_7T_Pro"
-aw882xx_pid_2113_acf.bin,110,"Moto_G52', 'Moto_G200', 'Edge_30', 'Edge_30_Fusion', 'Moto_G32', 'Moto_G_5G_2024', 'Moto_G82_5G', 'Edge_30_Neo"
-com.samsung.tuned.sony_imx616.bin,110,"Galaxy_S20_FE', 'Galaxy_A73_5G', 'Galaxy_A52_4G', 'Galaxy_A52s_5G', 'Galaxy_M52_5G', 'Galaxy_A71', 'Galaxy_A72"
-f_candy_water_weak.cube.rgb.bin,114,"Realme_10_Pro', 'Nord_CE2', 'OnePlus_9_Pro', 'Nord_N30', 'Nord_N20_5G', 'Realme_9_Pro', 'OnePlus_11_5G', 'Nord_200"
-f_fuji_strong.cube.rgb.bin,114,"Realme_10_Pro', 'Nord_CE2', 'OnePlus_9_Pro', 'Nord_N30', 'Nord_N20_5G', 'Realme_9_Pro', 'OnePlus_11_5G', 'Nord_200"
-skinLUTs12.bin,114,"Realme_10_Pro', 'Nord_CE2', 'OnePlus_9_Pro', 'Nord_N30', 'Nord_N20_5G', 'Realme_9_Pro', 'OnePlus_11_5G', 'Nord_200"
-com.qti.sensormodule.sunny_imx519.bin,121,"Red_Magic_5G', 'Galaxy_TabA_10.4_LTE', 'Galaxy_Tab_A7_Wifi', 'Xperia_1_II', 'Xperia_5_II', 'Redmi_Note_7_Pro', 'Shift_6MQ"
-com.qti.tuned.semco_s5k3m5.bin,128,"Red_Magic_5G', 'OnePlus_7_Pro', 'Xperia_1_II', 'Xperia_5_II', 'Redmi_Note_7_Pro', 'OnePlus_8_Pro', 'OnePlus_7T', 'OnePlus_7T_Pro"
-aw8697_rtp_lighthouse.bin,133,"OnePlus_7_Pro', 'OnePlus_7', 'OnePlus_9_Pro', 'OnePlus_8', 'OnePlus_8T', 'OnePlus_9R', 'OnePlus_8_Pro', 'OnePlus_7T', 'OnePlus_7T_Pro"
-systemdefault.bin,137,"Galaxy_Tab_S5e_Wifi', 'Xperia_XZ3', 'Xperia_XZ2_Compact', 'Xperia_XZ2_Premium', 'Xperia_XZ2', 'Mi_Mix_2S', 'Galaxy_Tab_S5e_LTE', 'Poco_F1"
-com.qti.tuned.semco_imx481.bin,149,"Red_Magic_5G', 'OnePlus_7_Pro', 'Xperia_1_II', 'Pixel_4A_5G', 'Pixel_5A', 'Xperia_5_II', 'Redmi_Note_7_Pro', 'Pixel_5', 'OnePlus_7T', 'OnePlus_7T_Pro"
-com.qti.sensormodule.semco_imx586.bin,182,"Red_Magic_5G', 'OnePlus_7_Pro', 'OnePlus_7', 'OnePlus_8', 'OnePlus_8T', 'Xperia_1_II', 'OnePlus_9R', 'Xperia_5_II', 'Redmi_Note_7_Pro', 'OnePlus_8_Pro', 'OnePlus_7T', 'OnePlus_7T_Pro"
-com.qti.tuned.semco_imx586.bin,182,"Red_Magic_5G', 'OnePlus_7_Pro', 'OnePlus_7', 'OnePlus_8', 'OnePlus_8T', 'Xperia_1_II', 'OnePlus_9R', 'Xperia_5_II', 'Redmi_Note_7_Pro', 'OnePlus_8_Pro', 'OnePlus_7T', 'OnePlus_7T_Pro"
-titan17x_usecases.bin,255,"G7_ThinQ', 'Galaxy_Tab_S5e_Wifi', 'Xperia_XZ3', 'Mi_9SE', 'OnePlus_6', 'Xperia_XZ2_Compact', 'Xperia_XZ2_Premium', 'Xperia_XZ2', 'Mi_CC9_Meitu', 'Red_Magic_Mars', 'OnePlus_6T', 'Axon_9_Pro', 'Velvet', 'Galaxy_Tab_S5e_LTE', 'V40', 'Mi_CC9', 'V35', 'Poco_F1"
-bm2n15.bin,318,"Realme_10_Pro', 'Phone_1', 'Edge_2021', 'Nord_CE2', 'Xperia_10_V', 'OnePlus_9_Pro', 'Moto_G200', 'Nord_N30', 'Nord_N20_5G', 'Edge_20', 'Edge_30', 'Edge_30_Fusion', 'Moto_G34_5G', 'Mi_11_5G', 'Realme_9_Pro', 'Moto_G84_5G', 'Xperia_10_IV', 'FP5', 'Moto_G_5G_2024', 'Moto_G82_5G', 'Edge_30_Neo', 'Nord_200', 'Xperia_5_III"
-bm2n14.bin,318,"Realme_10_Pro', 'Phone_1', 'Edge_2021', 'Nord_CE2', 'Xperia_10_V', 'OnePlus_9_Pro', 'Moto_G200', 'Nord_N30', 'Nord_N20_5G', 'Edge_20', 'Edge_30', 'Edge_30_Fusion', 'Moto_G34_5G', 'Mi_11_5G', 'Realme_9_Pro', 'Moto_G84_5G', 'Xperia_10_IV', 'FP5', 'Moto_G_5G_2024', 'Moto_G82_5G', 'Edge_30_Neo', 'Nord_200', 'Xperia_5_III"
-bm2n13.bin,318,"Realme_10_Pro', 'Phone_1', 'Edge_2021', 'Nord_CE2', 'Xperia_10_V', 'OnePlus_9_Pro', 'Moto_G200', 'Nord_N30', 'Nord_N20_5G', 'Edge_20', 'Edge_30', 'Edge_30_Fusion', 'Moto_G34_5G', 'Mi_11_5G', 'Realme_9_Pro', 'Moto_G84_5G', 'Xperia_10_IV', 'FP5', 'Moto_G_5G_2024', 'Moto_G82_5G', 'Edge_30_Neo', 'Nord_200', 'Xperia_5_III"
-unified_kbcs_32.bin,358,"Realme_10_Pro', 'Phone_1', 'Edge_2021', 'Nord_CE2', 'Xperia_10_V', 'OnePlus_9_Pro', 'Moto_G200', 'Nord_N30', 'Nord_N20_5G', 'Edge_20', 'Galaxy_A73_5G', 'Edge_30', 'Edge_30_Fusion', 'Moto_G34_5G', 'Realme_9_Pro', 'Moto_G84_5G', 'Galaxy_A52s_5G', 'Galaxy_M52_5G', 'Xperia_10_IV', 'FP5', 'Moto_G_5G_2024', 'Moto_G82_5G', 'Edge_30_Neo', 'Nord_200', 'Xperia_5_III"
-unified_ksqs.bin,358,"Realme_10_Pro', 'Phone_1', 'Edge_2021', 'Nord_CE2', 'Xperia_10_V', 'OnePlus_9_Pro', 'Moto_G200', 'Nord_N30', 'Nord_N20_5G', 'Edge_20', 'Galaxy_A73_5G', 'Edge_30', 'Edge_30_Fusion', 'Moto_G34_5G', 'Realme_9_Pro', 'Moto_G84_5G', 'Galaxy_A52s_5G', 'Galaxy_M52_5G', 'Xperia_10_IV', 'FP5', 'Moto_G_5G_2024', 'Moto_G82_5G', 'Edge_30_Neo', 'Nord_200', 'Xperia_5_III"
-unified_kbcs_64.bin,358,"Realme_10_Pro', 'Phone_1', 'Edge_2021', 'Nord_CE2', 'Xperia_10_V', 'OnePlus_9_Pro', 'Moto_G200', 'Nord_N30', 'Nord_N20_5G', 'Edge_20', 'Galaxy_A73_5G', 'Edge_30', 'Edge_30_Fusion', 'Moto_G34_5G', 'Realme_9_Pro', 'Moto_G84_5G', 'Galaxy_A52s_5G', 'Galaxy_M52_5G', 'Xperia_10_IV', 'FP5', 'Moto_G_5G_2024', 'Moto_G82_5G', 'Edge_30_Neo', 'Nord_200', 'Xperia_5_III"
-bm2n12.bin,358,"Realme_10_Pro', 'Phone_1', 'Edge_2021', 'Nord_CE2', 'Xperia_10_V', 'OnePlus_9_Pro', 'Moto_G200', 'Nord_N30', 'Nord_N20_5G', 'Edge_20', 'Galaxy_A73_5G', 'Edge_30', 'Edge_30_Fusion', 'Moto_G34_5G', 'Realme_9_Pro', 'Moto_G84_5G', 'Galaxy_A52s_5G', 'Galaxy_M52_5G', 'Xperia_10_IV', 'FP5', 'Moto_G_5G_2024', 'Moto_G82_5G', 'Edge_30_Neo', 'Nord_200', 'Xperia_5_III"
-bm2n08.bin,370,"Realme_10_Pro', 'Phone_1', 'Edge_2021', 'Nord_CE2', 'Xperia_10_V', 'OnePlus_9_Pro', 'Moto_G200', 'Nord_N30', 'Nord_N20_5G', 'Edge_20', 'Galaxy_A73_5G', 'Edge_30', 'Edge_30_Fusion', 'Moto_G34_5G', 'Mi_11_5G', 'Realme_9_Pro', 'Moto_G84_5G', 'Galaxy_A52s_5G', 'Galaxy_M52_5G', 'Xperia_10_IV', 'FP5', 'Moto_G_5G_2024', 'Moto_G82_5G', 'Edge_30_Neo', 'Nord_200', 'Xperia_5_III"
-com.qti.tuned.default.bin,1475,"G7_ThinQ', 'Red_Magic_5G', 'Mi_10_Pro', 'Redmi_Note_9_Pro', 'Galaxy_TabA_10.4_LTE', 'Poco_X3_NFC', 'Galaxy_Tab_A7_Wifi', 'Xperia_XZ3', 'Xperia_5_V', 'Phone_2', 'Galaxy_S20_FE', 'Phone_1', 'Edge_2021', 'Mi_12S_Ultra', 'Mi_9SE', 'Defy_2021', 'Moto_G52', 'Pixel_4A', 'Xperia_10_V', 'OnePlus_6', 'Mini_5G', 'Moto_G_5G_Plus', 'OnePlus_8', 'Moto_G_5G', 'OnePlus_8T', 'Xperia_1_II', 'Pixel_3XL', 'Moto_G200', 'Moto_E7_Plus', 'Poco_X3_Pro', 'Edge_20', 'OnePlus_9R', 'Moto_G9_Power', 'Galaxy_A73_5G', 'Pixel_4A_5G', 'Xperia_XZ2_Compact', 'Redmi_Note_10_Pro', 'Pixel_4XL', 'Mi_10T_5G', 'Xperia_XZ2_Premium', 'Moto_G9', 'Xperia_1_V', 'Pixel_3A_XL', 'Xperia_XZ2', 'Mi_13_Pro', 'Edge_30', 'Edge_S', 'Pixel_5A', 'Xperia_5_II', 'Edge_40_Pro', 'Edge_30_Fusion', 'Moto_G10', 'Redmi_Note_7_Pro', 'Mi_CC9_Meitu', 'Mi_11', 'Mi_Fold_2', 'Moto_G34_5G', 'Mi_11_5G', 'Redmi_K60_Pro', 'Red_Magic_Mars', 'Mi_8', 'Moto_G32', 'OnePlus_6T', 'OnePlus_8_Pro', 'Moto_G84_5G', 'Mi_10', 'Moto_G_Power', 'Galaxy_A52s_5G', 'Pixel_4', 'Pixel_5', 'Axon_9_Pro', 'Pixel_3', 'Mi_13', 'Mi_Mix_2S', 'Galaxy_M52_5G', 'Mi_10T', 'Shift_6MQ', 'Mi_10S', 'Pro_1X', 'Xperia_10_IV', 'FP5', 'Mi_8_Pro', 'Mi_12_Pro', 'Mi_12', 'Mi_12S_Pro', 'Moto_G_5G_2024', 'Velvet', 'Edge_20_Pro', 'Z18', 'Mi_8_Explorer', 'V40', 'ThinkPhone', 'Mi_CC9', 'Mi_11I', 'Mi_12T_Pro', 'Moto_G30', 'V35', 'Mi_Mix_3', 'Redmi_K20_Mi_9', 'Poco_F1', 'Moto_G82_5G', 'Poco_F3', 'Edge_30_Neo', 'Poco_F5_Pro', 'Poco_F5', 'Poco_F2_Pro', 'Poco_F4', 'Xperia_5_III"
-fdconfigpreviewlite.bin,1669,"FP4', 'G7_ThinQ', 'Realme_10_Pro', 'Red_Magic_5G', 'Mi_10_Pro', 'Redmi_Note_9_Pro', 'Galaxy_TabA_10.4_LTE', 'Poco_X3_NFC', 'Galaxy_Tab_A7_Wifi', 'Xperia_XZ3', 'Xperia_5_V', 'Phone_2', 'Galaxy_S20_FE', 'Phone_1', 'Edge_2021', 'Mi_12S_Ultra', 'OnePlus_7_Pro', 'Mi_9SE', 'Defy_2021', 'Nord_CE2', 'Moto_G52', 'Pixel_4A', 'Xperia_10_V', 'OnePlus_6', 'Mini_5G', 'OnePlus_7', 'Moto_G_5G_Plus', 'OnePlus_9_Pro', 'OnePlus_8', 'Moto_G_5G', 'OnePlus_8T', 'Xperia_1_II', 'Pixel_3XL', 'Moto_G200', 'Moto_E7_Plus', 'Nord_N30', 'Nord_N20_5G', 'Poco_X3_Pro', 'Edge_20', 'OnePlus_9R', 'Pixel_4A_5G', 'Xperia_XZ2_Compact', 'Redmi_Note_10_Pro', 'Pixel_4XL', 'Mi_10T_5G', 'Xperia_XZ2_Premium', 'Moto_G9', 'Xperia_1_V', 'Z6_Pro', 'Pixel_3A_XL', 'Xperia_XZ2', 'Mi_13_Pro', 'Edge_30', 'Edge_S', 'Pixel_5A', 'Xperia_5_II', 'Edge_40_Pro', 'Edge_30_Fusion', 'Moto_G10', 'Redmi_Note_7_Pro', 'Galaxy_Tab_S7_LTE', 'Phone2', 'Mi_CC9_Meitu', 'Mi_11', 'Mi_Fold_2', 'Moto_G34_5G', 'Mi_11_5G', 'Redmi_K60_Pro', 'Red_Magic_Mars', 'Mi_8', 'Realme_9_Pro', 'Moto_G32', 'OnePlus_6T', 'Z5_Pro_GT', 'OnePlus_8_Pro', 'Moto_G84_5G', 'Mi_10', 'Moto_G_Power', 'Pixel_4', 'Pixel_5', 'Galaxy_Tab_S7_Wifi', 'Axon_9_Pro', 'Pixel_3', 'Mi_13', 'Mi_Mix_2S', 'Mi_10T', 'Shift_6MQ', 'Mi_10S', 'Pro_1X', 'Xperia_10_IV', 'FP5', 'Mi_8_Pro', 'Mi_12_Pro', 'Mi_12', 'Mi_12S_Pro', 'Moto_G_5G_2024', 'Velvet', 'Edge_20_Pro', 'Z18', 'Mi_8_Explorer', 'V40', 'ThinkPhone', 'Mi_CC9', 'Mi_11I', 'Mi_12T_Pro', 'Moto_G30', 'V35', 'Mi_Mix_3', 'Redmi_K20_Mi_9', 'Poco_F1', 'Moto_G82_5G', 'Poco_F3', 'Edge_30_Neo', 'Poco_F5_Pro', 'Poco_F5', 'Poco_F2_Pro', 'Poco_F4', 'OnePlus_7T', 'OnePlus_7T_Pro', 'OnePlus_11_5G', 'Nord_200', 'Xperia_5_III"
-fdconfigvideolite.bin,1669,"FP4', 'G7_ThinQ', 'Realme_10_Pro', 'Red_Magic_5G', 'Mi_10_Pro', 'Redmi_Note_9_Pro', 'Galaxy_TabA_10.4_LTE', 'Poco_X3_NFC', 'Galaxy_Tab_A7_Wifi', 'Xperia_XZ3', 'Xperia_5_V', 'Phone_2', 'Galaxy_S20_FE', 'Phone_1', 'Edge_2021', 'Mi_12S_Ultra', 'OnePlus_7_Pro', 'Mi_9SE', 'Defy_2021', 'Nord_CE2', 'Moto_G52', 'Pixel_4A', 'Xperia_10_V', 'OnePlus_6', 'Mini_5G', 'OnePlus_7', 'Moto_G_5G_Plus', 'OnePlus_9_Pro', 'OnePlus_8', 'Moto_G_5G', 'OnePlus_8T', 'Xperia_1_II', 'Pixel_3XL', 'Moto_G200', 'Moto_E7_Plus', 'Nord_N30', 'Nord_N20_5G', 'Poco_X3_Pro', 'Edge_20', 'OnePlus_9R', 'Pixel_4A_5G', 'Xperia_XZ2_Compact', 'Redmi_Note_10_Pro', 'Pixel_4XL', 'Mi_10T_5G', 'Xperia_XZ2_Premium', 'Moto_G9', 'Xperia_1_V', 'Z6_Pro', 'Pixel_3A_XL', 'Xperia_XZ2', 'Mi_13_Pro', 'Edge_30', 'Edge_S', 'Pixel_5A', 'Xperia_5_II', 'Edge_40_Pro', 'Edge_30_Fusion', 'Moto_G10', 'Redmi_Note_7_Pro', 'Galaxy_Tab_S7_LTE', 'Phone2', 'Mi_CC9_Meitu', 'Mi_11', 'Mi_Fold_2', 'Moto_G34_5G', 'Mi_11_5G', 'Redmi_K60_Pro', 'Red_Magic_Mars', 'Mi_8', 'Realme_9_Pro', 'Moto_G32', 'OnePlus_6T', 'Z5_Pro_GT', 'OnePlus_8_Pro', 'Moto_G84_5G', 'Mi_10', 'Moto_G_Power', 'Pixel_4', 'Pixel_5', 'Galaxy_Tab_S7_Wifi', 'Axon_9_Pro', 'Pixel_3', 'Mi_13', 'Mi_Mix_2S', 'Mi_10T', 'Shift_6MQ', 'Mi_10S', 'Pro_1X', 'Xperia_10_IV', 'FP5', 'Mi_8_Pro', 'Mi_12_Pro', 'Mi_12', 'Mi_12S_Pro', 'Moto_G_5G_2024', 'Velvet', 'Edge_20_Pro', 'Z18', 'Mi_8_Explorer', 'V40', 'ThinkPhone', 'Mi_CC9', 'Mi_11I', 'Mi_12T_Pro', 'Moto_G30', 'V35', 'Mi_Mix_3', 'Redmi_K20_Mi_9', 'Poco_F1', 'Moto_G82_5G', 'Poco_F3', 'Edge_30_Neo', 'Poco_F5_Pro', 'Poco_F5', 'Poco_F2_Pro', 'Poco_F4', 'OnePlus_7T', 'OnePlus_7T_Pro', 'OnePlus_11_5G', 'Nord_200', 'Xperia_5_III"
-fdconfigvideo.bin,1669,"FP4', 'G7_ThinQ', 'Realme_10_Pro', 'Red_Magic_5G', 'Mi_10_Pro', 'Redmi_Note_9_Pro', 'Galaxy_TabA_10.4_LTE', 'Poco_X3_NFC', 'Galaxy_Tab_A7_Wifi', 'Xperia_XZ3', 'Xperia_5_V', 'Phone_2', 'Galaxy_S20_FE', 'Phone_1', 'Edge_2021', 'Mi_12S_Ultra', 'OnePlus_7_Pro', 'Mi_9SE', 'Defy_2021', 'Nord_CE2', 'Moto_G52', 'Pixel_4A', 'Xperia_10_V', 'OnePlus_6', 'Mini_5G', 'OnePlus_7', 'Moto_G_5G_Plus', 'OnePlus_9_Pro', 'OnePlus_8', 'Moto_G_5G', 'OnePlus_8T', 'Xperia_1_II', 'Pixel_3XL', 'Moto_G200', 'Moto_E7_Plus', 'Nord_N30', 'Nord_N20_5G', 'Poco_X3_Pro', 'Edge_20', 'OnePlus_9R', 'Pixel_4A_5G', 'Xperia_XZ2_Compact', 'Redmi_Note_10_Pro', 'Pixel_4XL', 'Mi_10T_5G', 'Xperia_XZ2_Premium', 'Moto_G9', 'Xperia_1_V', 'Z6_Pro', 'Pixel_3A_XL', 'Xperia_XZ2', 'Mi_13_Pro', 'Edge_30', 'Edge_S', 'Pixel_5A', 'Xperia_5_II', 'Edge_40_Pro', 'Edge_30_Fusion', 'Moto_G10', 'Redmi_Note_7_Pro', 'Galaxy_Tab_S7_LTE', 'Phone2', 'Mi_CC9_Meitu', 'Mi_11', 'Mi_Fold_2', 'Moto_G34_5G', 'Mi_11_5G', 'Redmi_K60_Pro', 'Red_Magic_Mars', 'Mi_8', 'Realme_9_Pro', 'Moto_G32', 'OnePlus_6T', 'Z5_Pro_GT', 'OnePlus_8_Pro', 'Moto_G84_5G', 'Mi_10', 'Moto_G_Power', 'Pixel_4', 'Pixel_5', 'Galaxy_Tab_S7_Wifi', 'Axon_9_Pro', 'Pixel_3', 'Mi_13', 'Mi_Mix_2S', 'Mi_10T', 'Shift_6MQ', 'Mi_10S', 'Pro_1X', 'Xperia_10_IV', 'FP5', 'Mi_8_Pro', 'Mi_12_Pro', 'Mi_12', 'Mi_12S_Pro', 'Moto_G_5G_2024', 'Velvet', 'Edge_20_Pro', 'Z18', 'Mi_8_Explorer', 'V40', 'ThinkPhone', 'Mi_CC9', 'Mi_11I', 'Mi_12T_Pro', 'Moto_G30', 'V35', 'Mi_Mix_3', 'Redmi_K20_Mi_9', 'Poco_F1', 'Moto_G82_5G', 'Poco_F3', 'Edge_30_Neo', 'Poco_F5_Pro', 'Poco_F5', 'Poco_F2_Pro', 'Poco_F4', 'OnePlus_7T', 'OnePlus_7T_Pro', 'OnePlus_11_5G', 'Nord_200', 'Xperia_5_III"
-fdconfigpreview.bin,1669,"FP4', 'G7_ThinQ', 'Realme_10_Pro', 'Red_Magic_5G', 'Mi_10_Pro', 'Redmi_Note_9_Pro', 'Galaxy_TabA_10.4_LTE', 'Poco_X3_NFC', 'Galaxy_Tab_A7_Wifi', 'Xperia_XZ3', 'Xperia_5_V', 'Phone_2', 'Galaxy_S20_FE', 'Phone_1', 'Edge_2021', 'Mi_12S_Ultra', 'OnePlus_7_Pro', 'Mi_9SE', 'Defy_2021', 'Nord_CE2', 'Moto_G52', 'Pixel_4A', 'Xperia_10_V', 'OnePlus_6', 'Mini_5G', 'OnePlus_7', 'Moto_G_5G_Plus', 'OnePlus_9_Pro', 'OnePlus_8', 'Moto_G_5G', 'OnePlus_8T', 'Xperia_1_II', 'Pixel_3XL', 'Moto_G200', 'Moto_E7_Plus', 'Nord_N30', 'Nord_N20_5G', 'Poco_X3_Pro', 'Edge_20', 'OnePlus_9R', 'Pixel_4A_5G', 'Xperia_XZ2_Compact', 'Redmi_Note_10_Pro', 'Pixel_4XL', 'Mi_10T_5G', 'Xperia_XZ2_Premium', 'Moto_G9', 'Xperia_1_V', 'Z6_Pro', 'Pixel_3A_XL', 'Xperia_XZ2', 'Mi_13_Pro', 'Edge_30', 'Edge_S', 'Pixel_5A', 'Xperia_5_II', 'Edge_40_Pro', 'Edge_30_Fusion', 'Moto_G10', 'Redmi_Note_7_Pro', 'Galaxy_Tab_S7_LTE', 'Phone2', 'Mi_CC9_Meitu', 'Mi_11', 'Mi_Fold_2', 'Moto_G34_5G', 'Mi_11_5G', 'Redmi_K60_Pro', 'Red_Magic_Mars', 'Mi_8', 'Realme_9_Pro', 'Moto_G32', 'OnePlus_6T', 'Z5_Pro_GT', 'OnePlus_8_Pro', 'Moto_G84_5G', 'Mi_10', 'Moto_G_Power', 'Pixel_4', 'Pixel_5', 'Galaxy_Tab_S7_Wifi', 'Axon_9_Pro', 'Pixel_3', 'Mi_13', 'Mi_Mix_2S', 'Mi_10T', 'Shift_6MQ', 'Mi_10S', 'Pro_1X', 'Xperia_10_IV', 'FP5', 'Mi_8_Pro', 'Mi_12_Pro', 'Mi_12', 'Mi_12S_Pro', 'Moto_G_5G_2024', 'Velvet', 'Edge_20_Pro', 'Z18', 'Mi_8_Explorer', 'V40', 'ThinkPhone', 'Mi_CC9', 'Mi_11I', 'Mi_12T_Pro', 'Moto_G30', 'V35', 'Mi_Mix_3', 'Redmi_K20_Mi_9', 'Poco_F1', 'Moto_G82_5G', 'Poco_F3', 'Edge_30_Neo', 'Poco_F5_Pro', 'Poco_F5', 'Poco_F2_Pro', 'Poco_F4', 'OnePlus_7T', 'OnePlus_7T_Pro', 'OnePlus_11_5G', 'Nord_200', 'Xperia_5_III"
+file,count,devices
+anc_1080p.bin,1,Redmi_K60_Pro
+anc_4k.bin,1,Redmi_K60_Pro
+anc_cn.bin,1,Mi_12T_Pro
+anc_eu.bin,1,Mi_12T_Pro
+anc_front.bin,1,FP5
+anc_main.bin,1,FP5
+anc_wide.bin,1,FP5
+aw8624_rtp_lighthouse.bin,1,Moto_G_5G
+aw8624_rtp_silk.bin,1,Moto_G_5G
+aw869x_rtp_Brilliant_Times.bin,1,Moto_G7
+aw869x_rtp_Modular.bin,1,Moto_G7
+aw869x_rtp_Organ_Dub.bin,1,Moto_G7
+aw87xxx_acf.bin,1,Moto_G84_5G
+aw882xx_pid_2032_acf.bin,1,Redmi_Note_10_Pro
+com.google.tuned.b4s4_imx355_s.bin,1,Pixel_3A_XL
+com.google.tuned.b4s4_imx355.bin,1,Pixel_3A_XL
+com.google.tuned.b4s4_imx363.bin,1,Pixel_3A_XL
+com.google.tuned.lito1_imx355.bin,1,Pixel_4A_5G
+com.google.tuned.lito1_imx363.bin,1,Pixel_4A_5G
+com.google.tuned.lito1_imx481.bin,1,Pixel_4A_5G
+com.google.tuned.lito2_imx355.bin,1,Pixel_5
+com.google.tuned.lito2_imx363.bin,1,Pixel_5
+com.google.tuned.lito2_imx481.bin,1,Pixel_5
+com.google.tuned.lito3_imx355.bin,1,Pixel_5A
+com.google.tuned.lito3_imx363.bin,1,Pixel_5A
+com.google.tuned.lito3_imx481.bin,1,Pixel_5A
+com.google.tuned.s5_imx355.bin,1,Pixel_4A
+com.google.tuned.s5_imx363.bin,1,Pixel_4A
+com.qti.sensormodule_mtf.fp5_imx800.bin,1,FP5
+com.qti.sensormodule_mtf.fp5_imx858_marco.bin,1,FP5
+com.qti.sensormodule_mtf.fp5_imx858.bin,1,FP5
+com.qti.sensormodule_mtf.fp5_s5kjn1.bin,1,FP5
+com.qti.sensormodule.abra_qtech_imx471_front.bin,1,Phone_1
+com.qti.sensormodule.abra_qtech_imx766_wide.bin,1,Phone_1
+com.qti.sensormodule.abra_qtech_s5kjn1_uw.bin,1,Phone_1
+com.qti.sensormodule.abra_truly_imx471_front.bin,1,Phone_1
+com.qti.sensormodule.agenda_qtech_imx615_front.bin,1,Phone_2
+com.qti.sensormodule.agenda_qtech_imx890_wide.bin,1,Phone_2
+com.qti.sensormodule.agenda_qtech_s5kjn1_uw.bin,1,Phone_2
+com.qti.sensormodule.alioth_ofilm_hi556_macro.bin,1,Poco_F3
+com.qti.sensormodule.alioth_ofilm_imx355_ultra.bin,1,Poco_F3
+com.qti.sensormodule.alioth_ofilm_imx582_wide.bin,1,Poco_F3
+com.qti.sensormodule.alioth_ofilm_s5k3t2_front.bin,1,Poco_F3
+com.qti.sensormodule.alioth_sunny_imx355_ultra.bin,1,Poco_F3
+com.qti.sensormodule.alioth_sunny_imx582_wide.bin,1,Poco_F3
+com.qti.sensormodule.alioth_sunny_s5k3t2_front.bin,1,Poco_F3
+com.qti.sensormodule.alioth_sunny_s5k5e9yx04_macro.bin,1,Poco_F3
+com.qti.sensormodule.altek_imx577.bin,1,Redmi_Note_7_Pro
+com.qti.sensormodule.altek1_imx577.bin,1,Redmi_Note_7_Pro
+com.qti.sensormodule.altek2_imx577.bin,1,Redmi_Note_7_Pro
+com.qti.sensormodule.apollo_ofilm_ov13b10_ultra_wide.bin,1,Mi_10T
+com.qti.sensormodule.apollo_ofilm_s5k3t2_front.bin,1,Mi_10T
+com.qti.sensormodule.apollo_ofilm_s5k5e9yx04_macro.bin,1,Mi_10T
+com.qti.sensormodule.apollo_semco_s5khmx_wide_global.bin,1,Mi_10T
+com.qti.sensormodule.apollo_sunny_imx682_wide_cn.bin,1,Mi_10T
+com.qti.sensormodule.chicony_s5k3h7.bin,1,Phone2
+com.qti.sensormodule.cmi_ofilm_s5k3t2.bin,1,Mi_10_Pro
+com.qti.sensormodule.cmi_semco_ov08a10_tele4x_v1.bin,1,Mi_10_Pro
+com.qti.sensormodule.cmi_semco_s5k2l7_tele2x.bin,1,Mi_10_Pro
+com.qti.sensormodule.cmi_semco_s5khmx_wide_v1.bin,1,Mi_10_Pro
+com.qti.sensormodule.cmi_semco_s5khmx_wide.bin,1,Mi_10_Pro
+com.qti.sensormodule.cmi_sunny_imx350_ultra_wide.bin,1,Mi_10_Pro
+com.qti.sensormodule.cupid_ofilm_ov32b40_front.bin,1,Mi_12
+com.qti.sensormodule.cupid_semco_imx700_wide.bin,1,Mi_12
+com.qti.sensormodule.cupid_semco_imx707_wide.bin,1,Mi_12
+com.qti.sensormodule.cupid_semco_imx766_wide.bin,1,Mi_12
+com.qti.sensormodule.cupid_sunny_ov13b10_ultra.bin,1,Mi_12
+com.qti.sensormodule.cupid_sunny_s5k5e9_macro.bin,1,Mi_12
+com.qti.sensormodule.davinci_luxvisions_imx582.bin,1,Redmi_K20_Mi_9
+com.qti.sensormodule.davinci_luxvisions_ov8856.bin,1,Redmi_K20_Mi_9
+com.qti.sensormodule.davinci_luxvisions_s5k3l6.bin,1,Redmi_K20_Mi_9
+com.qti.sensormodule.davinci_ofilm_imx582.bin,1,Redmi_K20_Mi_9
+com.qti.sensormodule.davinci_ofilm_ov8856.bin,1,Redmi_K20_Mi_9
+com.qti.sensormodule.davinci_ofilm_s5k3l6.bin,1,Redmi_K20_Mi_9
+com.qti.sensormodule.davinci_sunny_s5k3t2.bin,1,Redmi_K20_Mi_9
+com.qti.sensormodule.diting_ofilm_gc02m1_macro.bin,1,Mi_12T_Pro
+com.qti.sensormodule.diting_semco_s5khp1_wide.bin,1,Mi_12T_Pro
+com.qti.sensormodule.diting_sunny_imx596_front.bin,1,Mi_12T_Pro
+com.qti.sensormodule.diting_sunny_s5k4h7_ultra.bin,1,Mi_12T_Pro
+com.qti.sensormodule.diting_sunny_s5khm6_wide.bin,1,Mi_12T_Pro
+com.qti.sensormodule.fp5_imx758.bin,1,FP5
+com.qti.sensormodule.fp5_imx800.bin,1,FP5
+com.qti.sensormodule.fp5_imx858_marco.bin,1,FP5
+com.qti.sensormodule.fp5_imx858.bin,1,FP5
+com.qti.sensormodule.fp5_s5kjn1.bin,1,FP5
+com.qti.sensormodule.fuxi_ofilm_ov13b10_ultra.bin,1,Mi_13
+com.qti.sensormodule.fuxi_semco_imx800_wide.bin,1,Mi_13
+com.qti.sensormodule.fuxi_semco_s5k3k1_tele_ii.bin,1,Mi_13
+com.qti.sensormodule.fuxi_semco_s5k3k1_tele.bin,1,Mi_13
+com.qti.sensormodule.fuxi_sunny_imx800_wide_ii.bin,1,Mi_13
+com.qti.sensormodule.fuxi_sunny_ov32c_front.bin,1,Mi_13
+com.qti.sensormodule.gc02m1_aw36515.bin,1,Nord_N20_5G
+com.qti.sensormodule.gc02m1_sy7806e.bin,1,Nord_N20_5G
+com.qti.sensormodule.gcoreinc_gc5035.bin,1,OnePlus_7
+com.qti.sensormodule.hawkeye_semco_ov48c_wide.bin,1,Mi_10_Pro
+com.qti.sensormodule.haydn_ofilm_imx355_ultra.bin,1,Mi_11I
+com.qti.sensormodule.haydn_sunny_imx686_wide.bin,1,Mi_11I
+com.qti.sensormodule.haydn_sunny_s5k3t2_front.bin,1,Mi_11I
+com.qti.sensormodule.haydn_sunny_s5k5e9yx04_macro.bin,1,Mi_11I
+com.qti.sensormodule.haydn_sunny_s5khm2_wide.bin,1,Mi_11I
+com.qti.sensormodule.hi1634.bin,1,Velvet
+com.qti.sensormodule.imx582_sma.bin,1,FP4
+com.qti.sensormodule.imx582.bin,1,FP4
+com.qti.sensormodule.imx586_II.bin,1,Mi_9SE
+com.qti.sensormodule.imx586.bin,1,Mi_9SE
+com.qti.sensormodule.j20c_aac_gc02m1b_depth.bin,1,Poco_X3_NFC
+com.qti.sensormodule.j20c_aac_hi1337_ultra.bin,1,Poco_X3_NFC
+com.qti.sensormodule.j20c_aac_hi259_macro.bin,1,Poco_X3_NFC
+com.qti.sensormodule.j20c_ofilm_hi259_macro.bin,1,Poco_X3_NFC
+com.qti.sensormodule.j20c_ofilm_imx682_ver2_wide.bin,1,Poco_X3_NFC
+com.qti.sensormodule.j20c_ofilm_imx682_wide.bin,1,Poco_X3_NFC
+com.qti.sensormodule.j20c_ofilm_ov02b1b_depth.bin,1,Poco_X3_NFC
+com.qti.sensormodule.j20c_ofilm_s5k3t2_front.bin,1,Poco_X3_NFC
+com.qti.sensormodule.j20c_sunny_hi1337_ultra.bin,1,Poco_X3_NFC
+com.qti.sensormodule.j20c_sunny_imx682_ver2_wide.bin,1,Poco_X3_NFC
+com.qti.sensormodule.j20c_sunny_imx682_wide.bin,1,Poco_X3_NFC
+com.qti.sensormodule.j20c_sunny_s5k3t2_front.bin,1,Poco_X3_NFC
+com.qti.sensormodule.lce_hi847.bin,1,Xperia_10_V
+com.qti.sensormodule.lce_imx582.bin,1,Pro_1X
+com.qti.sensormodule.lemonadep.holitech_gc02m1b.bin,1,OnePlus_9_Pro
+com.qti.sensormodule.lemonadep.qtech_ov08a10.bin,1,OnePlus_9_Pro
+com.qti.sensormodule.lemonadep.semco_imx789_MP.bin,1,OnePlus_9_Pro
+com.qti.sensormodule.lemonadep.semco_imx789.bin,1,OnePlus_9_Pro
+com.qti.sensormodule.lemonadep.sunny_imx766_ak7375c.bin,1,OnePlus_9_Pro
+com.qti.sensormodule.lemonadep.sunny_imx766_MP.bin,1,OnePlus_9_Pro
+com.qti.sensormodule.lemonadep.sunny_imx766.bin,1,OnePlus_9_Pro
+com.qti.sensormodule.lemonadep.truly_imx471.bin,1,OnePlus_9_Pro
+com.qti.sensormodule.lisa_ofilm_imx355_ultra.bin,1,Mi_11
+com.qti.sensormodule.lisa_ofilm_s5k5e9yx04_macro.bin,1,Mi_11
+com.qti.sensormodule.lisa_ofilm_s5kgw3_wide.bin,1,Mi_11
+com.qti.sensormodule.lisa_semco_s5kgw3_wide.bin,1,Mi_11
+com.qti.sensormodule.lisa_sunny_s5k3t2_front.bin,1,Mi_11
+com.qti.sensormodule.lisa_sunny_s5k5e9yx04_macro.bin,1,Mi_11
+com.qti.sensormodule.liteon_imx318.bin,1,Redmi_Note_7_Pro
+com.qti.sensormodule.liteon_imx333.bin,1,Mi_8
+com.qti.sensormodule.liteon_imx351.bin,1,Phone2
+com.qti.sensormodule.liteon_max7366_6dof.bin,1,Redmi_Note_7_Pro
+com.qti.sensormodule.liteon_max7366_eyetrack.bin,1,Redmi_Note_7_Pro
+com.qti.sensormodule.liteon_max7366_ov6211.bin,1,Redmi_Note_7_Pro
+com.qti.sensormodule.liteon_max7366_ov9282.bin,1,Redmi_Note_7_Pro
+com.qti.sensormodule.liteon_s5k3m3sn03.bin,1,Mi_8
+com.qti.sensormodule.lmi_ofilm_gc02m1_depth.bin,1,Poco_F2_Pro
+com.qti.sensormodule.lmi_sunny_imx686_wide_mp_st.bin,1,Poco_F2_Pro
+com.qti.sensormodule.lmi_sunny_imx686_wide_mp.bin,1,Poco_F2_Pro
+com.qti.sensormodule.lmi_sunny_imx686_wide_st.bin,1,Poco_F2_Pro
+com.qti.sensormodule.lmi_sunny_imx686_wide.bin,1,Poco_F2_Pro
+com.qti.sensormodule.lmi_sunny_ov08a10_tele_lc124.bin,1,Poco_F2_Pro
+com.qti.sensormodule.lmi_sunny_ov08a10_tele.bin,1,Poco_F2_Pro
+com.qti.sensormodule.lmi_sunny_ov13b10_ultra.bin,1,Poco_F2_Pro
+com.qti.sensormodule.lmi_sunny_s5k3t2_front.bin,1,Poco_F2_Pro
+com.qti.sensormodule.lmi_sunny_s5k5e9yx04_macro.bin,1,Poco_F2_Pro
+com.qti.sensormodule.marble_ofilm_gc02m1_macro_i.bin,1,Poco_F5
+com.qti.sensormodule.marble_ofilm_imx355_ultra_i.bin,1,Poco_F5
+com.qti.sensormodule.marble_ofilm_ov64b40_wide_i.bin,1,Poco_F5
+com.qti.sensormodule.marble_sunny_s5k3p9sp04_front_i.bin,1,Poco_F5
+com.qti.sensormodule.metric_imx363_lito1.bin,1,Pixel_4A_5G
+com.qti.sensormodule.metric_imx363_lito2.bin,1,Pixel_5
+com.qti.sensormodule.metric_imx363_lito3.bin,1,Pixel_5A
+com.qti.sensormodule.metric_imx481_lito1.bin,1,Pixel_4A_5G
+com.qti.sensormodule.metric_imx481_lito2.bin,1,Pixel_5
+com.qti.sensormodule.metric_imx481_lito3.bin,1,Pixel_5A
+com.qti.sensormodule.mondrian_aac_ov16a1q_front_ii.bin,1,Poco_F5_Pro
+com.qti.sensormodule.mondrian_aac_ov64b40_wide_ii.bin,1,Poco_F5_Pro
+com.qti.sensormodule.mondrian_ofilm_ov08d10_ultra_i.bin,1,Poco_F5_Pro
+com.qti.sensormodule.mondrian_ofilm_ov16a1q_front_i.bin,1,Poco_F5_Pro
+com.qti.sensormodule.mondrian_sunny_ov02b10_macro_i.bin,1,Poco_F5_Pro
+com.qti.sensormodule.mondrian_sunny_ov08d10_ultra_ii.bin,1,Poco_F5_Pro
+com.qti.sensormodule.mondrian_sunny_ov64b40_wide_i.bin,1,Poco_F5_Pro
+com.qti.sensormodule.mot_bangkk_ov16a1q_ofilm.bin,1,Moto_G84_5G
+com.qti.sensormodule.mot_bangkk_s5k4h7_qtech.bin,1,Moto_G84_5G
+com.qti.sensormodule.mot_bangkk_s5kgn9_ak7377.bin,1,Moto_G84_5G
+com.qti.sensormodule.mot_bangkk_s5kgn9_ofilm.bin,1,Moto_G84_5G
+com.qti.sensormodule.mot_berlin_ov08a10_qtech.bin,1,Edge_20
+com.qti.sensormodule.mot_berlin_ov16a10_qtech.bin,1,Edge_20
+com.qti.sensormodule.mot_berlin_ov32b40_qtech.bin,1,Edge_20
+com.qti.sensormodule.mot_berlin_s5khm2_qtech.bin,1,Edge_20
+com.qti.sensormodule.mot_berlna_ov02b1b_sunwin.bin,1,Edge_2021
+com.qti.sensormodule.mot_berlna_ov32b40_qtech.bin,1,Edge_2021
+com.qti.sensormodule.mot_berlna_s5k4h7_qtech.bin,1,Edge_2021
+com.qti.sensormodule.mot_berlna_s5khm2_qtech.bin,1,Edge_2021
+com.qti.sensormodule.mot_borneo_ov02b10_ofilm.bin,1,Moto_G_Power
+com.qti.sensormodule.mot_borneo_ov02b1b_ofilm.bin,1,Moto_G_Power
+com.qti.sensormodule.mot_borneo_s5k4h7_ofilm.bin,1,Moto_G_Power
+com.qti.sensormodule.mot_borneo_s5kgm1st_ofilm.bin,1,Moto_G_Power
+com.qti.sensormodule.mot_bronco_gc02m1b_tsp.bin,1,ThinkPhone
+com.qti.sensormodule.mot_bronco_hi1336_qtech.bin,1,ThinkPhone
+com.qti.sensormodule.mot_bronco_ov32b40_qtech.bin,1,ThinkPhone
+com.qti.sensormodule.mot_bronco_ov50a_sunny.bin,1,ThinkPhone
+com.qti.sensormodule.mot_capri_gc02m1_union.bin,1,Moto_G10
+com.qti.sensormodule.mot_capri_ov02b10_ofilm.bin,1,Moto_G10
+com.qti.sensormodule.mot_capri_ov02b1b.bin,1,Moto_G10
+com.qti.sensormodule.mot_capri_ov8856_ofilm.bin,1,Moto_G10
+com.qti.sensormodule.mot_capri_s5k4h7_front_ofilm.bin,1,Moto_G10
+com.qti.sensormodule.mot_capri_s5k4h7_ofilm.bin,1,Moto_G10
+com.qti.sensormodule.mot_capri_s5kgm1st_ofilm.bin,1,Moto_G10
+com.qti.sensormodule.mot_caprip_gc02m1_union.bin,1,Moto_G30
+com.qti.sensormodule.mot_caprip_ov02b10_cxt.bin,1,Moto_G30
+com.qti.sensormodule.mot_caprip_ov02b1b.bin,1,Moto_G30
+com.qti.sensormodule.mot_caprip_ov64b_ofilm.bin,1,Moto_G30
+com.qti.sensormodule.mot_caprip_ov8856_ofilm.bin,1,Moto_G30
+com.qti.sensormodule.mot_caprip_s5k3l6_ofilm.bin,1,Moto_G30
+com.qti.sensormodule.mot_caprip_s5k4h7_ofilm.bin,1,Moto_G30
+com.qti.sensormodule.mot_cebu_ov02b10_ofilm.bin,1,Moto_G9_Power
+com.qti.sensormodule.mot_cebu_ov02b1b_holitech.bin,1,Moto_G9_Power
+com.qti.sensormodule.mot_cebu_ov16a1q_qtech.bin,1,Moto_G9_Power
+com.qti.sensormodule.mot_cebu_ov64b_ofilm_evt.bin,1,Moto_G9_Power
+com.qti.sensormodule.mot_cebu_ov64b_ofilm.bin,1,Moto_G9_Power
+com.qti.sensormodule.mot_cebu_s5k4h7_ofilm.bin,1,Moto_G9_Power
+com.qti.sensormodule.mot_devon_hi1634q_ofilm.bin,1,Moto_G32
+com.qti.sensormodule.mot_devon_ov02b10_ofilm.bin,1,Moto_G32
+com.qti.sensormodule.mot_devon_ov02d10_sunwin.bin,1,Moto_G32
+com.qti.sensormodule.mot_devon_s5k4h7_ofilm.bin,1,Moto_G32
+com.qti.sensormodule.mot_devon_s5kjn1_qtech.bin,1,Moto_G32
+com.qti.sensormodule.mot_dubai_gc02m1b_tsp.bin,1,Edge_30
+com.qti.sensormodule.mot_dubai_ov32b40_ofilm.bin,1,Edge_30
+com.qti.sensormodule.mot_dubai_ov50a_sunny.bin,1,Edge_30
+com.qti.sensormodule.mot_dubai_s5kjn1_qtech.bin,1,Edge_30
+com.qti.sensormodule.mot_fogo_s5k4h7_sunny.bin,1,Moto_G_5G_2024
+com.qti.sensormodule.mot_fogo_s5kjns_qtech.bin,1,Moto_G_5G_2024
+com.qti.sensormodule.mot_fogo_sc202acs_sunny.bin,1,Moto_G_5G_2024
+com.qti.sensormodule.mot_fogor_s5kjns_qtech.bin,1,Moto_G34_5G
+com.qti.sensormodule.mot_fogor_sc202acs_sunny.bin,1,Moto_G34_5G
+com.qti.sensormodule.mot_fogos_ov16a1q_ofilm.bin,1,Moto_G34_5G
+com.qti.sensormodule.mot_fogos_s5k3p9_qtech.bin,1,Moto_G34_5G
+com.qti.sensormodule.mot_guam_ov02b1b_ofilm.bin,1,Moto_E7_Plus
+com.qti.sensormodule.mot_guam_s5k3l6_ofilm.bin,1,Moto_E7_Plus
+com.qti.sensormodule.mot_guam_s5k4h7_ofilm.bin,1,Moto_E7_Plus
+com.qti.sensormodule.mot_guam_s5kgm1st_ofilm.bin,1,Moto_E7_Plus
+com.qti.sensormodule.mot_kiev_ov02b10_ofilm.bin,1,Moto_G_5G
+com.qti.sensormodule.mot_kiev_ov16a1q_ofilm.bin,1,Moto_G_5G
+com.qti.sensormodule.mot_kiev_s5k4h7_rear.bin,1,Moto_G_5G
+com.qti.sensormodule.mot_kiev_s5kgm1st_ofilm.bin,1,Moto_G_5G
+com.qti.sensormodule.mot_miami_hi1336_ofilm.bin,1,Edge_30_Neo
+com.qti.sensormodule.mot_miami_ov32b40_qtech.bin,1,Edge_30_Neo
+com.qti.sensormodule.mot_miami_ov32c4c_qtech.bin,1,Edge_30_Neo
+com.qti.sensormodule.mot_miami_s5kgw3_qtech.bin,1,Edge_30_Neo
+com.qti.sensormodule.mot_nairo_ov02b1b_ofilm.bin,1,Moto_G_5G_Plus
+com.qti.sensormodule.mot_nairo_ov16a1q_ofilm.bin,1,Moto_G_5G_Plus
+com.qti.sensormodule.mot_nairo_ov2180_ofilm.bin,1,Moto_G_5G_Plus
+com.qti.sensormodule.mot_nairo_s5k4h7_front.bin,1,Moto_G_5G_Plus
+com.qti.sensormodule.mot_nairo_s5k4h7_rear.bin,1,Moto_G_5G_Plus
+com.qti.sensormodule.mot_nairo_s5k5e9_ofilm_main_flash.bin,1,Moto_G_5G_Plus
+com.qti.sensormodule.mot_nairo_s5k5e9_ofilm.bin,1,Moto_G_5G_Plus
+com.qti.sensormodule.mot_nairo_s5kgm1sp_ofilm.bin,1,Moto_G_5G_Plus
+com.qti.sensormodule.mot_nio_ov02b1b.bin,1,Edge_S
+com.qti.sensormodule.mot_nio_ov16a10.bin,1,Edge_S
+com.qti.sensormodule.mot_nio_ov16a1q.bin,1,Edge_S
+com.qti.sensormodule.mot_nio_ov64b.bin,1,Edge_S
+com.qti.sensormodule.mot_nio_s5k4h7_front.bin,1,Edge_S
+com.qti.sensormodule.mot_pstar_ov08a10.bin,1,Edge_20_Pro
+com.qti.sensormodule.mot_pstar_ov16a10.bin,1,Edge_20_Pro
+com.qti.sensormodule.mot_pstar_ov16a1q.bin,1,Edge_20_Pro
+com.qti.sensormodule.mot_pstar_ov32b.bin,1,Edge_20_Pro
+com.qti.sensormodule.mot_pstar_s5khm2.bin,1,Edge_20_Pro
+com.qti.sensormodule.mot_rhode_gc02m1_sunwin.bin,1,Moto_G52
+com.qti.sensormodule.mot_rhode_ov16a1q_ofilm.bin,1,Moto_G52
+com.qti.sensormodule.mot_rhode_s5k4h7_ofilm.bin,1,Moto_G52
+com.qti.sensormodule.mot_rhode_s5kjn1_qtech.bin,1,Moto_G52
+com.qti.sensormodule.mot_rhodep_gc02m1_sunwin.bin,1,Moto_G82_5G
+com.qti.sensormodule.mot_rhodep_ov16a1q_ofilm.bin,1,Moto_G82_5G
+com.qti.sensormodule.mot_rhodep_s5k4h7_qtech_ff.bin,1,Moto_G82_5G
+com.qti.sensormodule.mot_rhodep_s5kjn1_qtech.bin,1,Moto_G82_5G
+com.qti.sensormodule.mot_rhodep_s5kjn1_sunny.bin,1,Moto_G82_5G
+com.qti.sensormodule.mot_rtwo_imx663_sunny.bin,1,Edge_40_Pro
+com.qti.sensormodule.mot_rtwo_ov50a_qtech.bin,1,Edge_40_Pro
+com.qti.sensormodule.mot_rtwo_ov60a_qtech.bin,1,Edge_40_Pro
+com.qti.sensormodule.mot_rtwo_s5kjn1_qtech.bin,1,Edge_40_Pro
+com.qti.sensormodule.mot_tundra_gc02m1b_tsp.bin,1,Edge_30_Fusion
+com.qti.sensormodule.mot_tundra_hi1336_ofilm.bin,1,Edge_30_Fusion
+com.qti.sensormodule.mot_tundra_ov50a_sunny.bin,1,Edge_30_Fusion
+com.qti.sensormodule.mot_tundra_s5kgd2_ofilm.bin,1,Edge_30_Fusion
+com.qti.sensormodule.mot_xpeng_hi1336_qtech.bin,1,Moto_G200
+com.qti.sensormodule.mot_xpeng_ov02b1b_sunwin.bin,1,Moto_G200
+com.qti.sensormodule.mot_xpeng_ov16a1q_qtech.bin,1,Moto_G200
+com.qti.sensormodule.mot_xpeng_s5khm2_qtech.bin,1,Moto_G200
+com.qti.sensormodule.mot_xpeng_s5khm2sd03_qtech.bin,1,Moto_G200
+com.qti.sensormodule.munch_aac_ov8856_ultra.bin,1,Poco_F4
+com.qti.sensormodule.munch_ofilm_gc02m1_macro.bin,1,Poco_F4
+com.qti.sensormodule.munch_ofilm_imx596_front.bin,1,Poco_F4
+com.qti.sensormodule.munch_sunny_gc02m1_macro.bin,1,Poco_F4
+com.qti.sensormodule.munch_sunny_imx596_front.bin,1,Poco_F4
+com.qti.sensormodule.munch_sunny_ov64b40_wide.bin,1,Poco_F4
+com.qti.sensormodule.munch_sunny_ov8856_ultra.bin,1,Poco_F4
+com.qti.sensormodule.nubia_imx519.bin,1,Z18
+com.qti.sensormodule.nubia_nx619_imx519.bin,1,Red_Magic_Mars
+com.qti.sensormodule.nubia_nx619_ov8856.bin,1,Red_Magic_Mars
+com.qti.sensormodule.nubia_ov8856.bin,1,Z18
+com.qti.sensormodule.nuwa_ofilm_s5kjn1_tele.bin,1,Mi_13_Pro
+com.qti.sensormodule.nuwa_ofilm_s5kjn1_ultra.bin,1,Mi_13_Pro
+com.qti.sensormodule.nuwa_semco_imx989_wide.bin,1,Mi_13_Pro
+com.qti.sensormodule.nuwa_sunny_ov32c_front.bin,1,Mi_13_Pro
+com.qti.sensormodule.nx659j_fa95_imx686.bin,1,Red_Magic_5G
+com.qti.sensormodule.nx659j_front_sensor.bin,1,Red_Magic_5G
+com.qti.sensormodule.nx659j_imx582.bin,1,Red_Magic_5G
+com.qti.sensormodule.nx659j_imx686.bin,1,Red_Magic_5G
+com.qti.sensormodule.nx659j_mp_imx686.bin,1,Red_Magic_5G
+com.qti.sensormodule.nx659j_ov02a10.bin,1,Red_Magic_5G
+com.qti.sensormodule.nx659j_rear_aux_wide.bin,1,Red_Magic_5G
+com.qti.sensormodule.nx659j_s5k3t2.bin,1,Red_Magic_5G
+com.qti.sensormodule.odin_hlt_gc02m1b_mono.bin,1,Nord_200
+com.qti.sensormodule.odin_jk_ov02b10_macro.bin,1,Nord_200
+com.qti.sensormodule.odin_qt_ov13b10_rear.bin,1,Nord_200
+com.qti.sensormodule.ofilm_gc02m1_filter.bin,1,Redmi_Note_9_Pro
+com.qti.sensormodule.ofilm_gc02m1.bin,1,Redmi_Note_9_Pro
+com.qti.sensormodule.ofilm_imx376.bin,1,Redmi_Note_7_Pro
+com.qti.sensormodule.ofilm_imx481_no_otp.bin,1,OnePlus_7T
+com.qti.sensormodule.ofilm_imx481_SFK.bin,1,OnePlus_8
+com.qti.sensormodule.ofilm_imx481_z_865_t0.bin,1,OnePlus_7T
+com.qti.sensormodule.ofilm_imx519.bin,1,Z5_Pro_GT
+com.qti.sensormodule.ofilm_imx576.bin,1,Z5_Pro_GT
+com.qti.sensormodule.ofilm_imx586_no_otp.bin,1,OnePlus_7T
+com.qti.sensormodule.ofilm_ov02c20.bin,1,Z6_Pro
+com.qti.sensormodule.ofilm_ov12a10_front.bin,1,Redmi_Note_7_Pro
+com.qti.sensormodule.ofilm_ov12a10.bin,1,Redmi_Note_7_Pro
+com.qti.sensormodule.ofilm_ov13855.bin,1,Redmi_Note_7_Pro
+com.qti.sensormodule.ofilm_ov13880.bin,1,Redmi_Note_7_Pro
+com.qti.sensormodule.ofilm_ov16885.bin,1,Z6_Pro
+com.qti.sensormodule.ofilm_ov16a1q.bin,1,Redmi_Note_9_Pro
+com.qti.sensormodule.ofilm_ov2180.bin,1,Redmi_Note_9_Pro
+com.qti.sensormodule.ofilm_ov8356.bin,1,Z5_Pro_GT
+com.qti.sensormodule.ofilm_s5k3m5_no_otp.bin,1,OnePlus_7T
+com.qti.sensormodule.ofilm_s5k3p9sx.bin,1,Z5_Pro_GT
+com.qti.sensormodule.ofilm_s5k3t1.bin,1,Poco_F1
+com.qti.sensormodule.ofilm_s5k5e8.bin,1,Redmi_Note_7_Pro
+com.qti.sensormodule.ofilm_s5k5e9.bin,1,Redmi_Note_9_Pro
+com.qti.sensormodule.ofilm_s5kgd1.bin,1,Z6_Pro
+com.qti.sensormodule.ofilm_s5kgm1.bin,1,Z6_Pro
+com.qti.sensormodule.ofilm_s5kgm2.bin,1,Redmi_Note_9_Pro
+com.qti.sensormodule.ofilm_s5kgw1_mirrorflip.bin,1,Redmi_Note_9_Pro
+com.qti.sensormodule.ofilm_s5kgw1.bin,1,Redmi_Note_9_Pro
+com.qti.sensormodule.ofilm_s5khm2.bin,1,Mi_10T_5G
+com.qti.sensormodule.ov02a10.bin,1,Mi_Mix_3
+com.qti.sensormodule.ov02b10_macro.bin,1,Nord_N30
+com.qti.sensormodule.ov02b1b.bin,1,Nord_N30
+com.qti.sensormodule.ov16a1q.bin,1,Nord_N20_5G
+com.qti.sensormodule.ov5675.bin,1,Mi_Mix_2S
+com.qti.sensormodule.ov64b_aw36515.bin,1,Nord_N20_5G
+com.qti.sensormodule.ov64b_sy7806e.bin,1,Nord_N20_5G
+com.qti.sensormodule.ov8856_II.bin,1,Mi_9SE
+com.qti.sensormodule.ov8856.bin,1,Mi_9SE
+com.qti.sensormodule.perseus_imx363_st.bin,1,Mi_Mix_3
+com.qti.sensormodule.perseus_imx363.bin,1,Mi_Mix_3
+com.qti.sensormodule.perseus_liteon_imx363.bin,1,Mi_Mix_3
+com.qti.sensormodule.perseus_liteon_s5k3m3sn03.bin,1,Mi_Mix_3
+com.qti.sensormodule.perseus_s5k3m3sn03.bin,1,Mi_Mix_3
+com.qti.sensormodule.pmd_irs1645.bin,1,Redmi_Note_7_Pro
+com.qti.sensormodule.primax_imx355_lito1.bin,1,Pixel_4A_5G
+com.qti.sensormodule.primax_imx355_lito2.bin,1,Pixel_5
+com.qti.sensormodule.primax_imx355_lito3.bin,1,Pixel_5A
+com.qti.sensormodule.primax_imx355_s.bin,1,Pixel_3A_XL
+com.qti.sensormodule.pyxis_luxvisions_imx582_cn_i.bin,1,Mi_CC9
+com.qti.sensormodule.pyxis_ofilm_imx582_cn_ii.bin,1,Mi_CC9
+com.qti.sensormodule.qtech_imx333.bin,1,Poco_F1
+com.qti.sensormodule.qtech_imx363.bin,1,Poco_F1
+com.qti.sensormodule.qtech_imx486.bin,1,Xperia_10_IV
+com.qti.sensormodule.qtech_imx581.bin,1,OnePlus_11_5G
+com.qti.sensormodule.qtech_imx582.bin,1,Xperia_10_V
+com.qti.sensormodule.qtech_imx709.bin,1,OnePlus_11_5G
+com.qti.sensormodule.qtech_imx890.bin,1,OnePlus_11_5G
+com.qti.sensormodule.qtech_s5khm6_rear_a303.bin,1,Nord_N30
+com.qti.sensormodule.qtech_s5khm6_rear.bin,1,Nord_N30
+com.qti.sensormodule.qti_tpg5.bin,1,FP5
+com.qti.sensormodule.qti_tpg6.bin,1,FP5
+com.qti.sensormodule.renoir_ofilm_imx355_ultra.bin,1,Mi_11_5G
+com.qti.sensormodule.renoir_ofilm_s5kgw3_wide.bin,1,Mi_11_5G
+com.qti.sensormodule.renoir_sunny_s5k3t2_front.bin,1,Mi_11_5G
+com.qti.sensormodule.renoir_sunny_s5k5e9yx04_macro.bin,1,Mi_11_5G
+com.qti.sensormodule.s5k3l6_II.bin,1,Mi_9SE
+com.qti.sensormodule.s5k3l6.bin,1,Mi_9SE
+com.qti.sensormodule.s5k3m3.bin,1,Mi_Mix_2S
+com.qti.sensormodule.s5k3m5.bin,1,V40
+com.qti.sensormodule.s5k3t1_II.bin,1,Mi_9SE
+com.qti.sensormodule.s5k3t1_largan.bin,1,Mi_9SE
+com.qti.sensormodule.s5k3t1_qtech.bin,1,Mi_8
+com.qti.sensormodule.s5k5e8yx.bin,1,Poco_F1
+com.qti.sensormodule.s5kgm2.bin,1,Velvet
+com.qti.sensormodule.s5khm6_rear_a303.bin,1,Realme_10_Pro
+com.qti.sensormodule.s5khm6_rear.bin,1,Realme_10_Pro
+com.qti.sensormodule.sc201cs_depth.bin,1,Realme_10_Pro
+com.qti.sensormodule.semco_imx258.bin,1,Redmi_Note_7_Pro
+com.qti.sensormodule.semco_imx386.bin,1,Redmi_Note_7_Pro
+com.qti.sensormodule.semco_imx481_no_otp.bin,1,OnePlus_7T_Pro
+com.qti.sensormodule.semco_imx586_BG.bin,1,OnePlus_8_Pro
+com.qti.sensormodule.semco_imx586_no_otp.bin,1,OnePlus_7T_Pro
+com.qti.sensormodule.semco_imx689_MP.bin,1,OnePlus_8_Pro
+com.qti.sensormodule.semco_imx689.bin,1,OnePlus_8_Pro
+com.qti.sensormodule.semco_s5k3m5_no_otp.bin,1,OnePlus_7T_Pro
+com.qti.sensormodule.semco_s5k5e8.bin,1,Redmi_Note_7_Pro
+com.qti.sensormodule.shark_imx376.bin,1,Black_Shark
+com.qti.sensormodule.shark_imx376aux.bin,1,Black_Shark
+com.qti.sensormodule.shark_imx376auxvcm.bin,1,Black_Shark
+com.qti.sensormodule.shark_imx376otp.bin,1,Black_Shark
+com.qti.sensormodule.shark_imx486.bin,1,Black_Shark
+com.qti.sensormodule.shark_imx486vcm.bin,1,Black_Shark
+com.qti.sensormodule.shine_gc2375.bin,1,OnePlus_8
+com.qti.sensormodule.socrates_ofilm_ov08d10_ultra.bin,1,Redmi_K60_Pro
+com.qti.sensormodule.socrates_ofilm_ov16a1q_front.bin,1,Redmi_K60_Pro
+com.qti.sensormodule.socrates_semco_imx800_wide.bin,1,Redmi_K60_Pro
+com.qti.sensormodule.socrates_sunny_ov02b10_macro.bin,1,Redmi_K60_Pro
+com.qti.sensormodule.sony_imx334.bin,1,Redmi_Note_7_Pro
+com.qti.sensormodule.sunny_gc02m1.bin,1,Redmi_Note_9_Pro
+com.qti.sensormodule.sunny_gc8034.bin,1,Redmi_Note_9_Pro
+com.qti.sensormodule.sunny_hi259.bin,1,Mi_10T_5G
+com.qti.sensormodule.sunny_hi556.bin,1,Redmi_Note_9_Pro
+com.qti.sensormodule.sunny_imx363.bin,1,Poco_F1
+com.qti.sensormodule.sunny_imx520.bin,1,OnePlus_7
+com.qti.sensormodule.sunny_imx576.bin,1,Redmi_Note_7_Pro
+com.qti.sensormodule.sunny_imx582.bin,1,Redmi_Note_9_Pro
+com.qti.sensormodule.sunny_imx586.bin,1,Redmi_Note_7_Pro
+com.qti.sensormodule.sunny_imx682.bin,1,Mi_10T_5G
+com.qti.sensormodule.sunny_ov02b1b.bin,1,Mi_10T_5G
+com.qti.sensormodule.sunny_ov13855.bin,1,Redmi_Note_7_Pro
+com.qti.sensormodule.sunny_ov2180.bin,1,Redmi_Note_9_Pro
+com.qti.sensormodule.sunny_ov2281.bin,1,Redmi_Note_7_Pro
+com.qti.sensormodule.sunny_ov32a1q.bin,1,Redmi_Note_9_Pro
+com.qti.sensormodule.sunny_s5k2l7.bin,1,Redmi_Note_7_Pro
+com.qti.sensormodule.sunny_s5k2x7sp.bin,1,Shift_6MQ
+com.qti.sensormodule.sunny_s5k3p9sp.bin,1,Shift_6MQ
+com.qti.sensormodule.sunny_s5k5e8.bin,1,Redmi_Note_7_Pro
+com.qti.sensormodule.sunny_s5k5e8yx.bin,1,Poco_F1
+com.qti.sensormodule.sunny_s5k5e9.bin,1,Redmi_Note_9_Pro
+com.qti.sensormodule.sunny_s5k5e9yu05.bin,1,Redmi_Note_7_Pro
+com.qti.sensormodule.sunny_s5kgm2.bin,1,Redmi_Note_9_Pro
+com.qti.sensormodule.sunny_s5kgw1_mirrorflip.bin,1,Redmi_Note_9_Pro
+com.qti.sensormodule.sunny_s5kgw1.bin,1,Redmi_Note_9_Pro
+com.qti.sensormodule.sunny_s5khm2.bin,1,Mi_10T_5G
+com.qti.sensormodule.sweet_ofilm_imx355_ultra.bin,1,Redmi_Note_10_Pro
+com.qti.sensormodule.sweet_ofilm_imx471_front.bin,1,Redmi_Note_10_Pro
+com.qti.sensormodule.sweet_ofilm_ov02b1b.bin,1,Redmi_Note_10_Pro
+com.qti.sensormodule.sweet_ofilm_ov5675_macro.bin,1,Redmi_Note_10_Pro
+com.qti.sensormodule.sweet_ofilm_s5kgw3.bin,1,Redmi_Note_10_Pro
+com.qti.sensormodule.sweet_ofilm_s5khm2.bin,1,Redmi_Note_10_Pro
+com.qti.sensormodule.sweet_sunny_gc02m1.bin,1,Redmi_Note_10_Pro
+com.qti.sensormodule.sweet_sunny_imx355_ultra.bin,1,Redmi_Note_10_Pro
+com.qti.sensormodule.sweet_sunny_imx471_front.bin,1,Redmi_Note_10_Pro
+com.qti.sensormodule.sweet_sunny_ov5675_macro.bin,1,Redmi_Note_10_Pro
+com.qti.sensormodule.sweet_sunny_s5kgw3.bin,1,Redmi_Note_10_Pro
+com.qti.sensormodule.sweet_sunny_s5khm2.bin,1,Redmi_Note_10_Pro
+com.qti.sensormodule.sy_s5k3p9.bin,1,Realme_10_Pro
+com.qti.sensormodule.thor_ofilm_ov32c_front.bin,1,Mi_12S_Ultra
+com.qti.sensormodule.thor_semco_imx586_tele5x.bin,1,Mi_12S_Ultra
+com.qti.sensormodule.thor_semco_imx586_ultra.bin,1,Mi_12S_Ultra
+com.qti.sensormodule.thor_semco_imx989_wide.bin,1,Mi_12S_Ultra
+com.qti.sensormodule.tp1803_imx586.bin,1,Mini_5G
+com.qti.sensormodule.tp1803_ov8856.bin,1,Mini_5G
+com.qti.sensormodule.truly_ov8856.bin,1,Redmi_Note_7_Pro
+com.qti.sensormodule.txd_hi847.bin,1,Xperia_10_IV
+com.qti.sensormodule.umi_sunny_ov16e10.bin,1,Mi_10
+com.qti.sensormodule.umi_sunny_s5k5e8yx_depth.bin,1,Mi_10
+com.qti.sensormodule.umi_sunny_s5k5e8yx_macro.bin,1,Mi_10
+com.qti.sensormodule.unicorn_ofilm_ov32b40_front.bin,1,Mi_12S_Pro
+com.qti.sensormodule.unicorn_semco_imx707_wide.bin,1,Mi_12S_Pro
+com.qti.sensormodule.unicorn_sunny_s5kjn1_tele.bin,1,Mi_12S_Pro
+com.qti.sensormodule.unicorn_sunny_s5kjn1_ultra.bin,1,Mi_12S_Pro
+com.qti.sensormodule.vayu_aac_hi259.bin,1,Poco_X3_Pro
+com.qti.sensormodule.vayu_aac_ov02b1b.bin,1,Poco_X3_Pro
+com.qti.sensormodule.vayu_ofilm_hi259.bin,1,Poco_X3_Pro
+com.qti.sensormodule.vayu_ofilm_imx582.bin,1,Poco_X3_Pro
+com.qti.sensormodule.vayu_ofilm_ov02b1b.bin,1,Poco_X3_Pro
+com.qti.sensormodule.vayu_ofilm_ov8856.bin,1,Poco_X3_Pro
+com.qti.sensormodule.vayu_ofilm_s5k3t2.bin,1,Poco_X3_Pro
+com.qti.sensormodule.vayu_sunny_imx582.bin,1,Poco_X3_Pro
+com.qti.sensormodule.vayu_sunny_ov8856.bin,1,Poco_X3_Pro
+com.qti.sensormodule.vayu_sunny_s5k3t2.bin,1,Poco_X3_Pro
+com.qti.sensormodule.zeus_ofilm_ov32b40_front.bin,1,Mi_12_Pro
+com.qti.sensormodule.zeus_semco_imx707_wide.bin,1,Mi_12_Pro
+com.qti.sensormodule.zeus_sunny_s5kjn1_tele.bin,1,Mi_12_Pro
+com.qti.sensormodule.zeus_sunny_s5kjn1_ultra.bin,1,Mi_12_Pro
+com.qti.sensormodule.zizhan_ofilm_imx663_tele_i.bin,1,Mi_Fold_2
+com.qti.sensormodule.zizhan_ofilm_imx663_tele_ii.bin,1,Mi_Fold_2
+com.qti.sensormodule.zizhan_ofilm_ov13b10_ultra_i.bin,1,Mi_Fold_2
+com.qti.sensormodule.zizhan_ofilm_ov13b10_ultra_ii.bin,1,Mi_Fold_2
+com.qti.sensormodule.zizhan_sunny_imx596_front_i.bin,1,Mi_Fold_2
+com.qti.sensormodule.zizhan_sunny_imx596_front_ii.bin,1,Mi_Fold_2
+com.qti.sensormodule.zizhan_sunny_imx766_wide_i.bin,1,Mi_Fold_2
+com.qti.sensormodule.zizhan_sunny_imx766_wide_ii.bin,1,Mi_Fold_2
+com.qti.sensormodule.zte_imx363_3spi.bin,1,Axon_9_Pro
+com.qti.sensormodule.zte_imx363_ak7374.bin,1,Axon_9_Pro
+com.qti.sensormodule.zte_imx363_hz_invens.bin,1,Axon_9_Pro
+com.qti.sensormodule.zte_imx363_hz.bin,1,Axon_9_Pro
+com.qti.sensormodule.zte_s5k3t1sp_aux.bin,1,Axon_9_Pro
+com.qti.sensormodule.zte_s5k3t1sp_front.bin,1,Axon_9_Pro
+com.qti.sensorsocmap.socid_map.bin,1,Phone_2
+com.qti.sm_cts.ofilm_s5kgd1.bin,1,Z6_Pro
+com.qti.tuned.abra_qtech_imx471_front.bin,1,Phone_1
+com.qti.tuned.abra_qtech_imx766_wide.bin,1,Phone_1
+com.qti.tuned.abra_qtech_s5kjn1_uw.bin,1,Phone_1
+com.qti.tuned.abra_truly_imx471_front.bin,1,Phone_1
+com.qti.tuned.agenda_qtech_imx615_front.bin,1,Phone_2
+com.qti.tuned.agenda_qtech_imx890_wide.bin,1,Phone_2
+com.qti.tuned.agenda_qtech_s5kjn1_uw.bin,1,Phone_2
+com.qti.tuned.alioth_ofilm_hi556_macro.bin,1,Poco_F3
+com.qti.tuned.alioth_ofilm_imx355_ultra.bin,1,Poco_F3
+com.qti.tuned.alioth_ofilm_imx582_wide.bin,1,Poco_F3
+com.qti.tuned.alioth_ofilm_s5k3t2_front.bin,1,Poco_F3
+com.qti.tuned.alioth_sunny_imx355_ultra.bin,1,Poco_F3
+com.qti.tuned.alioth_sunny_imx582_wide.bin,1,Poco_F3
+com.qti.tuned.alioth_sunny_s5k3t2_front.bin,1,Poco_F3
+com.qti.tuned.alioth_sunny_s5k5e9yx04_macro.bin,1,Poco_F3
+com.qti.tuned.altek_imx577.bin,1,Redmi_Note_7_Pro
+com.qti.tuned.altek1_imx577.bin,1,Redmi_Note_7_Pro
+com.qti.tuned.apollo_ofilm_ov13b10_ultra.bin,1,Mi_10T
+com.qti.tuned.apollo_ofilm_s5k3t2_front.bin,1,Mi_10T
+com.qti.tuned.apollo_ofilm_s5k5e9yx_macro.bin,1,Mi_10T
+com.qti.tuned.apollo_semco_s5khmx_wide.bin,1,Mi_10T
+com.qti.tuned.apollo_sunny_imx682_wide.bin,1,Mi_10T
+com.qti.tuned.blair_lce_hi847.bin,1,Xperia_10_V
+com.qti.tuned.blair_qtech_imx486.bin,1,Xperia_10_IV
+com.qti.tuned.blair_qtech_imx582.bin,1,Xperia_10_V
+com.qti.tuned.blair_txd_hi847.bin,1,Xperia_10_IV
+com.qti.tuned.chicony_s5k3h7.bin,1,Phone2
+com.qti.tuned.cmi_ofilm_s5k3t2.bin,1,Mi_10_Pro
+com.qti.tuned.cmi_semco_ov08a10_tele4x.bin,1,Mi_10_Pro
+com.qti.tuned.cmi_semco_s5k2l7_tele2x.bin,1,Mi_10_Pro
+com.qti.tuned.cmi_semco_s5khmx_wide.bin,1,Mi_10_Pro
+com.qti.tuned.cmi_sunny_imx350_ultra_wide.bin,1,Mi_10_Pro
+com.qti.tuned.cts_ofilm_s5kgd1.bin,1,Z6_Pro
+com.qti.tuned.cts_ofilm_s5kgm1.bin,1,Z6_Pro
+com.qti.tuned.cupid_ofilm_ov32b40_front.bin,1,Mi_12
+com.qti.tuned.cupid_semco_imx707_wide.bin,1,Mi_12
+com.qti.tuned.cupid_semco_imx766_wide.bin,1,Mi_12
+com.qti.tuned.cupid_sunny_ov13b10_ultra.bin,1,Mi_12
+com.qti.tuned.cupid_sunny_s5k5e9_macro.bin,1,Mi_12
+com.qti.tuned.davinci_luxvisions_imx582.bin,1,Redmi_K20_Mi_9
+com.qti.tuned.davinci_luxvisions_ov8856.bin,1,Redmi_K20_Mi_9
+com.qti.tuned.davinci_luxvisions_s5k3l6.bin,1,Redmi_K20_Mi_9
+com.qti.tuned.davinci_ofilm_imx582.bin,1,Redmi_K20_Mi_9
+com.qti.tuned.davinci_ofilm_ov8856.bin,1,Redmi_K20_Mi_9
+com.qti.tuned.davinci_ofilm_s5k3l6.bin,1,Redmi_K20_Mi_9
+com.qti.tuned.davinci_sunny_s5k3t2.bin,1,Redmi_K20_Mi_9
+com.qti.tuned.diting_ofilm_gc02m1_macro.bin,1,Mi_12T_Pro
+com.qti.tuned.diting_semco_s5khp1_wide.bin,1,Mi_12T_Pro
+com.qti.tuned.diting_sunny_imx596_front.bin,1,Mi_12T_Pro
+com.qti.tuned.diting_sunny_s5k4h7_ultra.bin,1,Mi_12T_Pro
+com.qti.tuned.diting_sunny_s5khm6_wide.bin,1,Mi_12T_Pro
+com.qti.tuned.fillmore_default.bin,1,Phone_2
+com.qti.tuned.fillmore_qtech_imx766.bin,1,Phone_2
+com.qti.tuned.fillmore_sunny_imx686.bin,1,Phone_2
+com.qti.tuned.fillmore_sunny_s5k3m5.bin,1,Phone_2
+com.qti.tuned.fillmore_sunny_s5kjd1sp.bin,1,Phone_2
+com.qti.tuned.fillmore_truly_s5kjd1sp.bin,1,Phone_2
+com.qti.tuned.fp5_imx758.bin,1,FP5
+com.qti.tuned.fp5_imx800_mtf.bin,1,FP5
+com.qti.tuned.fp5_imx800.bin,1,FP5
+com.qti.tuned.fp5_imx858_marco_mtf.bin,1,FP5
+com.qti.tuned.fp5_imx858_marco.bin,1,FP5
+com.qti.tuned.fp5_imx858_mtf.bin,1,FP5
+com.qti.tuned.fp5_imx858.bin,1,FP5
+com.qti.tuned.fp5_s5kjn1_mtf.bin,1,FP5
+com.qti.tuned.fp5_s5kjn1.bin,1,FP5
+com.qti.tuned.fuxi_ofilm_ov13b10_ultra.bin,1,Mi_13
+com.qti.tuned.fuxi_semco_imx800_wide.bin,1,Mi_13
+com.qti.tuned.fuxi_semco_s5k3k1_tele_ii.bin,1,Mi_13
+com.qti.tuned.fuxi_semco_s5k3k1_tele.bin,1,Mi_13
+com.qti.tuned.fuxi_sunny_imx800_wide.bin,1,Mi_13
+com.qti.tuned.fuxi_sunny_ov32c_front_global.bin,1,Mi_13
+com.qti.tuned.fuxi_sunny_ov32c_front.bin,1,Mi_13
+com.qti.tuned.gauguin_ofilm_s5khm2_wide.bin,1,Mi_10T_5G
+com.qti.tuned.gauguin_sunny_hi259_macro.bin,1,Mi_10T_5G
+com.qti.tuned.gauguin_sunny_imx682_wide.bin,1,Mi_10T_5G
+com.qti.tuned.gauguin_sunny_ov02b1b_depth.bin,1,Mi_10T_5G
+com.qti.tuned.gauguin_sunny_ov16a1q_front.bin,1,Mi_10T_5G
+com.qti.tuned.gauguin_sunny_ov8856_ultra.bin,1,Mi_10T_5G
+com.qti.tuned.gauguin_sunny_s5khm2_wide.bin,1,Mi_10T_5G
+com.qti.tuned.gcoreinc_gc5035_18821.bin,1,OnePlus_7
+com.qti.tuned.gcoreinc_gc5035.bin,1,OnePlus_7
+com.qti.tuned.grus_ofilm_imx586.bin,1,Mi_9SE
+com.qti.tuned.grus_ofilm_ov8856.bin,1,Mi_9SE
+com.qti.tuned.grus_ofilm_s5k3l6.bin,1,Mi_9SE
+com.qti.tuned.grus_ofilm_s5k3t1.bin,1,Mi_9SE
+com.qti.tuned.grus_sunny_imx586.bin,1,Mi_9SE
+com.qti.tuned.grus_sunny_ov8856.bin,1,Mi_9SE
+com.qti.tuned.grus_sunny_s5k3l6.bin,1,Mi_9SE
+com.qti.tuned.grus_sunny_s5k3t1.bin,1,Mi_9SE
+com.qti.tuned.haydn_ofilm_imx355_ultra.bin,1,Mi_11I
+com.qti.tuned.haydn_sunny_imx686_wide.bin,1,Mi_11I
+com.qti.tuned.haydn_sunny_s5k3t2_front.bin,1,Mi_11I
+com.qti.tuned.haydn_sunny_s5k5e9yx04_macro.bin,1,Mi_11I
+com.qti.tuned.haydn_sunny_s5khm2_wide.bin,1,Mi_11I
+com.qti.tuned.hi1634.bin,1,Velvet
+com.qti.tuned.imx363.bin,1,V40
+com.qti.tuned.j20c_aac_gc02m1b_depth_global.bin,1,Poco_X3_NFC
+com.qti.tuned.j20c_aac_gc02m1b_depth_india.bin,1,Poco_X3_NFC
+com.qti.tuned.j20c_aac_hi1337_ultra_global.bin,1,Poco_X3_NFC
+com.qti.tuned.j20c_aac_hi1337_ultra_india.bin,1,Poco_X3_NFC
+com.qti.tuned.j20c_aac_hi259_macro_global.bin,1,Poco_X3_NFC
+com.qti.tuned.j20c_aac_hi259_macro_india.bin,1,Poco_X3_NFC
+com.qti.tuned.j20c_ofilm_hi259_macro_global.bin,1,Poco_X3_NFC
+com.qti.tuned.j20c_ofilm_hi259_macro_india.bin,1,Poco_X3_NFC
+com.qti.tuned.j20c_ofilm_imx682_wide_global.bin,1,Poco_X3_NFC
+com.qti.tuned.j20c_ofilm_imx682_wide_india.bin,1,Poco_X3_NFC
+com.qti.tuned.j20c_ofilm_ov02b1b_depth_global.bin,1,Poco_X3_NFC
+com.qti.tuned.j20c_ofilm_ov02b1b_depth_india.bin,1,Poco_X3_NFC
+com.qti.tuned.j20c_ofilm_s5k3t2_front_global.bin,1,Poco_X3_NFC
+com.qti.tuned.j20c_ofilm_s5k3t2_front_india.bin,1,Poco_X3_NFC
+com.qti.tuned.j20c_sunny_hi1337_ultra_global.bin,1,Poco_X3_NFC
+com.qti.tuned.j20c_sunny_hi1337_ultra_india.bin,1,Poco_X3_NFC
+com.qti.tuned.j20c_sunny_imx682_wide_global.bin,1,Poco_X3_NFC
+com.qti.tuned.j20c_sunny_imx682_wide_india.bin,1,Poco_X3_NFC
+com.qti.tuned.j20c_sunny_s5k3t2_front_global.bin,1,Poco_X3_NFC
+com.qti.tuned.j20c_sunny_s5k3t2_front_india.bin,1,Poco_X3_NFC
+com.qti.tuned.lce_imx582.bin,1,Pro_1X
+com.qti.tuned.lisa_ofilm_imx355_ultra.bin,1,Mi_11
+com.qti.tuned.lisa_ofilm_s5k5e9yx04_macro.bin,1,Mi_11
+com.qti.tuned.lisa_ofilm_s5kgw3_wide.bin,1,Mi_11
+com.qti.tuned.lisa_semco_s5kgw3_wide.bin,1,Mi_11
+com.qti.tuned.lisa_sunny_s5k3t2_front.bin,1,Mi_11
+com.qti.tuned.lisa_sunny_s5k5e9yx04_macro.bin,1,Mi_11
+com.qti.tuned.liteon_imx318.bin,1,Redmi_Note_7_Pro
+com.qti.tuned.liteon_imx351.bin,1,Phone2
+com.qti.tuned.liteon_max7366_6dof.bin,1,Redmi_Note_7_Pro
+com.qti.tuned.liteon_max7366_eyetrack.bin,1,Redmi_Note_7_Pro
+com.qti.tuned.liteon_max7366_ov9282.bin,1,Redmi_Note_7_Pro
+com.qti.tuned.liteon_ov7251.bin,1,Redmi_Note_7_Pro
+com.qti.tuned.lmi_ofilm_gc02m1_depth.bin,1,Poco_F2_Pro
+com.qti.tuned.lmi_sunny_imx686_wide_st.bin,1,Poco_F2_Pro
+com.qti.tuned.lmi_sunny_imx686_wide.bin,1,Poco_F2_Pro
+com.qti.tuned.lmi_sunny_ov08a10_tele.bin,1,Poco_F2_Pro
+com.qti.tuned.lmi_sunny_ov13b10_ultra_pro.bin,1,Poco_F2_Pro
+com.qti.tuned.lmi_sunny_ov13b10_ultra.bin,1,Poco_F2_Pro
+com.qti.tuned.lmi_sunny_s5k3t2_front.bin,1,Poco_F2_Pro
+com.qti.tuned.lmi_sunny_s5k5e9yx04_macro.bin,1,Poco_F2_Pro
+com.qti.tuned.marble_ofilm_gc02m1_macro_i.bin,1,Poco_F5
+com.qti.tuned.marble_ofilm_imx355_ultra_i.bin,1,Poco_F5
+com.qti.tuned.marble_ofilm_ov64b40_wide_i.bin,1,Poco_F5
+com.qti.tuned.marble_sunny_s5k3p9sp04_front_i.bin,1,Poco_F5
+com.qti.tuned.mondrian_aac_ov16a1q_front_ii.bin,1,Poco_F5_Pro
+com.qti.tuned.mondrian_aac_ov64b40_wide_ii.bin,1,Poco_F5_Pro
+com.qti.tuned.mondrian_ofilm_ov08d10_ultra_i.bin,1,Poco_F5_Pro
+com.qti.tuned.mondrian_ofilm_ov16a1q_front_i.bin,1,Poco_F5_Pro
+com.qti.tuned.mondrian_sunny_ov02b10_macro_i.bin,1,Poco_F5_Pro
+com.qti.tuned.mondrian_sunny_ov08d10_ultra_ii.bin,1,Poco_F5_Pro
+com.qti.tuned.mondrian_sunny_ov64b40_wide_i.bin,1,Poco_F5_Pro
+com.qti.tuned.mot_bangkk_ov16a1q_india.bin,1,Moto_G84_5G
+com.qti.tuned.mot_bangkk_ov16a1q.bin,1,Moto_G84_5G
+com.qti.tuned.mot_bangkk_s5k4h7af_india.bin,1,Moto_G84_5G
+com.qti.tuned.mot_bangkk_s5k4h7af.bin,1,Moto_G84_5G
+com.qti.tuned.mot_bangkk_s5kgn9_ak7377_india.bin,1,Moto_G84_5G
+com.qti.tuned.mot_bangkk_s5kgn9_ak7377.bin,1,Moto_G84_5G
+com.qti.tuned.mot_bangkk_s5kgn9_india.bin,1,Moto_G84_5G
+com.qti.tuned.mot_bangkk_s5kgn9.bin,1,Moto_G84_5G
+com.qti.tuned.mot_berlin_ov08a10.bin,1,Edge_20
+com.qti.tuned.mot_berlin_ov16a10.bin,1,Edge_20
+com.qti.tuned.mot_berlin_ov32b40.bin,1,Edge_20
+com.qti.tuned.mot_berlin_s5khm2.bin,1,Edge_20
+com.qti.tuned.mot_berlna_ov02b1b.bin,1,Edge_2021
+com.qti.tuned.mot_berlna_ov32b40.bin,1,Edge_2021
+com.qti.tuned.mot_berlna_s5k4h7.bin,1,Edge_2021
+com.qti.tuned.mot_berlna_s5khm2.bin,1,Edge_2021
+com.qti.tuned.mot_borneo_ov02b10.bin,1,Moto_G_Power
+com.qti.tuned.mot_borneo_ov02b1b.bin,1,Moto_G_Power
+com.qti.tuned.mot_borneo_s5k4h7.bin,1,Moto_G_Power
+com.qti.tuned.mot_borneo_s5kgm1st.bin,1,Moto_G_Power
+com.qti.tuned.mot_bronco_gc02m1b.bin,1,ThinkPhone
+com.qti.tuned.mot_bronco_hi1336.bin,1,ThinkPhone
+com.qti.tuned.mot_bronco_ov32b40.bin,1,ThinkPhone
+com.qti.tuned.mot_bronco_ov50a.bin,1,ThinkPhone
+com.qti.tuned.mot_capri_gc02m1.bin,1,Moto_G10
+com.qti.tuned.mot_capri_ov02b10.bin,1,Moto_G10
+com.qti.tuned.mot_capri_ov02b1b.bin,1,Moto_G10
+com.qti.tuned.mot_capri_ov8856.bin,1,Moto_G10
+com.qti.tuned.mot_capri_s5k4h7_front.bin,1,Moto_G10
+com.qti.tuned.mot_capri_s5k4h7.bin,1,Moto_G10
+com.qti.tuned.mot_capri_s5kgm1st.bin,1,Moto_G10
+com.qti.tuned.mot_caprip_gc02m1.bin,1,Moto_G30
+com.qti.tuned.mot_caprip_ov02b10.bin,1,Moto_G30
+com.qti.tuned.mot_caprip_ov02b1b.bin,1,Moto_G30
+com.qti.tuned.mot_caprip_ov64b.bin,1,Moto_G30
+com.qti.tuned.mot_caprip_ov8856.bin,1,Moto_G30
+com.qti.tuned.mot_caprip_s5k3l6.bin,1,Moto_G30
+com.qti.tuned.mot_caprip_s5k4h7.bin,1,Moto_G30
+com.qti.tuned.mot_cebu_ov02b10.bin,1,Moto_G9_Power
+com.qti.tuned.mot_cebu_ov02b1b.bin,1,Moto_G9_Power
+com.qti.tuned.mot_cebu_ov16a1q.bin,1,Moto_G9_Power
+com.qti.tuned.mot_cebu_ov64b.bin,1,Moto_G9_Power
+com.qti.tuned.mot_cebu_s5k4h7.bin,1,Moto_G9_Power
+com.qti.tuned.mot_devon_hi1634q.bin,1,Moto_G32
+com.qti.tuned.mot_devon_ov02b10.bin,1,Moto_G32
+com.qti.tuned.mot_devon_ov02d10.bin,1,Moto_G32
+com.qti.tuned.mot_devon_s5k4h7.bin,1,Moto_G32
+com.qti.tuned.mot_devon_s5kjn1.bin,1,Moto_G32
+com.qti.tuned.mot_dubai_gc02m1b.bin,1,Edge_30
+com.qti.tuned.mot_dubai_ov32b40.bin,1,Edge_30
+com.qti.tuned.mot_dubai_ov50a.bin,1,Edge_30
+com.qti.tuned.mot_dubai_s5kjn1.bin,1,Edge_30
+com.qti.tuned.mot_fogo_s5k4h7.bin,1,Moto_G_5G_2024
+com.qti.tuned.mot_fogos_ov16a1q.bin,1,Moto_G34_5G
+com.qti.tuned.mot_fogos_s5k3p9.bin,1,Moto_G34_5G
+com.qti.tuned.mot_guam_ov02b1b.bin,1,Moto_E7_Plus
+com.qti.tuned.mot_guam_s5k3l6.bin,1,Moto_E7_Plus
+com.qti.tuned.mot_guam_s5k4h7.bin,1,Moto_E7_Plus
+com.qti.tuned.mot_guam_s5kgm1st.bin,1,Moto_E7_Plus
+com.qti.tuned.mot_kiev_ov02b10.bin,1,Moto_G_5G
+com.qti.tuned.mot_kiev_ov16a1q.bin,1,Moto_G_5G
+com.qti.tuned.mot_kiev_s5k4h7_rear.bin,1,Moto_G_5G
+com.qti.tuned.mot_kiev_s5kgm1st.bin,1,Moto_G_5G
+com.qti.tuned.mot_miami_hi1336.bin,1,Edge_30_Neo
+com.qti.tuned.mot_miami_ov32b40.bin,1,Edge_30_Neo
+com.qti.tuned.mot_miami_ov32c4c.bin,1,Edge_30_Neo
+com.qti.tuned.mot_miami_s5kgw3.bin,1,Edge_30_Neo
+com.qti.tuned.mot_nairo_ov02b1b.bin,1,Moto_G_5G_Plus
+com.qti.tuned.mot_nairo_ov16a1q.bin,1,Moto_G_5G_Plus
+com.qti.tuned.mot_nairo_ov2180.bin,1,Moto_G_5G_Plus
+com.qti.tuned.mot_nairo_s5k4h7_front.bin,1,Moto_G_5G_Plus
+com.qti.tuned.mot_nairo_s5k4h7_rear.bin,1,Moto_G_5G_Plus
+com.qti.tuned.mot_nairo_s5k5e9.bin,1,Moto_G_5G_Plus
+com.qti.tuned.mot_nairo_s5kgm1sp.bin,1,Moto_G_5G_Plus
+com.qti.tuned.mot_nio_ov02b1b.bin,1,Edge_S
+com.qti.tuned.mot_nio_ov16a10.bin,1,Edge_S
+com.qti.tuned.mot_nio_ov16a1q.bin,1,Edge_S
+com.qti.tuned.mot_nio_ov64b.bin,1,Edge_S
+com.qti.tuned.mot_nio_s5k4h7.bin,1,Edge_S
+com.qti.tuned.mot_pstar_ov08a10.bin,1,Edge_20_Pro
+com.qti.tuned.mot_pstar_ov16a10.bin,1,Edge_20_Pro
+com.qti.tuned.mot_pstar_ov16a1q.bin,1,Edge_20_Pro
+com.qti.tuned.mot_pstar_ov32b.bin,1,Edge_20_Pro
+com.qti.tuned.mot_pstar_s5khm2.bin,1,Edge_20_Pro
+com.qti.tuned.mot_rhode_gc02m1.bin,1,Moto_G52
+com.qti.tuned.mot_rhode_ov16a1q.bin,1,Moto_G52
+com.qti.tuned.mot_rhode_s5k4h7.bin,1,Moto_G52
+com.qti.tuned.mot_rhode_s5kjn1.bin,1,Moto_G52
+com.qti.tuned.mot_rhodep_gc02m1.bin,1,Moto_G82_5G
+com.qti.tuned.mot_rhodep_ov16a1q.bin,1,Moto_G82_5G
+com.qti.tuned.mot_rhodep_s5k4h7ff.bin,1,Moto_G82_5G
+com.qti.tuned.mot_rhodep_s5kjn1_2nd.bin,1,Moto_G82_5G
+com.qti.tuned.mot_rhodep_s5kjn1.bin,1,Moto_G82_5G
+com.qti.tuned.mot_rtwo_imx663.bin,1,Edge_40_Pro
+com.qti.tuned.mot_rtwo_ov50a.bin,1,Edge_40_Pro
+com.qti.tuned.mot_rtwo_ov60a.bin,1,Edge_40_Pro
+com.qti.tuned.mot_rtwo_s5kjn1.bin,1,Edge_40_Pro
+com.qti.tuned.mot_tundra_gc02m1b.bin,1,Edge_30_Fusion
+com.qti.tuned.mot_tundra_hi1336.bin,1,Edge_30_Fusion
+com.qti.tuned.mot_tundra_ov50a.bin,1,Edge_30_Fusion
+com.qti.tuned.mot_tundra_s5kgd2.bin,1,Edge_30_Fusion
+com.qti.tuned.mot_xpeng_hi1336.bin,1,Moto_G200
+com.qti.tuned.mot_xpeng_ov02b1b.bin,1,Moto_G200
+com.qti.tuned.mot_xpeng_ov16a1q.bin,1,Moto_G200
+com.qti.tuned.mot_xpeng_s5khm2.bin,1,Moto_G200
+com.qti.tuned.mot_xpeng_s5khm2sd03.bin,1,Moto_G200
+com.qti.tuned.munch_aac_ov8856_ultra.bin,1,Poco_F4
+com.qti.tuned.munch_ofilm_gc02m1_macro.bin,1,Poco_F4
+com.qti.tuned.munch_ofilm_imx582_wide.bin,1,Poco_F4
+com.qti.tuned.munch_ofilm_imx596_front.bin,1,Poco_F4
+com.qti.tuned.munch_sunny_gc02m1_macro.bin,1,Poco_F4
+com.qti.tuned.munch_sunny_imx596_front.bin,1,Poco_F4
+com.qti.tuned.munch_sunny_ov64b40_wide.bin,1,Poco_F4
+com.qti.tuned.munch_sunny_ov8856_ultra.bin,1,Poco_F4
+com.qti.tuned.nubia_imx519.bin,1,Z18
+com.qti.tuned.nubia_imx519front.bin,1,Red_Magic_Mars
+com.qti.tuned.nubia_nx619_imx519.bin,1,Red_Magic_Mars
+com.qti.tuned.nubia_nx619_ov8856.bin,1,Red_Magic_Mars
+com.qti.tuned.nubia_ov8856.bin,1,Z18
+com.qti.tuned.nuwa_ofilm_s5kjn1_tele.bin,1,Mi_13_Pro
+com.qti.tuned.nuwa_ofilm_s5kjn1_ultra.bin,1,Mi_13_Pro
+com.qti.tuned.nuwa_semco_imx989_wide.bin,1,Mi_13_Pro
+com.qti.tuned.nuwa_sunny_ov32c_front_global.bin,1,Mi_13_Pro
+com.qti.tuned.nuwa_sunny_ov32c_front.bin,1,Mi_13_Pro
+com.qti.tuned.nx659j_fa95_imx686.bin,1,Red_Magic_5G
+com.qti.tuned.nx659j_front_le.bin,1,Red_Magic_5G
+com.qti.tuned.nx659j_front_sensor.bin,1,Red_Magic_5G
+com.qti.tuned.nx659j_front_sw2.bin,1,Red_Magic_5G
+com.qti.tuned.nx659j_imx582.bin,1,Red_Magic_5G
+com.qti.tuned.nx659j_imx686.bin,1,Red_Magic_5G
+com.qti.tuned.nx659j_mp_imx686.bin,1,Red_Magic_5G
+com.qti.tuned.nx659j_ov02a10_le.bin,1,Red_Magic_5G
+com.qti.tuned.nx659j_ov02a10_sw2.bin,1,Red_Magic_5G
+com.qti.tuned.nx659j_ov02a10.bin,1,Red_Magic_5G
+com.qti.tuned.nx659j_rear_aux_wide.bin,1,Red_Magic_5G
+com.qti.tuned.ofilm_gc02m1_filter.bin,1,Redmi_Note_9_Pro
+com.qti.tuned.ofilm_gc02m1.bin,1,Redmi_Note_9_Pro
+com.qti.tuned.ofilm_imx376.bin,1,Redmi_Note_7_Pro
+com.qti.tuned.ofilm_imx519.bin,1,Z5_Pro_GT
+com.qti.tuned.ofilm_imx576.bin,1,Z5_Pro_GT
+com.qti.tuned.ofilm_imx586_cn.bin,1,Redmi_Note_7_Pro
+com.qti.tuned.ofilm_ov02c20.bin,1,Z6_Pro
+com.qti.tuned.ofilm_ov12a10_front.bin,1,Redmi_Note_7_Pro
+com.qti.tuned.ofilm_ov12a10.bin,1,Redmi_Note_7_Pro
+com.qti.tuned.ofilm_ov13855_cn.bin,1,Redmi_Note_7_Pro
+com.qti.tuned.ofilm_ov13855.bin,1,Redmi_Note_7_Pro
+com.qti.tuned.ofilm_ov13880.bin,1,Redmi_Note_7_Pro
+com.qti.tuned.ofilm_ov16885.bin,1,Z6_Pro
+com.qti.tuned.ofilm_ov16a1q.bin,1,Redmi_Note_9_Pro
+com.qti.tuned.ofilm_ov2180.bin,1,Redmi_Note_9_Pro
+com.qti.tuned.ofilm_ov8356.bin,1,Z5_Pro_GT
+com.qti.tuned.ofilm_s5k3p9sx.bin,1,Z5_Pro_GT
+com.qti.tuned.ofilm_s5k3t1_INDIA.bin,1,Poco_F1
+com.qti.tuned.ofilm_s5k5e8.bin,1,Redmi_Note_7_Pro
+com.qti.tuned.ofilm_s5k5e9.bin,1,Redmi_Note_9_Pro
+com.qti.tuned.ofilm_s5kgd1.bin,1,Z6_Pro
+com.qti.tuned.ofilm_s5kgm1.bin,1,Z6_Pro
+com.qti.tuned.ofilm_s5kgm2.bin,1,Redmi_Note_9_Pro
+com.qti.tuned.ofilm_s5kgw1.bin,1,Redmi_Note_9_Pro
+com.qti.tuned.ov02b10_macro.bin,1,Nord_N30
+com.qti.tuned.ov02b10.bin,1,Nord_200
+com.qti.tuned.ov02b1b_mono.bin,1,Nord_N30
+com.qti.tuned.ov16a1q.bin,1,Nord_N20_5G
+com.qti.tuned.primax_ov5675.bin,1,Mi_Mix_2S
+com.qti.tuned.pyxis_luxvisions_imx582_cn_i.bin,1,Mi_CC9
+com.qti.tuned.pyxis_ofilm_imx582_cn_ii.bin,1,Mi_CC9
+com.qti.tuned.pyxis_ofilm_s5kgd1_cn_ii_global.bin,1,Mi_CC9
+com.qti.tuned.pyxis_sunny_s5kgd1_cn_i_global.bin,1,Mi_CC9
+com.qti.tuned.qt_ov13b10.bin,1,Nord_200
+com.qti.tuned.qtech_imx363_INDIA.bin,1,Poco_F1
+com.qti.tuned.qtech_imx363.bin,1,Poco_F1
+com.qti.tuned.qtech_imx581.bin,1,OnePlus_11_5G
+com.qti.tuned.qtech_imx709.bin,1,OnePlus_11_5G
+com.qti.tuned.qtech_imx766.bin,1,Phone_2
+com.qti.tuned.qtech_imx890.bin,1,OnePlus_11_5G
+com.qti.tuned.qtech_ov08a10.bin,1,OnePlus_9_Pro
+com.qti.tuned.qtech_s5k3t1.bin,1,Mi_8
+com.qti.tuned.qtech_s5k5e8yx_INDIA.bin,1,Poco_F1
+com.qti.tuned.qtech_s5k5e8yx.bin,1,Poco_F1
+com.qti.tuned.qtech_s5khm6_rear.bin,1,Nord_N30
+com.qti.tuned.renoir_ofilm_imx355_ultra.bin,1,Mi_11_5G
+com.qti.tuned.renoir_ofilm_s5kgw3_wide.bin,1,Mi_11_5G
+com.qti.tuned.renoir_sunny_s5k3t2_front.bin,1,Mi_11_5G
+com.qti.tuned.renoir_sunny_s5k5e9yx04_macro.bin,1,Mi_11_5G
+com.qti.tuned.s5k3m5.bin,1,V40
+com.qti.tuned.s5kgm2.bin,1,Velvet
+com.qti.tuned.s5khm6_rear.bin,1,Realme_10_Pro
+com.qti.tuned.sc201cs_depth.bin,1,Realme_10_Pro
+com.qti.tuned.semco_imx258_mono.bin,1,Redmi_Note_7_Pro
+com.qti.tuned.semco_imx258.bin,1,Redmi_Note_7_Pro
+com.qti.tuned.semco_imx386.bin,1,Redmi_Note_7_Pro
+com.qti.tuned.semco_imx586_18821.bin,1,OnePlus_7
+com.qti.tuned.semco_imx586_BG.bin,1,OnePlus_8_Pro
+com.qti.tuned.semco_imx689.bin,1,OnePlus_8_Pro
+com.qti.tuned.semco_imx789.bin,1,OnePlus_9_Pro
+com.qti.tuned.semco_s5k5e8.bin,1,Redmi_Note_7_Pro
+com.qti.tuned.shark_imx376.bin,1,Black_Shark
+com.qti.tuned.shark_imx376aux.bin,1,Black_Shark
+com.qti.tuned.shark_imx376auxvcm.bin,1,Black_Shark
+com.qti.tuned.shark_imx376otp.bin,1,Black_Shark
+com.qti.tuned.shark_imx486.bin,1,Black_Shark
+com.qti.tuned.shark_imx486vcm.bin,1,Black_Shark
+com.qti.tuned.shine_gc2375.bin,1,OnePlus_8
+com.qti.tuned.sl556_tmus.bin,1,V40
+com.qti.tuned.sl846_tmus.bin,1,V40
+com.qti.tuned.socrates_ofilm_ov08d10_ultra.bin,1,Redmi_K60_Pro
+com.qti.tuned.socrates_ofilm_ov16a1q_front.bin,1,Redmi_K60_Pro
+com.qti.tuned.socrates_semco_imx800_wide.bin,1,Redmi_K60_Pro
+com.qti.tuned.socrates_sunny_ov02b10_macro.bin,1,Redmi_K60_Pro
+com.qti.tuned.sony_imx334.bin,1,Redmi_Note_7_Pro
+com.qti.tuned.sunny_gc02m1.bin,1,Redmi_Note_9_Pro
+com.qti.tuned.sunny_gc8034.bin,1,Redmi_Note_9_Pro
+com.qti.tuned.sunny_hi556.bin,1,Redmi_Note_9_Pro
+com.qti.tuned.sunny_imx363_INDIA.bin,1,Poco_F1
+com.qti.tuned.sunny_imx363.bin,1,Poco_F1
+com.qti.tuned.sunny_imx471_18821.bin,1,OnePlus_7
+com.qti.tuned.sunny_imx576_fp4.bin,1,FP4
+com.qti.tuned.sunny_imx576_GLOBAL.bin,1,Mi_Mix_3
+com.qti.tuned.sunny_imx576.bin,1,Mi_Mix_3
+com.qti.tuned.sunny_imx582.bin,1,Redmi_Note_9_Pro
+com.qti.tuned.sunny_imx586_cn.bin,1,Redmi_Note_7_Pro
+com.qti.tuned.sunny_imx586.bin,1,Redmi_Note_7_Pro
+com.qti.tuned.sunny_imx686.bin,1,Phone_2
+com.qti.tuned.sunny_imx766.bin,1,OnePlus_9_Pro
+com.qti.tuned.sunny_ov02a10.bin,1,Mi_Mix_3
+com.qti.tuned.sunny_ov13855_cn.bin,1,Redmi_Note_7_Pro
+com.qti.tuned.sunny_ov13855.bin,1,Redmi_Note_7_Pro
+com.qti.tuned.sunny_ov16a1q.bin,1,Redmi_Note_9_Pro
+com.qti.tuned.sunny_ov2180.bin,1,Redmi_Note_9_Pro
+com.qti.tuned.sunny_ov32a1q.bin,1,Redmi_Note_9_Pro
+com.qti.tuned.sunny_s5k2l7.bin,1,Redmi_Note_7_Pro
+com.qti.tuned.sunny_s5k2x7sp.bin,1,Shift_6MQ
+com.qti.tuned.sunny_s5k3m5.bin,1,Phone_2
+com.qti.tuned.sunny_s5k3p9.bin,1,OnePlus_11_5G
+com.qti.tuned.sunny_s5k3p9sp.bin,1,Shift_6MQ
+com.qti.tuned.sunny_s5k3t1_INDIA.bin,1,Poco_F1
+com.qti.tuned.sunny_s5k5e8.bin,1,Redmi_Note_7_Pro
+com.qti.tuned.sunny_s5k5e8yx_INDIA.bin,1,Poco_F1
+com.qti.tuned.sunny_s5k5e8yx.bin,1,Poco_F1
+com.qti.tuned.sunny_s5k5e9.bin,1,Redmi_Note_9_Pro
+com.qti.tuned.sunny_s5kgm2.bin,1,Redmi_Note_9_Pro
+com.qti.tuned.sunny_s5kgw1.bin,1,Redmi_Note_9_Pro
+com.qti.tuned.sunny_s5kjd1sp.bin,1,Phone_2
+com.qti.tuned.sweet_ofilm_imx355_ultra.bin,1,Redmi_Note_10_Pro
+com.qti.tuned.sweet_ofilm_imx471_front.bin,1,Redmi_Note_10_Pro
+com.qti.tuned.sweet_ofilm_ov02b1b_depth.bin,1,Redmi_Note_10_Pro
+com.qti.tuned.sweet_ofilm_ov5675_macro.bin,1,Redmi_Note_10_Pro
+com.qti.tuned.sweet_ofilm_s5kgw3_wide.bin,1,Redmi_Note_10_Pro
+com.qti.tuned.sweet_ofilm_s5khm2_wide.bin,1,Redmi_Note_10_Pro
+com.qti.tuned.sweet_sunny_gc02m1_depth.bin,1,Redmi_Note_10_Pro
+com.qti.tuned.sweet_sunny_imx355_ultra.bin,1,Redmi_Note_10_Pro
+com.qti.tuned.sweet_sunny_imx471_front.bin,1,Redmi_Note_10_Pro
+com.qti.tuned.sweet_sunny_ov5675_macro.bin,1,Redmi_Note_10_Pro
+com.qti.tuned.sweet_sunny_s5kgw3_wide.bin,1,Redmi_Note_10_Pro
+com.qti.tuned.sweet_sunny_s5khm2_wide.bin,1,Redmi_Note_10_Pro
+com.qti.tuned.thor_ofilm_ov32c_front.bin,1,Mi_12S_Ultra
+com.qti.tuned.thor_semco_imx586_tele5x.bin,1,Mi_12S_Ultra
+com.qti.tuned.thor_semco_imx586_ultra.bin,1,Mi_12S_Ultra
+com.qti.tuned.thor_semco_imx989_wide.bin,1,Mi_12S_Ultra
+com.qti.tuned.thyme_semco_s5khmx_wide.bin,1,Mi_10S
+com.qti.tuned.thyme_sunny_gc02m1_depth.bin,1,Mi_10S
+com.qti.tuned.thyme_sunny_gc02m1_macro.bin,1,Mi_10S
+com.qti.tuned.thyme_sunny_ov13b10_ultra.bin,1,Mi_10S
+com.qti.tuned.thyme_sunny_s5k3t2_front.bin,1,Mi_10S
+com.qti.tuned.tp1803_imx586.bin,1,Mini_5G
+com.qti.tuned.truly_imx563.bin,1,Phone_2
+com.qti.tuned.truly_ov8856.bin,1,Redmi_Note_7_Pro
+com.qti.tuned.truly_s5kjd1sp.bin,1,Phone_2
+com.qti.tuned.tsp_imx582_sma_2nd.bin,1,FP4
+com.qti.tuned.tsp_imx582_sma.bin,1,FP4
+com.qti.tuned.tsp_imx582.bin,1,FP4
+com.qti.tuned.umi_semco_s5khmx.bin,1,Mi_10
+com.qti.tuned.umi_sunny_gc02m1_depth.bin,1,Mi_10
+com.qti.tuned.umi_sunny_gc02m1_macro.bin,1,Mi_10
+com.qti.tuned.umi_sunny_ov13b10.bin,1,Mi_10
+com.qti.tuned.umi_sunny_s5k3t2.bin,1,Mi_10
+com.qti.tuned.unicorn_ofilm_ov32b40_front.bin,1,Mi_12S_Pro
+com.qti.tuned.unicorn_semco_imx707_wide.bin,1,Mi_12S_Pro
+com.qti.tuned.unicorn_sunny_s5kjn1_tele.bin,1,Mi_12S_Pro
+com.qti.tuned.unicorn_sunny_s5kjn1_ultra.bin,1,Mi_12S_Pro
+com.qti.tuned.vayu_aac_hi259.bin,1,Poco_X3_Pro
+com.qti.tuned.vayu_aac_ov02b1b.bin,1,Poco_X3_Pro
+com.qti.tuned.vayu_ofilm_hi259.bin,1,Poco_X3_Pro
+com.qti.tuned.vayu_ofilm_imx582.bin,1,Poco_X3_Pro
+com.qti.tuned.vayu_ofilm_ov02b1b.bin,1,Poco_X3_Pro
+com.qti.tuned.vayu_ofilm_ov8856.bin,1,Poco_X3_Pro
+com.qti.tuned.vayu_ofilm_s5k3t2.bin,1,Poco_X3_Pro
+com.qti.tuned.vayu_sunny_imx582.bin,1,Poco_X3_Pro
+com.qti.tuned.vayu_sunny_ov8856.bin,1,Poco_X3_Pro
+com.qti.tuned.vayu_sunny_s5k3t2.bin,1,Poco_X3_Pro
+com.qti.tuned.zeus_ofilm_ov32b40_front.bin,1,Mi_12_Pro
+com.qti.tuned.zeus_semco_imx707_wide.bin,1,Mi_12_Pro
+com.qti.tuned.zeus_sunny_s5kjn1_tele.bin,1,Mi_12_Pro
+com.qti.tuned.zeus_sunny_s5kjn1_ultra.bin,1,Mi_12_Pro
+com.qti.tuned.zizhan_ofilm_imx663_tele_i.bin,1,Mi_Fold_2
+com.qti.tuned.zizhan_ofilm_imx663_tele_ii.bin,1,Mi_Fold_2
+com.qti.tuned.zizhan_ofilm_ov13b10_ultra_i.bin,1,Mi_Fold_2
+com.qti.tuned.zizhan_sunny_imx596_front_i.bin,1,Mi_Fold_2
+com.qti.tuned.zizhan_sunny_imx766_wide_i.bin,1,Mi_Fold_2
+com.qti.tuned.zte_imx363_ak7374.bin,1,Axon_9_Pro
+com.qti.tuned.zte_imx363_hz.bin,1,Axon_9_Pro
+com.qti.tuned.zte_imx363.bin,1,Axon_9_Pro
+com.qti.tuned.zte_s5k3t1sp_aux.bin,1,Axon_9_Pro
+com.qti.tuned.zte_s5k3t1sp_front.bin,1,Axon_9_Pro
+com.samsung.sensormodule.0_0_lsi_s5kgw1p_otp.bin,1,Galaxy_A52s_5G
+com.samsung.sensormodule.0_0_lsi_s5kgw1p.bin,1,Galaxy_A52s_5G
+com.samsung.sensormodule.0_0_lsi_s5kgw1s_new.bin,1,Galaxy_A71
+com.samsung.sensormodule.0_0_lsi_s5kgw1s_old.bin,1,Galaxy_A71
+com.samsung.sensormodule.0_0_sony_imx555.bin,1,Galaxy_S20_FE
+com.samsung.sensormodule.0_1_lsi_s5kgw1p_otp.bin,1,Galaxy_A52_4G
+com.samsung.sensormodule.0_2_sony_dv_imx682_hw_2.bin,1,Galaxy_A72
+com.samsung.sensormodule.0_3_lsi_dv_s5kgw1p_hw_2_otp.bin,1,Galaxy_A72
+com.samsung.sensormodule.0_3_lsi_dv_s5kgw1p_hw_2.bin,1,Galaxy_A72
+com.samsung.sensormodule.0_lsi_s5kgw3.bin,1,Galaxy_M52_5G
+com.samsung.sensormodule.0_lsi_s5khm6_evt1_otp.bin,1,Galaxy_A73_5G
+com.samsung.sensormodule.0_lsi_s5khm6_evt1.bin,1,Galaxy_A73_5G
+com.samsung.sensormodule.0_lsi_s5khm6.bin,1,Galaxy_A73_5G
+com.samsung.sensormodule.1_0_lsi_s5kgd2_otp.bin,1,Galaxy_A52s_5G
+com.samsung.sensormodule.1_0_lsi_s5kgd2.bin,1,Galaxy_A52s_5G
+com.samsung.sensormodule.1_1_sony_imx616.bin,1,Galaxy_A52s_5G
+com.samsung.sensormodule.12_sony_imx616_full.bin,1,Galaxy_S20_FE
+com.samsung.sensormodule.13_0_lsi_s5kgd2_full_otp.bin,1,Galaxy_A52s_5G
+com.samsung.sensormodule.13_0_lsi_s5kgd2_full.bin,1,Galaxy_A52s_5G
+com.samsung.sensormodule.13_1_sony_imx616_full.bin,1,Galaxy_A52s_5G
+com.samsung.sensormodule.2_hynix_hi1336.bin,1,Galaxy_A71
+com.samsung.sensormodule.3_0_hynix_hi847.bin,1,Galaxy_A72
+com.samsung.sensormodule.3_1_hynix_dv_hi847_hw_2.bin,1,Galaxy_A72
+com.samsung.sensormodule.3_hynix_hi847.bin,1,Galaxy_S20_FE
+com.samsung.sensormodule.4_0_lsi_gc5035_macro.bin,1,Galaxy_A52_4G
+com.samsung.sensormodule.4_1_lsi_dv_gc5035_macro_hw_2.bin,1,Galaxy_A52_4G
+com.samsung.sensormodule.8_sony_imx616_full.bin,1,Galaxy_A71
+com.samsung.tuned.lsi_s5kgw1s.bin,1,Galaxy_A71
+com.samsung.tuned.lsi_s5kgw3.bin,1,Galaxy_M52_5G
+com.samsung.tuned.lsi_s5khm6.bin,1,Galaxy_A73_5G
+com.samsung.tuned.sony_imx555.bin,1,Galaxy_S20_FE
+com.sony.sensormodule.ayame_s5k4h7.bin,1,Xperia_5_III
+com.sony.sensormodule.beagle_imx258.bin,1,Xperia_XZ2_Premium
+com.sony.sensormodule.camino_imx650.bin,1,Xperia_1_V
+com.sony.sensormodule.cervin_imx363.bin,1,Xperia_5_II
+com.sony.sensormodule.cervin_imx557.bin,1,Xperia_5_II
+com.sony.sensormodule.cervin_s5k3t2.bin,1,Xperia_5_II
+com.sony.sensormodule.cooper_imx379.bin,1,Xperia_XZ2_Premium
+com.sony.sensormodule.cooper_imx400.bin,1,Xperia_XZ2_Premium
+com.sony.sensormodule.crocus_imx663.bin,1,Xperia_1_V
+com.sony.sensormodule.crocus_kai_imx663.bin,1,Xperia_5_V
+com.sony.sensormodule.eiger_imx363.bin,1,Xperia_1_II
+com.sony.sensormodule.eiger_imx557.bin,1,Xperia_1_II
+com.sony.sensormodule.eiger_s5k3t2.bin,1,Xperia_1_II
+com.sony.sensormodule.hohgant_imx363.bin,1,Xperia_5_III
+com.sony.sensormodule.hohgant_imx557.bin,1,Xperia_5_III
+com.sony.sensormodule.icarus_imx316.bin,1,Xperia_1_II
+com.sony.sensormodule.lohner_imx663.bin,1,Xperia_5_III
+com.sony.sensormodule.poodle_imx258.bin,1,Xperia_XZ3
+com.sony.tuned.ayame_s5k4h7.bin,1,Xperia_5_III
+com.sony.tuned.camino_imx650.bin,1,Xperia_1_V
+com.sony.tuned.hohgant_imx363.bin,1,Xperia_5_III
+com.sony.tuned.hohgant_imx557.bin,1,Xperia_5_III
+com.sony.tuned.lohner_imx663.bin,1,Xperia_5_III
+dof_l11r_mecp.bin,1,Poco_F4
+eyesMaskNew.bin,1,OnePlus_11_5G
+goodix_gt9897t_fw_k9.bin,1,Mi_11_5G
+goodix_gt9897t_fw_k9d_csot.bin,1,Mi_11
+goodix_gt9897t_fw_k9d.bin,1,Mi_11
+GT9897_05.01.FF.17_4D6C5476.bin,1,FP5
+haptic_ram.bin,1,FP5
+Indoor_A.bin,1,Mi_CC9_Meitu
+Indoor_CWF.bin,1,Mi_CC9_Meitu
+Indoor_D50.bin,1,Mi_CC9_Meitu
+Indoor_D65.bin,1,Mi_CC9_Meitu
+Indoor_Hor.bin,1,Mi_CC9_Meitu
+intsense_config_undistort.bin,1,Poco_F4
+libaecCustomParam_Cam0.bin,1,OnePlus_11_5G
+libaecCustomParam_Cam1.bin,1,OnePlus_11_5G
+libaecCustomParam_Cam2.bin,1,OnePlus_11_5G
+libaecCustomParam_Cam3.bin,1,OnePlus_11_5G
+libafCustomParamFrontMain.bin,1,OnePlus_11_5G
+libafCustomParamMain.bin,1,OnePlus_11_5G
+libafCustomParamTele.bin,1,OnePlus_11_5G
+libafCustomParamWide.bin,1,OnePlus_11_5G
+Ori.bin,1,Mi_CC9_Meitu
+Outdoor_A.bin,1,Mi_CC9_Meitu
+Outdoor_CWF.bin,1,Mi_CC9_Meitu
+Outdoor_D50.bin,1,Mi_CC9_Meitu
+Outdoor_D75.bin,1,Mi_CC9_Meitu
+Outdoor_Hor.bin,1,Mi_CC9_Meitu
+st21nfc_fw.bin,1,FP5
+st21nfc_fw7.bin,1,FP5
+aw8624_rtp_1.bin,2,"Redmi_Note_9_Pro', 'Poco_X3_NFC"
+aw8695_rtp_Brilliant_Times.bin,2,"Edge_2021', 'Edge_20"
+aw8695_rtp_Modular.bin,2,"Edge_2021', 'Edge_20"
+aw8695_rtp_Organ_Dub.bin,2,"Edge_2021', 'Edge_20"
+bm2n31.bin,2,"Phone_2', 'ThinkPhone"
+bm2n37.bin,2,"Phone_2', 'ThinkPhone"
+bm2n38.bin,2,"Phone_2', 'ThinkPhone"
+bm2n39.bin,2,"Phone_2', 'ThinkPhone"
+bm2n40.bin,2,"Phone_2', 'ThinkPhone"
+bm2n41.bin,2,"Phone_2', 'ThinkPhone"
+bm2n42.bin,2,"Phone_2', 'ThinkPhone"
+bm2n43.bin,2,"Phone_2', 'ThinkPhone"
+bm2n44.bin,2,"Phone_2', 'ThinkPhone"
+bm2n45.bin,2,"Phone_2', 'ThinkPhone"
+bm2n46.bin,2,"Phone_2', 'ThinkPhone"
+bm2n47.bin,2,"Phone_2', 'ThinkPhone"
+bm2n48.bin,2,"Phone_2', 'ThinkPhone"
+bm2n49.bin,2,"Phone_2', 'ThinkPhone"
+bm2n50.bin,2,"Phone_2', 'ThinkPhone"
+bm2n51.bin,2,"Phone_2', 'ThinkPhone"
+bm2n52.bin,2,"Phone_2', 'ThinkPhone"
+bm2n53.bin,2,"Phone_2', 'ThinkPhone"
+bm2n54.bin,2,"Phone_2', 'ThinkPhone"
+bm2n55.bin,2,"Phone_2', 'ThinkPhone"
+com.google.tuned.pixel3_imx355_normal.bin,2,"Pixel_3XL', 'Pixel_3"
+com.google.tuned.pixel3_imx355_wide.bin,2,"Pixel_3XL', 'Pixel_3"
+com.google.tuned.pixel3_imx363.bin,2,"Pixel_3XL', 'Pixel_3"
+com.google.tuned.pixel4_imx363_wide.bin,2,"Pixel_4XL', 'Pixel_4"
+com.google.tuned.pixel4_imx481_tele.bin,2,"Pixel_4XL', 'Pixel_4"
+com.google.tuned.pixel4_imx520_front.bin,2,"Pixel_4XL', 'Pixel_4"
+com.google.tuned.pixel4_ovm7251_ir.bin,2,"Pixel_4XL', 'Pixel_4"
+com.qti.sensormodule.holitech_gc02m1b.bin,2,"OnePlus_8T', 'OnePlus_9R"
+com.qti.sensormodule.imx351_wide.bin,2,"G7_ThinQ', 'V35"
+com.qti.sensormodule.imx576.bin,2,"FP4', 'Mi_Mix_3"
+com.qti.sensormodule.lce_s5k3p9.bin,2,"Galaxy_TabA_10.4_LTE', 'Galaxy_Tab_A7_Wifi"
+com.qti.sensormodule.lce_s5k5e9yx04.bin,2,"Galaxy_TabA_10.4_LTE', 'Galaxy_Tab_A7_Wifi"
+com.qti.sensormodule.le_hi846_back.bin,2,"Xperia_10_V', 'Xperia_10_IV"
+com.qti.sensormodule.le_hi846_front.bin,2,"Xperia_10_V', 'Xperia_10_IV"
+com.qti.sensormodule.liteon_imx371.bin,2,"OnePlus_6', 'OnePlus_6T"
+com.qti.sensormodule.liteon_imx376k_lc898217xc_actuator.bin,2,"OnePlus_6', 'OnePlus_6T"
+com.qti.sensormodule.liteon_imx376k_sa3103_actuator.bin,2,"OnePlus_6', 'OnePlus_6T"
+com.qti.sensormodule.liteon_imx519_lc898217xc_actuator.bin,2,"OnePlus_6', 'OnePlus_6T"
+com.qti.sensormodule.liteon_imx519_sa3103_actuator.bin,2,"OnePlus_6', 'OnePlus_6T"
+com.qti.sensormodule.liteon_ov7251_follower.bin,2,"Pixel_4XL', 'Pixel_4"
+com.qti.sensormodule.liteon_ov7251_lead.bin,2,"Pixel_4XL', 'Pixel_4"
+com.qti.sensormodule.liteon_ov7251.bin,2,"Redmi_Note_7_Pro', 'Phone2"
+com.qti.sensormodule.metric_imx481.bin,2,"Pixel_4XL', 'Pixel_4"
+com.qti.sensormodule.metric_imx520.bin,2,"Pixel_4XL', 'Pixel_4"
+com.qti.sensormodule.mot_guamp_ov02b10_ofilm.bin,2,"Defy_2021', 'Moto_G9"
+com.qti.sensormodule.mot_guamp_ov02b1b_ofilm.bin,2,"Defy_2021', 'Moto_G9"
+com.qti.sensormodule.mot_guamp_s5k4h7_ofilm.bin,2,"Defy_2021', 'Moto_G9"
+com.qti.sensormodule.mot_guamp_s5kgm1st_ofilm.bin,2,"Defy_2021', 'Moto_G9"
+com.qti.sensormodule.n19_c8490_back_dongci.bin,2,"Galaxy_TabA_10.4_LTE', 'Galaxy_Tab_A7_Wifi"
+com.qti.sensormodule.n19_gc5035_front_cxt_7e.bin,2,"Galaxy_TabA_10.4_LTE', 'Galaxy_Tab_A7_Wifi"
+com.qti.sensormodule.n19_gc5035_front_cxt.bin,2,"Galaxy_TabA_10.4_LTE', 'Galaxy_Tab_A7_Wifi"
+com.qti.sensormodule.n19_gc5035_front_qunhui.bin,2,"Galaxy_TabA_10.4_LTE', 'Galaxy_Tab_A7_Wifi"
+com.qti.sensormodule.n19_gc5035_front_unionimage.bin,2,"Galaxy_TabA_10.4_LTE', 'Galaxy_Tab_A7_Wifi"
+com.qti.sensormodule.n19_gc8034_back_cxt.bin,2,"Galaxy_TabA_10.4_LTE', 'Galaxy_Tab_A7_Wifi"
+com.qti.sensormodule.n19_hi556_front_shengtai.bin,2,"Galaxy_TabA_10.4_LTE', 'Galaxy_Tab_A7_Wifi"
+com.qti.sensormodule.n19_hi846_back_txd.bin,2,"Galaxy_TabA_10.4_LTE', 'Galaxy_Tab_A7_Wifi"
+com.qti.sensormodule.n19_s5k4h7yx_back_dongci.bin,2,"Galaxy_TabA_10.4_LTE', 'Galaxy_Tab_A7_Wifi"
+com.qti.sensormodule.n19_s5k4h7yx_back_helitai.bin,2,"Galaxy_TabA_10.4_LTE', 'Galaxy_Tab_A7_Wifi"
+com.qti.sensormodule.nubia_imx499.bin,2,"Red_Magic_Mars', 'Z18"
+com.qti.sensormodule.nubia_s5k2x7.bin,2,"Red_Magic_Mars', 'Z18"
+com.qti.sensormodule.ofilm_ov8856.bin,2,"Redmi_Note_9_Pro', 'Z6_Pro"
+com.qti.sensormodule.ov7251.bin,2,"Mi_8', 'Poco_F1"
+com.qti.sensormodule.ov9282.bin,2,"Mi_8_Pro', 'Mi_8_Explorer"
+com.qti.sensormodule.primax_imx355_normal.bin,2,"Pixel_3XL', 'Pixel_3"
+com.qti.sensormodule.primax_imx355_wide.bin,2,"Pixel_3XL', 'Pixel_3"
+com.qti.sensormodule.primax_imx355.bin,2,"Pixel_4A', 'Pixel_3A_XL"
+com.qti.sensormodule.pyxis_luxvisions_imx586_cn_i.bin,2,"Mi_CC9_Meitu', 'Mi_CC9"
+com.qti.sensormodule.pyxis_luxvisions_ov02a10_cn_i.bin,2,"Mi_CC9_Meitu', 'Mi_CC9"
+com.qti.sensormodule.pyxis_luxvisions_s5k4h7_cn_i.bin,2,"Mi_CC9_Meitu', 'Mi_CC9"
+com.qti.sensormodule.pyxis_ofilm_ov02a10_cn_ii.bin,2,"Mi_CC9_Meitu', 'Mi_CC9"
+com.qti.sensormodule.pyxis_ofilm_s5k4h7_cn_ii.bin,2,"Mi_CC9_Meitu', 'Mi_CC9"
+com.qti.sensormodule.pyxis_ofilm_s5kgd1_cn_ii.bin,2,"Mi_CC9_Meitu', 'Mi_CC9"
+com.qti.sensormodule.pyxis_sunny_s5kgd1_cn_i.bin,2,"Mi_CC9_Meitu', 'Mi_CC9"
+com.qti.sensormodule.qtech_imx481.bin,2,"OnePlus_8T', 'OnePlus_9R"
+com.qti.sensormodule.sl556.bin,2,"Velvet', 'V40"
+com.qti.sensormodule.sony_imx000.bin,2,"Red_Magic_Mars', 'Z18"
+com.qti.sensormodule.sunny_ov16a1q.bin,2,"Redmi_Note_9_Pro', 'Mi_10T_5G"
+com.qti.sensormodule.sunny_ov8856.bin,2,"Redmi_Note_9_Pro', 'Mi_10T_5G"
+com.qti.sensormodule.sunny_s5k3p9.bin,2,"Nord_N30', 'OnePlus_11_5G"
+com.qti.sensormodule.umi_semco_s5khmx.bin,2,"Mi_10', 'Mi_10S"
+com.qti.sensormodule.umi_sunny_gc02m1_depth.bin,2,"Mi_10', 'Mi_10S"
+com.qti.sensormodule.umi_sunny_gc02m1_macro.bin,2,"Mi_10', 'Mi_10S"
+com.qti.sensormodule.umi_sunny_ov13b10.bin,2,"Mi_10', 'Mi_10S"
+com.qti.sensormodule.umi_sunny_s5k3t2.bin,2,"Mi_10', 'Mi_10S"
+com.qti.tuned.agatti_lce_s5k3p9.bin,2,"Galaxy_TabA_10.4_LTE', 'Galaxy_Tab_A7_Wifi"
+com.qti.tuned.agatti_lce_s5k4h7.bin,2,"Galaxy_TabA_10.4_LTE', 'Galaxy_Tab_A7_Wifi"
+com.qti.tuned.agatti_lce_s5k5e9yx04.bin,2,"Galaxy_TabA_10.4_LTE', 'Galaxy_Tab_A7_Wifi"
+com.qti.tuned.agatti_no_mfnr_lce_s5k3p9.bin,2,"Galaxy_TabA_10.4_LTE', 'Galaxy_Tab_A7_Wifi"
+com.qti.tuned.agatti_truly_imx476.bin,2,"Galaxy_TabA_10.4_LTE', 'Galaxy_Tab_A7_Wifi"
+com.qti.tuned.divar_lce_s5k3p9.bin,2,"Galaxy_TabA_10.4_LTE', 'Galaxy_Tab_A7_Wifi"
+com.qti.tuned.divar_lce_s5k4h7.bin,2,"Galaxy_TabA_10.4_LTE', 'Galaxy_Tab_A7_Wifi"
+com.qti.tuned.divar_lce_s5k5e9yx04.bin,2,"Galaxy_TabA_10.4_LTE', 'Galaxy_Tab_A7_Wifi"
+com.qti.tuned.divar_truly_imx476.bin,2,"Galaxy_TabA_10.4_LTE', 'Galaxy_Tab_A7_Wifi"
+com.qti.tuned.imx351_wide.bin,2,"G7_ThinQ', 'V35"
+com.qti.tuned.lce_s5k3p9.bin,2,"Galaxy_TabA_10.4_LTE', 'Galaxy_Tab_A7_Wifi"
+com.qti.tuned.lce_s5k5e9yx04.bin,2,"Galaxy_TabA_10.4_LTE', 'Galaxy_Tab_A7_Wifi"
+com.qti.tuned.le_hi846_back.bin,2,"Xperia_10_V', 'Xperia_10_IV"
+com.qti.tuned.le_hi846_front.bin,2,"Xperia_10_V', 'Xperia_10_IV"
+com.qti.tuned.liteon_s5k3m3.bin,2,"Mi_8', 'Mi_Mix_3"
+com.qti.tuned.mot_fogo_sc202acs.bin,2,"Moto_G34_5G', 'Moto_G_5G_2024"
+com.qti.tuned.mot_fogor_s5kjns.bin,2,"Moto_G34_5G', 'Moto_G_5G_2024"
+com.qti.tuned.mot_guamp_ov02b10.bin,2,"Defy_2021', 'Moto_G9"
+com.qti.tuned.mot_guamp_ov02b1b.bin,2,"Defy_2021', 'Moto_G9"
+com.qti.tuned.mot_guamp_s5k4h7.bin,2,"Defy_2021', 'Moto_G9"
+com.qti.tuned.mot_guamp_s5kgm1st.bin,2,"Defy_2021', 'Moto_G9"
+com.qti.tuned.n19_c8490_back_dongci.bin,2,"Galaxy_TabA_10.4_LTE', 'Galaxy_Tab_A7_Wifi"
+com.qti.tuned.n19_gc5035_front_cxt.bin,2,"Galaxy_TabA_10.4_LTE', 'Galaxy_Tab_A7_Wifi"
+com.qti.tuned.n19_gc5035_front_qunhui.bin,2,"Galaxy_TabA_10.4_LTE', 'Galaxy_Tab_A7_Wifi"
+com.qti.tuned.n19_gc5035_front_unionimage.bin,2,"Galaxy_TabA_10.4_LTE', 'Galaxy_Tab_A7_Wifi"
+com.qti.tuned.n19_gc8034_back_cxt.bin,2,"Galaxy_TabA_10.4_LTE', 'Galaxy_Tab_A7_Wifi"
+com.qti.tuned.n19_hi556_front_shengtai.bin,2,"Galaxy_TabA_10.4_LTE', 'Galaxy_Tab_A7_Wifi"
+com.qti.tuned.n19_hi846_back_txd.bin,2,"Galaxy_TabA_10.4_LTE', 'Galaxy_Tab_A7_Wifi"
+com.qti.tuned.n19_s5k4h7yx_back_dongci.bin,2,"Galaxy_TabA_10.4_LTE', 'Galaxy_Tab_A7_Wifi"
+com.qti.tuned.n19_s5k4h7yx_back_helitai.bin,2,"Galaxy_TabA_10.4_LTE', 'Galaxy_Tab_A7_Wifi"
+com.qti.tuned.nubia_imx499.bin,2,"Red_Magic_Mars', 'Z18"
+com.qti.tuned.nubia_s5k2x7.bin,2,"Red_Magic_Mars', 'Z18"
+com.qti.tuned.ofilm_ov8856.bin,2,"Redmi_Note_9_Pro', 'Z6_Pro"
+com.qti.tuned.ofilm_ov9282.bin,2,"Mi_8_Pro', 'Mi_8_Explorer"
+com.qti.tuned.oflim_imx371_fat.bin,2,"OnePlus_6', 'OnePlus_6T"
+com.qti.tuned.oflim_imx371.bin,2,"OnePlus_6', 'OnePlus_6T"
+com.qti.tuned.pyxis_luxvisions_imx586_cn_i.bin,2,"Mi_CC9_Meitu', 'Mi_CC9"
+com.qti.tuned.pyxis_luxvisions_ov02a10_cn_i.bin,2,"Mi_CC9_Meitu', 'Mi_CC9"
+com.qti.tuned.pyxis_luxvisions_s5k4h7_cn_i.bin,2,"Mi_CC9_Meitu', 'Mi_CC9"
+com.qti.tuned.pyxis_ofilm_ov02a10_cn_ii.bin,2,"Mi_CC9_Meitu', 'Mi_CC9"
+com.qti.tuned.pyxis_ofilm_s5k4h7_cn_ii.bin,2,"Mi_CC9_Meitu', 'Mi_CC9"
+com.qti.tuned.pyxis_ofilm_s5kgd1_cn_ii.bin,2,"Mi_CC9_Meitu', 'Mi_CC9"
+com.qti.tuned.pyxis_sunny_s5kgd1_cn_i.bin,2,"Mi_CC9_Meitu', 'Mi_CC9"
+com.qti.tuned.qtech_imx481.bin,2,"OnePlus_8T', 'OnePlus_9R"
+com.qti.tuned.s5kjn1.bin,2,"Nord_N20_5G', 'Realme_9_Pro"
+com.qti.tuned.semco_imx376k.bin,2,"OnePlus_6', 'OnePlus_6T"
+com.qti.tuned.semco_imx519_fatt.bin,2,"OnePlus_6', 'OnePlus_6T"
+com.qti.tuned.semco_imx519.bin,2,"OnePlus_6', 'OnePlus_6T"
+com.qti.tuned.sl556.bin,2,"Velvet', 'V40"
+com.qti.tuned.sm6375_s5k3p9_sunny.bin,2,"Realme_10_Pro', 'Nord_N30"
+com.qti.tuned.sunny_ov7251.bin,2,"Mi_8', 'Poco_F1"
+com.qti.tuned.sunny_s5k3t1.bin,2,"Mi_8', 'Poco_F1"
+com.qti.tuned.tpg.bin,2,"Redmi_K60_Pro', 'Mi_13"
+com.samsung.sensormodule.0_0_sony_imx682.bin,2,"Galaxy_A52_4G', 'Galaxy_A72"
+com.samsung.sensormodule.0_1_lsi_s5kgw1p.bin,2,"Galaxy_A52_4G', 'Galaxy_A72"
+com.samsung.sensormodule.0_1_sony_imx682.bin,2,"Galaxy_A52s_5G', 'Galaxy_A71"
+com.samsung.sensormodule.0_lsi_s5k3m5.bin,2,"Galaxy_Tab_S7_LTE', 'Galaxy_Tab_S7_Wifi"
+com.samsung.sensormodule.0_s5k3m5.bin,2,"Galaxy_Tab_S5e_Wifi', 'Galaxy_Tab_S5e_LTE"
+com.samsung.sensormodule.1_0_sony_imx616.bin,2,"Galaxy_A52_4G', 'Galaxy_A72"
+com.samsung.sensormodule.1_1_lsi_s5kgd2_otp.bin,2,"Galaxy_A52_4G', 'Galaxy_A72"
+com.samsung.sensormodule.1_1_lsi_s5kgd2.bin,2,"Galaxy_A52_4G', 'Galaxy_A72"
+com.samsung.sensormodule.1_lsi_s5k4ha.bin,2,"Galaxy_Tab_S7_LTE', 'Galaxy_Tab_S7_Wifi"
+com.samsung.sensormodule.1_s5k4ha.bin,2,"Galaxy_Tab_S5e_Wifi', 'Galaxy_Tab_S5e_LTE"
+com.samsung.sensormodule.12_lsi_s5k4ha_full.bin,2,"Galaxy_Tab_S7_LTE', 'Galaxy_Tab_S7_Wifi"
+com.samsung.sensormodule.13_sony_imx616_full.bin,2,"Galaxy_A73_5G', 'Galaxy_M52_5G"
+com.samsung.sensormodule.2_0_lsi_s5k3l6.bin,2,"Galaxy_A52_4G', 'Galaxy_A72"
+com.samsung.sensormodule.2_1_hynix_hi1336.bin,2,"Galaxy_A52_4G', 'Galaxy_A72"
+com.samsung.sensormodule.2_lsi_s5k3l6.bin,2,"Galaxy_S20_FE', 'Galaxy_A52s_5G"
+com.samsung.sensormodule.2_lsi_s5k5e9yu05.bin,2,"Galaxy_Tab_S7_LTE', 'Galaxy_Tab_S7_Wifi"
+com.samsung.sensormodule.2_sony_imx258.bin,2,"Galaxy_A73_5G', 'Galaxy_M52_5G"
+com.samsung.sensormodule.8_0_sony_imx616_full.bin,2,"Galaxy_A52_4G', 'Galaxy_A72"
+com.samsung.sensormodule.8_1_lsi_s5kgd2_full_otp.bin,2,"Galaxy_A52_4G', 'Galaxy_A72"
+com.samsung.sensormodule.8_1_lsi_s5kgd2_full.bin,2,"Galaxy_A52_4G', 'Galaxy_A72"
+com.samsung.tuned.hynix_hi847.bin,2,"Galaxy_S20_FE', 'Galaxy_A72"
+com.samsung.tuned.lsi_s5k3m5.bin,2,"Galaxy_Tab_S7_LTE', 'Galaxy_Tab_S7_Wifi"
+com.samsung.tuned.lsi_s5k4ha.bin,2,"Galaxy_Tab_S7_LTE', 'Galaxy_Tab_S7_Wifi"
+com.samsung.tuned.lsi_s5k5e9yu05.bin,2,"Galaxy_Tab_S7_LTE', 'Galaxy_Tab_S7_Wifi"
+com.samsung.tuned.sony_imx258.bin,2,"Galaxy_A73_5G', 'Galaxy_M52_5G"
+com.sony.sensormodule.maunakea_imx563.bin,2,"Xperia_5_V', 'Xperia_1_V"
+com.sony.sensormodule.maunakea_imx888.bin,2,"Xperia_5_V', 'Xperia_1_V"
+com.sony.sensormodule.pansy_imx241.bin,2,"Xperia_XZ2_Compact', 'Xperia_XZ2"
+com.sony.sensormodule.rose_s5k4h7.bin,2,"Xperia_1_II', 'Xperia_5_II"
+com.sony.tuned.crocus_imx663.bin,2,"Xperia_5_V', 'Xperia_1_V"
+com.sony.tuned.maunakea_imx563.bin,2,"Xperia_5_V', 'Xperia_1_V"
+com.sony.tuned.maunakea_imx888.bin,2,"Xperia_5_V', 'Xperia_1_V"
+com.xiaomi_k9_mecp_for_nocali.bin,2,"Mi_11', 'Mi_11_5G"
+com.xiaomi_k9_mecp.bin,2,"Mi_11', 'Mi_11_5G"
+eebindriver.bin,2,"Galaxy_Tab_S5e_Wifi', 'Galaxy_Tab_S5e_LTE"
+haptic_rtp_lighthouse.bin,2,"Phone_2', 'FP5"
+haptic_rtp_silk.bin,2,"Phone_2', 'FP5"
+haptic_rtp.bin,2,"Phone_2', 'FP5"
+intsense_config_optical_zoom_2sat.bin,2,"Mi_11', 'Mi_11_5G"
+intsense_config_singlebokeh.bin,2,"FP4', 'FP5"
+s5k3m5tuned.bin,2,"Galaxy_Tab_S5e_Wifi', 'Galaxy_Tab_S5e_LTE"
+s5k4hatuned.bin,2,"Galaxy_Tab_S5e_Wifi', 'Galaxy_Tab_S5e_LTE"
+anc.bin,3,"Edge_40_Pro', 'FP5', 'Poco_F5_Pro"
+aw8624_rtp.bin,3,"Moto_G_5G', 'Redmi_Note_10_Pro', 'Mi_11"
+com.qti.sensormodule.imx351.bin,3,"G7_ThinQ', 'V40', 'V35"
+com.qti.sensormodule.lce_s5k4h7.bin,3,"Galaxy_TabA_10.4_LTE', 'Galaxy_Tab_A7_Wifi', 'Pro_1X"
+com.qti.sensormodule.ofilm_imx563.bin,3,"Red_Magic_5G', 'Xperia_1_II', 'Xperia_5_II"
+com.qti.sensormodule.ofilm_s5k3m5.bin,3,"OnePlus_7_Pro', 'OnePlus_7T', 'OnePlus_7T_Pro"
+com.qti.sensormodule.s5kjn1.bin,3,"Nord_CE2', 'Nord_N20_5G', 'Realme_9_Pro"
+com.qti.sensormodule.semco_2nd_lens_imx586.bin,3,"OnePlus_7_Pro', 'OnePlus_7T', 'OnePlus_7T_Pro"
+com.qti.sensormodule.shine_gc5035.bin,3,"OnePlus_8T', 'OnePlus_9R', 'OnePlus_8_Pro"
+com.qti.tuned.holitech_gc02m1b.bin,3,"OnePlus_9_Pro', 'OnePlus_8T', 'OnePlus_9R"
+com.qti.tuned.imx351.bin,3,"G7_ThinQ', 'V40', 'V35"
+com.qti.tuned.lce_s5k4h7.bin,3,"Galaxy_TabA_10.4_LTE', 'Galaxy_Tab_A7_Wifi', 'Pro_1X"
+com.qti.tuned.liteon_imx363.bin,3,"Phone2', 'Mi_8', 'Mi_Mix_3"
+com.qti.tuned.ofilm_imx563.bin,3,"Red_Magic_5G', 'Xperia_1_II', 'Xperia_5_II"
+com.qti.tuned.ofilm_s5k3m5.bin,3,"OnePlus_7_Pro', 'OnePlus_7T', 'OnePlus_7T_Pro"
+com.qti.tuned.ofilm_s5k3t1.bin,3,"Mi_8_Pro', 'Mi_8_Explorer', 'Poco_F1"
+com.qti.tuned.shine_gc5035.bin,3,"OnePlus_8T', 'OnePlus_9R', 'OnePlus_8_Pro"
+com.samsung.tuned.hynix_hi1336.bin,3,"Galaxy_A52_4G', 'Galaxy_A71', 'Galaxy_A72"
+com.samsung.tuned.lsi_s5kgd2.bin,3,"Galaxy_A52_4G', 'Galaxy_A52s_5G', 'Galaxy_A72"
+com.samsung.tuned.lsi_s5kgw1p.bin,3,"Galaxy_A52_4G', 'Galaxy_A52s_5G', 'Galaxy_A72"
+com.sony.sensormodule.blakiston_imx400.bin,3,"Xperia_XZ3', 'Xperia_XZ2_Compact', 'Xperia_XZ2"
+aw8622x_rtp.bin,4,"Edge_30', 'Pro_1X', 'Xperia_10_IV', 'Edge_30_Neo"
+com.qti.sensormodule.gc02m1b.bin,4,"Realme_10_Pro', 'Nord_CE2', 'Nord_N20_5G', 'Realme_9_Pro"
+com.qti.sensormodule.imx333.bin,4,"Mi_8', 'Mi_Mix_2S', 'Mi_8_Pro', 'Mi_8_Explorer"
+com.qti.sensormodule.liteon_imx362.bin,4,"Red_Magic_5G', 'Xperia_1_II', 'Xperia_5_II', 'Redmi_Note_7_Pro"
+com.qti.sensormodule.liteon_imx363.bin,4,"Phone2', 'Mi_8', 'Mi_8_Pro', 'Mi_8_Explorer"
+com.qti.sensormodule.ofilm_imx481.bin,4,"OnePlus_7_Pro', 'OnePlus_8', 'OnePlus_7T', 'OnePlus_7T_Pro"
+com.qti.sensormodule.ofilm_imx586.bin,4,"OnePlus_7_Pro', 'Redmi_Note_7_Pro', 'OnePlus_7T', 'OnePlus_7T_Pro"
+com.qti.sensormodule.pmd_irs2381c.bin,4,"Red_Magic_5G', 'Xperia_1_II', 'Xperia_5_II', 'Redmi_Note_7_Pro"
+com.qti.sensormodule.s5k3m3sn03.bin,4,"Mi_8', 'Mi_Mix_2S', 'Mi_8_Pro', 'Mi_8_Explorer"
+com.qti.sensormodule.sl846.bin,4,"G7_ThinQ', 'Velvet', 'V40', 'V35"
+com.qti.sensormodule.sunny_imx471.bin,4,"OnePlus_7_Pro', 'OnePlus_7', 'OnePlus_7T', 'OnePlus_7T_Pro"
+com.qti.sensormodule.truly_imx471.bin,4,"OnePlus_8', 'OnePlus_8T', 'OnePlus_9R', 'OnePlus_8_Pro"
+com.qti.tuned.liteon_imx362.bin,4,"Red_Magic_5G', 'Xperia_1_II', 'Xperia_5_II', 'Redmi_Note_7_Pro"
+com.qti.tuned.ofilm_imx481.bin,4,"OnePlus_7_Pro', 'OnePlus_8', 'OnePlus_7T', 'OnePlus_7T_Pro"
+com.qti.tuned.ofilm_imx586.bin,4,"OnePlus_7_Pro', 'Redmi_Note_7_Pro', 'OnePlus_7T', 'OnePlus_7T_Pro"
+com.qti.tuned.ov08d10.bin,4,"Realme_10_Pro', 'Nord_CE2', 'Nord_N30', 'Realme_9_Pro"
+com.qti.tuned.sl846.bin,4,"G7_ThinQ', 'Velvet', 'V40', 'V35"
+com.qti.tuned.sunny_imx471.bin,4,"OnePlus_7_Pro', 'OnePlus_7', 'OnePlus_7T', 'OnePlus_7T_Pro"
+com.qti.tuned.sunny_s5k5e9yu05.bin,4,"Red_Magic_5G', 'Xperia_1_II', 'Xperia_5_II', 'Redmi_Note_7_Pro"
+com.samsung.sensormodule.1_sony_imx616.bin,4,"Galaxy_S20_FE', 'Galaxy_A73_5G', 'Galaxy_M52_5G', 'Galaxy_A71"
+com.samsung.sensormodule.3_lsi_gc5035.bin,4,"Galaxy_A73_5G', 'Galaxy_A52_4G', 'Galaxy_A52s_5G', 'Galaxy_A71"
+com.samsung.tuned.lsi_gc5035.bin,4,"Galaxy_A73_5G', 'Galaxy_A52_4G', 'Galaxy_A52s_5G', 'Galaxy_A71"
+com.samsung.tuned.lsi_s5k3l6.bin,4,"Galaxy_S20_FE', 'Galaxy_A52_4G', 'Galaxy_A52s_5G', 'Galaxy_A72"
+com.samsung.tuned.sony_imx682.bin,4,"Galaxy_A52_4G', 'Galaxy_A52s_5G', 'Galaxy_A71', 'Galaxy_A72"
+fdconfigsecure.bin,4,"Xperia_5_V', 'Xperia_1_V', 'Mi_13_Pro', 'Mi_13"
+fusion_mecp.bin,4,"Mi_12S_Ultra', 'Mi_Fold_2', 'Mi_12T_Pro', 'Poco_F5_Pro"
+aw882xx_acf.bin,5,"Xperia_10_V', 'Xperia_10_IV', 'FP5', 'Poco_F5_Pro', 'Poco_F5"
+com.qti.sensormodule.gc02m1.bin,5,"Realme_10_Pro', 'Nord_CE2', 'Nord_N30', 'Nord_N20_5G', 'Realme_9_Pro"
+com.qti.sensormodule.imx363.bin,5,"Mi_8', 'Mi_Mix_2S', 'Mi_8_Pro', 'Mi_8_Explorer', 'V40"
+com.qti.sensormodule.ov08d10.bin,5,"Realme_10_Pro', 'Nord_CE2', 'Nord_N30', 'Nord_N20_5G', 'Realme_9_Pro"
+com.qti.sensormodule.ov64b.bin,5,"Realme_10_Pro', 'Nord_CE2', 'Nord_N30', 'Nord_N20_5G', 'Realme_9_Pro"
+com.qti.sensormodule.s5k3t1.bin,5,"Mi_9SE', 'Mi_8', 'Mi_8_Pro', 'Mi_8_Explorer', 'Poco_F1"
+com.qti.tuned.gc02m1.bin,5,"Realme_10_Pro', 'Nord_CE2', 'Nord_N30', 'Nord_N20_5G', 'Realme_9_Pro"
+com.qti.tuned.gc02m1b.bin,5,"Realme_10_Pro', 'Nord_CE2', 'Nord_N20_5G', 'Realme_9_Pro', 'Nord_200"
+com.qti.tuned.ov64b.bin,5,"Realme_10_Pro', 'Nord_CE2', 'Nord_N30', 'Nord_N20_5G', 'Realme_9_Pro"
+com.qti.tuned.semco_s5k3m3.bin,5,"Mi_8', 'Mi_Mix_2S', 'Mi_8_Pro', 'Mi_8_Explorer', 'Mi_Mix_3"
+com.qti.tuned.sunny_imx519.bin,5,"Red_Magic_5G', 'Xperia_1_II', 'Xperia_5_II', 'Redmi_Note_7_Pro', 'Shift_6MQ"
+com.qti.tuned.truly_imx471.bin,5,"OnePlus_9_Pro', 'OnePlus_8', 'OnePlus_8T', 'OnePlus_9R', 'OnePlus_8_Pro"
+com.qti.tuned.truly_imx476.bin,5,"Red_Magic_5G', 'Galaxy_TabA_10.4_LTE', 'Galaxy_Tab_A7_Wifi', 'Xperia_1_II', 'Xperia_5_II"
+com.samsung.sensormodule.4_lsi_gc5035_macro.bin,5,"Galaxy_A73_5G', 'Galaxy_A52s_5G', 'Galaxy_M52_5G', 'Galaxy_A71', 'Galaxy_A72"
+aw8697_rtp_silk.bin,6,"OnePlus_9_Pro', 'OnePlus_8', 'OnePlus_8T', 'OnePlus_9R', 'OnePlus_8_Pro', 'OnePlus_7T"
+aw882xx_pid_1852_acf.bin,6,"Moto_G52', 'Moto_G200', 'Redmi_Note_10_Pro', 'Edge_30', 'Edge_30_Fusion', 'Moto_G32"
+com.qti.sensormodule.metric_imx363.bin,6,"Pixel_4A', 'Pixel_3XL', 'Pixel_4XL', 'Pixel_3A_XL', 'Pixel_4', 'Pixel_3"
+com.qti.sensormodule.qti_tpg0.bin,6,"Galaxy_TabA_10.4_LTE', 'Galaxy_Tab_A7_Wifi', 'Xperia_10_V', 'Redmi_K60_Pro', 'Mi_13', 'Xperia_10_IV"
+com.qti.sensormodule.qti_tpg1.bin,6,"Galaxy_TabA_10.4_LTE', 'Galaxy_Tab_A7_Wifi', 'Xperia_10_V', 'Redmi_K60_Pro', 'Mi_13', 'Xperia_10_IV"
+com.qti.sensormodule.qti_tpg2.bin,6,"Galaxy_TabA_10.4_LTE', 'Galaxy_Tab_A7_Wifi', 'Xperia_10_V', 'Redmi_K60_Pro', 'Mi_13', 'Xperia_10_IV"
+com.qti.sensormodule.semco_imx481.bin,6,"Red_Magic_5G', 'OnePlus_7_Pro', 'Xperia_1_II', 'Xperia_5_II', 'OnePlus_7T', 'OnePlus_7T_Pro"
+com.qti.sensormodule.sy_imx471.bin,6,"Realme_10_Pro', 'Nord_CE2', 'Nord_N30', 'Nord_N20_5G', 'Realme_9_Pro', 'Nord_200"
+com.qti.sensormodule.truly_imx476.bin,6,"Red_Magic_5G', 'Galaxy_TabA_10.4_LTE', 'Galaxy_Tab_A7_Wifi', 'Xperia_1_II', 'Xperia_5_II', 'Redmi_Note_7_Pro"
+com.qti.tuned.imx471.bin,6,"Realme_10_Pro', 'Nord_CE2', 'Nord_N30', 'Nord_N20_5G', 'Realme_9_Pro', 'Nord_200"
+com.qti.tuned.semco_imx363.bin,6,"Phone_2', 'Mi_8', 'Mi_Mix_2S', 'Mi_8_Pro', 'Mi_8_Explorer', 'Mi_Mix_3"
+com.samsung.tuned.lsi_gc5035_macro.bin,6,"Galaxy_A73_5G', 'Galaxy_A52_4G', 'Galaxy_A52s_5G', 'Galaxy_M52_5G', 'Galaxy_A71', 'Galaxy_A72"
+aw_skt.bin,7,"Moto_G52', 'Edge_30', 'Edge_30_Fusion', 'Moto_G32', 'Moto_G_5G_2024', 'Moto_G82_5G', 'Edge_30_Neo"
+com.qti.sensormodule.semco_s5k3m5.bin,7,"Red_Magic_5G', 'OnePlus_7_Pro', 'Xperia_1_II', 'Xperia_5_II', 'OnePlus_8_Pro', 'OnePlus_7T', 'OnePlus_7T_Pro"
+com.qti.sensormodule.sunny_imx519.bin,7,"Red_Magic_5G', 'Galaxy_TabA_10.4_LTE', 'Galaxy_Tab_A7_Wifi', 'Xperia_1_II', 'Xperia_5_II', 'Redmi_Note_7_Pro', 'Shift_6MQ"
+com.samsung.tuned.sony_imx616.bin,7,"Galaxy_S20_FE', 'Galaxy_A73_5G', 'Galaxy_A52_4G', 'Galaxy_A52s_5G', 'Galaxy_M52_5G', 'Galaxy_A71', 'Galaxy_A72"
+skinLUTs02.bin,7,"Realme_10_Pro', 'Nord_CE2', 'OnePlus_9_Pro', 'Nord_N30', 'Nord_N20_5G', 'Realme_9_Pro', 'OnePlus_11_5G"
+skinLUTs03.bin,7,"Realme_10_Pro', 'Nord_CE2', 'OnePlus_9_Pro', 'Nord_N30', 'Nord_N20_5G', 'Realme_9_Pro', 'OnePlus_11_5G"
+aw8695_rtp.bin,8,"One_Action', 'One_Vision', 'Red_Magic_5G', 'Edge_2021', 'Moto_G_5G_Plus', 'Edge_20', 'Edge_S', 'Edge_20_Pro"
+aw882xx_pid_2113_acf.bin,8,"Moto_G52', 'Moto_G200', 'Edge_30', 'Edge_30_Fusion', 'Moto_G32', 'Moto_G_5G_2024', 'Moto_G82_5G', 'Edge_30_Neo"
+bm2n32.bin,8,"Phone_2', 'Mi_12S_Ultra', 'Mi_Fold_2', 'Mi_12S_Pro', 'ThinkPhone', 'Mi_12T_Pro', 'Poco_F5_Pro', 'Poco_F5"
+bm2n33.bin,8,"Phone_2', 'Mi_12S_Ultra', 'Mi_Fold_2', 'Mi_12S_Pro', 'ThinkPhone', 'Mi_12T_Pro', 'Poco_F5_Pro', 'Poco_F5"
+bm2n34.bin,8,"Phone_2', 'Mi_12S_Ultra', 'Mi_Fold_2', 'Mi_12S_Pro', 'ThinkPhone', 'Mi_12T_Pro', 'Poco_F5_Pro', 'Poco_F5"
+bm2n35.bin,8,"Phone_2', 'Mi_12S_Ultra', 'Mi_Fold_2', 'Mi_12S_Pro', 'ThinkPhone', 'Mi_12T_Pro', 'Poco_F5_Pro', 'Poco_F5"
+bm2n36.bin,8,"Phone_2', 'Mi_12S_Ultra', 'Mi_Fold_2', 'Mi_12S_Pro', 'ThinkPhone', 'Mi_12T_Pro', 'Poco_F5_Pro', 'Poco_F5"
+com.qti.tuned.semco_s5k3m5.bin,8,"Red_Magic_5G', 'OnePlus_7_Pro', 'Xperia_1_II', 'Xperia_5_II', 'Redmi_Note_7_Pro', 'OnePlus_8_Pro', 'OnePlus_7T', 'OnePlus_7T_Pro"
+f_candy_water_weak.cube.rgb.bin,8,"Realme_10_Pro', 'Nord_CE2', 'OnePlus_9_Pro', 'Nord_N30', 'Nord_N20_5G', 'Realme_9_Pro', 'OnePlus_11_5G', 'Nord_200"
+f_fuji_strong.cube.rgb.bin,8,"Realme_10_Pro', 'Nord_CE2', 'OnePlus_9_Pro', 'Nord_N30', 'Nord_N20_5G', 'Realme_9_Pro', 'OnePlus_11_5G', 'Nord_200"
+skinLUTs12.bin,8,"Realme_10_Pro', 'Nord_CE2', 'OnePlus_9_Pro', 'Nord_N30', 'Nord_N20_5G', 'Realme_9_Pro', 'OnePlus_11_5G', 'Nord_200"
+systemdefault.bin,8,"Galaxy_Tab_S5e_Wifi', 'Xperia_XZ3', 'Xperia_XZ2_Compact', 'Xperia_XZ2_Premium', 'Xperia_XZ2', 'Mi_Mix_2S', 'Galaxy_Tab_S5e_LTE', 'Poco_F1"
+aw8697_rtp_lighthouse.bin,9,"OnePlus_7_Pro', 'OnePlus_7', 'OnePlus_9_Pro', 'OnePlus_8', 'OnePlus_8T', 'OnePlus_9R', 'OnePlus_8_Pro', 'OnePlus_7T', 'OnePlus_7T_Pro"
+com.qti.tuned.semco_imx481.bin,10,"Red_Magic_5G', 'OnePlus_7_Pro', 'Xperia_1_II', 'Pixel_4A_5G', 'Pixel_5A', 'Xperia_5_II', 'Redmi_Note_7_Pro', 'Pixel_5', 'OnePlus_7T', 'OnePlus_7T_Pro"
+com.qti.sensormodule.semco_imx586.bin,12,"Red_Magic_5G', 'OnePlus_7_Pro', 'OnePlus_7', 'OnePlus_8', 'OnePlus_8T', 'Xperia_1_II', 'OnePlus_9R', 'Xperia_5_II', 'Redmi_Note_7_Pro', 'OnePlus_8_Pro', 'OnePlus_7T', 'OnePlus_7T_Pro"
+com.qti.tuned.semco_imx586.bin,12,"Red_Magic_5G', 'OnePlus_7_Pro', 'OnePlus_7', 'OnePlus_8', 'OnePlus_8T', 'Xperia_1_II', 'OnePlus_9R', 'Xperia_5_II', 'Redmi_Note_7_Pro', 'OnePlus_8_Pro', 'OnePlus_7T', 'OnePlus_7T_Pro"
+titan17x_usecases.bin,18,"G7_ThinQ', 'Galaxy_Tab_S5e_Wifi', 'Xperia_XZ3', 'Mi_9SE', 'OnePlus_6', 'Xperia_XZ2_Compact', 'Xperia_XZ2_Premium', 'Xperia_XZ2', 'Mi_CC9_Meitu', 'Red_Magic_Mars', 'OnePlus_6T', 'Axon_9_Pro', 'Velvet', 'Galaxy_Tab_S5e_LTE', 'V40', 'Mi_CC9', 'V35', 'Poco_F1"
+bm2n13.bin,23,"Realme_10_Pro', 'Phone_1', 'Edge_2021', 'Nord_CE2', 'Xperia_10_V', 'OnePlus_9_Pro', 'Moto_G200', 'Nord_N30', 'Nord_N20_5G', 'Edge_20', 'Edge_30', 'Edge_30_Fusion', 'Moto_G34_5G', 'Mi_11_5G', 'Realme_9_Pro', 'Moto_G84_5G', 'Xperia_10_IV', 'FP5', 'Moto_G_5G_2024', 'Moto_G82_5G', 'Edge_30_Neo', 'Nord_200', 'Xperia_5_III"
+bm2n14.bin,23,"Realme_10_Pro', 'Phone_1', 'Edge_2021', 'Nord_CE2', 'Xperia_10_V', 'OnePlus_9_Pro', 'Moto_G200', 'Nord_N30', 'Nord_N20_5G', 'Edge_20', 'Edge_30', 'Edge_30_Fusion', 'Moto_G34_5G', 'Mi_11_5G', 'Realme_9_Pro', 'Moto_G84_5G', 'Xperia_10_IV', 'FP5', 'Moto_G_5G_2024', 'Moto_G82_5G', 'Edge_30_Neo', 'Nord_200', 'Xperia_5_III"
+bm2n15.bin,23,"Realme_10_Pro', 'Phone_1', 'Edge_2021', 'Nord_CE2', 'Xperia_10_V', 'OnePlus_9_Pro', 'Moto_G200', 'Nord_N30', 'Nord_N20_5G', 'Edge_20', 'Edge_30', 'Edge_30_Fusion', 'Moto_G34_5G', 'Mi_11_5G', 'Realme_9_Pro', 'Moto_G84_5G', 'Xperia_10_IV', 'FP5', 'Moto_G_5G_2024', 'Moto_G82_5G', 'Edge_30_Neo', 'Nord_200', 'Xperia_5_III"
+bm2n12.bin,25,"Realme_10_Pro', 'Phone_1', 'Edge_2021', 'Nord_CE2', 'Xperia_10_V', 'OnePlus_9_Pro', 'Moto_G200', 'Nord_N30', 'Nord_N20_5G', 'Edge_20', 'Galaxy_A73_5G', 'Edge_30', 'Edge_30_Fusion', 'Moto_G34_5G', 'Realme_9_Pro', 'Moto_G84_5G', 'Galaxy_A52s_5G', 'Galaxy_M52_5G', 'Xperia_10_IV', 'FP5', 'Moto_G_5G_2024', 'Moto_G82_5G', 'Edge_30_Neo', 'Nord_200', 'Xperia_5_III"
+unified_kbcs_32.bin,25,"Realme_10_Pro', 'Phone_1', 'Edge_2021', 'Nord_CE2', 'Xperia_10_V', 'OnePlus_9_Pro', 'Moto_G200', 'Nord_N30', 'Nord_N20_5G', 'Edge_20', 'Galaxy_A73_5G', 'Edge_30', 'Edge_30_Fusion', 'Moto_G34_5G', 'Realme_9_Pro', 'Moto_G84_5G', 'Galaxy_A52s_5G', 'Galaxy_M52_5G', 'Xperia_10_IV', 'FP5', 'Moto_G_5G_2024', 'Moto_G82_5G', 'Edge_30_Neo', 'Nord_200', 'Xperia_5_III"
+unified_kbcs_64.bin,25,"Realme_10_Pro', 'Phone_1', 'Edge_2021', 'Nord_CE2', 'Xperia_10_V', 'OnePlus_9_Pro', 'Moto_G200', 'Nord_N30', 'Nord_N20_5G', 'Edge_20', 'Galaxy_A73_5G', 'Edge_30', 'Edge_30_Fusion', 'Moto_G34_5G', 'Realme_9_Pro', 'Moto_G84_5G', 'Galaxy_A52s_5G', 'Galaxy_M52_5G', 'Xperia_10_IV', 'FP5', 'Moto_G_5G_2024', 'Moto_G82_5G', 'Edge_30_Neo', 'Nord_200', 'Xperia_5_III"
+unified_ksqs.bin,25,"Realme_10_Pro', 'Phone_1', 'Edge_2021', 'Nord_CE2', 'Xperia_10_V', 'OnePlus_9_Pro', 'Moto_G200', 'Nord_N30', 'Nord_N20_5G', 'Edge_20', 'Galaxy_A73_5G', 'Edge_30', 'Edge_30_Fusion', 'Moto_G34_5G', 'Realme_9_Pro', 'Moto_G84_5G', 'Galaxy_A52s_5G', 'Galaxy_M52_5G', 'Xperia_10_IV', 'FP5', 'Moto_G_5G_2024', 'Moto_G82_5G', 'Edge_30_Neo', 'Nord_200', 'Xperia_5_III"
+bm2n08.bin,26,"Realme_10_Pro', 'Phone_1', 'Edge_2021', 'Nord_CE2', 'Xperia_10_V', 'OnePlus_9_Pro', 'Moto_G200', 'Nord_N30', 'Nord_N20_5G', 'Edge_20', 'Galaxy_A73_5G', 'Edge_30', 'Edge_30_Fusion', 'Moto_G34_5G', 'Mi_11_5G', 'Realme_9_Pro', 'Moto_G84_5G', 'Galaxy_A52s_5G', 'Galaxy_M52_5G', 'Xperia_10_IV', 'FP5', 'Moto_G_5G_2024', 'Moto_G82_5G', 'Edge_30_Neo', 'Nord_200', 'Xperia_5_III"
+com.qti.tuned.default.bin,108,"G7_ThinQ', 'Red_Magic_5G', 'Mi_10_Pro', 'Redmi_Note_9_Pro', 'Galaxy_TabA_10.4_LTE', 'Poco_X3_NFC', 'Galaxy_Tab_A7_Wifi', 'Xperia_XZ3', 'Xperia_5_V', 'Phone_2', 'Galaxy_S20_FE', 'Phone_1', 'Edge_2021', 'Mi_12S_Ultra', 'Mi_9SE', 'Defy_2021', 'Moto_G52', 'Pixel_4A', 'Xperia_10_V', 'OnePlus_6', 'Mini_5G', 'Moto_G_5G_Plus', 'OnePlus_8', 'Moto_G_5G', 'OnePlus_8T', 'Xperia_1_II', 'Pixel_3XL', 'Moto_G200', 'Moto_E7_Plus', 'Poco_X3_Pro', 'Edge_20', 'OnePlus_9R', 'Moto_G9_Power', 'Galaxy_A73_5G', 'Pixel_4A_5G', 'Xperia_XZ2_Compact', 'Redmi_Note_10_Pro', 'Pixel_4XL', 'Mi_10T_5G', 'Xperia_XZ2_Premium', 'Moto_G9', 'Xperia_1_V', 'Pixel_3A_XL', 'Xperia_XZ2', 'Mi_13_Pro', 'Edge_30', 'Edge_S', 'Pixel_5A', 'Xperia_5_II', 'Edge_40_Pro', 'Edge_30_Fusion', 'Moto_G10', 'Redmi_Note_7_Pro', 'Mi_CC9_Meitu', 'Mi_11', 'Mi_Fold_2', 'Moto_G34_5G', 'Mi_11_5G', 'Redmi_K60_Pro', 'Red_Magic_Mars', 'Mi_8', 'Moto_G32', 'OnePlus_6T', 'OnePlus_8_Pro', 'Moto_G84_5G', 'Mi_10', 'Moto_G_Power', 'Galaxy_A52s_5G', 'Pixel_4', 'Pixel_5', 'Axon_9_Pro', 'Pixel_3', 'Mi_13', 'Mi_Mix_2S', 'Galaxy_M52_5G', 'Mi_10T', 'Shift_6MQ', 'Mi_10S', 'Pro_1X', 'Xperia_10_IV', 'FP5', 'Mi_8_Pro', 'Mi_12_Pro', 'Mi_12', 'Mi_12S_Pro', 'Moto_G_5G_2024', 'Velvet', 'Edge_20_Pro', 'Z18', 'Mi_8_Explorer', 'V40', 'ThinkPhone', 'Mi_CC9', 'Mi_11I', 'Mi_12T_Pro', 'Moto_G30', 'V35', 'Mi_Mix_3', 'Redmi_K20_Mi_9', 'Poco_F1', 'Moto_G82_5G', 'Poco_F3', 'Edge_30_Neo', 'Poco_F5_Pro', 'Poco_F5', 'Poco_F2_Pro', 'Poco_F4', 'Xperia_5_III"
+fdconfigpreview.bin,122,"FP4', 'G7_ThinQ', 'Realme_10_Pro', 'Red_Magic_5G', 'Mi_10_Pro', 'Redmi_Note_9_Pro', 'Galaxy_TabA_10.4_LTE', 'Poco_X3_NFC', 'Galaxy_Tab_A7_Wifi', 'Xperia_XZ3', 'Xperia_5_V', 'Phone_2', 'Galaxy_S20_FE', 'Phone_1', 'Edge_2021', 'Mi_12S_Ultra', 'OnePlus_7_Pro', 'Mi_9SE', 'Defy_2021', 'Nord_CE2', 'Moto_G52', 'Pixel_4A', 'Xperia_10_V', 'OnePlus_6', 'Mini_5G', 'OnePlus_7', 'Moto_G_5G_Plus', 'OnePlus_9_Pro', 'OnePlus_8', 'Moto_G_5G', 'OnePlus_8T', 'Xperia_1_II', 'Pixel_3XL', 'Moto_G200', 'Moto_E7_Plus', 'Nord_N30', 'Nord_N20_5G', 'Poco_X3_Pro', 'Edge_20', 'OnePlus_9R', 'Pixel_4A_5G', 'Xperia_XZ2_Compact', 'Redmi_Note_10_Pro', 'Pixel_4XL', 'Mi_10T_5G', 'Xperia_XZ2_Premium', 'Moto_G9', 'Xperia_1_V', 'Z6_Pro', 'Pixel_3A_XL', 'Xperia_XZ2', 'Mi_13_Pro', 'Edge_30', 'Edge_S', 'Pixel_5A', 'Xperia_5_II', 'Edge_40_Pro', 'Edge_30_Fusion', 'Moto_G10', 'Redmi_Note_7_Pro', 'Galaxy_Tab_S7_LTE', 'Phone2', 'Mi_CC9_Meitu', 'Mi_11', 'Mi_Fold_2', 'Moto_G34_5G', 'Mi_11_5G', 'Redmi_K60_Pro', 'Red_Magic_Mars', 'Mi_8', 'Realme_9_Pro', 'Moto_G32', 'OnePlus_6T', 'Z5_Pro_GT', 'OnePlus_8_Pro', 'Moto_G84_5G', 'Mi_10', 'Moto_G_Power', 'Pixel_4', 'Pixel_5', 'Galaxy_Tab_S7_Wifi', 'Axon_9_Pro', 'Pixel_3', 'Mi_13', 'Mi_Mix_2S', 'Mi_10T', 'Shift_6MQ', 'Mi_10S', 'Pro_1X', 'Xperia_10_IV', 'FP5', 'Mi_8_Pro', 'Mi_12_Pro', 'Mi_12', 'Mi_12S_Pro', 'Moto_G_5G_2024', 'Velvet', 'Edge_20_Pro', 'Z18', 'Mi_8_Explorer', 'V40', 'ThinkPhone', 'Mi_CC9', 'Mi_11I', 'Mi_12T_Pro', 'Moto_G30', 'V35', 'Mi_Mix_3', 'Redmi_K20_Mi_9', 'Poco_F1', 'Moto_G82_5G', 'Poco_F3', 'Edge_30_Neo', 'Poco_F5_Pro', 'Poco_F5', 'Poco_F2_Pro', 'Poco_F4', 'OnePlus_7T', 'OnePlus_7T_Pro', 'OnePlus_11_5G', 'Nord_200', 'Xperia_5_III"
+fdconfigpreviewlite.bin,122,"FP4', 'G7_ThinQ', 'Realme_10_Pro', 'Red_Magic_5G', 'Mi_10_Pro', 'Redmi_Note_9_Pro', 'Galaxy_TabA_10.4_LTE', 'Poco_X3_NFC', 'Galaxy_Tab_A7_Wifi', 'Xperia_XZ3', 'Xperia_5_V', 'Phone_2', 'Galaxy_S20_FE', 'Phone_1', 'Edge_2021', 'Mi_12S_Ultra', 'OnePlus_7_Pro', 'Mi_9SE', 'Defy_2021', 'Nord_CE2', 'Moto_G52', 'Pixel_4A', 'Xperia_10_V', 'OnePlus_6', 'Mini_5G', 'OnePlus_7', 'Moto_G_5G_Plus', 'OnePlus_9_Pro', 'OnePlus_8', 'Moto_G_5G', 'OnePlus_8T', 'Xperia_1_II', 'Pixel_3XL', 'Moto_G200', 'Moto_E7_Plus', 'Nord_N30', 'Nord_N20_5G', 'Poco_X3_Pro', 'Edge_20', 'OnePlus_9R', 'Pixel_4A_5G', 'Xperia_XZ2_Compact', 'Redmi_Note_10_Pro', 'Pixel_4XL', 'Mi_10T_5G', 'Xperia_XZ2_Premium', 'Moto_G9', 'Xperia_1_V', 'Z6_Pro', 'Pixel_3A_XL', 'Xperia_XZ2', 'Mi_13_Pro', 'Edge_30', 'Edge_S', 'Pixel_5A', 'Xperia_5_II', 'Edge_40_Pro', 'Edge_30_Fusion', 'Moto_G10', 'Redmi_Note_7_Pro', 'Galaxy_Tab_S7_LTE', 'Phone2', 'Mi_CC9_Meitu', 'Mi_11', 'Mi_Fold_2', 'Moto_G34_5G', 'Mi_11_5G', 'Redmi_K60_Pro', 'Red_Magic_Mars', 'Mi_8', 'Realme_9_Pro', 'Moto_G32', 'OnePlus_6T', 'Z5_Pro_GT', 'OnePlus_8_Pro', 'Moto_G84_5G', 'Mi_10', 'Moto_G_Power', 'Pixel_4', 'Pixel_5', 'Galaxy_Tab_S7_Wifi', 'Axon_9_Pro', 'Pixel_3', 'Mi_13', 'Mi_Mix_2S', 'Mi_10T', 'Shift_6MQ', 'Mi_10S', 'Pro_1X', 'Xperia_10_IV', 'FP5', 'Mi_8_Pro', 'Mi_12_Pro', 'Mi_12', 'Mi_12S_Pro', 'Moto_G_5G_2024', 'Velvet', 'Edge_20_Pro', 'Z18', 'Mi_8_Explorer', 'V40', 'ThinkPhone', 'Mi_CC9', 'Mi_11I', 'Mi_12T_Pro', 'Moto_G30', 'V35', 'Mi_Mix_3', 'Redmi_K20_Mi_9', 'Poco_F1', 'Moto_G82_5G', 'Poco_F3', 'Edge_30_Neo', 'Poco_F5_Pro', 'Poco_F5', 'Poco_F2_Pro', 'Poco_F4', 'OnePlus_7T', 'OnePlus_7T_Pro', 'OnePlus_11_5G', 'Nord_200', 'Xperia_5_III"
+fdconfigvideo.bin,122,"FP4', 'G7_ThinQ', 'Realme_10_Pro', 'Red_Magic_5G', 'Mi_10_Pro', 'Redmi_Note_9_Pro', 'Galaxy_TabA_10.4_LTE', 'Poco_X3_NFC', 'Galaxy_Tab_A7_Wifi', 'Xperia_XZ3', 'Xperia_5_V', 'Phone_2', 'Galaxy_S20_FE', 'Phone_1', 'Edge_2021', 'Mi_12S_Ultra', 'OnePlus_7_Pro', 'Mi_9SE', 'Defy_2021', 'Nord_CE2', 'Moto_G52', 'Pixel_4A', 'Xperia_10_V', 'OnePlus_6', 'Mini_5G', 'OnePlus_7', 'Moto_G_5G_Plus', 'OnePlus_9_Pro', 'OnePlus_8', 'Moto_G_5G', 'OnePlus_8T', 'Xperia_1_II', 'Pixel_3XL', 'Moto_G200', 'Moto_E7_Plus', 'Nord_N30', 'Nord_N20_5G', 'Poco_X3_Pro', 'Edge_20', 'OnePlus_9R', 'Pixel_4A_5G', 'Xperia_XZ2_Compact', 'Redmi_Note_10_Pro', 'Pixel_4XL', 'Mi_10T_5G', 'Xperia_XZ2_Premium', 'Moto_G9', 'Xperia_1_V', 'Z6_Pro', 'Pixel_3A_XL', 'Xperia_XZ2', 'Mi_13_Pro', 'Edge_30', 'Edge_S', 'Pixel_5A', 'Xperia_5_II', 'Edge_40_Pro', 'Edge_30_Fusion', 'Moto_G10', 'Redmi_Note_7_Pro', 'Galaxy_Tab_S7_LTE', 'Phone2', 'Mi_CC9_Meitu', 'Mi_11', 'Mi_Fold_2', 'Moto_G34_5G', 'Mi_11_5G', 'Redmi_K60_Pro', 'Red_Magic_Mars', 'Mi_8', 'Realme_9_Pro', 'Moto_G32', 'OnePlus_6T', 'Z5_Pro_GT', 'OnePlus_8_Pro', 'Moto_G84_5G', 'Mi_10', 'Moto_G_Power', 'Pixel_4', 'Pixel_5', 'Galaxy_Tab_S7_Wifi', 'Axon_9_Pro', 'Pixel_3', 'Mi_13', 'Mi_Mix_2S', 'Mi_10T', 'Shift_6MQ', 'Mi_10S', 'Pro_1X', 'Xperia_10_IV', 'FP5', 'Mi_8_Pro', 'Mi_12_Pro', 'Mi_12', 'Mi_12S_Pro', 'Moto_G_5G_2024', 'Velvet', 'Edge_20_Pro', 'Z18', 'Mi_8_Explorer', 'V40', 'ThinkPhone', 'Mi_CC9', 'Mi_11I', 'Mi_12T_Pro', 'Moto_G30', 'V35', 'Mi_Mix_3', 'Redmi_K20_Mi_9', 'Poco_F1', 'Moto_G82_5G', 'Poco_F3', 'Edge_30_Neo', 'Poco_F5_Pro', 'Poco_F5', 'Poco_F2_Pro', 'Poco_F4', 'OnePlus_7T', 'OnePlus_7T_Pro', 'OnePlus_11_5G', 'Nord_200', 'Xperia_5_III"
+fdconfigvideolite.bin,122,"FP4', 'G7_ThinQ', 'Realme_10_Pro', 'Red_Magic_5G', 'Mi_10_Pro', 'Redmi_Note_9_Pro', 'Galaxy_TabA_10.4_LTE', 'Poco_X3_NFC', 'Galaxy_Tab_A7_Wifi', 'Xperia_XZ3', 'Xperia_5_V', 'Phone_2', 'Galaxy_S20_FE', 'Phone_1', 'Edge_2021', 'Mi_12S_Ultra', 'OnePlus_7_Pro', 'Mi_9SE', 'Defy_2021', 'Nord_CE2', 'Moto_G52', 'Pixel_4A', 'Xperia_10_V', 'OnePlus_6', 'Mini_5G', 'OnePlus_7', 'Moto_G_5G_Plus', 'OnePlus_9_Pro', 'OnePlus_8', 'Moto_G_5G', 'OnePlus_8T', 'Xperia_1_II', 'Pixel_3XL', 'Moto_G200', 'Moto_E7_Plus', 'Nord_N30', 'Nord_N20_5G', 'Poco_X3_Pro', 'Edge_20', 'OnePlus_9R', 'Pixel_4A_5G', 'Xperia_XZ2_Compact', 'Redmi_Note_10_Pro', 'Pixel_4XL', 'Mi_10T_5G', 'Xperia_XZ2_Premium', 'Moto_G9', 'Xperia_1_V', 'Z6_Pro', 'Pixel_3A_XL', 'Xperia_XZ2', 'Mi_13_Pro', 'Edge_30', 'Edge_S', 'Pixel_5A', 'Xperia_5_II', 'Edge_40_Pro', 'Edge_30_Fusion', 'Moto_G10', 'Redmi_Note_7_Pro', 'Galaxy_Tab_S7_LTE', 'Phone2', 'Mi_CC9_Meitu', 'Mi_11', 'Mi_Fold_2', 'Moto_G34_5G', 'Mi_11_5G', 'Redmi_K60_Pro', 'Red_Magic_Mars', 'Mi_8', 'Realme_9_Pro', 'Moto_G32', 'OnePlus_6T', 'Z5_Pro_GT', 'OnePlus_8_Pro', 'Moto_G84_5G', 'Mi_10', 'Moto_G_Power', 'Pixel_4', 'Pixel_5', 'Galaxy_Tab_S7_Wifi', 'Axon_9_Pro', 'Pixel_3', 'Mi_13', 'Mi_Mix_2S', 'Mi_10T', 'Shift_6MQ', 'Mi_10S', 'Pro_1X', 'Xperia_10_IV', 'FP5', 'Mi_8_Pro', 'Mi_12_Pro', 'Mi_12', 'Mi_12S_Pro', 'Moto_G_5G_2024', 'Velvet', 'Edge_20_Pro', 'Z18', 'Mi_8_Explorer', 'V40', 'ThinkPhone', 'Mi_CC9', 'Mi_11I', 'Mi_12T_Pro', 'Moto_G30', 'V35', 'Mi_Mix_3', 'Redmi_K20_Mi_9', 'Poco_F1', 'Moto_G82_5G', 'Poco_F3', 'Edge_30_Neo', 'Poco_F5_Pro', 'Poco_F5', 'Poco_F2_Pro', 'Poco_F4', 'OnePlus_7T', 'OnePlus_7T_Pro', 'OnePlus_11_5G', 'Nord_200', 'Xperia_5_III"
