@@ -1,4 +1,4 @@
-site_name: LibrePhone
+site_name: librephone
 site_description: Free the phone!
 # strict: true
 # site_url: "https:fsf.org"
@@ -72,6 +72,5 @@ nav:
       - Query The Database: query-device.md
       - Processing Everything: images_util.md
       - Generating Bindings: generator.md
-#  - Some Data:
-#      - Total Count of files: total.md
-#      - File Sizes: 
+      - Admin Script: images_util.md
+
