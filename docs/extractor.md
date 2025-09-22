@@ -20,18 +20,21 @@ file-systems, you want to unmount them before running
 
 ## Options
 
-By default, extractor does nothing unless an action is supplied.
+By default, extractor does nothing unless an action is supplied. All
+the options take a directory, and the program fiogures out the rest
+from there.
 
-   	    -h, --help            show this help message and exit
-	    -v, --verbose         verbose output
-	    -i, --indir INDIR     The top level device directory
-	    -z, --unzip [UNZIP]   Decompress the zip file
-	    -e, --extract EXTRACT Extract all unzipped files
-	    -m, --mount MOUNT     Mount all file-systems
-	    -u, --unmount UNMOUNT  Unmount all file-systems
-	    -r, --remove REMOVE   Clean all generated file
-	    -o, --outdir OUTDIR   The output directory
-	    -c, --clone CLONE     Copy the proprietary files for analysis
+	-h, --help            show this help message and exit
+	-v, --verbose         verbose output
+	-i, --indir DIR       The top level device directory
+	-z, --unzip DIR       Decompress the zip file
+	-e, --extract DIR     Extract all unzipped files
+	-m, --mount DIR       Mount all filesystems
+	-u, --unmount DIR     Unmount all filesystems
+	-r, --remove DIR      Clean all generated file
+	-a, --all             Do all operations
+	-o, --outdir DIR      The output directory
+	-c, --clone DIR       Copy the proprietary files for analysis
 
 ### --indir
 
@@ -61,7 +64,12 @@ this may not work for all devices.
 ### --clone
 
 This uses the same configuration files Lineage does and extracts all
-the listed files into an output directory for further analysis.
+the listed files into an output directory for further analysis. If the
+*proprietary-files.txt* files are missing in Lineage because you
+haven't downloaded them, this creates a version of this file by
+scanning all the files. Sometimes there is a file listed in the
+*proprietary-files.txt* that doesn't exist ihn the actual device, this
+is flagged as a warning since it will keep Lineage for building.
 
 ### --outdir
 
