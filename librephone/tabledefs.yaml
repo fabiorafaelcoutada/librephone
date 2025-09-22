@@ -1,0 +1,69 @@
+---
+# This file is used to generate the SQL to create database
+# tables, as well as the python class files.
+
+- devices:
+    - version:
+        - float
+    - vendor:
+        - string
+    - model:
+        - string
+    - build:
+        - string
+        - unique: true
+    - blobs:
+        - jsonb
+    - available:
+        - bool
+    - builds:
+        - bool
+
+- specs:
+    - release:
+        - timestamp
+    - arch:
+        - public.archtypes
+    - soc:
+        - string
+    - cpus:
+        - string
+        - array: true
+    - peripherals:
+        - string
+        - array: true
+    - ram:
+        - int32,
+    - bluetooth:
+        - string
+    - wifi:
+        - public.wifitypes
+        - array: true
+    - build:
+        - string
+    - gpu:
+        - string
+    - network:
+        - public.nettypes
+        - array: true
+    - kernel:
+        - float
+
+- gsmarena:
+    - vendor:
+        - string
+    - model:
+        - string
+    - annnounced:
+        - string
+    - chipset:
+        - string
+    - cpu:
+        - string
+    - sensors:
+        - string
+    - wlan:
+        - string
+    - status:
+        - public.devstatus
+
