@@ -15,6 +15,23 @@ If there is sufficient interest and funding, a detailed specification
 can be written and used to have somebody code a free implementation
 that works the same way.
 
+## Technical Details
+
+### [Comparing Devices](comparing.md)
+
+This describes the prpcess of analyzing all the binary blobs in the
+devices supported by Lineage.
+
+### [Generating Code Stubs](stubs.md)
+
+This describes the format of the file used to generate language
+bindings between Python and Postgres.
+
+### [Build Status](builds.md)
+
+This is a simple list of which devices I've managed to build Lineage
+for sucessfully all the way to an installable image.
+
 ## Utility Programs
 
 This project contains several utilities for analyzing proprietary
@@ -55,3 +72,8 @@ queries.
 This program uses a YAML config file to generate bindings for Python
 or Postgres. This enable the programs to use enums between both for
 better accuracy.
+
+### [images_util.sh](images_util.md)
+
+This is only for developers who want to reproduce the research by
+analyzing the multiple devices supported by Lineage.
