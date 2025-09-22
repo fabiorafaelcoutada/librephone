@@ -1,4 +1,4 @@
-# Phone Tools Project
+# LibrePhone Project
 
 This is a project to research proprietary files in Android to work
 towards a long-term goal of free replacements. While there are many
