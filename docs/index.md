@@ -27,6 +27,12 @@ devices supported by Lineage.
 This describes the format of the file used to generate language
 bindings between Python and Postgres.
 
+### [Data Files](csvdata.md)
+
+These are extracts from the database produced by the
+*query_devices.py* program in CSV format. These can be further
+analyzed by usihng a spreadsheet program.
+
 ### [Build Status](builds.md)
 
 This is a simple list of which devices I've managed to build Lineage
