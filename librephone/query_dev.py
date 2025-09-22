@@ -31,6 +31,8 @@ import psycopg
 import json
 from librephone.device import DeviceData
 import csv
+from librephone.typedefs import Bintypes
+from progress.bar import Bar
 
 import librephone as pt
 rootdir = pt.__path__[0]
@@ -74,9 +76,7 @@ class QueryDevice(object):
         # print(result)
         return result
 
-    def sort_count(self,
-                       threshold: int = 2,
-                       ) -> dict:
+    def list_count(self) -> dict:
         """
         Query a table in the database.
 
@@ -86,28 +86,30 @@ class QueryDevice(object):
             (list): The results of the query
         """
         sql = f"SELECT vendor,model,build,jsonb_array_length(blobs) FROM {self.dbname} ORDER BY jsonb_array_elements(blobs)"
-        print(f"SQL: {sql}")
+        # print(f"SQL: {sql}")
         result = self.dbcursor.execute(sql)
         result = self.dbcursor.fetchall()
         # print(result)
         return result
 
-    def sort_totals(self,
-                       ) -> list:
+    def list_totals(self,
+                    bintype: Bintypes,
+                    ) -> list:
         """
         Query a table in the database.
 
         Returns:
             (list): The results of the query
         """
-        sql = f"SELECT vendor,model,build,jsonb_array_length(imgfiles),jsonb_array_length(binfiles),jsonb_array_length(firmware),jsonb_array_length(hexfiles) FROM {self.dbname}"
-        print(f"SQL: {sql}")
+        breakpoint()
+        sql = f"SELECT vendor,model,build FROM {self.dbname},jsonb_array_elements(blobs->'type') foo WHERE blobs  @> '[{{\"type\": \"{bintype.value}\"}}]';"
+        # print(f"SQL: {sql}")
         result = self.dbcursor.execute(sql)
         result = self.dbcursor.fetchall()
         # print(result)
         return result
 
-    def sort_elements(self,
+    def list_elements(self,
                        op: str = "len",
                        ) -> list:
         """
@@ -120,7 +122,7 @@ class QueryDevice(object):
         """
         if op == "len":
             sql = f"SELECT vendor,model,build,blobs FROM {self.dbname} ORDER BY jsonb_array_length(jsonb_array_elements(blobs))"
-            print(f"SQL: {sql}")
+            # print(f"SQL: {sql}")
             result = self.dbcursor.execute(sql)
             result = self.dbcursor.fetchall()
             # print(result)
@@ -144,7 +146,7 @@ class QueryDevice(object):
         """
         file = str({"file": filename}).replace("'", '"')
         sql = f"SELECT ARRAY_AGG(model) FROM devices WHERE blobs @> '[{file}]';"
-        print(f"SQL: {sql}")
+        # print(f"SQL: {sql}")
         result = self.dbcursor.execute(sql)
         result = self.dbcursor.fetchall()
 
@@ -161,23 +163,6 @@ class QueryDevice(object):
             (list): The devices the file is in
         """
         sql = f"SELECT vendor,model,build,foo->>'file',foo->>'size',foo->>'md5sum',foo->>'type' FROM devices,jsonb_array_elements(devices.blobs) AS foo;"
-        print(f"SQL: {sql}")
-        result = self.dbcursor.execute(sql)
-        result = self.dbcursor.fetchall()
-
-        return result
-
-    def load_sizes(self,
-                   ):
-        """
-        Load the data in a column into a data structure.
-
-        Args:
-            column (str): The table to query
-        Returns:
-            (list): The results of the query
-        """
-        sql = f"SELECT vendor,model,foo->>'file' AS file, foo->>'size' AS size FROM devices,jsonb_array_elements(devices.blobs) AS foo"
         # print(f"SQL: {sql}")
         result = self.dbcursor.execute(sql)
         result = self.dbcursor.fetchall()
@@ -188,16 +173,22 @@ class QueryDevice(object):
                      ) -> list:
         """
         List all the devices containing a file.
+
         """
         devices = list()
-
         sql = f"SELECT DISTINCT(foo->>'file') FROM devices,jsonb_array_elements(devices.blobs) AS foo;"
-        print(f"SQL: {sql}")
         result = self.dbcursor.execute(sql)
         files = self.dbcursor.fetchall()
+
+        bar = Bar("Processing files", max=len(files))
         for file in files:
-            models = self.track_file(file[0])
-            devices.append({"file": file[0], "devices": models[0][0], "count": len(models[0][0])})
+            sql = f"SELECT ARRAY_AGG(model) FROM devices WHERE blobs  @> '[{{\"file\": \"{file[0]}\"}}]';"
+            # print(f"SQL: {sql}")
+            result = self.dbcursor.execute(sql)
+            devs = self.dbcursor.fetchone()
+            devices.append({"file": file[0], "devices": devs[0]})
+            bar.next()
+        bar.finish()
         return devices
 
 def main():
@@ -252,13 +243,16 @@ def main():
                           "count",
                           "devices",
                           )
-            for key, value in totals.items():
-                csvfile = open(f"{key}_devices.csv", 'w', newline='')
-                csvout = csv.DictWriter(csvfile, fieldnames=fieldnames)
-                csvout.writeheader()
-                for file in value:
-                    row = str(file["devices"])[2:-2]
-                    csvout.writerow({"file": file["file"], "count": file["count"], "devices": row})
+            csvfile = open(f"{args.list}.csv", 'w', newline='')
+            csvout = csv.DictWriter(csvfile, fieldnames=fieldnames)
+            csvout.writeheader()
+            bar = Bar("Writing data...", max=len(totals))
+            for entry in totals:
+                row = str(entry["devices"])[2:-2]
+                csvout.writerow({"file": entry["file"], "count": len(entry["devices"]), "devices": row})
+                bar.next()
+            bar.finish()
+            log.info(f"Wrote {args.list}.csv")
             quit()
 
         totals = dict()
@@ -290,77 +284,44 @@ def main():
 
         if args.list == "count":
             csvfile = open("count.csv", 'w', newline='')
-            totals["images"] = devdb.sort_count("imgfiles")
-            totals["binaries"] = devdb.sort_count("binfiles")
-            # totals["firmware"] = devdb.sort_count("firmware", threshold)
-            # totals["hex"] = devdb.sort_elements("hexfiles", threshold)
-            # fieldnames = ("vendor",
-            #               "model",
-            #               "build",
-            #               "total",
-            #               "column",
-            #               )
-            # csvout = csv.DictWriter(csvfile, fieldnames=fieldnames)
-            # csvout.writeheader()
-            csvout = devdb.create_csv()
-            for key, value in totals.items():
-                if value is None:
-                    continue
-                # logging.info(f"{value[0]},{value[1]},{value[2]} has {value[3]} entries in {key}")
-                if len(value) == 0:
-                    continue
-                for entry in value:
-                    out = {"vendor": entry[0].title(),
-                           "model": entry[1],
-                           "build": entry[2],
-                           "total": entry[3],
-                           "column": key,
-                           }
-                    csvout.writerow(out)
+            totals = devdb.list_count()
+            fieldnames = ("vendor",
+                          "model",
+                          "build",
+                          "total",
+                          )
+            csvout = csv.DictWriter(csvfile, fieldnames=fieldnames)
+            csvout.writeheader()
+            for entry in totals:
+                out = {"vendor": entry[0].title(),
+                       "model": entry[1],
+                       "build": entry[2],
+                       "total": entry[3],
+                       }
+                csvout.writerow(out)
             log.info(f"Wrote count.csv")
             quit()
 
         if args.list == "totals":
-            csvfile = open("sort-totals.csv", 'w', newline='')
+            csvfile = open("totals.csv", 'w', newline='')
             fieldnames = ('vendor',
                           'model',
                           'build',
-                          'images',
-                          "binaries",
-                          "firmware",
-                          "hex"
+                          'type',
                           )
             csvout = csv.DictWriter(csvfile, fieldnames=fieldnames)
             csvout.writeheader()
-            data = devdb.sort_totals()
-            #csvout.writerows(data)
-            for row in data:
-                # We could use the postgres row_to_json() function, but as some
-                # of the columns are NULL, this produces cleaner output.
-                device = dict()
-                device["vendor"] = row[0].title()
-                device["model"] = row[1]
-                device["build"] = row[2]
-                if row[3]:
-                    device["images"] = row[3]
-                else:
-                    device["images"] = 0
-                if row[4]:
-                    device["binaries"] = row[4]
-                else:
-                    device["binaries"] = 0
-                if row[5]:
-                    device["firmware"] = row[5]
-                else:
-                    device["firmware"] = 0
-                if row[6]:
-                    device["hex"] = row[6]
-                else:
-                    device["hex"] = 0
-                csvout.writerow(device)
-            log.info(f"Wrote sort-totals.csv")
+            for val in Bintypes:
+                data = devdb.list_totals(val)
+                for row in data:
+                    device = dict()
+                    device["vendor"] = row[0].title()
+                    device["model"] = row[1]
+                    device["build"] = row[2]
+                    device["type"] = row[3]
+                    csvout.writerow(device)
+            log.info(f"Wrote totals.csv")
 
-        columns = ("imgfiles", "binfiles", "firmware", "hexfiles")
         if args.list == "files":
             csvfile = open("files.csv", 'w', newline='')
             fieldnames = ('vendor',
@@ -371,7 +332,7 @@ def main():
             csvout = csv.DictWriter(csvfile, fieldnames=fieldnames)
             csvout.writeheader()
             for column in columns:
-                result = devdb.sort_elements(column)
+                result = devdb.list_elements(column)
                 # print(result)
                 if not result:
                     continue
