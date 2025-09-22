@@ -65,7 +65,8 @@ class DeviceImport(object):
             log.info(f"Connected to {dbname}")
 
         self.links = dict()
-        self.keep = (".hex", ".pb", ".img", ".bin", ".dat", ".fw", ".fw2")
+        # self.keep = (".hex", ".pb", ".img", ".bin", ".dat", ".fw", ".fw2")
+        self.keep = (".hex", ".img", ".bin", ".dat", ".fw", ".fw2")
 
     def create_entry(self,
                      vendor: str,
@@ -108,24 +109,23 @@ class DeviceImport(object):
 
 
         sql = str()
-        column = str()
         # sort by type
         for category, files in device.files.items():
-            log.info(f"Processing the {category} column, has {len(files)} files")
-            if category in Imgtypes:
-                column = "imgfiles"
-            elif category in Bintypes:
-                column = "binfiles"
-            # elif category == "FIRMWARE":
-            #     column = "firmware"
-            elif category == "HEX":
-                column = "hexfiles"
-            else:
-                suffix = Path(files[0]["file"]).suffix
-                log.debug(f"Unsupported type: {category} for file suffix {suffix}")
-                continue
+            log.info(f"Processing the {category} file type, has {len(files)} files")
+            # if category in Imgtypes :
+            #     column = "imgfiles"
+            # elif category in Bintypes:
+            #     column = "binfiles"
+            # # elif category == "FIRMWARE":
+            # #     column = "firmware"
+            # elif category == "HEX":
+            #     column = "hexfiles"
+            # else:
+            #     suffix = Path(files[0]["file"]).suffix
+            #     log.debug(f"Unsupported type: {category} for file suffix {suffix}")
+            #     continue
 
-            sql = f"SELECT jsonb_array_length({column}) FROM devices WHERE build='{device.build}'"
+            sql = f"SELECT jsonb_array_length(blobs) FROM devices WHERE build='{device.build}'"
             print(f"SQL: {sql}")
             result = self.dbcursor.execute(sql)
             # None as a result means no entries in the jsonb column
@@ -135,9 +135,9 @@ class DeviceImport(object):
             # You can't update a jsonb column that is empty, so the first entry
             # is basically an insert.
             if count is not None and count[0] is not None:
-                sql = f"UPDATE devices SET {column} = {column} || '{json.dumps(files)}' WHERE build='{device.build}'"
+                sql = f"UPDATE devices SET blobs = blobs || '{json.dumps(files)}' WHERE build='{device.build}'"
             else:
-                sql = f"UPDATE devices SET {column} = '{json.dumps(files)}' WHERE build='{device.build}'"
+                sql = f"UPDATE devices SET blobs = '{json.dumps(files)}' WHERE build='{device.build}'"
             print(f"SQL: {sql}")
             result = self.dbcursor.execute(sql)
 

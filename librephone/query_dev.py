@@ -55,6 +55,8 @@ class QueryDevice(object):
             logging.error(f"Couldn't open database!")
         self.devices = list()
         self.lineage = os.getenv("LINEAGE")
+        # self.columns = ("imgfiles", "binfiles", "firmware", "hexfiles")
+        self.keep = (".hex", ".img", ".bin", ".dat", ".fw", ".fw2")
 
     def get_metadata(self):
         """
@@ -73,18 +75,17 @@ class QueryDevice(object):
         return result
 
     def sort_count(self,
-                       column: str,
                        threshold: int = 2,
                        ) -> dict:
         """
         Query a table in the database.
 
         Args:
-            column (str): The column to get data for
+
         Returns:
             (list): The results of the query
         """
-        sql = f"SELECT vendor,model,build,jsonb_array_length({column}) FROM {self.dbname} ORDER BY jsonb_array_elements({column})"
+        sql = f"SELECT vendor,model,build,jsonb_array_length(blobs) FROM {self.dbname} ORDER BY jsonb_array_elements(blobs)"
         print(f"SQL: {sql}")
         result = self.dbcursor.execute(sql)
         result = self.dbcursor.fetchall()
@@ -107,19 +108,18 @@ class QueryDevice(object):
         return result
 
     def sort_elements(self,
-                       column: str,
                        op: str = "len",
                        ) -> list:
         """
         Query a table in the database.
 
         Args:
-            column (str): The column to get data for
+
         Returns:
             (list): The results of the query
         """
         if op == "len":
-            sql = f"SELECT vendor,model,build,{column} FROM {self.dbname} ORDER BY jsonb_array_length(jsonb_array_elements({column}))"
+            sql = f"SELECT vendor,model,build,blobs FROM {self.dbname} ORDER BY jsonb_array_length(jsonb_array_elements(blobs))"
             print(f"SQL: {sql}")
             result = self.dbcursor.execute(sql)
             result = self.dbcursor.fetchall()
@@ -131,7 +131,6 @@ class QueryDevice(object):
             dev.dump()
 
     def track_file(self,
-                   column: str,
                    filename: str,
                    ) -> list:
         """
@@ -143,9 +142,8 @@ class QueryDevice(object):
         Returns:
             (list): The devices the file is in
         """
-        devices = list()
         file = str({"file": filename}).replace("'", '"')
-        sql = f"SELECT vendor,model,build FROM devices WHERE {column} @> '[{file}]';"
+        sql = f"SELECT ARRAY_AGG(model) FROM devices WHERE blobs @> '[{file}]';"
         print(f"SQL: {sql}")
         result = self.dbcursor.execute(sql)
         result = self.dbcursor.fetchall()
@@ -153,18 +151,16 @@ class QueryDevice(object):
         return result
 
     def track_size(self,
-                   column: str,
                    ) -> list:
         """
         Query a table in the database.
 
         Args:
-            column (str): The column to get data from
 
         Returns:
             (list): The devices the file is in
         """
-        sql = f"SELECT vendor,model,build,foo->>'file',foo->>'size',foo->>'md5sum' FROM devices,jsonb_array_elements(devices.{column}) AS foo;"
+        sql = f"SELECT vendor,model,build,foo->>'file',foo->>'size',foo->>'md5sum',foo->>'type' FROM devices,jsonb_array_elements(devices.blobs) AS foo;"
         print(f"SQL: {sql}")
         result = self.dbcursor.execute(sql)
         result = self.dbcursor.fetchall()
@@ -172,7 +168,6 @@ class QueryDevice(object):
         return result
 
     def load_sizes(self,
-                   column: str,
                    ):
         """
         Load the data in a column into a data structure.
@@ -182,42 +177,36 @@ class QueryDevice(object):
         Returns:
             (list): The results of the query
         """
-        sql = f"SELECT vendor,model,foo->>'file' AS file, foo->>'size' AS size FROM devices,jsonb_array_elements(devices.{column}) AS foo"
+        sql = f"SELECT vendor,model,foo->>'file' AS file, foo->>'size' AS size FROM devices,jsonb_array_elements(devices.blobs) AS foo"
         # print(f"SQL: {sql}")
         result = self.dbcursor.execute(sql)
         result = self.dbcursor.fetchall()
 
         return result
 
-    # def find_match(self,
-    #                     blobs: list,
-    #                     field: str = None,
-    #                     ):
-    #     """
-    #     Find a device with a matching size
+    def list_devices(self,
+                     ) -> list:
+        """
+        List all the devices containing a file.
+        """
+        devices = list()
 
-    #     Args:
-    #         blobs (list): The data
-    #         field (str): The field to look for a match
-
-    #     Return:
-    #         (list): The results
-    #     """
-    #     same = list()
-    #     for blob in blobs:
-    #         for other in blobs:
-    #             if field is not None:
-    #                 if blob["size"] == other[field]:
-    #                     same.append(blob)
-    #     return same
+        sql = f"SELECT DISTINCT(foo->>'file') FROM devices,jsonb_array_elements(devices.blobs) AS foo;"
+        print(f"SQL: {sql}")
+        result = self.dbcursor.execute(sql)
+        files = self.dbcursor.fetchall()
+        for file in files:
+            models = self.track_file(file[0])
+            devices.append({"file": file[0], "devices": models[0][0], "count": len(models[0][0])})
+        return devices
 
 def main():
     """This main function lets this class be run standalone by a bash script."""
-    choices = ("count", "totals", "sizes", "files", "")
+    choices = ("count", "totals", "sizes", "files", "devices")
     parser = argparse.ArgumentParser(description="Query device data in postgres")
     parser.add_argument("-v", "--verbose", action="store_true", help="verbose output")
     parser.add_argument("-l", "--list", choices=choices, help="Find device metadata")
-    parser.add_argument("-t", "--track", help="Find devices containg file")
+    parser.add_argument("-t", "--track", help="Find devices containing file")
     args = parser.parse_args()
 
     # if verbose, dump to the terminal.
@@ -239,9 +228,8 @@ def main():
 
     if args.track:
         csvfile = open("track.csv", 'a', newline='')
-        tmp = args.track.split(':')
-        data = devdb.track_file(tmp[0], tmp[1])
-        log.info(f"{len(data)} devices contain {tmp[1]}")
+        data = devdb.track_file(column, args.track)
+        # log.info(f"{len(data)} devices contain {tmp[1]}")
         totals["images"] = data
         fieldnames = ("file", "models")
         csvout = csv.DictWriter(csvfile, fieldnames=fieldnames)
@@ -258,58 +246,63 @@ def main():
         quit()
 
     if args.list:
-        threshold = 4
+        if args.list == "devices":
+            totals = devdb.list_devices()
+            fieldnames = ("file",
+                          "count",
+                          "devices",
+                          )
+            for key, value in totals.items():
+                csvfile = open(f"{key}_devices.csv", 'w', newline='')
+                csvout = csv.DictWriter(csvfile, fieldnames=fieldnames)
+                csvout.writeheader()
+                for file in value:
+                    row = str(file["devices"])[2:-2]
+                    csvout.writerow({"file": file["file"], "count": file["count"], "devices": row})
+            quit()
+
         totals = dict()
         if args.list == "sizes":
-            csvfile = open("sizes.csv", 'w', newline='')
-            totals["images"] = devdb.track_size("imgfiles")
-            totals["binaries"] = devdb.track_size("binfiles")
-            totals["firmware"] = devdb.track_size("firmware")
-            totals["hex"] = devdb.track_size("hexfiles")
+            totals = devdb.track_size()
             fieldnames = ("vendor",
                           "model",
                           "build",
                           "file",
                           "size",
                           "md5sum",
-                          "column",
+                          "type",
                           )
+            csvfile = open("sizes.csv", 'w', newline='')
             csvout = csv.DictWriter(csvfile, fieldnames=fieldnames)
             csvout.writeheader()
-            for key, value in totals.items():
-                if value is None:
-                    continue
-                # logging.info(f"{value[0]},{value[1]},{value[2]} has {value[3]} entries in {key}")
-                if len(value) == 0:
-                    continue
-                for entry in value:
-                    out = {"vendor": entry[0].title(),
-                           "model": entry[1],
-                           "build": entry[2],
-                           "file": entry[3],
-                           "size": entry[4],
-                           "md5sum": entry[5],
-                           "column": key,
-                           }
-                    csvout.writerow(out)
+            for entry in totals:
+                out = {"vendor": entry[0].title(),
+                       "model": entry[1],
+                       "build": entry[2],
+                       "file": entry[3],
+                       "size": entry[4],
+                       "md5sum": entry[5],
+                       "type": entry[6],
+                       }
+                csvout.writerow(out)
             log.info(f"Wrote sizes.csv")
-
             quit()
 
         if args.list == "count":
             csvfile = open("count.csv", 'w', newline='')
-            totals["images"] = devdb.sort_count("imgfiles", threshold)
-            totals["binaries"] = devdb.sort_count("binfiles", threshold)
-            totals["firmware"] = devdb.sort_count("firmware", threshold)
-            totals["hex"] = devdb.sort_elements("hexfiles", threshold)
-            fieldnames = ("vendor",
-                          "model",
-                          "build",
-                          "total",
-                          "column",
-                          )
-            csvout = csv.DictWriter(csvfile, fieldnames=fieldnames)
-            csvout.writeheader()
+            totals["images"] = devdb.sort_count("imgfiles")
+            totals["binaries"] = devdb.sort_count("binfiles")
+            # totals["firmware"] = devdb.sort_count("firmware", threshold)
+            # totals["hex"] = devdb.sort_elements("hexfiles", threshold)
+            # fieldnames = ("vendor",
+            #               "model",
+            #               "build",
+            #               "total",
+            #               "column",
+            #               )
+            # csvout = csv.DictWriter(csvfile, fieldnames=fieldnames)
+            # csvout.writeheader()
+            csvout = devdb.create_csv()
             for key, value in totals.items():
                 if value is None:
                     continue
@@ -401,8 +394,6 @@ def main():
             log.info(f"Wrote files.csv")
             quit()
 
-    # result = devdb.track_file("imgfiles", "abl.img")
-    # devdb.dump()
 
 if __name__ == "__main__":
     """This is just a hook so this file can be run standlone during development."""
