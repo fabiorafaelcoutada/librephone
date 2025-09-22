@@ -26,6 +26,8 @@ from librephone.yamlfile import YamlFile
 # import librephone.typedefs
 from datetime import datetime
 from shapely.geometry import Point, LineString, Polygon
+from librephone.device import DeviceData
+from librephone.typedefs import Cputypes, Gpumodels, Devstatus, Imgtypes, Bintypes, Archtypes, Celltypes, Nettypes, Wifitypes, Filetypes, Blobtypes
 
 import librephone as pt
 rootdir = pt.__path__[0]
@@ -266,6 +268,7 @@ class {table.capitalize()}Table(object):
             datatype = None
             now = datetime.now()
             data = "            self.data = {"
+            breakpoint()
             for item in settings:
                 if type(item) == dict:
                     [[k, v]] = item.items()
@@ -289,10 +292,11 @@ class {table.capitalize()}Table(object):
                         elif k1 == 'timestamp':
                             out += f"{k}: datetime = '{datetime.now()}', "
                         elif k1[:7] == 'public.':
-                            defined = f"librephone.typedefs.{k1[7:].capitalize()}"
+                             #defined = f"librephone.typedefs.{k1[7:].capitalize()}"
                             # log.warning(f"SQL ENUM {k1}!!")
-                            default = eval(f"{defined}(1)")
-                            out += f"{k}: {defined} =  {defined}.{default.name.upper()}, "
+                            # default = eval(f"{defined}(1)")
+                            #out += f"{k}: {defined} =  {defined}.{default.name.upper()}, "
+                            pass
                         else:
                             out += f"{k}: {datatype} = None, "
                         # print(k)
