@@ -1,23 +1,36 @@
 # Importing Device Metadata Into Postgres
 
-To assist in analyzing all the proprietary files, the *import-device*
-script is used to import information about each into a postgres
-database. Currently the metadata on each file is limited to the file
-type, the size, and the md5sum, but this will be expanded.
+To assist in analyzing all the proprietary files, the
+*import_device.py* script is used to import information about each
+into a postgres database. Currently the metadata on each file is
+limited to the file type, the size, and the md5sum, but this will be
+expanded.
 
 ## File Types
 
-Currently only a subset of the files are scanned, but this is easily
-extensible. The file determination is currently based on the filename
-suffix till more detailed analysis can be done. For example, there are
-multiple types of image files, some are filesystem images, the rest
-unknown for now. Most of these have no identifiable [magic
-number](https://en.wikipedia.org/wiki/List_of_file_signatures).
+Many of these don't have an offical [magic
+number](https://en.wikipedia.org/wiki/Magic_number_(programming)), so
+I've been analyzing the usual location for a magic number for patterns
+that I have validated to be unique to that type of file, and all files
+with that type are use the same number. Since know of these are
+official, I maintain my own list of these.
 
-* images - Files with a *.img* suffix
-* binary - Files with a *.bin* suffix
-* hex - Files with a *.hex* suffix
-* firmware - Files with a *.fw* or *.fw2* suffix
+Others that I can't identify a unique magic number for I can often
+analyze the filename. Many use a naming convention where the name
+starts with the chipset it supports, followed by a version
+number. Digging around on the internet for data sheets, I can then
+identify the function of the file type, and use that as the file type.
+
+There are also many, many binary data files that aren't executable
+files, so I identify those, but mostly ignore them as clutter when
+doing data extracts. These are often a data structure used to
+configure the running executable, often just configuring it for a
+specific version of the chipset.
+
+There are also many media files, sound clips, ringtones, graphic
+images, they can also be ignored once identified. The goal is
+winnowing down all the files to find just the blobs with executable
+files, and identify which devices use them.
 
 ## Options
 
@@ -27,7 +40,7 @@ number](https://en.wikipedia.org/wiki/List_of_file_signatures).
 	-v, --verbose             verbose output
 	-i, --indir INDIR         The top level vendor directory
 	-f, --file FILE           Get data for a file
-	-b, --bootstrap BOOTSTRAP Bootstrap a table with minimal data
+	-b, --bootstrap           Bootstrap a table with minimal data
 
 ### --file FILE
 
