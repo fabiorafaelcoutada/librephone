@@ -36,6 +36,15 @@ CREATE TYPE public.filesystems AS ENUM (
 );
 DROP TYPE IF EXISTS public.bintypes CASCADE;
 CREATE TYPE public.bintypes AS ENUM (
+	'ELF64',
+	'MBR',
+	'BOOT',
+	'DATA',
+	'AVB0',
+	'MSDOS',
+	'SD',
+	'DTB',
+	'VNDRBOOT',
 	'CAMERA',
 	'RTPSTREAM',
 	'CONFIG',
@@ -43,13 +52,24 @@ CREATE TYPE public.bintypes AS ENUM (
 	'FIRMWARE1',
 	'FIRMWARE2',
 	'FIRMWARE3',
-	'FIRMWARE4',
+	'NFC',
 	'FIRMWARE5',
 	'FIRMWARE6',
 	'FIRMWARE7',
 	'FIRMWARE8',
 	'FIRMWARE9',
-	'FIRMWARE10'
+	'FIRMWARE10',
+	'VIBRATION',
+	'AUDIOAMP',
+	'SHADER',
+	'BLUETOOTH',
+	'WIFI_GPS_BLUETOOTH',
+	'AUDIO',
+	'ISOLATION',
+	'OLED',
+	'TOUCH',
+	'GRAPHIC',
+	'UNKNOWN'
 );
 DROP TYPE IF EXISTS public.archtypes CASCADE;
 CREATE TYPE public.archtypes AS ENUM (
