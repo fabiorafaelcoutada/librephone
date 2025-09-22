@@ -21,7 +21,7 @@ number](https://en.wikipedia.org/wiki/List_of_file_signatures).
 
 ## Options
 
-usage: import-device [-h] [-v] [-i INDIR] [-o OUTDIR] [-f FILE] [-b BOOTSTRAP]
+	usage: import-device [-h] [-v] [-i INDIR] [-o OUTDIR] [-f FILE] [-b BOOTSTRAP]
 
 	-h, --help                show this help message and exit
 	-v, --verbose             verbose output

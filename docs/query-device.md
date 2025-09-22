@@ -27,9 +27,7 @@ analysis is done.
 
 ## Options
 
-usage: query-device [-h] [-v] [-l {count,sort=list}]
-
-options:
+	usage: query-device [-h] [-v] [-l {count,sort=list}]
 
 	-h, --help                   Show this help message and exit
 	-v, --verbose         	     Verbose output
