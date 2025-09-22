@@ -24,7 +24,7 @@ to use these, chances are you might have to edit a few paths.
 
 These utilities require you have download the Lineage install package
 for the devices you are interested in researching. There is also a top
-level script [images_util.sh](docs/images_util.md) that can automate
+level script [images_util.sh](images_util.md) that can automate
 the processing of multiple devices.
 
 ### [extractor.py](extractor.md)
@@ -50,3 +50,8 @@ further analysis using a spreadsheet program. It uses a mix of SQL and
 python with a focus on being simple to extend for other less common
 queries.
 
+### [generator.py](generator.md)
+
+This program uses a YAML config file to generate bindings for Python
+or Postgres. This enable the programs to use enums between both for
+better accuracy.
