@@ -14,10 +14,10 @@ class DevicesTable(object):
 
 class SpecsTable(object):
     def __init__(self,
-            release: datetime = '2025-09-23 13:45:00.570667', soc: str = None, cpus: str = None, peripherals: str = None, bluetooth: str = None, build: str = None, gpu: str = None, kernel: float = None):
+            release: datetime = '2025-09-23 14:54:55.035590', arch: librephone.typedefs.Archtypes =  librephone.typedefs.Archtypes.UNKNOWN, soc: str = None, cpus: str = None, peripherals: str = None, bluetooth: str = None, wifi: librephone.typedefs.Wifitypes =  librephone.typedefs.Wifitypes.UNKNOWN, build: str = None, gpu: str = None, network: librephone.typedefs.Nettypes =  librephone.typedefs.Nettypes.UNKNOWN, kernel: float = None):
             self.data = {'release': release, 'arch': arch, 'soc': soc, 'cpus': cpus, 'peripherals': peripherals, 'bluetooth': bluetooth, 'wifi': wifi, 'build': build, 'gpu': gpu, 'network': network, 'kernel': kernel}
 
 class GsmarenaTable(object):
     def __init__(self,
-            vendor: str = None, model: str = None, annnounced: str = None, chipset: str = None, cpu: str = None, sensors: str = None, wlan: str = None):
+            vendor: str = None, model: str = None, annnounced: str = None, chipset: str = None, cpu: str = None, sensors: str = None, wlan: str = None, status: librephone.typedefs.Devstatus =  librephone.typedefs.Devstatus.UNKNOWN):
             self.data = {'vendor': vendor, 'model': model, 'annnounced': annnounced, 'chipset': chipset, 'cpu': cpu, 'sensors': sensors, 'wlan': wlan, 'status': status}
