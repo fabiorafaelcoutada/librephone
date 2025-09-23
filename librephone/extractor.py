@@ -64,7 +64,6 @@ log = logging.getLogger(__name__)
 
 class Extractor:
     def __init__(self,
-                 yamlspec: str = f"partitions.yaml",
                  ):
         """
         Args:
@@ -73,25 +72,7 @@ class Extractor:
         Return:
             (Extractor): An instance of this class
         """
-        self.sdat2img = f"{rootdir}/sdat2img/sdat2img.py"
-        # Extract the build name from the zip file
-        # package = glob.glob("*.zip")
-        # if len(package) > 1:
-        #     logging.error(f"No zip file found in directory!")
-        #     quit()
-
-        # tmp = package[0].split("-")
         self.build = None
-
-        yaml = f"{rootdir}/{yamlspec}"
-        if not os.path.exists(yaml):
-            log.error(f"{yaml} does not exist!")
-            quit()
-            
-        file = open(yaml, "r")
-        self.yaml = load(file, Loader=Loader)
-        file.close()
-
         self.devices = list()
         config = f"{rootdir}/devices.lst"
         if os.path.exists(config):
@@ -558,7 +539,7 @@ class Extractor:
         """
         Dump the contents of the YAML file to the terminal for debugging.
         """
-        print(dump(self.yaml, Dumper=Dumper))
+        # print(dump(self.yaml, Dumper=Dumper))
         
 def main():
     """This main function lets this class be run standalone by a bash script."""

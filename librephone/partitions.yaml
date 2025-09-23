@@ -1,0 +1,356 @@
+- devices:
+  # ASUS
+  # Zenfone 5Z
+  - Z01R:
+    - vendor.img:system/vendor/
+  # BananaPI
+  - M5_TV:
+    - product.img:system/product/
+    - vendor.img:system/vendor/
+    - system_ext.img:system/system_ext/
+  - M5_Tablet:
+    - product.img:system/product/
+    - vendor.img:system/vendor/
+    - system_ext.img:system/system_ext/
+
+  # Dynalink
+  # TV Box 4K
+  - wade:
+    - product.img:system/product/
+    - vendor.img:system/vendor/
+    - system_ext.img:system/system_ext/
+
+  # Essential
+  # PH1
+  - mata:
+    - product.img:system/product/
+    - vendor.img:system/vendor/
+    - system_ext.img:system/system_ext/
+
+  # FxTec
+  # Pro_1
+  - pro1:
+    - product.img:system/product/
+    - vendor.img:system/vendor/
+    - system_ext.img:system/system_ext/
+  # Pro_1X
+  - pro1x:
+    - product.img:system/product/
+    - vendor.img:system/vendor/
+    - system_ext.img:system/system_ext/
+
+  # Hardkernel
+  # Odroid C4 TV
+  - odroidc4:
+    - product.img:system/product/
+    - vendor.img:system/vendor/
+    - system_ext.img:system/system_ext/
+  # Odroid C4 Tablet
+  - odroidc4_tab:
+    - product.img:system/product/
+    - vendor.img:system/vendor/
+    - system_ext.img:system/system_ext/
+
+  # Lenovo
+  # Z5 Pro GT
+  - heart:
+    - product.img:system/product/
+    - vendor.img:system/vendor/
+    - system_ext.img:system/system_ext/
+  # Z6 Pro
+  - zippo:
+    - product.img:system/product/
+    - vendor.img:system/vendor/
+    - system_ext.img:system/system_ext/
+
+  # LG
+  # G7 ThinQ
+  - judyln:
+    - vendor.img:system/vendor/
+    - system_ext.img:system/system_ext/
+  # G8 ThinQ
+  - alphaplus:
+    - vendor.img:system/vendor/
+    - system_ext.img:system/system_ext/
+  # V30
+  - joan:
+    - vendor.img:system/vendor/
+    - system_ext.img:system/system_ext/
+  # V35 ThinQ
+  - judyp:
+    - vendor.img:system/vendor/
+    - system_ext.img:system/system_ext/
+  # V40 ThinQ
+  - judypn:
+    - vendor.img:system/vendor/
+    - system_ext.img:system/system_ext/
+  # V50 ThinQ
+  - flashlmdd:
+    - vendor.img:system/vendor/
+    - system_ext.img:system/system_ext/
+
+  # Nvidia (untested)
+  # Jetson TV
+  - porg:
+    - product.img:system/product/
+  # Jetson Tablet
+  - porg_tab:
+    - product.img:system/product/
+  # TX1_TV
+  - foster:
+    - product.img:system/product/
+  # TX1_Tablet
+  - foster_tab:
+    - product.img:system/product/
+  # TX2_TV
+  - quill:
+    - product.img:system/product/
+  # TX2_Tablet
+  - quill_tab:
+    - product.img:system/product/
+    
+  # Nothing
+  # Phone_1
+  - Spacewar
+    - product.img:system/product/
+    - vendor.img:system/vendor/
+    - system_ext.img:system/system_ext/
+
+  # Nubia (untested)
+  # Mini G
+  - TP1803:
+    - product.img:system/product/
+    - vendor.img:system/vendor/
+    - system_ext.img:system/system_ext/
+  # Red
+  - nx619j:
+    - product.img:system/product/
+    - vendor.img:system/vendor/
+    - system_ext.img:system/system_ext/
+  # Z18
+  - nx606j:
+    - product.img:system/product/
+    - vendor.img:system/vendor/
+    - system_ext.img:system/system_ext/
+  # Z18_Mini
+  - nx611j:
+    - product.img:system/product/
+    - vendor.img:system/vendor/
+    - system_ext.img:system/system_ext/
+
+  # Radxa (untested)
+  # Zero 2 Tablet
+  - radxa02_tab:
+    - product.img:system/product/
+    - vendor.img:system/vendor/
+    - system_ext.img:system/system_ext/
+  # Zero 2 TV
+  - radxa02:
+    - product.img:system/product/
+    - vendor.img:system/vendor/
+    - system_ext.img:system/system_ext/
+  # Zero Tablet
+  - radxa0_tab:
+    - product.img:system/product/
+    - vendor.img:system/vendor/
+    - system_ext.img:system/system_ext/
+  # Zero TV
+  - radxa0:
+    - product.img:system/product/
+    - vendor.img:system/vendor/
+    - system_ext.img:system/system_ext/
+
+  # Razer (untested)
+  - Phone:
+    - product.img:system/product/
+    - vendor.img:system/vendor/
+    - system_ext.img:system/system_ext/
+  - Phone2:
+    - product.img:system/product/
+    - vendor.img:system/vendor/
+    - system_ext.img:system/system_ext/
+
+  # Realme
+  - luigi:
+    - product.img:system/product/
+    - vendor.img:system/vendor/
+    - system_ext.img:system/system_ext/
+  - oscar:
+    - product.img:system/product/
+    - vendor.img:system/vendor/
+    - system_ext.img:system/system_ext/
+
+  # Shift
+  - axolotl:
+    - product.img:system/product/
+    - vendor.img:system/vendor/
+    - system_ext.img:system/system_ext/
+
+  # Solana
+  - ingot:
+    - product.img:system/product/
+    - vendor.img:system/vendor/
+    - system_ext.img:system/system_ext/
+
+  # Walmart
+  - dopinder:
+    - product.img:system/product/
+    - vendor.img:system/vendor/
+    - system_ext.img:system/system_ext/
+
+  - guamp:
+    - product.img:system/product/
+    - vendor.img:system/vendor/
+    - system_ext.img:system/system_ext/
+
+  - bronco:
+    - product.img:system/product/
+    - vendor.img:system/vendor/
+    - system_ext.img:system/system_ext/
+  # Moto G7
+  - ocean:
+    - vendor.img:system/vendor/
+
+  # Fairphone 5
+  - FP5:
+    - odm.img:system/odm/
+    - product.img:system/product/
+    - vendor.img:system/vendor/
+    - system_ext.img:system/system_ext/
+
+  # Xiaomi phones
+  # Mi_11_Pro
+  - mars:
+    - odm.img:system/odm/
+    - product.img:system/product/
+    - vendor.img:system/vendor/
+    - system_ext.img:system/system_ext/
+  # Mi_10S
+  - thyme:
+    - odm.img:system/odm/
+    - product.img:system/product/
+    - vendor.img:system/vendor/
+    - system_ext.img:system/system_ext/
+  # Mi_10T
+  - apollon:
+    - odm.img:system/odm/
+    - product.img:system/product/
+    - vendor.img:system/vendor/
+    - system_ext.img:system/system_ext/
+  # Mi_11I
+  - haydn:
+    - odm.img:system/odm/
+    - product.img:system/product/
+    - vendor.img:system/vendor/
+    - system_ext.img:system/system_ext/
+  # Mi_11_5G
+  - lisa:
+    - odm.img:system/odm/
+    - product.img:system/product/
+    - vendor.img:system/vendor/
+    - system_ext.img:system/system_ext/
+  # Mi10
+  - umi:
+    # Only mounts system partition, which is the default
+  # Mi_6
+  - sagit
+    - odm.img:system/odm/
+    - product.img:system/product/
+    - vendor.img:system/vendor/
+    - system_ext.img:system/system_ext/
+  # Mi_5_Plus
+  - natrium
+    - odm.img:system/odm/
+    - product.img:system/product/
+    - vendor.img:system/vendor/
+    - system_ext.img:system/system_ext/
+  # Mi10_5G
+  - monet:
+    - odm.img:system/odm/
+    - product.img:system/product/
+    - vendor.img:system/vendor/
+    - system_ext.img:system/system_ext/
+  # Mi10_Pro
+  - cmi:
+    - odm.img:system/odm/
+    - product.img:system/product/
+    - vendor.img:system/vendor/
+    - system_ext.img:system/system_ext/
+  # Black
+  - shark:
+    - odm.img:system/odm/
+    - product.img:system/product/
+    - vendor.img:system/vendor/
+    - system_ext.img:system/system_ext/
+  # Mi8
+  - dipper:
+    # Only mounts system partition, which is the default
+  # Mi_5
+  - gemini:
+    - odm.img:system/odm/
+    - product.img:system/product/
+    - vendor.img:system/vendor/
+    - system_ext.img:system/system_ext/
+
+  # OnePlus phones
+  # OnePlus 8
+  - instantnoodle:
+    - odm.img:system/odm/
+    - product.img:system/product/
+    - vendor.img:system/vendor/
+    - system_ext.img:system/system_ext/
+  # OnePlus 8 Pro
+  - instantnoodlep:
+    - odm.img:system/odm/
+    - product.img:system/product/
+    - vendor.img:system/vendor/
+    - system_ext.img:system/system_ext/
+  # OnePlus 9 Pro
+  - lemonadep:
+    - odm.img:system/odm/
+    - product.img:system/product/
+    - vendor.img:system/vendor/
+    - system_ext.img:system/system_ext/
+
+  # Google Pixel phones
+  # Pixel Tablet
+  - tangorpro:
+    - product.img:system/product/
+  # Pixel 7a
+  - lynx:
+    - product.img:system/product/
+    - vendor.img:system/vendor/
+    - system_ext.img:system/system_ext/
+  # Pixel 8
+  - shiba:
+    - product.img:system/product/
+    - vendor.img:system/vendor/
+    - system_ext.img:system/system_ext/
+  # Pixel 8 Pro
+  - husky:
+    - product.img:system/product/
+    - vendor.img:system/vendor/
+    - system_ext.img:system/system_ext/
+  # Pixel 9
+  - tokay:
+    - product.img:system/product/
+    - vendor.img:system/vendor/
+    - system_ext.img:system/system_ext/
+  # Pixel 9 Pro
+  - caiman:
+    - vendor.img:system/vendor/
+  # Pixel 9 Pro XL
+  - komodo:
+    - product.img:system/product/
+    - vendor.img:system/vendor/
+    - system_ext.img:system/system_ext/
+  # Pixel 9 Pro Fold
+  - comet:
+    - product.img:system/product/
+    - vendor.img:system/vendor/
+    - system_ext.img:system/system_ext/
+  # Pixel Fold
+  - felix:
+    - product.img:system/product/
+    - vendor.img:system/vendor/
+    - system_ext.img:system/system_ext
