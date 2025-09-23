@@ -15,6 +15,7 @@
     - ADRENO
 
 - devstatus:
+    - UNKNOWN
     - AVAILABLE
     - DISCONTINUED
 
@@ -72,6 +73,7 @@
     - UNKNOWN
 
 - archtypes:
+    - UNKNOWN
     - ARM64
     - AARCH64
     - RISCV
@@ -81,6 +83,7 @@
     - DSP
 
 - celltypes:
+    - UNKNOWN
     - GSM
     - CDMA
     - HSPA
@@ -89,12 +92,14 @@
     - FiveG
     
 - nettypes:
+    - UNKNOWN
     - TWOG
     - THREEG
     - FOURG
     - FIVEG
     
 - wifitypes:
+    - UNKNOWN
     - A
     - B
     - BE

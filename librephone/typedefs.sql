@@ -12,6 +12,7 @@ CREATE TYPE public.gpumodels AS ENUM (
 );
 DROP TYPE IF EXISTS public.devstatus CASCADE;
 CREATE TYPE public.devstatus AS ENUM (
+	'UNKNOWN',
 	'AVAILABLE',
 	'DISCONTINUED'
 );
@@ -73,6 +74,7 @@ CREATE TYPE public.bintypes AS ENUM (
 );
 DROP TYPE IF EXISTS public.archtypes CASCADE;
 CREATE TYPE public.archtypes AS ENUM (
+	'UNKNOWN',
 	'ARM64',
 	'AARCH64',
 	'RISCV',
@@ -83,6 +85,7 @@ CREATE TYPE public.archtypes AS ENUM (
 );
 DROP TYPE IF EXISTS public.celltypes CASCADE;
 CREATE TYPE public.celltypes AS ENUM (
+	'UNKNOWN',
 	'GSM',
 	'CDMA',
 	'HSPA',
@@ -92,6 +95,7 @@ CREATE TYPE public.celltypes AS ENUM (
 );
 DROP TYPE IF EXISTS public.nettypes CASCADE;
 CREATE TYPE public.nettypes AS ENUM (
+	'UNKNOWN',
 	'TWOG',
 	'THREEG',
 	'FOURG',
@@ -99,6 +103,7 @@ CREATE TYPE public.nettypes AS ENUM (
 );
 DROP TYPE IF EXISTS public.wifitypes CASCADE;
 CREATE TYPE public.wifitypes AS ENUM (
+	'UNKNOWN',
 	'A',
 	'B',
 	'BE',

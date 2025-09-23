@@ -11,6 +11,7 @@ class Gpumodels(Enum):
 	ADRENO = 'ADRENO'
 
 class Devstatus(Enum):
+	UNKNOWN = 'UNKNOWN'
 	AVAILABLE = 'AVAILABLE'
 	DISCONTINUED = 'DISCONTINUED'
 
@@ -68,6 +69,7 @@ class Bintypes(Enum):
 	UNKNOWN = 'UNKNOWN'
 
 class Archtypes(Enum):
+	UNKNOWN = 'UNKNOWN'
 	ARM64 = 'ARM64'
 	AARCH64 = 'AARCH64'
 	RISCV = 'RISCV'
@@ -77,6 +79,7 @@ class Archtypes(Enum):
 	DSP = 'DSP'
 
 class Celltypes(Enum):
+	UNKNOWN = 'UNKNOWN'
 	GSM = 'GSM'
 	CDMA = 'CDMA'
 	HSPA = 'HSPA'
@@ -85,12 +88,14 @@ class Celltypes(Enum):
 	FiveG = 'FiveG'
 
 class Nettypes(Enum):
+	UNKNOWN = 'UNKNOWN'
 	TWOG = 'TWOG'
 	THREEG = 'THREEG'
 	FOURG = 'FOURG'
 	FIVEG = 'FIVEG'
 
 class Wifitypes(Enum):
+	UNKNOWN = 'UNKNOWN'
 	A = 'A'
 	B = 'B'
 	BE = 'BE'
