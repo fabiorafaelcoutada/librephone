@@ -9,6 +9,9 @@ CREATE TABLE public.devices (
 	blobs jsonb,
 	available bool,
 	builds bool,
+	extracts bool,
+	soc character varying,
+	released int,
 	UNIQUE(build)
 );
 DROP TABLE IF EXISTS public.specs CASCADE;

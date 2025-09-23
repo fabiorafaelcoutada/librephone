@@ -9,12 +9,12 @@ log = logging.getLogger(__name__)
         
 class DevicesTable(object):
     def __init__(self,
-            version: float = None, vendor: str = None, model: str = None, build: str = None, blobs: dict = None, available: bool = False, builds: bool = False):
-            self.data = {'version': version, 'vendor': vendor, 'model': model, 'build': build, 'blobs': blobs, 'available': available, 'builds': builds}
+            version: float = None, vendor: str = None, model: str = None, build: str = None, blobs: dict = None, available: bool = False, builds: bool = False, extracts: bool = False, soc: str = None, released: int = None):
+            self.data = {'version': version, 'vendor': vendor, 'model': model, 'build': build, 'blobs': blobs, 'available': available, 'builds': builds, 'extracts': extracts, 'soc': soc, 'released': released}
 
 class SpecsTable(object):
     def __init__(self,
-            release: datetime = '2025-09-21 12:55:48.194913', soc: str = None, cpus: str = None, peripherals: str = None, bluetooth: str = None, build: str = None, gpu: str = None, kernel: float = None):
+            release: datetime = '2025-09-23 13:45:00.570667', soc: str = None, cpus: str = None, peripherals: str = None, bluetooth: str = None, build: str = None, gpu: str = None, kernel: float = None):
             self.data = {'release': release, 'arch': arch, 'soc': soc, 'cpus': cpus, 'peripherals': peripherals, 'bluetooth': bluetooth, 'wifi': wifi, 'build': build, 'gpu': gpu, 'network': network, 'kernel': kernel}
 
 class GsmarenaTable(object):

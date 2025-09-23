@@ -18,6 +18,12 @@
         - bool
     - builds:
         - bool
+    - extracts:
+        - bool
+    - soc:
+        - string
+    - released:
+        - int32
 
 - specs:
     - release:
