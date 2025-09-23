@@ -31,7 +31,7 @@ bindings between Python and Postgres.
 
 These are extracts from the database produced by the
 *query_devices.py* program in CSV format. These can be further
-analyzed by usihng a spreadsheet program.
+analyzed by using a spreadsheet program.
 
 ### [Build Status](builds.md)
 
@@ -56,8 +56,7 @@ This is a simple utility to unpack and mount the system files from the
 Lineage packaged installer file. This is used when using the package
 files to extract proprietary files when you don't have hardware. It
 handles unpacking everything, and mounting the partitions Lineage
-needs to extract files for a device. Extracting is still done using
-the extract-files.py script in Lineage for each device.
+needs to extract files for a device.
 
 ### [import_dev.py](import-device.md)
 
