@@ -95,6 +95,26 @@ class UpdateDevice(object):
             return
         # print(f"SQL: {sql}")
         result = self.dbcursor.execute(sql)
+
+    def process_file(self,
+                     filespec: str,
+                     ):
+        """
+        This reads in the data/builds.csv file, which keeps track of
+        build status and has other info like soc and release year.
+        """
+        with open(filespec, newline="", encoding="latin") as file:
+            reader = csv.DictReader(file, delimiter=",")
+            for row in reader:
+                entry = {"build": row["Build"],
+                         "soc": row["SOC"],
+                         "released": row["Released"],
+                         }
+                if row["Build 22.2"] == "completes":
+                    entry["builds"] = 't'
+                if row["Extract 22.2"] == "completes":
+                    entry["extracts"] = 't'
+                self.set_columns(entry)
         
 def main():
     """This main function lets this class be run standalone by a bash script."""
@@ -124,18 +144,7 @@ def main():
     if args.csv:
         # This reads in the data/builds.csv file, which keeps track of
         # build status
-        with open(f"{rootdir}/{args.csv}", newline="", encoding="latin") as file:
-            reader = csv.DictReader(file, delimiter=",")
-            for row in reader:
-                entry = {"build": row["Build"],
-                         "soc": row["SOC"],
-                         "released": row["Released"],
-                         }
-                if row["Build 22.2"] == "completes":
-                    entry["builds"] = 't'
-                if row["Extract 22.2"] == "completes":
-                    entry["extracts"] = 't'
-                devdb.set_columns(entry)
+        devdb.process_file(f"{os.path.dirname(rootdir)}/data/builds.csv")
     elif args.set:
         devdb.set_column("builds", build, True)
         devdb.set_column("released", build, True)
