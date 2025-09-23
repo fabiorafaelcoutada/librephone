@@ -126,7 +126,7 @@ class DeviceImport(object):
             #     continue
 
             sql = f"SELECT jsonb_array_length(blobs) FROM devices WHERE build='{device.build}'"
-            print(f"SQL: {sql}")
+            # print(f"SQL: {sql}")
             result = self.dbcursor.execute(sql)
             # None as a result means no entries in the jsonb column
             count = result.fetchone()
@@ -138,7 +138,7 @@ class DeviceImport(object):
                 sql = f"UPDATE devices SET blobs = blobs || '{json.dumps(files)}' WHERE build='{device.build}'"
             else:
                 sql = f"UPDATE devices SET blobs = '{json.dumps(files)}' WHERE build='{device.build}'"
-            print(f"SQL: {sql}")
+            # print(f"SQL: {sql}")
             result = self.dbcursor.execute(sql)
 
     def dump(self):
