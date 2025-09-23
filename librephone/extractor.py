@@ -34,12 +34,6 @@ from codetiming import Timer
 # from tqdm import tqdm
 # import tqdm.asyncio
 
-from yaml import load, dump
-try:
-    from yaml import CLoader as Loader, CDumper as Dumper
-except ImportError:
-    from yaml import Loader, Dumper
-
 import librephone as pt
 rootdir = pt.__path__[0]
 
@@ -47,8 +41,6 @@ rootdir = pt.__path__[0]
 log = logging.getLogger(__name__)
 
 # Based on https://wiki.lineageos.org/extracting_blobs_from_zips
-
-# Before beginning, it is required to know the difference between the types of OTAs:
 
 # Block-based OTA: the content of the system partition is stored inside of an
 # .dat/.dat.br file as binary data. 
@@ -58,9 +50,6 @@ log = logging.getLogger(__name__)
 
 # Payload-based OTA: the content of the system partition is stored as an
 # .img file inside of payload.bin.
-
-# ota = f"{lineage}/prebuilts/extract-tools/linux-x86/bin/ota_extractor"
-# sdat2img = f"{rootdir}/sdat2img.py"
 
 class Extractor:
     def __init__(self,
