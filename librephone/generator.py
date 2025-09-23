@@ -291,12 +291,11 @@ class {table.capitalize()}Table(object):
                         elif k1 == 'timestamp':
                             out += f"{k}: datetime = '{datetime.now()}', "
                         elif k1[:7] == 'public.':
-                            # FIXME: Needs to wortk with the new typedef file
-                             #defined = f"librephone.typedefs.{k1[7:].capitalize()}"
-                            # log.warning(f"SQL ENUM {k1}!!")
-                            # default = eval(f"{defined}(1)")
-                            #out += f"{k}: {defined} =  {defined}.{default.name.upper()}, "
-                            pass
+                            breakpoint()
+                            typedef = k1[7:].capitalize()
+                            defined = f"librephone.typedefs.{typedef}"
+                            default = eval(f"{typedef}({typedef}.UNKNOWN)")
+                            out += f"{k}: {defined} =  {defined}.{default.name.upper()}, "
                         else:
                             out += f"{k}: {datatype} = None, "
                         # print(k)
