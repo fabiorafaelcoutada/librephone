@@ -93,11 +93,8 @@ class UpdateDevice(object):
         sql += f" WHERE build='{build}'"
         if sql.find("SET WHERE") > 0:
             return
-        print(f"SQL: {sql}")
-        try:
-            result = self.dbcursor.execute(sql)
-        except:
-            breakpoint()
+        # print(f"SQL: {sql}")
+        result = self.dbcursor.execute(sql)
         
 def main():
     """This main function lets this class be run standalone by a bash script."""
@@ -125,6 +122,8 @@ def main():
     devdb = UpdateDevice()
 
     if args.csv:
+        # This reads in the data/builds.csv file, which keeps track of
+        # build status
         with open(f"{rootdir}/{args.csv}", newline="", encoding="latin") as file:
             reader = csv.DictReader(file, delimiter=",")
             for row in reader:
@@ -132,6 +131,10 @@ def main():
                          "soc": row["SOC"],
                          "released": row["Released"],
                          }
+                if row["Build 22.2"] == "completes":
+                    entry["builds"] = 't'
+                if row["Extract 22.2"] == "completes":
+                    entry["extracts"] = 't'
                 devdb.set_columns(entry)
     elif args.set:
         devdb.set_column("builds", build, True)
