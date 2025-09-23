@@ -31,6 +31,7 @@ from sys import argv
 import json
 from librephone.device import DeviceData
 from librephone.typedefs import Cputypes, Gpumodels, Devstatus, Imgtypes, Bintypes, Archtypes, Celltypes, Nettypes, Wifitypes, Filetypes, Blobtypes
+from librephone.update_dev import UpdateDevice
 
 import librephone as pt
 rootdir = pt.__path__[0]
@@ -39,7 +40,7 @@ rootdir = pt.__path__[0]
 log = logging.getLogger(__name__)
 
 
-class DeviceImport(object):
+class DeviceImport(UpdateDevice):
     def __init__(self,
                  dbname: str = "devices",
                  ):
@@ -81,11 +82,21 @@ class DeviceImport(object):
     def bootstrap(self,
                   filespec: str,
                   ):
+        """
+        This bootstraps the database with statc data.
+        """
+        # This is the CSV file produced by image_utils -l that sets
+        # the vendor, model, and build columns need by all the other
+        # database queries
         datafile = open(filespec, "r")
         for line in datafile.readlines():
             parts = line.rstrip().split(':')
             self.create_entry(parts[0], parts[2], parts[1])
         datafile.close()
+
+        # This is the spreadsheet of build status that sets several columns
+        # like soc and released.
+        self.process_file(f"{os.path.dirname(rootdir)}/data/builds.csv")
 
     def write_db(self,
                  device: DeviceData
