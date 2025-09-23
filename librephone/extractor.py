@@ -189,7 +189,8 @@ class Extractor:
 
         # build = self.get_devpath(tmp[len(tmp) - 1])
         devdir = f"{tmp[len(tmp) - 2].lower()}/{build}"
-        propdir = f"{lineage}/device/{devdir}"
+        propdir = f"{lineage}device/{devdir}"
+
         propfile = f"{propdir}/proprietary-files.txt"
         props = list()
         if os.path.exists(propfile):
@@ -215,6 +216,8 @@ class Extractor:
         # If nothing was found, then the device directories hadn't been
         # downloaded from Lineage.
         if len(props) == 0:
+            if not os.path.exists(propdir):
+                os.makedirs(propdir, mode=0o700)
             with open(f"{propdir}/proprietary-files.txt", 'w') as propout:
                 mounted = str()
                 for root, dirs, files in os.walk(indir):
