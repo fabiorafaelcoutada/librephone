@@ -109,7 +109,7 @@ unmount() {
 import_blobs() {
     logmsg "Importing ${total} devices..."
     ${dryrun} import-device -b
-    builds=${1:-${modnames[*]}}
+   builds=${1:-${modnames[*]}}
     for i in ${builds}; do
 	dir=$(dirname $(path ${i}))
 	# clone ${i}
@@ -173,9 +173,9 @@ build() {
 
     builds=${1:-${modnames[*]}}
     for device in ${builds}; do
-	vendor="$(echo ${device} | cut -d '|' -f 1 | tr '[:upper:]' '[:lower:]' | tr -d ' ')"
-	model="$(echo ${device} | cut -d '|' -f 2 | tr -d ' ')"
-	build="$(echo ${device} | cut -d '|' -f 3 | tr -d ' ')"
+	dir=$(path ${device})
+	vendor="$(echo ${dir} | cut -d '/' -f 1)"
+	model="$(echo ${dir} | cut -d '/' -f 2)"
 	# these cause trouble at build time, ie... mka -j 8
 	## rm -fr {vendor,device}/{xiaomi,motorola}
 	logmsg "--------------------------------"
