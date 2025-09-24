@@ -172,14 +172,14 @@ build() {
     source build/envsetup.sh
 
     builds=${1:-${modnames[*]}}
-    for device in ${builds}; do
-	dir=$(path ${device})
+    for build in ${builds}; do
+	dir=$(path ${build})
 	vendor="$(echo ${dir} | cut -d '/' -f 1)"
 	model="$(echo ${dir} | cut -d '/' -f 2)"
 	# these cause trouble at build time, ie... mka -j 8
 	## rm -fr {vendor,device}/{xiaomi,motorola}
 	logmsg "--------------------------------"
-	dir="${lineage}/${vendor}/${build}"
+	# dir="${lineage}/${vendor}/${build}"
 	tmpfile="/tmp/build.${build}"
 	logmsg "Configuring ${vendor} ${model} ${build}..."
 	${dryrun} breakfast ${build} eng
@@ -188,7 +188,7 @@ build() {
 	    continue
 	fi
 	logmsg "Breakfast first pass sucessful for ${build}"
-	echo "Extracting blobs ${vendor} ${device} ${build}..."
+	echo "Extracting blobs ${vendor} ${model} ${build}..."
 	if test x"${dryrun}" = x; then
 	    if test ! -e ${dir}/system.img;then
 		errmsg "Files haven't been extracted for ${build}!"
