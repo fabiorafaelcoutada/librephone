@@ -1,252 +1,251 @@
-Vendor,Model,Build,Extract 22.2,Extract 22.1,Build 22.2,Build 22.1,Ebay,rootable,SOC,GPU,Released,Conflict
-OnePlus,OnePlus_5,cheeseburger,fails,,,,,,Qualcomm MSM8998 Snapdragon 835,,2017,
-OnePlus,OnePlus_5T,dumpling,,,,,350,,Qualcomm MSM8998 Snapdragon 835,,2017,
-OnePlus,OnePlus_6,enchilada,completes,,,,100,,Qualcomm SDM845 Snapdragon 845,,2018,
-OnePlus,OnePlus_6T,fajita,completes,,,,100,,Qualcomm SM8150 Snapdragon 855,,2018,
-OnePlus,OnePlus_7,guacamoleb,fails,fails,,,150,yes,Qualcomm MSM8998 Snapdragon 835,,2019,
-OnePlus,OnePlus_7T,hotdogb,fails,,,,100,,Qualcomm MSM8998 Snapdragon 835,,2019,
-OnePlus,OnePlus_7_Pro,guacamole,fails,fails,fails,,350,yes,Qualcomm SM8150 Snapdragon 855,,2019,
-OnePlus,OnePlus_7T_Pro,hotdog,fails,fails,fails,,150,,Qualcomm SM8150-AC Snapdragon 855,,2019,
-OnePlus,Nord_N10,billie,,,,,,,Qualcomm SM6350 Snapdragon 690 5G,,2020,
-OnePlus,OnePlus_8,instantnoodle,completes,completes,completes,completes,,yes,Qualcomm SM8250 Snapdragon 865,,2020,
-OnePlus,OnePlus_8_Pro,instantnoodlep,completes,fails,completes,,100,,Qualcomm SM8250 Snapdragon 865,,2020,
-OnePlus,OnePlus_8T,kebab,completes,completes,fails,completes,100,,Qualcomm SM8250 Snapdragon 865,,2020,
-OnePlus,Nord_200,dre,completes,,,,,,Qualcomm SM4350 Snapdragon 480,,2021,
-OnePlus,OnePlus_9R,lemonades,completes,,,,200,,Qualcomm SM8250 Snapdragon 865,,2021,
-OnePlus,OnePlus_9RT,martini,completes,,,,,,Qualcomm SM8250 Snapdragon 865,,2021,
-OnePlus,OnePlus_9_Pro,lemonadep,completes,completes,fails,fails,400,,Qualcomm SM8350 Snapdragon 888,,2021,
-OnePlus,Nord_CE2,oscaro,completes,,,,,,Qualcomm SM6375 Snapdragon 695,,2022,
-OnePlus,Nord_N20_5G,gunnar,fails,,,,,,Qualcomm SM6375 Snapdragon 695,,2022,
-OnePlus,Nord_N30,larry,completes,,,,,,ÿQualcomm SM6375 Snapdragon 695 5G,,2023,
-OnePlus,OnePlus_11_5G,salami,completes,,,,330,,Qualcomm SM8550 Snapdragon 8 Gen2,,2023,
-,,,,,,,,,,,,
-Google,Pixel,sailfish,fails,,,,,,Qualcomm MSM8996 Pro Snapdragon 821,,2016,
-Google,Pixel_XL,marlin,completes,,,,,,Qualcomm MSM8996 Pro Snapdragon 821,,2016,
-Google,Pixel_2,walleye,fails,,,,,,Qualcomm SDM835 Snapdragon 835,,2017,
-Google,Pixel_2XL,taimen,fails,,,,,,Qualcomm SDM835 Snapdragon 835,,2017,
-Google,Pixel_3,blueline,completes,,,,,,Qualcomm SDM845 Snapdragon 845,,2018,
-Google,Pixel_3XL,crosshatch,completes,,,,,,Qualcomm SDM845 Snapdragon 845,,2018,
-Google,Pixel_3A,sargo,,,,,,,Qualcomm SDM670 Snapdragon 670,,2019,
-Google,Pixel_3A_XL,bonito,completes,,,,,,Qualcomm SDM670 Snapdragon 670,,2019,
-Google,Pixel_4XL,coral,completes,,,,,,Qualcomm SM7250 Snapdragon 765G,,2019,
-Google,Pixel_4,flame,completes,,,,,,Qualcomm SM8150 Snapdragon 855,,2019,
-Google,ADT_3,deadpool,completes,,,,,,Amlogic S905Y2,,2020,
-Google,Pixel_4A,sunfish,completes,,,,,,Qualcomm SM7250 Snapdragon 765G,,2020,
-Google,Pixel_4A_5G,bramble,completes,,,,,,Qualcomm SM7250 Snapdragon 765G,,2020,
-Google,Pixel_5,redfin,completes,,,,,,Qualcomm SM7250 Snapdragon 765G,,2020,Qualcomm SM7250-AB Snapdragon 765G
-Google,Pixel_6,oriole,completes,,,,,,Google Tensor GS101,,2021,
-Google,Pixel_6_Pro,raven,completes,,,,,,Google Tensor GS101,,2021,
-Google,Pixel_5A,barbet,completes,,,,,,Qualcomm SM7250 Snapdragon 765G,,2021,
-Google,Pixel_6A,bluejay,completes,completes,completes,completes,150,,Google Tensor GS101,,2022,
-Google,Pixel_7,panther,completes,completes,,completes,150,,Google Tensor GS201,,2022,
-Google,Pixel_7_Pro,cheetah,completes,completes,,completes,,,Google Tensor GS201,,2022,
-Google,Pixel_8,shiba,completes,completes,,completes,200,,Google Tensor G3,,2023,
-Google,Pixel_8_Pro,husky,completes,completes,,completes,,,Google Tensor G3,,2023,
-Google,Pixel_7A,lynx,fails,completes,,completes,130,yes,Google Tensor GS201,,2023,
-Google,Pixel_Fold,felix,completes,fails,,,300,,Google Tensor GS201,,2023,
-Google,Pixel_Tablet,tangorpro,completes,,,,,,Google Tensor GS201,,2023,
-Google,Pixel_8A,akita,completes,completes,completes,completes,200,,Google Tensor G3,,2024,
-Google,Pixel_9_Pro,caiman,completes,,completes,,,,Google Tensor G3,,2024,
-Google,Pixel_9_Pro_Fold,comet,completes,fails,,,,,Google Tensor G3,,2024,
-Google,Pixel_9,tokay,completes,completes,completes,completes,400,yes,Google Tensor G4,,2024,
-,,,,,,,,,,,,
-Motorola,Moto_X4,payton,fails,,,,,,Qualcomm SDM630 Snapdragon 630,,2017,
-Motorola,Moto_G6_Plus,evert,fails,,,,,,Qualcomm SDM630 Snapdragon 630,,2018,
-Motorola,Moto_G7,river,fails,,,,,,Qualcomm SDM632 Snapdragon 632,,2019,
-Motorola,Moto_G7_Power,ocean,completes,,,,,,Qualcomm SDM632 Snapdragon 632,,2019,
-Motorola,Moto_G7P_Plus,lake,fails,,,,,,Qualcomm SDM636 Snapdragon 636,,2019,
-Motorola,Moto_Z3,messi,fails,,,,,,Qualcomm SDM636 Snapdragon 636,,2019,
-Motorola,ThinkPhone,bronco,completes,,,,,,Qualcomm SM8475 Snapdragon 8 Gen1,,2019,
-Motorola,One_Action,troika,completes,,,,,,Samsung Exynos 9609,,2019,
-Motorola,One_Vision,kane,completes,,,,,,Samsung Exynos 9609,,2019,
-Motorola,Moto_E7_Plus,guam,fails,,,,,,Qualcomm SM4250 Snapdragon 460,,2020,
-Motorola,Moto_G9,guamp,fails,,,,,,Qualcomm SM6115 Snapdragon 662,,2020,
-Motorola,Moto_G9_Power,cebu,fails,,,,,,Qualcomm SM6115 Snapdragon 662,,2020,
-Motorola,Edge_,racer,fails,,,,120,,Qualcomm SM7250 Snapdragon 765G,,2020,
-Motorola,Moto G_5G,kiev,completes,fails,completes,,100,,Qualcomm SM7250 Snapdragon 765G,,2020,
-Motorola,Moto_G_5G_Plus,nairo,fails,,,,,,Qualcomm SM7250 Snapdragon 765G,,2020,
-Motorola,Moto_G5G_Plus,nairo,completes,,,,,,Qualcomm SM7250 Snapdragon 765G,,2020,
-Motorola,Moto_G10,capri,fails,,,,,,Qualcomm SM4250 Snapdragon 460,,2021,
-Motorola,Defy_2021,bathena,fails,,,,,,Qualcomm SM6115 Snapdragon 662,,2021,
-Motorola,Moto_G_Power,borneo,completes,,,,,,Qualcomm SM6115 Snapdragon 662,,2021,
-Motorola,Moto_G30,caprip,fails,,,,,,Qualcomm SM6115 Snapdragon 662,,2021,
-Motorola,Edge_40,dubai,fails,,,,,,Qualcomm SM7250 Snapdragon 765G,,2021,
-Motorola,Edge_20,berlin,completes,,,,,,Qualcomm SM7325 Snapdragon 778G 5G,,2021,
-Motorola,Edge_2021,berlna,fails,,,,,,Qualcomm SM7325 Snapdragon 778G 5G,,2021,
-Motorola,Edge_30,dubai,fails,,,,,,Qualcomm SM7325-AE Snapdragon 778G 5G,,2021,
-Motorola,Edge_20_Pro,pstar,completes,,,,,,Qualcomm SM8250-AC Snapdragon 870,,2021,
-Motorola,Edge_S,nio,completes,,,,,,Qualcomm SM8250-AC Snapdragon 870,,2021,
-Motorola,Moto_G200,xpeng,fails,,,,,,Qualcomm SM8350-AC Snapdragon 888+,,2021,
-Motorola,Moto_G32,devon,fails,,,,,,Qualcomm SM6225 Snapdragon 680 4G,,2022,
-Motorola,Moto_G42,hawao,fails,,,,,,Qualcomm SM6225 Snapdragon 680 4G,,2022,
-Motorola,Moto_G52,rhode,fails,,,,,,Qualcomm SM6225 Snapdragon 680 4G,,2022,
-Motorola,Edge_30_Neo,miami,fails,,,,,,Qualcomm SM6375 Snapdragon 695,,2022,
-Motorola,Moto_G82_5G,rhodep,fails,,,,,,Qualcomm SM6375 Snapdragon 695,,2022,
-Motorola,Edge_30_Fusion,tundra,fails,,,,,,Qualcomm SM7250 Snapdragon 765G,,2022,
-Motorola,Edge_30_Ultra,eqs,fails,,,,,,Qualcomm SM8475 Snapdragon 8+ Gen1,,2022,
-Motorola,Moto_G34_5G,fogos,fails,,,,,,Qualcomm SM6375 Snapdragon 695,,2023,
-Motorola,Moto_G84_5G,bangkk,fails,,,,,,Qualcomm SM6375 Snapdragon 695,,2023,
-Motorola,Edge_40_Pro,rtwo,completes,,,,,,Qualcomm SM8550 Snapdragon 8 Gen2,,2023,
-Motorola,Moto_G_5G_2024,fogo,completes,,,,,,Qualcomm SM4375 Snapdragon 4 Gen 1,,2024,
-,,,,,,,,,,,2023,
-Xiaomi,Redmi_4A,Mi8917,fails,,,,,,Qualcomm MSM8917 Snapdragon 425,,2016,
-Xiaomi,Poco_3S,Mi8937,fails,,,,,,Qualcomm MSM8937 Snapdragon 430,,2016,
-Xiaomi,Mi_5S_Plus,natrium,fails,,,,,,Qualcomm MSM8996 Pro Snapdragon 821,,2016,
-Xiaomi,Mi_5,gemini,fails,,,,,,Qualcomm MSM8996 Snapdragon 820,,2016,
-Xiaomi,Mi_6,sagit,fails,,,,,,Qualcomm MSM8998 Snapdragon 835,,2017,
-Xiaomi,Mi_Mix_2,chiron,fails,,,,,,Qualcomm MSM8998 Snapdragon 835,,2017,
-Xiaomi,Black_Shark,shark,fails,,,,,,Qualcomm SDM845 Snapdragon 845,,2018,
-Xiaomi,Mi_8_Explorer,ursa,fails,,,,,,Qualcomm SDM845 Snapdragon 845,,2018,
-Xiaomi,Mi_8_Pro,equuleus,fails,,,,,,Qualcomm SDM845 Snapdragon 845,,2018,
-Xiaomi,Mi_Mix_2S,polaris,fails,,,,,,Qualcomm SDM845 Snapdragon 845,,2018,
-Xiaomi,Mi_Mix_3,perseus,fails,,,,,,Qualcomm SDM845 Snapdragon 845,,2018,
-Xiaomi,Poco_F1,beryllium,fails,,,,,,Qualcomm SDM845 Snapdragon 845,,2018,
-Xiaomi,Mi_8,dipper,fails,fails,,,120,,Qualcomm SDM845 Snapdragon 845,,2018,
-Xiaomi,RedmI 8,Mi439,completes,,fails,,100,,Qualcomm SDM439 Snapdragon 439,,2019,
-Xiaomi,Redmi_7A,Mi439,fails,,,,,,Qualcomm SDM439 Snapdragon 439,,2019,
-Xiaomi,Mi_CC9,pyxis,fails,,,,,,Qualcomm SDM710 Snapdragon 710,,2019,
-Xiaomi,Mi_CC9_Meitu,vela,fails,,,,,,Qualcomm SDM710 Snapdragon 710,,2019,
-Xiaomi,Mi_9SE,grus,fails,,,,,,Qualcomm SDM712 Snapdragon 712,,2019,
-Xiaomi,Mi_A3,laurel_sprout?,completes,,,,,,Qualcomm SM6125 Snapdragon 665,,2019,
-Xiaomi,Redmi_Note_8,ginkgo,fails,,,,,,Qualcomm SM6125 Snapdragon 665,,2019,
-Xiaomi,Redmi_Note_7_Pro,violet,fails,,,,,,Qualcomm SM6150 Snapdragon 675,,2019,
-Xiaomi,Mi_9T,davinci,fails,,,,,,Qualcomm SM7150-AA Snapdragon 730,,2019,
-Xiaomi,Poco_M2_Pro,miatoll,fails,,,,,,Qualcomm SM7125 Snapdragon 720G,,2020,
-Xiaomi,Poco_X3_NFC,surya,fails,,,,,,Qualcomm SM7150-AC Snapdragon 732G,,2020,
-Xiaomi,Mi_10T_5G,gauguin,fails,,,,,,Qualcomm SM7225 Snapdragon 750G 5G,,2020,
-Xiaomi,MI_10,umi,fails,,fails,,250,,Qualcomm SM8250 Snapdragon 865,,2020,
-Xiaomi,Mi_10_Pro,cmi,fails,,,,,,Qualcomm SM8250 Snapdragon 865,,2020,
-Xiaomi,Mi_10T,apollon,fails,,fails,,100,,Qualcomm SM8250 Snapdragon 865,,2020,
-Xiaomi,Poco_F2_Pro,lmi,fails,,,,,,Qualcomm SM8250 Snapdragon 865,,2020,
-Xiaomi,Redmi_10S,rosemary,completes,,,,,,Mediatek MT6785 Helio G95,,2021,
-Xiaomi,Redmi_Note_10_Pro,sweet,fails,,,,120,,Qualcomm SM7150-AC Snapdragon 732G,,2021,
-Xiaomi,Mi_11_5G,lisa,completes,,,,150,,Qualcomm SM7325 Snapdragon 778G 5G,,2021,
-Xiaomi,Mi_11_5G,renoir,completes,,,,,,Qualcomm SM7350-AB Snapdragon 780G 5G,,2021,
-Xiaomi,Poco_X3_Pro,vayu,fails,,,,,,Qualcomm SM8150-AC Snapdragon 860,,2021,
-Xiaomi,Mi_10S,thyme,completes,,,,,,Qualcomm SM8250-AC Snapdragon 870,,2021,
-Xiaomi,Poco_F3,alioth,completes,,,,,,Qualcomm SM8250-AC Snapdragon 870,,2021,
-Xiaomi,Mi_11I,haydn,completes,,,,,,Qualcomm SM8350 Snapdragon 888,,2021,
-Xiaomi,Mi_12,cupid...,completes,,,,,,Qualcomm SM8450 Snapdragon 8 Gen1,,2021,
-Xiaomi,Mi_12_Pro,zeus,completes,,,,,,Qualcomm SM8450 Snapdragon 8 Gen1,,2021,
-Xiaomi,Poco_F4,munch,completes,,,,,,Qualcomm SM8250-AC Snapdragon 870,,2022,
-Xiaomi,Mi_12S,mayfly,completes,,,,,,Qualcomm SM8475 Snapdragon 8+ Gen1,,2022,
-Xiaomi,Mi_12S_Pro,unicorn,completes,,,,,,Qualcomm SM8475 Snapdragon 8+ Gen1,,2022,
-Xiaomi,Mi_12S_Ultra,thor,completes,,,,,,Qualcomm SM8475 Snapdragon 8+ Gen1,,2022,
-Xiaomi,Mi_12T_Pro,diting,completes,,,,,,Qualcomm SM8475 Snapdragon 8+ Gen1,,2022,
-Xiaomi,Mi_Fold_2,zizhan,completes,,,,,,Qualcomm SM8475 Snapdragon 8+ Gen1,,2022,
-Xiaomi,Mi_13,fuxi,completes,,,,,,Qualcomm SM8550 Snapdragon 8 Gen2,,2022,
-Xiaomi,Mi_13_Pro,nuwa,completes,,,,,,Qualcomm SM8550 Snapdragon 8 Gen2,,2022,
-Xiaomi,Redmi_K60_Pro,socrates,completes,,,,,,Qualcomm SM8550 Snapdragon 8 Gen2,,2022,
-Xiaomi,Poco_12C,earth,completes,,,,,,Mediatek MT6768 Helio G85,,2023,
-Xiaomi,Poco_F5,marble,completes,,,,,,Qualcomm SM7475-AB Snapdragon 7+ Gen 2,,2023,
-Xiaomi,Poco_F5_Pro,mondrian,completes,,,,,,Qualcomm SM8475 Snapdragon 8+ Gen1,,2023,
-,,,,,,,,,,,,
-Fairphone,FP3,FP3,fails,,,,,,Qualcomm SDM632 Snapdragon 632,,2019,
-Fairphone,FP4,FP4,completes,,fails,,500,,Qualcomm SM7225 Snapdragon 750G,,2021,
-Fairphone,FP5,FP5,completes,,completes,,800,yes,Qualcomm QCM6490,,2023,
-,,,,,,,,,,,,
-Samsung,Galaxy_Tab_A_8.0,gtowifi,fails,,,,,,Qualcomm SDM429 Snapdragon 429,,2019,
-Samsung,Galaxy_Tab_S5e_Wifi,gts4lvwifi,fails,,,,,,Qualcomm SDM670 Snapdragon 670,,2019,
-Samsung,Galaxy_S10,beyond1lte,fails,,,,,,Samsung Exynos 9820,,2019,
-Samsung,Galaxy_S10_Plus,beyond2lte,fails,,,,,,Samsung Exynos 9820,,2019,
-Samsung,Galaxy_S10_5G,beyondx,fails,,,,,,Samsung Exynos 9820,,2019,
-Samsung,Galaxy_S10e,beyond0lte,fails,,,,,,Samsung Exynos 9820,,2019,
-Samsung,Galaxy_Note_10_5G,d1x,fails,,,,,,Samsung Exynos 9825,,2019,
-Samsung,Galaxy_Note_10_Plus,d2s,fails,,,,,,Samsung Exynos 9825,,2019,
-Samsung,Galaxy_Note_10,d1,fails,,,,,,Samsung Exynos 9825,,2019,
-Samsung,Galaxy_Note_10_Plus_5G,dx2,,,,,,,Samsung Exynos 9825,,2019,
-Samsung,Galaxy_Tab_A7_Wifi,gta4lwifi,fails,,,,,,Qualcomm SM6115 Snapdragon 662,,2020,
-Samsung,Galaxy_Tab_A7_Wifi,gta4xlwifi,fails,,,,,,Qualcomm SM6115 Snapdragon 662,,2020,
-Samsung,Galaxy_Tab_A_10.4_LTE,gta4l,fails,,,,,,Qualcomm SM6115 Snapdragon 662,,2020,
-Samsung,Galaxy_A71,a71,fails,,,,,,Qualcomm SM7150-AA Snapdragon 730,,2020,
-Samsung,Galaxy_Tab_S7_Wifi,gts7lwifi,fails,,,,,,Qualcomm SM8250-AB Snapdragon 865+,,2020,
-Samsung,Galaxy_Tab_S7_Wifi,gts7lwifi,,,,,,,Qualcomm SM8250-AB Snapdragon 865+,,2020,
-Samsung,Galaxy_Tab_S7_LTE,gts7l,fails,,,,,,Qualcomm SM8250-AB Snapdragon 865+,,2020,
-Samsung,Galaxy_A21s,a21s,fails,,,,,,Samsung Exynos 850,,2020,
-Samsung,Galaxy_Tab_S6_LTE,gta4xl,fails,,,,,,Samsung Exynos 9611,,2020,
-Samsung,Galaxy_A72,a72q,fails,,,,,,Qualcomm SM7125 Snapdragon 720G,,2021,
-Samsung,Galaxy_A52_4G,a52q,fails,,,,,,Qualcomm SM7125 Snapdragon 720G,,2021,
-Samsung,Galaxy_M52_5G,m52xq,fails,,,,,,Qualcomm SM7325 Snapdragon 778G 5G,,2021,
-Samsung,Galaxy_A52s_5G,a52sxq,fails,,,,,,Qualcomm SM7325 Snapdragon 778G 5G,,2021,
-Samsung,Galaxy_S20_FE,r8q,fails,,,,,,Qualcomm SM8250 Snapdragon 865,,2021,
-Samsung,Galaxy_F62,f62,fails,,,,,,Samsung Exynos 9825,,2021,
-Samsung,Galaxy_A73_5G,a73xq,fails,,,,,,Qualcomm SM7325 Snapdragon 778G 5G,,2022,
-Samsung,Galaxy_Tab_S5e_LTE,gts4lv,fails,,,,,,Qualcomm SDM670 Snapdragon 670,,,
-,,,,,,,,,,,,
-LGE,V30,joan,fails,,,,,,Qualcomm MSM8998 Snapdragon 835,,2017,
-LGE,G7_ThinQ,judyln,completes,completes,completes,fails,60,,Qualcomm SDM845 Snapdragon 845,,2018,
-LGE,V35,judyp,completes,,,,,,Qualcomm SDM845 Snapdragon 845,,2018,
-LGE,V40,judypn,completes,fails,,,120,,Qualcomm SDM845 Snapdragon 845,,2018,
-LGE,G8_ThinQ,alphaplus,completes,completes,completes,,100,,Qualcomm SM8150 Snapdragon 855,,2019,
-LGE,V50_ThinQ,flashlmdd,completes,fails,completes,,150,,Qualcomm SM8150 Snapdragon 855,,2019,
-LGE,Velvet,caymanslm,,,,,,,Qualcomm SDM845 Snapdragon 845,,2020,
-,,,,,,,,,,,,
-ASUS,ZenPhone_5Z,Z01R,fails,,,,,,Qualcomm SDM845 Snapdragon 845,,2018,
-,ZenPhone_8,sake,,,,,,,Qualcomm SM8350 Snapdragon 888,,2021,
-,,,,,,,,,,,,
-Lenovo,Z6_Pro,zippo,fails,,,,,,Qualcomm SM8150 Snapdragon 855,,2019,
-Lenovo,Z5_Pro_GT,heart,fails,,,,,,Qualcomm SM8150 Snapdragon 855,,2019,
-,,,,,,,,,,,,
-FxTec,Pro_1,pro1,fails,,,,,,Qualcomm MSM8998 Snapdragon 835,,2019,
-FxTec,Pro_1X,pro1x,completes,,,,,,Qualcomm SM6115 Snapdragon 662,,2022,
-,,,,,,,,,,,,
-Nvidia,TX1_Tablet,foster_tab,fails,,,,150,,NVIDIA Tegra X1 (T210),,2015,
-Nvidia,TX1_TV,foster,fails,,,,,,NVIDIA Tegra X1 (T210),,2015,
-Nvidia,TX2_Tablet,quill_tag,fails,,,,350,,NVIDIA Tegra X2 (T186),,2017,
-Nvidia,TX2_TV,quill,fails,,,,,,NVIDIA Tegra X2 (T186),,2017,
-Nvidia,Jetson_Tablet,porg_tab,fails,,,,,,NVIDIA Tegra X1 (T210),,2019,
-Nvidia,Jetson_TV,porg,fails,,,,,,NVIDIA Tegra X1 (T210),,2019,
-Nvidia,Shield_TV,sif,,,,,,,NVIDIA Tegra X1+ (T210b01),,2019,
-,,,,,,,,,,,,
-Essential,PH_1,mata,completes,,,,,,Qualcomm MSM8998 Snapdragon 835,,2017,
-,,,,,,,,,,,,
-Nothing,Phone_1,Spacewar,completes,,,,230,,Qualcomm SM7325-AE Snapdragon 778G+ 5G,,2022,
-Nothing,Phone_2,Pong,completes,,,,,,Qualcomm SM8475 Snapdragon 8+ Gen1,,2023,
-,,,,,,,,,,,,
-Nokia,8,NB1,,,,,,,Qualcomm MSM8998 Snapdragon 835,,2017,
-Nokia,6.1_2018,PL2,fails,,,,,,Qualcomm SDM630 Snapdragon 630,,2018,
-Nokia,7_Plus,B2N,fails,,,,,,Qualcomm SDM660 Snapdragon 660,,2018,
-,,,,,,,,,,,,
-Sony,Xperia_XA2,pioneer,completes,,,,,,Qualcomm SDM845 Snapdragon 845,,2018,
-Sony,Xperia_XZ2_Premium,aurora,completes,,,,,,Qualcomm SDM845 Snapdragon 845,,2018,
-Sony,Xperia_XZ2_Compact,xz2c,completes,,,,,,Qualcomm SDM845 Snapdragon 845,,2018,
-Sony,Xperia_XA2_Plus,voyager,completes,,,,,,Qualcomm SDM845 Snapdragon 845,,2018,
-Sony,Xperia_XA2_Ultra,discovery,completes,,,,,,Qualcomm SDM845 Snapdragon 845,,2018,
-Sony,Xperia_XZ2,akari,completes,,,,,,Qualcomm SDM845 Snapdragon 845,,2018,
-Sony,Xperia_XZ3,akatsuki,completes,,,,,,Qualcomm SDM845 Snapdragon 845,,2018,
-Sony,Xperia_10_Plus,mermaid,completes,,,,,,Qualcomm SDM636 Snapdragon 636,,2019,
-Sony,Xperia_1_II,pdx203,completes,,,,,,Qualcomm SM8250 Snapdragon 865,,2020,
-Sony,Xperia_5_II,pdx206,completes,,,,,,Qualcomm SM8250 Snapdragon 865,,2020,
-Sony,Xperia_5_III,pdx214,completes,,,,,,Qualcomm SM8350 Snapdragon 888,,2021,
-Sony,Xperia_10_IV,pdx225,completes,,,,,,Qualcomm SM6375 Snapdragon 695,,2022,
-Sony,Xperia_5_V,pdx237,completes,,,,,,Qualcomm SM6375 Snapdragon 695,,2023,
-Sony,Xperia_10_V,pdx235,completes,,,,,,Qualcomm SM6375 Snapdragon 695,,2023,
-Sony,Xperia_1_V,pdx234,completes,,,,,,Qualcomm SM6375 Snapdragon 695,,2023,
-,,,,,,,,,,,,
-Solana,Saga,ingot,completes,,,,,,Qualcomm SM8475 Snapdragon 8+ Gen1,,2023,
-,,,,,,,,,,,,
-Shift,Shift_6MQ,axolotl,completes,,,,not available,,Qualcomm SDM845 Snapdragon 845,,2020,
-,,,,,,,,,,,,
-Razer,Phone_,cheryl,completes,,,,,,Qualcomm SM6375 Snapdragon 695,,2017,
-,Phone_2,aura,completes,,,,,,Qualcomm SDM845 Snapdragon 845,,2018,
-,,,,,,,,,,,,
-Nubia,Z17,nx563j,fails,,,,,,Qualcomm MSM8998 Snapdragon 835,,2017,
-Nubia,Red_Magic_Mars,nx619j,fails,,,,,,Qualcomm SDM845 Snapdragon 845,,2018,
-Nubia,Z18,nx606j,fails,,,,,,Qualcomm SDM845 Snapdragon 845,,2018,
-Nubia,Mini_5G,TP1803,fails,,,,,,Qualcomm SM8150 Snapdragon 855,,2019,
-Nubia,Red_Magic_5G,nx659j,fails,,,,,,Qualcomm SM8250 Snapdragon 865,,2020,
-,,,,,,,,,,,,
-Radxa,Zero_TV,radxa0,,,,,,,Amlogic S905Y2,,2020,
-Radxa,Zero_Tablet,radxa0_tab,fails,,,,,,Amlogic S905Y2,,2020,
-Radxa,Zero_2_TV,radxa02,fails,,,,,,Amlogic S905D3,,2022,
-Radxa,Zero_2_Tablet,radxa02_tab,fails,,,,,,Amlogic S905D3,,2022,
-,,,,,,,,,,,,
-,,,,,,,,,,,,
-Realme,Realme_10_Pro,luigi,completes,,,,,,Qualcomm SM6375 Snapdragon 695,,2022,
-Realme,Realme_9_Pro,oscar,completes,,,,,,Qualcomm SM6375 Snapdragon 695,,2022,
-,,,,,,,,,,,,
-ZTE,Axon_9_Pro,akershus,fails,,,,,,Qualcomm SM6375 Snapdragon 695,,2018,
-,,,,,,,,,,,,
-BananaPI,M5_TV,m5,fails,,,,,,Amlogic S905X3,,2020,
-,M5_Tablet,m5_tab,fails,,,,,,Amlogic S905X3,,2020,
-
+Vendor,Model,Build,Extract 22.2,Build 22.2,SOC,Released
+OnePlus,OnePlus_5,cheeseburger,fails,,Qualcomm MSM8998 Snapdragon 835,2017
+OnePlus,OnePlus_5T,dumpling,,,Qualcomm MSM8998 Snapdragon 835,2017
+OnePlus,OnePlus_6,enchilada,completes,,Qualcomm SDM845 Snapdragon 845,2018
+OnePlus,OnePlus_6T,fajita,completes,,Qualcomm SM8150 Snapdragon 855,2018
+OnePlus,OnePlus_7,guacamoleb,fails,,Qualcomm MSM8998 Snapdragon 835,2019
+OnePlus,OnePlus_7T,hotdogb,fails,,Qualcomm MSM8998 Snapdragon 835,2019
+OnePlus,OnePlus_7_Pro,guacamole,fails,fails,Qualcomm SM8150 Snapdragon 855,2019
+OnePlus,OnePlus_7T_Pro,hotdog,fails,fails,Qualcomm SM8150-AC Snapdragon 855,2019
+OnePlus,Nord_N10,billie,,,Qualcomm SM6350 Snapdragon 690 5G,2020
+OnePlus,OnePlus_8,instantnoodle,completes,completes,Qualcomm SM8250 Snapdragon 865,2020
+OnePlus,OnePlus_8_Pro,instantnoodlep,completes,completes,Qualcomm SM8250 Snapdragon 865,2020
+OnePlus,OnePlus_8T,kebab,completes,fails,Qualcomm SM8250 Snapdragon 865,2020
+OnePlus,Nord_200,dre,completes,,Qualcomm SM4350 Snapdragon 480,2021
+OnePlus,OnePlus_9R,lemonades,completes,,Qualcomm SM8250 Snapdragon 865,2021
+OnePlus,OnePlus_9RT,martini,completes,,Qualcomm SM8250 Snapdragon 865,2021
+OnePlus,OnePlus_9_Pro,lemonadep,completes,fails,Qualcomm SM8350 Snapdragon 888,2021
+OnePlus,Nord_CE2,oscaro,completes,,Qualcomm SM6375 Snapdragon 695,2022
+OnePlus,Nord_N20_5G,gunnar,fails,,Qualcomm SM6375 Snapdragon 695,2022
+OnePlus,Nord_N30,larry,completes,,ÿQualcomm SM6375 Snapdragon 695 5G,2023
+OnePlus,OnePlus_11_5G,salami,completes,,Qualcomm SM8550 Snapdragon 8 Gen2,2023
+,,,,,,
+Google,Pixel,sailfish,fails,,Qualcomm MSM8996 Pro Snapdragon 821,2016
+Google,Pixel_XL,marlin,completes,,Qualcomm MSM8996 Pro Snapdragon 821,2016
+Google,Pixel_2,walleye,fails,,Qualcomm SDM835 Snapdragon 835,2017
+Google,Pixel_2XL,taimen,fails,,Qualcomm SDM835 Snapdragon 835,2017
+Google,Pixel_3,blueline,completes,,Qualcomm SDM845 Snapdragon 845,2018
+Google,Pixel_3XL,crosshatch,completes,,Qualcomm SDM845 Snapdragon 845,2018
+Google,Pixel_3A,sargo,,,Qualcomm SDM670 Snapdragon 670,2019
+Google,Pixel_3A_XL,bonito,completes,,Qualcomm SDM670 Snapdragon 670,2019
+Google,Pixel_4XL,coral,completes,,Qualcomm SM7250 Snapdragon 765G,2019
+Google,Pixel_4,flame,completes,,Qualcomm SM8150 Snapdragon 855,2019
+Google,ADT_3,deadpool,completes,,Amlogic S905Y2,2020
+Google,Pixel_4A,sunfish,completes,,Qualcomm SM7250 Snapdragon 765G,2020
+Google,Pixel_4A_5G,bramble,completes,,Qualcomm SM7250 Snapdragon 765G,2020
+Google,Pixel_5,redfin,completes,,Qualcomm SM7250 Snapdragon 765G,2020
+Google,Pixel_6,oriole,completes,,Google Tensor GS101,2021
+Google,Pixel_6_Pro,raven,completes,,Google Tensor GS101,2021
+Google,Pixel_5A,barbet,completes,,Qualcomm SM7250 Snapdragon 765G,2021
+Google,Pixel_6A,bluejay,completes,completes,Google Tensor GS101,2022
+Google,Pixel_7,panther,completes,,Google Tensor GS201,2022
+Google,Pixel_7_Pro,cheetah,completes,,Google Tensor GS201,2022
+Google,Pixel_8,shiba,completes,,Google Tensor G3,2023
+Google,Pixel_8_Pro,husky,completes,,Google Tensor G3,2023
+Google,Pixel_7A,lynx,fails,,Google Tensor GS201,2023
+Google,Pixel_Fold,felix,completes,,Google Tensor GS201,2023
+Google,Pixel_Tablet,tangorpro,completes,,Google Tensor GS201,2023
+Google,Pixel_8A,akita,completes,completes,Google Tensor G3,2024
+Google,Pixel_9_Pro,caiman,completes,completes,Google Tensor G3,2024
+Google,Pixel_9_Pro_Fold,comet,completes,,Google Tensor G3,2024
+Google,Pixel_9,tokay,completes,completes,Google Tensor G4,2024
+,,,,,,
+Motorola,Moto_X4,payton,fails,,Qualcomm SDM630 Snapdragon 630,2017
+Motorola,Moto_G6_Plus,evert,fails,,Qualcomm SDM630 Snapdragon 630,2018
+Motorola,Moto_G7,river,fails,,Qualcomm SDM632 Snapdragon 632,2019
+Motorola,Moto_G7_Power,ocean,completes,,Qualcomm SDM632 Snapdragon 632,2019
+Motorola,Moto_G7P_Plus,lake,fails,,Qualcomm SDM636 Snapdragon 636,2019
+Motorola,Moto_Z3,messi,fails,,Qualcomm SDM636 Snapdragon 636,2019
+Motorola,ThinkPhone,bronco,completes,,Qualcomm SM8475 Snapdragon 8 Gen1,2019
+Motorola,One_Action,troika,completes,,Samsung Exynos 9609,2019
+Motorola,One_Vision,kane,completes,,Samsung Exynos 9609,2019
+Motorola,Moto_E7_Plus,guam,fails,,Qualcomm SM4250 Snapdragon 460,2020
+Motorola,Moto_G9,guamp,fails,,Qualcomm SM6115 Snapdragon 662,2020
+Motorola,Moto_G9_Power,cebu,fails,,Qualcomm SM6115 Snapdragon 662,2020
+Motorola,Edge_,racer,fails,,Qualcomm SM7250 Snapdragon 765G,2020
+Motorola,Moto G_5G,kiev,completes,completes,Qualcomm SM7250 Snapdragon 765G,2020
+Motorola,Moto_G_5G_Plus,nairo,fails,,Qualcomm SM7250 Snapdragon 765G,2020
+Motorola,Moto_G5G_Plus,nairo,completes,,Qualcomm SM7250 Snapdragon 765G,2020
+Motorola,Moto_G10,capri,fails,,Qualcomm SM4250 Snapdragon 460,2021
+Motorola,Defy_2021,bathena,fails,,Qualcomm SM6115 Snapdragon 662,2021
+Motorola,Moto_G_Power,borneo,completes,,Qualcomm SM6115 Snapdragon 662,2021
+Motorola,Moto_G30,caprip,fails,,Qualcomm SM6115 Snapdragon 662,2021
+Motorola,Edge_40,dubai,fails,,Qualcomm SM7250 Snapdragon 765G,2021
+Motorola,Edge_20,berlin,completes,,Qualcomm SM7325 Snapdragon 778G 5G,2021
+Motorola,Edge_2021,berlna,fails,,Qualcomm SM7325 Snapdragon 778G 5G,2021
+Motorola,Edge_30,dubai,fails,,Qualcomm SM7325-AE Snapdragon 778G 5G,2021
+Motorola,Edge_20_Pro,pstar,completes,,Qualcomm SM8250-AC Snapdragon 870,2021
+Motorola,Edge_S,nio,completes,,Qualcomm SM8250-AC Snapdragon 870,2021
+Motorola,Moto_G200,xpeng,fails,,Qualcomm SM8350-AC Snapdragon 888+,2021
+Motorola,Moto_G32,devon,fails,,Qualcomm SM6225 Snapdragon 680 4G,2022
+Motorola,Moto_G42,hawao,fails,,Qualcomm SM6225 Snapdragon 680 4G,2022
+Motorola,Moto_G52,rhode,fails,,Qualcomm SM6225 Snapdragon 680 4G,2022
+Motorola,Edge_30_Neo,miami,fails,,Qualcomm SM6375 Snapdragon 695,2022
+Motorola,Moto_G82_5G,rhodep,fails,,Qualcomm SM6375 Snapdragon 695,2022
+Motorola,Edge_30_Fusion,tundra,fails,,Qualcomm SM7250 Snapdragon 765G,2022
+Motorola,Edge_30_Ultra,eqs,fails,,Qualcomm SM8475 Snapdragon 8+ Gen1,2022
+Motorola,Moto_G34_5G,fogos,fails,,Qualcomm SM6375 Snapdragon 695,2023
+Motorola,Moto_G84_5G,bangkk,fails,,Qualcomm SM6375 Snapdragon 695,2023
+Motorola,Edge_40_Pro,rtwo,completes,,Qualcomm SM8550 Snapdragon 8 Gen2,2023
+Motorola,Moto_G_5G_2024,fogo,completes,,Qualcomm SM4375 Snapdragon 4 Gen 1,2024
+,,,,,,2023
+Xiaomi,Redmi_4A,Mi8917,fails,,Qualcomm MSM8917 Snapdragon 425,2016
+Xiaomi,Poco_3S,Mi8937,fails,,Qualcomm MSM8937 Snapdragon 430,2016
+Xiaomi,Mi_5S_Plus,natrium,fails,,Qualcomm MSM8996 Pro Snapdragon 821,2016
+Xiaomi,Mi_5,gemini,fails,,Qualcomm MSM8996 Snapdragon 820,2016
+Xiaomi,Mi_6,sagit,fails,,Qualcomm MSM8998 Snapdragon 835,2017
+Xiaomi,Mi_Mix_2,chiron,fails,,Qualcomm MSM8998 Snapdragon 835,2017
+Xiaomi,Black_Shark,shark,fails,,Qualcomm SDM845 Snapdragon 845,2018
+Xiaomi,Mi_8_Explorer,ursa,fails,,Qualcomm SDM845 Snapdragon 845,2018
+Xiaomi,Mi_8_Pro,equuleus,fails,,Qualcomm SDM845 Snapdragon 845,2018
+Xiaomi,Mi_Mix_2S,polaris,fails,,Qualcomm SDM845 Snapdragon 845,2018
+Xiaomi,Mi_Mix_3,perseus,fails,,Qualcomm SDM845 Snapdragon 845,2018
+Xiaomi,Poco_F1,beryllium,fails,,Qualcomm SDM845 Snapdragon 845,2018
+Xiaomi,Mi_8,dipper,fails,,Qualcomm SDM845 Snapdragon 845,2018
+Xiaomi,RedmI 8,Mi439,completes,fails,Qualcomm SDM439 Snapdragon 439,2019
+Xiaomi,Redmi_7A,Mi439,fails,,Qualcomm SDM439 Snapdragon 439,2019
+Xiaomi,Mi_CC9,pyxis,fails,,Qualcomm SDM710 Snapdragon 710,2019
+Xiaomi,Mi_CC9_Meitu,vela,fails,,Qualcomm SDM710 Snapdragon 710,2019
+Xiaomi,Mi_9SE,grus,fails,,Qualcomm SDM712 Snapdragon 712,2019
+Xiaomi,Mi_A3,laurel_sprout?,completes,,Qualcomm SM6125 Snapdragon 665,2019
+Xiaomi,Redmi_Note_8,ginkgo,fails,,Qualcomm SM6125 Snapdragon 665,2019
+Xiaomi,Redmi_Note_7_Pro,violet,fails,,Qualcomm SM6150 Snapdragon 675,2019
+Xiaomi,Mi_9T,davinci,fails,,Qualcomm SM7150-AA Snapdragon 730,2019
+Xiaomi,Poco_M2_Pro,miatoll,fails,,Qualcomm SM7125 Snapdragon 720G,2020
+Xiaomi,Poco_X3_NFC,surya,fails,,Qualcomm SM7150-AC Snapdragon 732G,2020
+Xiaomi,Mi_10T_5G,gauguin,fails,,Qualcomm SM7225 Snapdragon 750G 5G,2020
+Xiaomi,MI_10,umi,fails,fails,Qualcomm SM8250 Snapdragon 865,2020
+Xiaomi,Mi_10_Pro,cmi,fails,,Qualcomm SM8250 Snapdragon 865,2020
+Xiaomi,Mi_10T,apollon,fails,fails,Qualcomm SM8250 Snapdragon 865,2020
+Xiaomi,Poco_F2_Pro,lmi,fails,,Qualcomm SM8250 Snapdragon 865,2020
+Xiaomi,Redmi_10S,rosemary,completes,,Mediatek MT6785 Helio G95,2021
+Xiaomi,Redmi_Note_10_Pro,sweet,fails,,Qualcomm SM7150-AC Snapdragon 732G,2021
+Xiaomi,Mi_11_5G,lisa,completes,,Qualcomm SM7325 Snapdragon 778G 5G,2021
+Xiaomi,Mi_11_5G,renoir,completes,,Qualcomm SM7350-AB Snapdragon 780G 5G,2021
+Xiaomi,Poco_X3_Pro,vayu,fails,,Qualcomm SM8150-AC Snapdragon 860,2021
+Xiaomi,Mi_10S,thyme,completes,,Qualcomm SM8250-AC Snapdragon 870,2021
+Xiaomi,Poco_F3,alioth,completes,,Qualcomm SM8250-AC Snapdragon 870,2021
+Xiaomi,Mi_11I,haydn,completes,,Qualcomm SM8350 Snapdragon 888,2021
+Xiaomi,Mi_12,cupid...,completes,,Qualcomm SM8450 Snapdragon 8 Gen1,2021
+Xiaomi,Mi_12_Pro,zeus,completes,,Qualcomm SM8450 Snapdragon 8 Gen1,2021
+Xiaomi,Poco_F4,munch,completes,,Qualcomm SM8250-AC Snapdragon 870,2022
+Xiaomi,Mi_12S,mayfly,completes,,Qualcomm SM8475 Snapdragon 8+ Gen1,2022
+Xiaomi,Mi_12S_Pro,unicorn,completes,,Qualcomm SM8475 Snapdragon 8+ Gen1,2022
+Xiaomi,Mi_12S_Ultra,thor,completes,,Qualcomm SM8475 Snapdragon 8+ Gen1,2022
+Xiaomi,Mi_12T_Pro,diting,completes,,Qualcomm SM8475 Snapdragon 8+ Gen1,2022
+Xiaomi,Mi_Fold_2,zizhan,completes,,Qualcomm SM8475 Snapdragon 8+ Gen1,2022
+Xiaomi,Mi_13,fuxi,completes,,Qualcomm SM8550 Snapdragon 8 Gen2,2022
+Xiaomi,Mi_13_Pro,nuwa,completes,,Qualcomm SM8550 Snapdragon 8 Gen2,2022
+Xiaomi,Redmi_K60_Pro,socrates,completes,,Qualcomm SM8550 Snapdragon 8 Gen2,2022
+Xiaomi,Poco_12C,earth,completes,,Mediatek MT6768 Helio G85,2023
+Xiaomi,Poco_F5,marble,completes,,Qualcomm SM7475-AB Snapdragon 7+ Gen 2,2023
+Xiaomi,Poco_F5_Pro,mondrian,completes,,Qualcomm SM8475 Snapdragon 8+ Gen1,2023
+,,,,,,
+Fairphone,FP3,FP3,fails,,Qualcomm SDM632 Snapdragon 632,2019
+Fairphone,FP4,FP4,completes,fails,Qualcomm SM7225 Snapdragon 750G,2021
+Fairphone,FP5,FP5,completes,completes,Qualcomm QCM6490,2023
+,,,,,,
+Samsung,Galaxy_Tab_A_8.0,gtowifi,fails,,Qualcomm SDM429 Snapdragon 429,2019
+Samsung,Galaxy_Tab_S5e_Wifi,gts4lvwifi,fails,,Qualcomm SDM670 Snapdragon 670,2019
+Samsung,Galaxy_S10,beyond1lte,fails,,Samsung Exynos 9820,2019
+Samsung,Galaxy_S10_Plus,beyond2lte,fails,,Samsung Exynos 9820,2019
+Samsung,Galaxy_S10_5G,beyondx,fails,,Samsung Exynos 9820,2019
+Samsung,Galaxy_S10e,beyond0lte,fails,,Samsung Exynos 9820,2019
+Samsung,Galaxy_Note_10_5G,d1x,fails,,Samsung Exynos 9825,2019
+Samsung,Galaxy_Note_10_Plus,d2s,fails,,Samsung Exynos 9825,2019
+Samsung,Galaxy_Note_10,d1,fails,,Samsung Exynos 9825,2019
+Samsung,Galaxy_Note_10_Plus_5G,dx2,,,Samsung Exynos 9825,2019
+Samsung,Galaxy_Tab_A7_Wifi,gta4lwifi,fails,,Qualcomm SM6115 Snapdragon 662,2020
+Samsung,Galaxy_Tab_A7_Wifi,gta4xlwifi,fails,,Qualcomm SM6115 Snapdragon 662,2020
+Samsung,Galaxy_Tab_A_10.4_LTE,gta4l,fails,,Qualcomm SM6115 Snapdragon 662,2020
+Samsung,Galaxy_A71,a71,fails,,Qualcomm SM7150-AA Snapdragon 730,2020
+Samsung,Galaxy_Tab_S7_Wifi,gts7lwifi,fails,,Qualcomm SM8250-AB Snapdragon 865+,2020
+Samsung,Galaxy_Tab_S7_Wifi,gts7lwifi,,,Qualcomm SM8250-AB Snapdragon 865+,2020
+Samsung,Galaxy_Tab_S7_LTE,gts7l,fails,,Qualcomm SM8250-AB Snapdragon 865+,2020
+Samsung,Galaxy_A21s,a21s,fails,,Samsung Exynos 850,2020
+Samsung,Galaxy_Tab_S6_LTE,gta4xl,fails,,Samsung Exynos 9611,2020
+Samsung,Galaxy_A72,a72q,fails,,Qualcomm SM7125 Snapdragon 720G,2021
+Samsung,Galaxy_A52_4G,a52q,fails,,Qualcomm SM7125 Snapdragon 720G,2021
+Samsung,Galaxy_M52_5G,m52xq,fails,,Qualcomm SM7325 Snapdragon 778G 5G,2021
+Samsung,Galaxy_A52s_5G,a52sxq,fails,,Qualcomm SM7325 Snapdragon 778G 5G,2021
+Samsung,Galaxy_S20_FE,r8q,fails,,Qualcomm SM8250 Snapdragon 865,2021
+Samsung,Galaxy_F62,f62,fails,,Samsung Exynos 9825,2021
+Samsung,Galaxy_A73_5G,a73xq,fails,,Qualcomm SM7325 Snapdragon 778G 5G,2022
+Samsung,Galaxy_Tab_S5e_LTE,gts4lv,fails,,Qualcomm SDM670 Snapdragon 670,
+,,,,,,
+LGE,V30,joan,fails,,Qualcomm MSM8998 Snapdragon 835,2017
+LGE,G7_ThinQ,judyln,completes,completes,Qualcomm SDM845 Snapdragon 845,2018
+LGE,V35,judyp,completes,,Qualcomm SDM845 Snapdragon 845,2018
+LGE,V40,judypn,completes,,Qualcomm SDM845 Snapdragon 845,2018
+LGE,G8_ThinQ,alphaplus,completes,completes,Qualcomm SM8150 Snapdragon 855,2019
+LGE,V50_ThinQ,flashlmdd,completes,completes,Qualcomm SM8150 Snapdragon 855,2019
+LGE,Velvet,caymanslm,,,Qualcomm SDM845 Snapdragon 845,2020
+,,,,,,
+ASUS,ZenPhone_5Z,Z01R,fails,,Qualcomm SDM845 Snapdragon 845,2018
+,ZenPhone_8,sake,,,Qualcomm SM8350 Snapdragon 888,2021
+,,,,,,
+Lenovo,Z6_Pro,zippo,fails,,Qualcomm SM8150 Snapdragon 855,2019
+Lenovo,Z5_Pro_GT,heart,fails,,Qualcomm SM8150 Snapdragon 855,2019
+,,,,,,
+FxTec,Pro_1,pro1,fails,,Qualcomm MSM8998 Snapdragon 835,2019
+FxTec,Pro_1X,pro1x,completes,,Qualcomm SM6115 Snapdragon 662,2022
+,,,,,,
+Nvidia,TX1_Tablet,foster_tab,fails,,NVIDIA Tegra X1 (T210),2015
+Nvidia,TX1_TV,foster,fails,,NVIDIA Tegra X1 (T210),2015
+Nvidia,TX2_Tablet,quill_tag,fails,,NVIDIA Tegra X2 (T186),2017
+Nvidia,TX2_TV,quill,fails,,NVIDIA Tegra X2 (T186),2017
+Nvidia,Jetson_Tablet,porg_tab,fails,,NVIDIA Tegra X1 (T210),2019
+Nvidia,Jetson_TV,porg,fails,,NVIDIA Tegra X1 (T210),2019
+Nvidia,Shield_TV,sif,,,NVIDIA Tegra X1+ (T210b01),2019
+,,,,,,
+Essential,PH_1,mata,completes,,Qualcomm MSM8998 Snapdragon 835,2017
+,,,,,,
+Nothing,Phone_1,Spacewar,completes,,Qualcomm SM7325-AE Snapdragon 778G+ 5G,2022
+Nothing,Phone_2,Pong,completes,,Qualcomm SM8475 Snapdragon 8+ Gen1,2023
+,,,,,,
+Nokia,8,NB1,,,Qualcomm MSM8998 Snapdragon 835,2017
+Nokia,6.1_2018,PL2,fails,,Qualcomm SDM630 Snapdragon 630,2018
+Nokia,7_Plus,B2N,fails,,Qualcomm SDM660 Snapdragon 660,2018
+,,,,,,
+Sony,Xperia_XA2,pioneer,completes,,Qualcomm SDM845 Snapdragon 845,2018
+Sony,Xperia_XZ2_Premium,aurora,completes,,Qualcomm SDM845 Snapdragon 845,2018
+Sony,Xperia_XZ2_Compact,xz2c,completes,,Qualcomm SDM845 Snapdragon 845,2018
+Sony,Xperia_XA2_Plus,voyager,completes,,Qualcomm SDM845 Snapdragon 845,2018
+Sony,Xperia_XA2_Ultra,discovery,completes,,Qualcomm SDM845 Snapdragon 845,2018
+Sony,Xperia_XZ2,akari,completes,,Qualcomm SDM845 Snapdragon 845,2018
+Sony,Xperia_XZ3,akatsuki,completes,,Qualcomm SDM845 Snapdragon 845,2018
+Sony,Xperia_10_Plus,mermaid,completes,,Qualcomm SDM636 Snapdragon 636,2019
+Sony,Xperia_1_II,pdx203,completes,,Qualcomm SM8250 Snapdragon 865,2020
+Sony,Xperia_5_II,pdx206,completes,,Qualcomm SM8250 Snapdragon 865,2020
+Sony,Xperia_5_III,pdx214,completes,,Qualcomm SM8350 Snapdragon 888,2021
+Sony,Xperia_10_IV,pdx225,completes,,Qualcomm SM6375 Snapdragon 695,2022
+Sony,Xperia_5_V,pdx237,completes,,Qualcomm SM6375 Snapdragon 695,2023
+Sony,Xperia_10_V,pdx235,completes,,Qualcomm SM6375 Snapdragon 695,2023
+Sony,Xperia_1_V,pdx234,completes,,Qualcomm SM6375 Snapdragon 695,2023
+,,,,,,
+Solana,Saga,ingot,completes,,Qualcomm SM8475 Snapdragon 8+ Gen1,2023
+,,,,,,
+Shift,Shift_6MQ,axolotl,completes,,Qualcomm SDM845 Snapdragon 845,2020
+,,,,,,
+Razer,Phone_,cheryl,completes,,Qualcomm SM6375 Snapdragon 695,2017
+,Phone_2,aura,completes,,Qualcomm SDM845 Snapdragon 845,2018
+,,,,,,
+Nubia,Z17,nx563j,fails,,Qualcomm MSM8998 Snapdragon 835,2017
+Nubia,Red_Magic_Mars,nx619j,fails,,Qualcomm SDM845 Snapdragon 845,2018
+Nubia,Z18,nx606j,fails,,Qualcomm SDM845 Snapdragon 845,2018
+Nubia,Mini_5G,TP1803,fails,,Qualcomm SM8150 Snapdragon 855,2019
+Nubia,Red_Magic_5G,nx659j,fails,,Qualcomm SM8250 Snapdragon 865,2020
+,,,,,,
+Radxa,Zero_TV,radxa0,,,Amlogic S905Y2,2020
+Radxa,Zero_Tablet,radxa0_tab,fails,,Amlogic S905Y2,2020
+Radxa,Zero_2_TV,radxa02,fails,,Amlogic S905D3,2022
+Radxa,Zero_2_Tablet,radxa02_tab,fails,,Amlogic S905D3,2022
+,,,,,,
+,,,,,,
+Realme,Realme_10_Pro,luigi,completes,,Qualcomm SM6375 Snapdragon 695,2022
+Realme,Realme_9_Pro,oscar,completes,,Qualcomm SM6375 Snapdragon 695,2022
+,,,,,,
+ZTE,Axon_9_Pro,akershus,fails,,Qualcomm SM6375 Snapdragon 695,2018
+,,,,,,
+BananaPI,M5_TV,m5,fails,,Amlogic S905X3,2020
+,M5_Tablet,m5_tab,fails,,Amlogic S905X3,2020
