@@ -71,6 +71,12 @@
     - TOUCH
     - GRAPHIC
     - UNKNOWN
+    - TOUCHSCREEN1
+    - TOUCHSCREEN2
+    - TOUCHSCREEN3
+    - TOUCHSCREEN4
+    - TOUCHSCREEN5
+    - TOUCHSCREEN6
 
 - archtypes:
     - UNKNOWN
