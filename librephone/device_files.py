@@ -80,6 +80,15 @@ class DeviceFiles(object):
              "UNKNOWN": "PB something or other",
              "FIRMWARE": "Firmware",
              }
+        # We don't care about these types now, maybe later.
+        self.ignore = ["RTPSTREAM",
+                       "CONFIG",
+                       "ISOLATION",
+                       "VIBRATION",
+                       "SHADER",
+                       "GRAPHIC",
+                       "CAMERA",
+                       ]
 
     def get_metadata(self,
                      filespec: str = None,
@@ -140,13 +149,23 @@ class DeviceFiles(object):
                      {"pat": "crnv21.bin", "type": Bintypes.BLUETOOTH},
                      {"pat": "cpp_firmware_v.*.fw", "type": Bintypes.WIFI_GPS_BLUETOOTH},
                      {"pat": "bm2n.*.bin", "type": Bintypes.ISOLATION},
-                     {"pat": ".*RTP.bin", "type": Bintypes.RTPSTREAM},
-                     {"pat": "shader_PROGRAM_.*bin", "type": Bintypes.SHADER},
+                     {"pat": ".*_RTP.*.bin", "type": Bintypes.RTPSTREAM},
+                     {"pat": "shader_PROGRAM_.*.bin", "type": Bintypes.SHADER},
                      {"pat": "drv2624.*.bin", "type": Bintypes.VIBRATION},
                      {"pat": ".*_rgb.bin", "type": Bintypes.GRAPHIC},
                      {"pat": "mibokeh.*.bin", "type": Bintypes.GRAPHIC},
+                     {"pat": ".*rgb.bin", "type": Bintypes.GRAPHIC},
                      {"pat": "misound.*.bin", "type": Bintypes.RTPSTREAM},
                      {"pat": ".*config.bin", "type": Bintypes.CONFIG},
+                     {"pat": "[0-9]*_pre.bin", "type": Bintypes.CAMERA},
+                     {"pat": "LIMIT_S6SY771_.*.bin", "type": Bintypes.TOUCHSCREEN1},
+                     {"pat": "FW_FT3518_.*.bin", "type": Bintypes.TOUCHSCREEN2},
+                     {"pat": "FW_FT3681_.*.bin", "type": Bintypes.TOUCHSCREEN2},
+                     {"pat": "FW_GT9886_.*.bin", "type": Bintypes.TOUCHSCREEN3},
+                     {"pat": "FW_NF_ILI7807S.*.bin", "type": Bintypes.TOUCHSCREEN4},
+                     {"pat": "FW_S3908_.*.bin", "type": Bintypes.OLED},
+                     {"pat": "FW_NF_NT36672C.*.bin", "type": Bintypes.TOUCHSCREEN5},
+                     {"pat": "FW_S3706_.*.bin", "type": Bintypes.TOUCHSCREEN6},
                     )
         for name in nametypes:
             pat = re.compile(name["pat"])
@@ -179,6 +198,11 @@ class DeviceFiles(object):
                          'SHADER': bytes([0x40, 0x87, 0x00, 0x00]),
                          'AUDIOAMP': bytes([0x57, 0x4d, 0x44, 0x52]),
                          'OLED': bytes([0x4c, 0x49, 0x4d, 0x49]),
+                         'TOUCHSCREEN1': bytes([0x4c, 0x49, 0x4d, 0x49]),
+                         'TOUCHSCREEN2': bytes([0x46, 0x77, 0x55, 0x70]),
+                         'TOUCHSCREEN3': bytes([0x00, 0x00, 0x09, 0x62]),
+                         'TOUCHSCREEN4': bytes([0x2b, 0x47, 0x18, 0x48]),
+                         'TOUCHSCREEN5': bytes([0x54, 0x46, 0x49, 0x53]),
                          }
 
         # breakpoint()
@@ -222,10 +246,8 @@ class DeviceFiles(object):
                     continue
                 metadata = self.get_metadata(f"{root}/{file}")
                 # Ignore RTP media streams and config files, they're just data
-                if metadata["type"] == Bintypes.RTPSTREAM or metadata["type"] == Bintypes.CONFIG:
+                if metadata["type"] in self.ignore:
                     log.debug(f"Ignoring {metadata}")
-                    continue
-                if  metadata["type"] == Bintypes.ISOLATION:
                     continue
                 #if  metadata["type"] == Bintypes.UNKNOWN:
                 metadata["path"] = f"{base}"
