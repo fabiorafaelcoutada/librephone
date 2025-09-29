@@ -138,8 +138,8 @@ class DeviceFiles(object):
             filespec (str): The file to get info for
 
         """
-        # Some file names have varing magic number, but luckily then
-        # naming convention is consistent.
+        # Some file names have varying magic numbers, but luckily then
+        # naming convention is consistent for firmware.
         nametypes = ({"pat": ".*_rtp.*hz.bin", "type": Bintypes.RTPSTREAM},
                      {"pat": ".*_cfg_.*.bin", "type": Bintypes.CONFIG},
                      {"pat": "aw8697.*.bin", "type": Bintypes.VIBRATION},
@@ -149,14 +149,13 @@ class DeviceFiles(object):
                      {"pat": "crnv21.bin", "type": Bintypes.BLUETOOTH},
                      {"pat": "cpp_firmware_v.*.fw", "type": Bintypes.WIFI_GPS_BLUETOOTH},
                      {"pat": "bm2n.*.bin", "type": Bintypes.ISOLATION},
-                     {"pat": ".*_RTP.*.bin", "type": Bintypes.RTPSTREAM},
+                     {"pat": "_RTP.*.bin", "type": Bintypes.RTPSTREAM},
                      {"pat": "shader_PROGRAM_.*.bin", "type": Bintypes.SHADER},
                      {"pat": "drv2624.*.bin", "type": Bintypes.VIBRATION},
-                     {"pat": ".*_rgb.bin", "type": Bintypes.GRAPHIC},
+                     {"pat": "_rgb.bin", "type": Bintypes.GRAPHIC},
                      {"pat": "mibokeh.*.bin", "type": Bintypes.GRAPHIC},
-                     {"pat": ".*rgb.bin", "type": Bintypes.GRAPHIC},
                      {"pat": "misound.*.bin", "type": Bintypes.RTPSTREAM},
-                     {"pat": ".*config.bin", "type": Bintypes.CONFIG},
+                     {"pat": "onfig.bin", "type": Bintypes.CONFIG},
                      {"pat": "[0-9]*_pre.bin", "type": Bintypes.CAMERA},
                      {"pat": "LIMIT_S6SY771_.*.bin", "type": Bintypes.TOUCHSCREEN1},
                      {"pat": "FW_FT3518_.*.bin", "type": Bintypes.TOUCHSCREEN2},
@@ -166,6 +165,7 @@ class DeviceFiles(object):
                      {"pat": "FW_S3908_.*.bin", "type": Bintypes.OLED},
                      {"pat": "FW_NF_NT36672C.*.bin", "type": Bintypes.TOUCHSCREEN5},
                      {"pat": "FW_S3706_.*.bin", "type": Bintypes.TOUCHSCREEN6},
+                     {"pat": "shader_PROGRAM.*.bin", "type": Bintypes.SHADER},
                     )
         for name in nametypes:
             pat = re.compile(name["pat"])
