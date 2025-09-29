@@ -33,6 +33,8 @@ from librephone.device import DeviceData
 import csv
 from librephone.typedefs import Bintypes
 from progress.bar import Bar
+# from deepdiff import DeepDiff
+import difflib
 
 import librephone as pt
 rootdir = pt.__path__[0]
@@ -75,6 +77,61 @@ class QueryDevice(object):
         result = self.dbcursor.fetchone()
         # print(result)
         return result
+
+    def diff_builds(self,
+                    src1: str,
+                    src2: str,
+                    ) -> list:
+        """
+        Find the differences in files between two Lineage devices.
+        """
+        # diffs = dict(src1: list(), src2: list())
+        # diffs = {src1: list(), src2: list()}
+        diffs = list()
+        sql = f"SELECT foo->>'path',foo->>'file',foo->>'type' FROM devices,jsonb_array_elements(devices.blobs) AS foo WHERE build = '{src1}' ORDER BY foo->>'file';"
+
+        # print(f"SQL: {sql}")
+        files1 = list()
+        result = self.dbcursor.execute(sql)
+        result1 = self.dbcursor.fetchall()
+        # print(result1)
+        for entry in result1:
+            # print(entry)
+            if entry[2] == "RTPSTREAM" or entry[2] == "GRAPHIC":
+                continue
+            files1.append(f"{entry[1]}, {entry[2]}")
+
+        sql = f"SELECT foo->>'path',foo->>'file',foo->>'type' FROM devices,jsonb_array_elements(devices.blobs) AS foo WHERE build = '{src2}' ORDER BY foo->>'file';"
+
+        # print(f"SQL: {sql}")
+        files2 = list()
+        result = self.dbcursor.execute(sql)
+        result2 = self.dbcursor.fetchall()
+        # print(result2)
+        for entry in result2:
+            if entry[2] == "RTPSTREAM" or entry[2] == "GRAPHIC":
+                continue
+            # files2.append(f"{entry[0]}/{entry[1]}, {entry[2]}")
+            files2.append(f"{entry[1]}, {entry[2]}")
+
+        # foo = DeepDiff(result1, result2)
+
+        # for key, bar in foo["values_changed"].items():
+        #     print(bar)
+        #     diffs.append(bar)
+
+        index = 0
+        for line in difflib.unified_diff(files1, files2,
+                                         fromfile="foo", tofiledate="bar"):
+            tmp = line.split(',')
+            if len(tmp) == 1:
+                continue
+            file = tmp[0]
+            ftype = tmp[1].strip()
+            entry =  {"file": file, "type": ftype}
+            diffs.append(entry)
+
+        return diffs
 
     def list_count(self) -> dict:
         """
@@ -162,7 +219,7 @@ class QueryDevice(object):
         Returns:
             (list): The devices the file is in
         """
-        sql = f"SELECT vendor,model,build,foo->>'file',foo->>'size',foo->>'md5sum',foo->>'type' FROM devices,jsonb_array_elements(devices.blobs) AS foo;"
+        sql = f"SELECT vendor,model,build,foo->>'file',foo->>'size',foo->>'md5sum',foo->>'type',released FROM devices,jsonb_array_elements(devices.blobs) AS foo;"
         # print(f"SQL: {sql}")
         result = self.dbcursor.execute(sql)
         result = self.dbcursor.fetchall()
@@ -198,6 +255,7 @@ def main():
     parser.add_argument("-v", "--verbose", action="store_true", help="verbose output")
     parser.add_argument("-l", "--list", choices=choices, help="Find device metadata")
     parser.add_argument("-t", "--track", help="Find devices containing file")
+    parser.add_argument("-d", "--diff", help="Diff two builds")
     args = parser.parse_args()
 
     # if verbose, dump to the terminal.
@@ -216,6 +274,25 @@ def main():
 
     totals = dict()
     devdb = QueryDevice()
+
+    if args.diff:
+        fieldnames = ("file", "type")
+        csvfile = open("diffs.csv", 'w', newline='')
+        csvout = csv.DictWriter(csvfile, fieldnames=fieldnames)
+        csvout.writeheader()
+        tmp = args.diff.split(',')
+        src1 = tmp[0]
+        src2 = tmp[1]
+        result = devdb.diff_builds(src1, src2)
+        # breakpoint()
+        if len(result) == 0:
+            log.info("Devices are the same")
+        else:
+            for entry in result:
+                if entry["file"][0] == '-' or entry["file"][0] == '+':
+                    csvout.writerow(entry)
+            log.info(f"Wrote diffs.csv")
+        quit()
 
     if args.track:
         csvfile = open("track.csv", 'a', newline='')
@@ -265,6 +342,7 @@ def main():
                           "size",
                           "md5sum",
                           "type",
+                          "released",
                           )
             csvfile = open("sizes.csv", 'w', newline='')
             csvout = csv.DictWriter(csvfile, fieldnames=fieldnames)
@@ -277,6 +355,7 @@ def main():
                        "size": entry[4],
                        "md5sum": entry[5],
                        "type": entry[6],
+                       "released": entry[7],
                        }
                 csvout.writerow(out)
             log.info(f"Wrote sizes.csv")
