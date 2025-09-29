@@ -18,6 +18,9 @@ analysis is done.
 	-h, --help                       show this help message and exit
 	-v, --verbose                    verbose output
 	-l, --list {count,sizes,devices} Extract device metadata
+	-t, --track TRACK                Find devices containing file
+	-d, --diff build1,build2         Diff blobs between two builds
+
 
 ### --list
 
@@ -38,6 +41,11 @@ what is shared amongst devices.
 #### devices
 
 This contains a list of each file, and the devices that use it.
+
+### --diff
+
+This compares all the blobs between two devices. This is useful when
+analyzing firmware between two variations of the same device model.
 
 ## [Data Files](csvdata.md)
 
