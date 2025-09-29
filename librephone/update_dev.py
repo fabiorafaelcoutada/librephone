@@ -91,6 +91,7 @@ class UpdateDevice(object):
             sql += f" {key} = '{value}',"
         sql = sql[:-1]
         sql += f" WHERE build='{build}'"
+        # A blank line in the file
         if sql.find("SET WHERE") > 0:
             return
         # print(f"SQL: {sql}")

@@ -33,6 +33,8 @@ import shutil
 from codetiming import Timer
 # from tqdm import tqdm
 # import tqdm.asyncio
+# from ext4 import Volume
+# import unblob
 
 import librephone as pt
 rootdir = pt.__path__[0]
@@ -297,8 +299,9 @@ class Extractor:
         if os.path.exists(f"{mdir}/payload.bin"):
             # for file in glob.glob(f"{mdir}/*.img"):
             #     os.remove(file)
-            if len(glob.glob(f"{mdir}/*.img")) == 0:
+            if not os.path.exists(f"{mdir}/vendor.img"):
                 logging.info(f"Extracting files from {mdir}/payload.bin")
+                # self.clean(mdir)
                 result = subprocess.run(
                     [
                         "otadump",
@@ -369,27 +372,13 @@ class Extractor:
             logging.error(f"{mdir}/system.img doesn't exist!")
             return False
 
-        # if not os.path.exists(f"{mdir}/system"):
-        #     os.mkdir(f"{mdir}/system")
-
-        # if not os.path.ismount(f"{mdir}/system"):
-        #     # This is always mounted for all devices
-        #     result = subprocess.run(
-        #     [
-        #         "sudo",
-        #         "mount",
-        #         f"{mdir}/system.img",
-        #         f"{mdir}/system",
-        #     ]
-        #     )
-        #     if result.returncode != 0:
-        #         logging.error(f"Failed to mount system image!")
-        #         return False
-
         # Some devices mount product and vendor under system, but
-        # others expect it to be mounted top level.
+        # others expect it to be mounted top level. We mount in
+        # multiple places to cover all the variations in the
+        # proprietary-diles.txt files.
         fs = {"system.img": "system/",
               "odm.img": "system/odm/",
+              "odm.img": "odm/",
               "product.img": "system/product/",
               "product.img": "product/",
               "vendor.img": "system/vendor/",
@@ -403,6 +392,7 @@ class Extractor:
                     os.mkdir(f"{mdir}/{img}")
                 if not os.path.ismount(f"{mdir}/{img}"):
                     logging.info(f"Mounting image {dev} to {mdir}/{img}")
+                    # debugfs -R rdump / f"{mdir}/{img}" f"{mdir}/{dev}"
                     result = subprocess.run(
                     [
                         "sudo",
@@ -413,6 +403,17 @@ class Extractor:
                         f"{mdir}/{img}",
                     ]
                     )
+                    # Some files, like recovery.img are root only which screws up Lineage
+                    # when trying to extract files using extract-files.py.
+                    # result = subprocess.run(
+                    # [
+                    #     "sudo",
+                    #     "chown",
+                    #     "-R",
+                    #     "${USER}:${USER}",
+                    #     f"{mdir}/{img}",
+                    # ]
+                    # )
                 else:
                     logging.info(f"Image {mdir}/{img} is already mounted")
 
@@ -556,6 +557,8 @@ unpack all the files, and mount the filesystems so the files can accessed.
                         help="Unmount all filesystems")
     parser.add_argument("-r", "--remove",
                         help="Clean all generated file")
+    parser.add_argument("-l", "--lineage", default=22.2,
+                        help="Specify the Lineage version")
     # parser.add_argument("-b", "--build",
     #                     help="Specify the build name")
     parser.add_argument("-a", "--all", action="store_true",
@@ -594,10 +597,9 @@ unpack all the files, and mount the filesystems so the files can accessed.
     if args.all:
         doall = True
 
-    version = 22.2
     # Decompress the zip file
     if args.unzip or doall:
-        extract.decompress(args.unzip, version)
+        extract.decompress(args.unzip, args.lineage)
 
     # Extract files
     if args.extract or doall:
