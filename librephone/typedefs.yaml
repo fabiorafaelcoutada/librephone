@@ -77,6 +77,9 @@
     - TOUCHSCREEN4
     - TOUCHSCREEN5
     - TOUCHSCREEN6
+    - CODEC
+    - CERT
+    - PROXIMITY
 
 - archtypes:
     - UNKNOWN
