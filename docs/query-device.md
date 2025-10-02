@@ -21,7 +21,6 @@ analysis is done.
 	-t, --track TRACK                Find devices containing file
 	-d, --diff build1,build2         Diff blobs between two builds
 
-
 ### --list
 
 This options support several commands, all of which output data into a

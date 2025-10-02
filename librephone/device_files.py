@@ -88,6 +88,7 @@ class DeviceFiles(object):
                        "SHADER",
                        "GRAPHIC",
                        "CAMERA",
+                       "MEDIA",
                        ]
 
     def get_metadata(self,
@@ -143,33 +144,68 @@ class DeviceFiles(object):
         nametypes = ({"pat": ".*_rtp.*hz.bin", "type": Bintypes.RTPSTREAM},
                      {"pat": ".*_cfg_.*.bin", "type": Bintypes.CONFIG},
                      {"pat": "aw8697.*.bin", "type": Bintypes.VIBRATION},
-                     {"pat": "aw8695.*.bin", "type": Bintypes.AUDIO},
+                     {"pat": "aw8695.*_rtp_.*bin", "type": Bintypes.MEDIA},
                      {"pat": "aw8624.*.bin", "type":Bintypes.AUDIOAMP},
+                     {"pat": "aw87xxx.*.bin", "type":Bintypes.AUDIOAMP},
+                     {"pat": "aw882.*.bin", "type":Bintypes.CODEC},
+                     {"pat": "aw963xx.*.bin", "type":Bintypes.PROXIMITY},
+                     {"pat": "aw8622_.*.bin", "type":Bintypes.PROXIMITY},
                      {"pat": "snap.*Binary.bin", "type": Bintypes.SHADER},
                      {"pat": "crnv21.bin", "type": Bintypes.BLUETOOTH},
                      {"pat": "cpp_firmware_v.*.fw", "type": Bintypes.WIFI_GPS_BLUETOOTH},
                      {"pat": "bm2n.*.bin", "type": Bintypes.ISOLATION},
-                     {"pat": "_RTP.*.bin", "type": Bintypes.RTPSTREAM},
+                     {"pat": "_RTP.*.bin", "type": Bintypes.MEDIA},
                      {"pat": "shader_PROGRAM_.*.bin", "type": Bintypes.SHADER},
                      {"pat": "drv2624.*.bin", "type": Bintypes.VIBRATION},
-                     {"pat": "_rgb.bin", "type": Bintypes.GRAPHIC},
+                     {"pat": "[_.]rgb.bin", "type": Bintypes.GRAPHIC},
                      {"pat": "mibokeh.*.bin", "type": Bintypes.GRAPHIC},
                      {"pat": "misound.*.bin", "type": Bintypes.RTPSTREAM},
-                     {"pat": "onfig.bin", "type": Bintypes.CONFIG},
+                     {"pat": "config.bin", "type": Bintypes.CONFIG},
                      {"pat": "[0-9]*_pre.bin", "type": Bintypes.CAMERA},
-                     {"pat": "LIMIT_S6SY771_.*.bin", "type": Bintypes.TOUCHSCREEN1},
                      {"pat": "FW_FT3518_.*.bin", "type": Bintypes.TOUCHSCREEN2},
                      {"pat": "FW_FT3681_.*.bin", "type": Bintypes.TOUCHSCREEN2},
                      {"pat": "FW_GT9886_.*.bin", "type": Bintypes.TOUCHSCREEN3},
                      {"pat": "FW_NF_ILI7807S.*.bin", "type": Bintypes.TOUCHSCREEN4},
                      {"pat": "FW_S3908_.*.bin", "type": Bintypes.OLED},
                      {"pat": "FW_NF_NT36672C.*.bin", "type": Bintypes.TOUCHSCREEN5},
-                     {"pat": "FW_S3706_.*.bin", "type": Bintypes.TOUCHSCREEN6},
+                     {"pat": "_S3706_.*.bin", "type": Bintypes.TOUCHSCREEN6},
+                     {"pat": "_S6SY761_.*.bin", "type": Bintypes.TOUCHSCREEN},
+                     {"pat": "_S6SY771_.*.bin", "type": Bintypes.TOUCHSCREEN},
+                     {"pat": "_S6SY791_.*.bin", "type": Bintypes.TOUCHSCREEN},
+                     {"pat": "_S6SY792_.*.bin", "type": Bintypes.TOUCHSCREEN},
                      {"pat": "shader_PROGRAM.*.bin", "type": Bintypes.SHADER},
+                     {"pat": "a630_sqe.*.bin", "type": Bintypes.GPU},
+                     {"pat": "bwlan.bin", "type": Bintypes.WIFI},
+                     {"pat": "bdwlan.bin", "type": Bintypes.WIFI},
+                     {"pat": "ringtone_.*.bin", "type": Bintypes.MEDIA},
+                     {"pat": "_rtp.bin", "type": Bintypes.MEDIA},
+                     {"pat": "_[0-9]*HZ.bin", "type": Bintypes.MEDIA},
+                     {"pat": "rt5514.*dsp.*.bin", "type": Bintypes.AUDIO},
+                     {"pat": "score_.*.bin", "type": Bintypes.CAMERA},
+                     {"pat": "sec_s3n.*.bin", "type": Bintypes.NFC},
+                     {"pat": "skinLUTs.*.bin", "type": Bintypes.CAMERA},
+                     {"pat": "st21nfc_fw.*.bin", "type": Bintypes.CAMERA},
+                     {"pat": "st54j_conf.bin", "type": Bintypes.CONFIG},
+                     {"pat": "st54j_fw.bin", "type": Bintypes.NFC},
+                     {"pat": "unsparse_super_empty.img", "type": Bintypes.BOOT},
+                     {"pat": "usbin.bin", "type": Bintypes.USB},
+                     {"pat": "xr.bin", "type": Bintypes.CAMERA},
+                     {"pat": "xr.bin", "type": Bintypes.CAMERA},
+                     {"pat": "yyy.bin", "type": Bintypes.CAMERA},
+                     {"pat": "yyz.bin", "type": Bintypes.CAMERA},
+                     {"pat": "zc.bin", "type": Bintypes.CAMERA},
+                     {"pat": "a530.*.fw", "type": Bintypes.WIFI_BLUETOOTH},
+                     {"pat": "a540.*.fw", "type": Bintypes.GPU},
+                     {"pat": "a[0-9]*_gmu.bin", "type": Bintypes.GPU},
+                     {"pat": "a[0-9]*]_sqe.bin", "type": Bintypes.GPU},
+                     {"pat": "xusb.bin", "type": Bintypes.USB},
+                     {"pat": "aoa_cldb.*bin", "type": Bintypes.WIFI},
+                     {"pat": "w_dual_calibration.bin", "type": Bintypes.CAMERA},
                     )
+        print(f"FIXME: {filespec}")
         for name in nametypes:
             pat = re.compile(name["pat"])
-            if re.search(pat, filespec.lower()):
+            if re.search(pat, filespec):
                 return name["type"]
 
         # FIXME: Limit magic numbers to 4 bytes unless we can figure out
@@ -187,7 +223,7 @@ class DeviceFiles(object):
                          'FIRMWARE': bytes([0x00, 0x00, 0x00, 0xff]),
                          'FIRMWARE1': bytes([0x00, 0x00, 0x20, 0x00]),
                          'FIRMWARE2': bytes([0x03, 0x01, 0x00, 0x00]),
-                         'FIRMWARE3': bytes([0x08, 0xf9, 0x15, 0x0a]),
+                         'AUDIOAMP2': bytes([0x08, 0xf9, 0x15, 0x0a]),
                          'NFC': bytes([0x13, 0x04, 0x98, 0x81]),
                          'FIRMWARE5': bytes([0x61, 0x6e, 0x63, 0x5f]),
                          'FIRMWARE6': bytes([0x69, 0x05, 0x00, 0x00]),
@@ -199,10 +235,11 @@ class DeviceFiles(object):
                          'AUDIOAMP': bytes([0x57, 0x4d, 0x44, 0x52]),
                          'OLED': bytes([0x4c, 0x49, 0x4d, 0x49]),
                          'TOUCHSCREEN1': bytes([0x4c, 0x49, 0x4d, 0x49]),
-                         'TOUCHSCREEN2': bytes([0x46, 0x77, 0x55, 0x70]),
+                         'FINGERPRINT': bytes([0x46, 0x77, 0x55, 0x70]),
                          'TOUCHSCREEN3': bytes([0x00, 0x00, 0x09, 0x62]),
                          'TOUCHSCREEN4': bytes([0x2b, 0x47, 0x18, 0x48]),
                          'TOUCHSCREEN5': bytes([0x54, 0x46, 0x49, 0x53]),
+                         'WIFI': bytes([0x03, 0x46, 0x04, 0x00]),
                          }
 
         # breakpoint()
@@ -245,7 +282,7 @@ class DeviceFiles(object):
                 if Path(file).suffix not in self.keep:
                     continue
                 metadata = self.get_metadata(f"{root}/{file}")
-                # Ignore RTP media streams and config files, they're just data
+                # ignore data files use by the blobs
                 if metadata["type"] in self.ignore:
                     log.debug(f"Ignoring {metadata}")
                     continue
