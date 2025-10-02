@@ -166,24 +166,24 @@ class QueryDevice(object):
         # print(result)
         return result
 
-    def list_elements(self,
-                       op: str = "len",
-                       ) -> list:
-        """
-        Query a table in the database.
+    # def list_elements(self,
+    #                    op: str = "len",
+    #                    ) -> list:
+    #     """
+    #     Query a table in the database.
 
-        Args:
+    #     Args:
 
-        Returns:
-            (list): The results of the query
-        """
-        if op == "len":
-            sql = f"SELECT vendor,model,build,blobs FROM {self.dbname} ORDER BY jsonb_array_length(jsonb_array_elements(blobs))"
-            # print(f"SQL: {sql}")
-            result = self.dbcursor.execute(sql)
-            result = self.dbcursor.fetchall()
-            # print(result)
-            return result
+    #     Returns:
+    #         (list): The results of the query
+    #     """
+    #     if op == "len":
+    #         sql = f"SELECT vendor,model,build,blobs FROM {self.dbname} ORDER BY jsonb_array_length(blobs))"
+    #         # print(f"SQL: {sql}")
+    #         result = self.dbcursor.execute(sql)
+    #         result = self.dbcursor.fetchall()
+    #         # print(result)
+    #         return result
 
     def dump(self):
         for dev in self.devices:
@@ -219,8 +219,8 @@ class QueryDevice(object):
         Returns:
             (list): The devices the file is in
         """
-        sql = f"SELECT vendor,model,build,foo->>'file',foo->>'size',foo->>'md5sum',foo->>'type',released FROM devices,jsonb_array_elements(devices.blobs) AS foo;"
-        # print(f"SQL: {sql}")
+        sql = f"SELECT vendor,model,build,foo->>'path',foo->>'file',foo->>'size',foo->>'md5sum',foo->>'type',released FROM devices,jsonb_array_elements(devices.blobs) AS foo;"
+        print(f"SQL: {sql}")
         result = self.dbcursor.execute(sql)
         result = self.dbcursor.fetchall()
 
@@ -250,7 +250,8 @@ class QueryDevice(object):
 
 def main():
     """This main function lets this class be run standalone by a bash script."""
-    choices = ("count", "totals", "sizes", "files", "devices")
+    choices = ("count", "totals", "sizes", "devices")
+    # choices = ("count", "totals", "sizes", "files", "devices")
     parser = argparse.ArgumentParser(description="Query device data in postgres")
     parser.add_argument("-v", "--verbose", action="store_true", help="verbose output")
     parser.add_argument("-l", "--list", choices=choices, help="Find device metadata")
@@ -334,10 +335,12 @@ def main():
 
         totals = dict()
         if args.list == "sizes":
+            devdata = DeviceData()
             totals = devdb.track_size()
             fieldnames = ("vendor",
                           "model",
                           "build",
+                          "path",
                           "file",
                           "size",
                           "md5sum",
@@ -348,14 +351,19 @@ def main():
             csvout = csv.DictWriter(csvfile, fieldnames=fieldnames)
             csvout.writeheader()
             for entry in totals:
+                if entry[6] in devdata.ignore:
+                    continue
+                pos = entry[3].find(entry[2])
+                path = entry[3][pos + len(entry[2]) + 1:]
                 out = {"vendor": entry[0].title(),
                        "model": entry[1],
                        "build": entry[2],
-                       "file": entry[3],
-                       "size": entry[4],
-                       "md5sum": entry[5],
-                       "type": entry[6],
-                       "released": entry[7],
+                       "path": path,
+                       "file": entry[4],
+                       "size": entry[5],
+                       "md5sum": entry[6],
+                       "type": entry[7],
+                       "released": entry[8],
                        }
                 csvout.writerow(out)
             log.info(f"Wrote sizes.csv")
@@ -401,38 +409,39 @@ def main():
                     csvout.writerow(device)
             log.info(f"Wrote totals.csv")
 
-        if args.list == "files":
-            csvfile = open("files.csv", 'w', newline='')
-            fieldnames = ('vendor',
-                          'model',
-                          'build',
-                          )
-            fieldnames += columns
-            csvout = csv.DictWriter(csvfile, fieldnames=fieldnames)
-            csvout.writeheader()
-            for column in columns:
-                result = devdb.list_elements(column)
-                # print(result)
-                if not result:
-                    continue
-                for dev in result:
-                    if dev[3] is None:
-                        continue
-                    # data = eval(json.dumps(dev[3]))
-                    # data["vendor"] = self
-                    allfiles = str()
-                    file = dict()
-                    for group in dev[3]:
-                        for blob in group:
-                            allfiles += f"{blob["file"]}, "
-                    file["vendor"] = dev[0].title()
-                    file["model"] = dev[1]
-                    file["build"] = dev[2]
-                    file[column] = allfiles[:-2]
-                    csvout.writerow(file)
-                    # logging.info(f"{dev[0]}, {dev[1]}, {dev[2]}: {allfiles[:-2]}")
-            log.info(f"Wrote files.csv")
-            quit()
+        # if args.list == "files":
+        #     csvfile = open("files.csv", 'w', newline='')
+        #     fieldnames = ('vendor',
+        #                   'model',
+        #                   'build',
+        #                   )
+        #     breakpoint()
+        #     fieldnames += columns
+        #     csvout = csv.DictWriter(csvfile, fieldnames=fieldnames)
+        #     csvout.writeheader()
+        #     for column in columns:
+        #         result = devdb.list_elements(column)
+        #         # print(result)
+        #         if not result:
+        #             continue
+        #         for dev in result:
+        #             if dev[3] is None:
+        #                 continue
+        #             # data = eval(json.dumps(dev[3]))
+        #             # data["vendor"] = self
+        #             allfiles = str()
+        #             file = dict()
+        #             for group in dev[3]:
+        #                 for blob in group:
+        #                     allfiles += f"{blob["file"]}, "
+        #             file["vendor"] = dev[0].title()
+        #             file["model"] = dev[1]
+        #             file["build"] = dev[2]
+        #             file[column] = allfiles[:-2]
+        #             csvout.writerow(file)
+        #             # logging.info(f"{dev[0]}, {dev[1]}, {dev[2]}: {allfiles[:-2]}")
+        #     log.info(f"Wrote files.csv")
+        #     quit()
 
 
 if __name__ == "__main__":
