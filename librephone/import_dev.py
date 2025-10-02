@@ -203,7 +203,6 @@ def main():
         quit()
 
     if args.file:
-        breakpoint()
         metadata = dev.get_metadata(args.file)
         print(metadata)
     elif args.indir:
