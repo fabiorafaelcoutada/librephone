@@ -1,0 +1,147 @@
+abl.img,"Nord_N30, OnePlus_7T, OnePlus_7T_Pro, Nord_N20_5G, OnePlus_7_Pro, Realme_10_Pro, Nord_CE2, Mi_A3, Mi_12S_Pro, Realme_9_Pro, Mi_12S_Ultra, Phone_2, Moto_G30, Phone_1, Mi_12T_Pro, OnePlus_6, Mini_5G, Moto_G32, OnePlus_7, OnePlus_5, OnePlus_8, Poco_F5, OnePlus_9_Pro, 6.1_2018, Moto_G200, Moto_G52, Saga, Pixel_6A, Pixel_4A_5G, Pixel_4A, Pixel_Tablet, Pro_1, Moto_G9, Pixel_8_Pro, OnePlus_6T, Moto_G9_Power, Mi_12S, Mi_13_Pro, 7_Plus, Pixel_7_Pro, Pixel_9_Pro_Fold, Pixel_5A, Edge_40_Pro, Moto_G84_5G, Pixel_9_Pro, Moto_G_Power, Pixel_8, Pixel_9, Mi_Fold_2, Pixel_6_Pro, OnePlus_9RT, Pixel_6, Phone, Pixel_7, OnePlus_8_Pro, Pixel_4, Pixel_5, Phone2, Pixel_3, Shift_6MQ, Pixel_8A, Pixel_3XL, Mi_11, Mi_13, Moto_G_5G_2024, OnePlus_11_5G, Pro_1X, Mi_12, Pixel_7a, ThinkPhone, Mi_11I, Defy_2021, Edge_30_Neo, Poco_F5_Pro, Moto_G10, Moto_G82_5G, Moto_E7_Plus, Edge_30, Edge_30_Fusion, Moto_G34_5G, Mi_11_5G, FP5, FP4, Mi_12_Pro, Pixel_Fold, Redmi_K60_Pro, Pixel_4XL, Pixel_3A_XL"
+bluetooth.img,"Nord_N30, OnePlus_7T, OnePlus_7T_Pro, Nord_N20_5G, OnePlus_7_Pro, Realme_10_Pro, Nord_CE2, Mi_A3, Mi_12S_Pro, Realme_9_Pro, Mi_12S_Ultra, Phone_2, Moto_G30, Phone_1, Mi_12T_Pro, OnePlus_6, Mini_5G, Moto_G32, OnePlus_7, OnePlus_5, OnePlus_8, Poco_F5, OnePlus_9_Pro, 6.1_2018, Moto_G200, Edge_20, Moto_G52, Saga, Pro_1, Moto_G9, OnePlus_6T, Moto_G9_Power, Mi_12S, Mi_13_Pro, 7_Plus, Edge_2021, Edge_40_Pro, Moto_G84_5G, Moto_G_Power, Mi_Fold_2, OnePlus_9RT, Phone, OnePlus_8_Pro, Phone2, Shift_6MQ, Mi_11, Mi_13, Moto_G_5G_2024, OnePlus_11_5G, Pro_1X, Mi_12, ThinkPhone, Mi_11I, Defy_2021, Edge_30_Neo, Poco_F5_Pro, Moto_G10, Moto_G82_5G, Moto_E7_Plus, Edge_30, Edge_30_Fusion, Moto_G34_5G, Mi_11_5G, FP5, FP4, Mi_12_Pro, Redmi_K60_Pro"
+build,
+cmnlib64.img,"OnePlus_7T, OnePlus_7T_Pro, OnePlus_7_Pro, Mi_A3, OnePlus_6, Mini_5G, OnePlus_7, OnePlus_5, OnePlus_8, 6.1_2018, Pixel_XL, Pro_1, OnePlus_6T, 7_Plus, Phone, OnePlus_8_Pro, Phone2, Pixel_3, Shift_6MQ, Pixel_3XL, Pixel, FP3, Pixel_3A_XL"
+cmnlib.img,"OnePlus_7T, OnePlus_7T_Pro, OnePlus_7_Pro, Mi_A3, OnePlus_6, Mini_5G, OnePlus_7, OnePlus_5, OnePlus_8, 6.1_2018, Pro_1, OnePlus_6T, 7_Plus, Phone, OnePlus_8_Pro, Phone2, Pixel_3, Shift_6MQ, Pixel_3XL, FP3, Pixel_3A_XL"
+devcfg.img,"Nord_N30, OnePlus_7T, OnePlus_7T_Pro, Nord_N20_5G, OnePlus_7_Pro, Realme_10_Pro, Nord_CE2, Mi_A3, Mi_12S_Pro, Realme_9_Pro, Mi_12S_Ultra, Phone_2, Moto_G30, Phone_1, Mi_12T_Pro, OnePlus_6, Mini_5G, Moto_G32, OnePlus_7, OnePlus_5, OnePlus_8, Poco_F5, OnePlus_9_Pro, 6.1_2018, Moto_G200, Moto_G52, Saga, Pixel_XL, Pixel_4A_5G, Pixel_4A, Pro_1, Moto_G9, OnePlus_6T, Moto_G9_Power, Mi_12S, Mi_13_Pro, 7_Plus, Pixel_5A, Edge_40_Pro, Moto_G84_5G, Moto_G_Power, Mi_Fold_2, OnePlus_9RT, Phone, OnePlus_8_Pro, Pixel_4, Pixel_5, Phone2, Pixel_3, Shift_6MQ, Pixel_3XL, Mi_11, Mi_13, Moto_G_5G_2024, OnePlus_11_5G, Pro_1X, Mi_12, ThinkPhone, Pixel, Mi_11I, Defy_2021, Edge_30_Neo, Poco_F5_Pro, Moto_G10, Moto_G82_5G, Moto_E7_Plus, Edge_30, Edge_30_Fusion, Moto_G34_5G, Mi_11_5G, FP5, FP3, FP4, Mi_12_Pro, Redmi_K60_Pro, Pixel_4XL, Pixel_3A_XL"
+dqmdbg.img,"Galaxy_S10e, Galaxy_S10, Galaxy_S10_5G, Galaxy_F62, Galaxy_Note_10, Galaxy_Note_10_5G, Galaxy_Note_10_Plus"
+dre,
+dsp.img,"Nord_N30, OnePlus_7T, OnePlus_7T_Pro, Nord_N20_5G, OnePlus_7_Pro, Realme_10_Pro, Nord_CE2, Mi_A3, Mi_12S_Pro, Realme_9_Pro, Mi_12S_Ultra, Phone_2, Moto_G30, Phone_1, Mi_12T_Pro, OnePlus_6, Mini_5G, Moto_G32, OnePlus_7, OnePlus_5, OnePlus_8, Poco_F5, OnePlus_9_Pro, 6.1_2018, Moto_G200, Moto_G52, Saga, Pro_1, Moto_G9, OnePlus_6T, Moto_G9_Power, Mi_12S, Mi_13_Pro, 7_Plus, Edge_2021, Edge_40_Pro, Moto_G84_5G, Moto_G_Power, Mi_Fold_2, OnePlus_9RT, Phone, OnePlus_8_Pro, Phone2, Shift_6MQ, Mi_11, Mi_13, Moto_G_5G_2024, OnePlus_11_5G, Pro_1X, Mi_12, ThinkPhone, Mi_11I, Defy_2021, Edge_30_Neo, Poco_F5_Pro, Moto_G10, Moto_G82_5G, Moto_E7_Plus, Edge_30, Edge_30_Fusion, Moto_G34_5G, Mi_11_5G, FP5, FP3, FP4, Mi_12_Pro, Redmi_K60_Pro"
+esim-a1.img,"Pixel_4, Pixel_4XL"
+esim-a2.img,"Pixel_4, Pixel_4XL"
+esim-full-ofl-v1.img,"Pixel_7_Pro, Pixel_6_Pro, Pixel_6, Pixel_7, Pixel_7a, Pixel_Fold"
+esim-full-v0.img,"Pixel_7_Pro, Pixel_6_Pro, Pixel_6, Pixel_7, Pixel_3, Pixel_3XL, Pixel_7a, Pixel_Fold, Pixel_3A_XL"
+esim-full-v0-security.img,"Pixel_7_Pro, Pixel_6_Pro, Pixel_6, Pixel_7, Pixel_7a, Pixel_Fold"
+esim-full-v1.img,"Pixel_4A_5G, Pixel_8_Pro, Pixel_7_Pro, Pixel_9_Pro_Fold, Pixel_5A, Pixel_9_Pro, Pixel_9, Pixel_6_Pro, Pixel_6, Pixel_7, Pixel_4, Pixel_5, Pixel_8A, Pixel_7a, Pixel_Fold, Pixel_4XL"
+esim-full-v1-m40.img,"Pixel_8_Pro, Pixel_8A"
+esim-full-v1-m41.img,"Pixel_8_Pro, Pixel_8A"
+esim-v1.img,"Pixel_3, Pixel_3XL, Pixel_3A_XL"
+FW_FT3518_SAMSUNG_FAE.img,"Nord_N30, Nord_N20_5G, Realme_10_Pro, Nord_CE2, Realme_9_Pro, OnePlus_9_Pro"
+FW_FT3518_SAMSUNG.img,"Nord_N30, Nord_N20_5G, Realme_10_Pro, Nord_CE2, Realme_9_Pro, OnePlus_9_Pro"
+FW_FT3658U_SAMSUNG_FAE.img,OnePlus_9_Pro
+FW_FT3658U_SAMSUNG.img,OnePlus_9_Pro
+FW_FT3681_BOE_FAE.img,"Nord_N30, Nord_N20_5G, Realme_10_Pro, Nord_CE2, Realme_9_Pro"
+FW_FT3681_BOE.img,"Nord_N30, Nord_N20_5G, Realme_10_Pro, Nord_CE2, Realme_9_Pro"
+FW_FT3681_BOE_sys_edge_touch_config.img,"Nord_N30, Nord_N20_5G, Realme_10_Pro, Nord_CE2, Realme_9_Pro"
+FW_FT3681_VXN_FAE.img,"Nord_N30, Nord_N20_5G, Realme_10_Pro, Nord_CE2, Realme_9_Pro"
+FW_FT3681_VXN.img,"Nord_N30, Nord_N20_5G, Realme_10_Pro, Nord_CE2, Realme_9_Pro"
+FW_GT9886_SAMSUNG_FAE.img,"Nord_N30, Nord_N20_5G, Realme_10_Pro, Nord_CE2, Realme_9_Pro, OnePlus_8, OnePlus_8T, OnePlus_9R, OnePlus_8_Pro"
+FW_GT9886_SAMSUNG.img,"Nord_N30, Nord_N20_5G, Realme_10_Pro, Nord_CE2, Realme_9_Pro, OnePlus_8, OnePlus_8T, OnePlus_9R, OnePlus_8_Pro"
+FW_HX_NF83112A_DSJM_FAE.img,"OnePlus_7T, OnePlus_7T_Pro, OnePlus_7_Pro, OnePlus_7"
+FW_HX_NF83112A_DSJM.img,"OnePlus_7T, OnePlus_7T_Pro, OnePlus_7_Pro, OnePlus_7"
+FW_HX_NF83112A_DSJM_TEST.img,"OnePlus_7T, OnePlus_7T_Pro, OnePlus_7_Pro, OnePlus_7"
+FW_NF_ILI7807S_BOE_FAE.img,OnePlus_9_Pro
+FW_NF_ILI7807S_DSJM_FAE.img,"Nord_N30, Nord_N20_5G, Realme_10_Pro, Nord_CE2, Realme_9_Pro, OnePlus_9_Pro"
+FW_NF_ILI7807S_DSJM.img,"Nord_N30, Nord_N20_5G, Realme_10_Pro, Nord_CE2, Realme_9_Pro, OnePlus_9_Pro"
+FW_NF_ILI7807S_HUAXING_FAE.img,"Nord_N30, Nord_N20_5G, Realme_10_Pro, Nord_CE2, Realme_9_Pro"
+FW_NF_ILI7807S_HUAXING.img,"Nord_N30, Nord_N20_5G, Realme_10_Pro, Nord_CE2, Realme_9_Pro"
+FW_NF_ILI7807S_JDI_FAE.img,"Nord_N30, Nord_N20_5G, Realme_10_Pro, Nord_CE2, Realme_9_Pro"
+FW_NF_ILI7807S_JDI.img,"Nord_N30, Nord_N20_5G, Realme_10_Pro, Nord_CE2, Realme_9_Pro"
+FW_NF_ILI7807S_TIANMA_FAE.img,"Nord_N30, Nord_N20_5G, Realme_10_Pro, Nord_CE2, Realme_9_Pro, Nord_200"
+FW_NF_ILI7807S_TIANMA.img,"Nord_N30, Nord_N20_5G, Realme_10_Pro, Nord_CE2, Realme_9_Pro, Nord_200"
+FW_NF_NT36672C_DSJM_FAE.img,"Nord_N30, Nord_N20_5G, Realme_10_Pro, Nord_CE2, Realme_9_Pro, Nord_200"
+FW_NF_NT36672C_DSJM.img,"Nord_N30, Nord_N20_5G, Realme_10_Pro, Nord_CE2, Realme_9_Pro, Nord_200"
+FW_NF_NT36672C_TIANMA_FAE.img,"Nord_N30, Nord_N20_5G, Realme_10_Pro, Nord_CE2, Realme_9_Pro, Nord_200"
+FW_NF_NT36672C_TIANMA.img,"Nord_N30, Nord_N20_5G, Realme_10_Pro, Nord_CE2, Realme_9_Pro, Nord_200"
+FW_NF_TD4377_DSJM_FAE.img,"Nord_N30, Nord_N20_5G, Realme_10_Pro, Nord_CE2, Realme_9_Pro"
+FW_NF_TD4377_DSJM.img,"Nord_N30, Nord_N20_5G, Realme_10_Pro, Nord_CE2, Realme_9_Pro"
+FW_NT36672C_NF_BOE_FAE.img,"OnePlus_7T, OnePlus_7T_Pro, OnePlus_7_Pro, OnePlus_7"
+FW_NT36672C_NF_BOE.img,"OnePlus_7T, OnePlus_7T_Pro, OnePlus_7_Pro, OnePlus_7"
+FW_NT36672C_NF_JDI_FAE.img,"OnePlus_7T, OnePlus_7T_Pro, OnePlus_7_Pro, OnePlus_7"
+FW_NT36672C_NF_JDI.img,"OnePlus_7T, OnePlus_7T_Pro, OnePlus_7_Pro, OnePlus_7"
+FW_S3706_SAMSUNG_FAE.img,"OnePlus_7T, OnePlus_7T_Pro, OnePlus_7_Pro, OnePlus_7"
+FW_S3706_SAMSUNG.img,"OnePlus_7T, OnePlus_7T_Pro, OnePlus_7_Pro, OnePlus_7"
+FW_S3706_SAMSUNG_NEW_FAE.img,"OnePlus_7T, OnePlus_7T_Pro, OnePlus_7_Pro, OnePlus_7"
+FW_S3706_SAMSUNG_NEW.img,"OnePlus_7T, OnePlus_7T_Pro, OnePlus_7_Pro, OnePlus_7"
+FW_S3706_SAMSUNG_OLD_FAE.img,"OnePlus_7T, OnePlus_7T_Pro, OnePlus_7_Pro, OnePlus_7"
+FW_S3706_SAMSUNG_OLD.img,"OnePlus_7T, OnePlus_7T_Pro, OnePlus_7_Pro, OnePlus_7"
+FW_S3908_BOE_FAE.img,OnePlus_9_Pro
+FW_S3908_BOE.img,"OnePlus_8, OnePlus_8T, OnePlus_9_Pro, OnePlus_9R, OnePlus_8_Pro"
+FW_S3908_SAMSUNG_FAE.img,"OnePlus_8, OnePlus_8T, OnePlus_9_Pro, OnePlus_9R, OnePlus_8_Pro, OnePlus_11_5G"
+FW_S3908_SAMSUNG.img,"OnePlus_8, OnePlus_8T, OnePlus_9_Pro, OnePlus_9R, OnePlus_8_Pro, OnePlus_11_5G"
+FW_S3908_SAMSUNG_sys_edge_touch_config.img,OnePlus_11_5G
+FW_S3910_TIANMA_FAE.img,"Nord_N30, Nord_N20_5G, Realme_10_Pro, Nord_CE2, Realme_9_Pro"
+FW_S3910_TIANMA.img,"Nord_N30, Nord_N20_5G, Realme_10_Pro, Nord_CE2, Realme_9_Pro"
+FW_S3910_TIANMA_sys_edge_touch_config.img,"Nord_N30, Nord_N20_5G, Realme_10_Pro, Nord_CE2, Realme_9_Pro"
+FW_ST80Y_SAMSUNG_FAE.img,OnePlus_9_Pro
+FW_ST80Y_SAMSUNG.img,OnePlus_9_Pro
+fw_synaptics_17819.img,OnePlus_6
+fw_synaptics_18801.img,OnePlus_6T
+gt1151_default_firmware2.img,Redmi_10S
+hyp.img,"Nord_N30, OnePlus_7T, OnePlus_7T_Pro, Nord_N20_5G, OnePlus_7_Pro, Realme_10_Pro, Nord_CE2, Mi_A3, Mi_12S_Pro, Realme_9_Pro, Mi_12S_Ultra, Phone_2, Moto_G30, Phone_1, Mi_12T_Pro, OnePlus_6, Mini_5G, Moto_G32, OnePlus_7, OnePlus_5, OnePlus_8, Poco_F5, OnePlus_9_Pro, 6.1_2018, Moto_G200, Moto_G52, Saga, Pixel_XL, Pixel_4A_5G, Pixel_4A, Pro_1, Moto_G9, OnePlus_6T, Moto_G9_Power, Mi_12S, Mi_13_Pro, 7_Plus, Pixel_5A, Edge_40_Pro, Moto_G84_5G, Moto_G_Power, Mi_Fold_2, OnePlus_9RT, Phone, OnePlus_8_Pro, Pixel_4, Pixel_5, Phone2, Pixel_3, Shift_6MQ, Pixel_3XL, Mi_11, Mi_13, Moto_G_5G_2024, OnePlus_11_5G, Pro_1X, Mi_12, ThinkPhone, Pixel, Mi_11I, Defy_2021, Edge_30_Neo, Poco_F5_Pro, Moto_G10, Moto_G82_5G, Moto_E7_Plus, Edge_30, Edge_30_Fusion, Moto_G34_5G, Mi_11_5G, FP5, FP4, Mi_12_Pro, Redmi_K60_Pro, Pixel_4XL, Pixel_3A_XL"
+keymaster.img,"Nord_N30, OnePlus_7T, OnePlus_7T_Pro, Nord_N20_5G, OnePlus_7_Pro, Realme_10_Pro, Nord_CE2, Mi_A3, Mi_12S_Pro, Realme_9_Pro, Mi_12S_Ultra, Phone_2, Moto_G30, Phone_1, Mi_12T_Pro, OnePlus_6, Mini_5G, Moto_G32, OnePlus_7, OnePlus_5, OnePlus_8, Poco_F5, OnePlus_9_Pro, 6.1_2018, Moto_G200, Moto_G52, Saga, Pixel_XL, Pixel_4A_5G, Pixel_4A, Pro_1, Moto_G9, OnePlus_6T, Moto_G9_Power, Mi_12S, Mi_13_Pro, 7_Plus, Pixel_5A, Edge_40_Pro, Moto_G84_5G, Moto_G_Power, Mi_Fold_2, OnePlus_9RT, Phone, OnePlus_8_Pro, Pixel_4, Pixel_5, Phone2, Pixel_3, Shift_6MQ, Pixel_3XL, Mi_11, Mi_13, Moto_G_5G_2024, OnePlus_11_5G, Pro_1X, Mi_12, ThinkPhone, Pixel, Mi_11I, Defy_2021, Edge_30_Neo, Poco_F5_Pro, Moto_G10, Moto_G82_5G, Moto_E7_Plus, Edge_30, Edge_30_Fusion, Moto_G34_5G, Mi_11_5G, FP5, FP3, FP4, Mi_12_Pro, Redmi_K60_Pro, Pixel_4XL, Pixel_3A_XL"
+KIOXIATHGJFJT1E45BATPC0100.img,"Pixel_8_Pro, Pixel_9_Pro_Fold, Pixel_9_Pro, Pixel_9, Pixel_8A"
+KIOXIATHGJFJT2T85BAT0C0100.img,"Pixel_8_Pro, Pixel_9_Pro_Fold, Pixel_9_Pro, Pixel_9, Pixel_8A"
+LIMIT_FT3518_SAMSUNG_AGING.img,"Nord_N30, Nord_N20_5G, Realme_10_Pro, Nord_CE2, Realme_9_Pro"
+LIMIT_FT3518_SAMSUNG.img,"Nord_N30, Nord_N20_5G, Realme_10_Pro, Nord_CE2, Realme_9_Pro, OnePlus_9_Pro"
+LIMIT_FT3658U_SAMSUNG.img,OnePlus_9_Pro
+LIMIT_FT3681_BOE.img,"Nord_N30, Nord_N20_5G, Realme_10_Pro, Nord_CE2, Realme_9_Pro"
+LIMIT_FT3681_VXN.img,"Nord_N30, Nord_N20_5G, Realme_10_Pro, Nord_CE2, Realme_9_Pro"
+LIMIT_GT9886_SAMSUNG.img,"Nord_N30, Nord_N20_5G, Realme_10_Pro, Nord_CE2, Realme_9_Pro, OnePlus_8, OnePlus_8T, OnePlus_9R, OnePlus_8_Pro"
+LIMIT_NF_ILI7807S_BOE.img,OnePlus_9_Pro
+LIMIT_NF_ILI7807S_DSJM.img,"Nord_N30, Nord_N20_5G, Realme_10_Pro, Nord_CE2, Realme_9_Pro, OnePlus_9_Pro"
+LIMIT_NF_ILI7807S_HUAXING.img,"Nord_N30, Nord_N20_5G, Realme_10_Pro, Nord_CE2, Realme_9_Pro"
+LIMIT_NF_ILI7807S_JDI.img,"Nord_N30, Nord_N20_5G, Realme_10_Pro, Nord_CE2, Realme_9_Pro"
+LIMIT_NF_ILI7807S_TIANMA.img,"Nord_N30, Nord_N20_5G, Realme_10_Pro, Nord_CE2, Realme_9_Pro, Nord_200"
+LIMIT_NF_NT36672C_DSJM.img,"Nord_N30, Nord_N20_5G, Realme_10_Pro, Nord_CE2, Realme_9_Pro, Nord_200"
+LIMIT_NF_NT36672C_TIANMA.img,"Nord_N30, Nord_N20_5G, Realme_10_Pro, Nord_CE2, Realme_9_Pro, Nord_200"
+LIMIT_NF_TD4377_DSJM.img,"Nord_N30, Nord_N20_5G, Realme_10_Pro, Nord_CE2, Realme_9_Pro"
+LIMIT_NT36523_BOE.img,"Nord_N30, Nord_N20_5G, Realme_10_Pro, Nord_CE2, Realme_9_Pro"
+LIMIT_NT36672C_NF_BOE.img,"OnePlus_7T, OnePlus_7T_Pro, OnePlus_7_Pro, OnePlus_7"
+LIMIT_NT36672C_NF_JDI.img,"OnePlus_7T, OnePlus_7T_Pro, OnePlus_7_Pro, OnePlus_7"
+LIMIT_S3706_SAMSUNG.img,"OnePlus_7T, OnePlus_7T_Pro, OnePlus_7_Pro, OnePlus_7"
+LIMIT_S3706_SAMSUNG_NEW.img,"OnePlus_7T, OnePlus_7T_Pro, OnePlus_7_Pro, OnePlus_7"
+LIMIT_S3706_SAMSUNG_OLD.img,"OnePlus_7T, OnePlus_7T_Pro, OnePlus_7_Pro, OnePlus_7"
+LIMIT_S3908_BOE_AGING.img,OnePlus_9_Pro
+LIMIT_S3908_BOE.img,"OnePlus_8, OnePlus_8T, OnePlus_9_Pro, OnePlus_9R, OnePlus_8_Pro"
+LIMIT_S3908_SAMSUNG_AGING.img,OnePlus_9_Pro
+LIMIT_S3908_SAMSUNG.img,"OnePlus_8, OnePlus_8T, OnePlus_9_Pro, OnePlus_9R, OnePlus_8_Pro, OnePlus_11_5G"
+LIMIT_S3910_TIANMA.img,"Nord_N30, Nord_N20_5G, Realme_10_Pro, Nord_CE2, Realme_9_Pro"
+LIMIT_S6SY761_SAMSUNG.img,"OnePlus_7T, OnePlus_7T_Pro, OnePlus_7_Pro, OnePlus_7"
+LIMIT_S6SY761_SAMSUNG_NEW.img,"OnePlus_7T, OnePlus_7T_Pro, OnePlus_7_Pro, OnePlus_7"
+LIMIT_S6SY771_SAMSUNG.img,"OnePlus_8, OnePlus_8T, OnePlus_9R, OnePlus_8_Pro"
+LIMIT_S6SY791_SAMSUNG.img,"OnePlus_8, OnePlus_8T, OnePlus_9R, OnePlus_8_Pro"
+LIMIT_S6SY792_SAMSUNG.img,"OnePlus_8, OnePlus_8T, OnePlus_9_Pro, OnePlus_9R, OnePlus_8_Pro"
+LIMIT_ST80Y_SAMSUNG_AGING.img,OnePlus_9_Pro
+LIMIT_ST80Y_SAMSUNG.img,OnePlus_9_Pro
+LIMIT_SY761_OFILM.img,"OnePlus_7T, OnePlus_7T_Pro, OnePlus_7_Pro, OnePlus_7"
+LIMIT_SY761_OFILM_NEW.img,"OnePlus_7T, OnePlus_7T_Pro, OnePlus_7_Pro, OnePlus_7"
+LIMIT_SY761_SAMSUNG.img,"OnePlus_7T, OnePlus_7T_Pro, OnePlus_7_Pro, OnePlus_7"
+LIMIT_SY761_SAMSUNG_NEW.img,"OnePlus_7T, OnePlus_7T_Pro, OnePlus_7_Pro, OnePlus_7"
+LOGO.img,"OnePlus_7T, OnePlus_7T_Pro, OnePlus_7_Pro, OnePlus_6, OnePlus_7, OnePlus_5, OnePlus_6T"
+MICRONMT128GAXAT2U310104_MICRONMT256GAXAT4U310104.img,"Pixel_7_Pro, Pixel_7, Pixel_7a"
+MICRONMT128GBCAV2U310103.img,"Pixel_8_Pro, Pixel_9_Pro_Fold, Pixel_9_Pro, Pixel_9, Pixel_8A"
+MICRONMT128GBCAV2U310104.img,"Pixel_8_Pro, Pixel_9_Pro_Fold, Pixel_9_Pro, Pixel_9, Pixel_8A"
+modem.img,"Nord_N30, OnePlus_7T, OnePlus_7T_Pro, Nord_N20_5G, OnePlus_7_Pro, Realme_10_Pro, Nord_CE2, Mi_A3, Mi_12S_Pro, Realme_9_Pro, Mi_12S_Ultra, Phone_2, Moto_G30, Phone_1, Mi_12T_Pro, OnePlus_6, Mini_5G, Moto_G32, OnePlus_7, OnePlus_5, OnePlus_8, Poco_F5, One_Vision, OnePlus_9_Pro, 6.1_2018, Moto_G200, Moto_G52, Saga, Pixel_6A, Pixel_XL, Pixel_4A_5G, Pixel_4A, Pro_1, Moto_G9, Pixel_8_Pro, OnePlus_6T, Moto_G9_Power, Mi_12S, Mi_13_Pro, 7_Plus, Pixel_7_Pro, Pixel_9_Pro_Fold, Pixel_5A, Edge_40_Pro, Moto_G84_5G, Pixel_9_Pro, Moto_G_Power, Pixel_8, Pixel_9, Mi_Fold_2, Pixel_6_Pro, OnePlus_9RT, Pixel_6, Phone, Pixel_7, OnePlus_8_Pro, Pixel_4, Pixel_5, Phone2, Pixel_3, Shift_6MQ, Pixel_8A, Pixel_3XL, Mi_11, Mi_13, One_Action, Moto_G_5G_2024, OnePlus_11_5G, Pro_1X, Mi_12, Pixel_7a, ThinkPhone, Pixel, Mi_11I, Defy_2021, Edge_30_Neo, Poco_F5_Pro, Moto_G10, Moto_G82_5G, Moto_E7_Plus, Edge_30, Edge_30_Fusion, Moto_G34_5G, Mi_11_5G, FP5, FP3, FP4, Mi_12_Pro, Pixel_Fold, Redmi_K60_Pro, Pixel_4XL, Pixel_3A_XL"
+nubia_tp_jdi_fw.img,"Red_Magic_5G, Red_Magic_Mars, Z18, Z17"
+pmic.img,"OnePlus_5, 6.1_2018, Pixel_XL, Pro_1, 7_Plus, Pixel"
+ramdisk.img,"Pixel_2XL, Pixel_2, Pixel_3, Pixel_3XL, Pixel_3A_XL"
+rampatch_tlv.img,V30
+RC2.img,Phone2
+RCL.img,Phone
+recovery.img,"OnePlus_7T, OnePlus_7T_Pro, Galaxy_S10e, Mi_12S_Pro, Mi_12S_Ultra, Phone_2, Galaxy_S10, Galaxy_S10_5G, Xperia_5_V, Mi_12T_Pro, Galaxy_Tab_S7_Wifi, Galaxy_F62, Mini_5G, Red_Magic_5G, OnePlus_5, OnePlus_8, Moto_G_5G, OnePlus_8T, Poco_F5, Galaxy_Tab_S5e_Wifi, Galaxy_Note_10, TX2_TV, Galaxy_S20_FE, Moto_G_5G_Plus, Galaxy_A73_5G, Saga, Galaxy_A21s, Mi_8_Pro, Mi_Mix_2S, Xperia_1_II, Moto_G9, Redmi_K20_Mi_9, Galaxy_TabA_10.4_LTE, Z6_Pro, Mi_5S_Plus, Moto_G9_Power, Xperia_1_V, Redmi_Note_8, Mi_12S, OnePlus_9R, Galaxy_A71, Mi_10T_5G, Galaxy_A72, Mi_13_Pro, Redmi_Note_7_Pro, Galaxy_A52_4G, Galaxy_TabA_8.0, ADT_3, Mi_8_Explorer, Mi_CC9_Meitu, Mi_6, Mi_5, Red_Magic_Mars, Mi_8, Edge_40_Pro, Redmi_Note_9_Pro, Moto_G_Power, Mi_Fold_2, Mi_9SE, Galaxy_Note_10_5G, TX2_Tablet, Xperia_5_II, OnePlus_8_Pro, Redmi_8, Shift_6MQ, Mi_10T, Mi_10, Galaxy_A52s_5G, Mi_13, Velvet, Redmi_4A, OnePlus_11_5G, Pro_1X, Mi_12, Galaxy_Tab_S5e_LTE, Galaxy_Tab_A7_Wifi, ThinkPhone, Poco_3S, Poco_X3_Pro, Defy_2021, Poco_F5_Pro, Z18, Poco_F2_Pro, Galaxy_Tab_S7_LTE, Mi_10_Pro, Z17, Z5_Pro_GT, Moto_E7_Plus, Redmi_Note_10_Pro, Galaxy_Note_10_Plus, FP4, Mi_12_Pro, V30, Mi_CC9, Poco_F1, Redmi_K60_Pro"
+rpm.img,"Nord_N30, Nord_N20_5G, Realme_10_Pro, Nord_CE2, Mi_A3, Realme_9_Pro, Moto_G30, Moto_G32, OnePlus_5, 6.1_2018, Moto_G52, Pixel_XL, Pro_1, Moto_G9, Moto_G9_Power, 7_Plus, Moto_G84_5G, Moto_G_Power, Phone, Moto_G_5G_2024, Pro_1X, Pixel, Defy_2021, Edge_30_Neo, Moto_G10, Moto_G82_5G, Moto_E7_Plus, Moto_G34_5G, FP3"
+SAMSUNGKLUDG4UHGC-B0E13103.img,"Pixel_8_Pro, Pixel_9_Pro_Fold, Pixel_9_Pro, Pixel_9, Pixel_8A"
+startup_fw_update_gvo.img,Axon_9_Pro
+synaptics_0.img,"Pixel_2, Pixel_3A_XL"
+synaptics_1.img,Pixel_2
+synaptics_2.img,Pixel_3A_XL
+synaptics_b.img,"Pixel_7_Pro, Pixel_9_Pro_Fold, Pixel_9"
+synaptics_bl71.img,"Pixel_XL, Pixel"
+synaptics_bl77.img,Pixel_XL
+synaptics_c.img,"Pixel_9_Pro_Fold, Pixel_9"
+synaptics-csot-S3910-3911318-0000005-rhode.img,Moto_G52
+synaptics.img,"Pixel_7_Pro, Pixel_9_Pro_Fold, Pixel_9_Pro, Pixel_9"
+synaptics-visionox-S3910-3907375-0000005-rhode.img,Moto_G52
+touch_module_id_0x01.img,"Xperia_1_V, Xperia_XZ3"
+touch_module_id_0x02.img,Xperia_5_V
+touch_module_id_0x04.img,Xperia_XZ2_Premium
+touch_module_id_0x20.img,Xperia_XZ2
+touch_module_id_0x21.img,Xperia_XZ2
+touch_module_id_0x27.img,Xperia_5_III
+touch_module_id_0x30.img,Xperia_XZ2_Compact
+touch_module_id_0x31.img,Xperia_XZ2_Compact
+touch_module_id_0x83.img,Xperia_1_II
+touch_module_id_0x94.img,Xperia_5_II
+tz.img,"Nord_N30, OnePlus_7T, OnePlus_7T_Pro, Nord_N20_5G, OnePlus_7_Pro, Realme_10_Pro, Nord_CE2, Mi_A3, Mi_12S_Pro, Realme_9_Pro, Mi_12S_Ultra, Phone_2, Moto_G30, Phone_1, Mi_12T_Pro, OnePlus_6, Mini_5G, Moto_G32, OnePlus_7, OnePlus_5, OnePlus_8, Poco_F5, OnePlus_9_Pro, 6.1_2018, Moto_G200, Moto_G52, Saga, Pixel_XL, Pixel_4A_5G, Pixel_4A, Pro_1, Moto_G9, OnePlus_6T, Moto_G9_Power, Mi_12S, Mi_13_Pro, 7_Plus, Pixel_5A, Edge_40_Pro, Moto_G84_5G, Moto_G_Power, Mi_Fold_2, OnePlus_9RT, Phone, OnePlus_8_Pro, Pixel_4, Pixel_5, Phone2, Pixel_3, Shift_6MQ, Pixel_3XL, Mi_11, Mi_13, Moto_G_5G_2024, OnePlus_11_5G, Pro_1X, Mi_12, ThinkPhone, Pixel, Mi_11I, Defy_2021, Edge_30_Neo, Poco_F5_Pro, Moto_G10, Moto_G82_5G, Moto_E7_Plus, Edge_30, Edge_30_Fusion, Moto_G34_5G, Mi_11_5G, FP5, FP3, FP4, Mi_12_Pro, Redmi_K60_Pro, Pixel_4XL, Pixel_3A_XL"
+xbl.img,"Nord_N30, OnePlus_7T, OnePlus_7T_Pro, Nord_N20_5G, OnePlus_7_Pro, Realme_10_Pro, Nord_CE2, Mi_A3, Mi_12S_Pro, Realme_9_Pro, Mi_12S_Ultra, Phone_2, Moto_G30, Phone_1, Mi_12T_Pro, OnePlus_6, Mini_5G, Moto_G32, OnePlus_7, OnePlus_5, OnePlus_8, Poco_F5, OnePlus_9_Pro, 6.1_2018, Moto_G200, Moto_G52, Saga, Pixel_XL, Pixel_4A_5G, Pixel_4A, Pro_1, Moto_G9, OnePlus_6T, Moto_G9_Power, Mi_12S, Mi_13_Pro, 7_Plus, Pixel_5A, Edge_40_Pro, Moto_G84_5G, Moto_G_Power, Mi_Fold_2, OnePlus_9RT, Phone, OnePlus_8_Pro, Pixel_4, Pixel_5, Phone2, Pixel_3, Shift_6MQ, Pixel_3XL, Mi_11, Mi_13, Moto_G_5G_2024, OnePlus_11_5G, Pro_1X, Mi_12, ThinkPhone, Pixel, Mi_11I, Defy_2021, Edge_30_Neo, Poco_F5_Pro, Moto_G10, Moto_G82_5G, Moto_E7_Plus, Edge_30, Edge_30_Fusion, Moto_G34_5G, Mi_11_5G, FP5, FP4, Mi_12_Pro, Redmi_K60_Pro, Pixel_4XL, Pixel_3A_XL"
