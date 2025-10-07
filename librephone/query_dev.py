@@ -210,6 +210,7 @@ class QueryDevice(object):
         return result
 
     def track_size(self,
+                   year: int,
                    ) -> list:
         """
         Query a table in the database.
@@ -219,7 +220,7 @@ class QueryDevice(object):
         Returns:
             (list): The devices the file is in
         """
-        sql = f"SELECT vendor,model,build,foo->>'path',foo->>'file',foo->>'size',foo->>'md5sum',foo->>'type',released FROM devices,jsonb_array_elements(devices.blobs) AS foo;"
+        sql = f"SELECT vendor,model,build,foo->>'path',foo->>'file',foo->>'size',foo->>'md5sum',foo->>'type',released FROM devices,jsonb_array_elements(devices.blobs) AS foo WHERE released > {year};"
         print(f"SQL: {sql}")
         result = self.dbcursor.execute(sql)
         result = self.dbcursor.fetchall()
@@ -257,6 +258,7 @@ def main():
     parser.add_argument("-l", "--list", choices=choices, help="Find device metadata")
     parser.add_argument("-t", "--track", help="Find devices containing file")
     parser.add_argument("-d", "--diff", help="Diff two builds")
+    parser.add_argument("-y", "--year", help="Limit quires by year")
     args = parser.parse_args()
 
     # if verbose, dump to the terminal.
@@ -336,7 +338,11 @@ def main():
         totals = dict()
         if args.list == "sizes":
             devdata = DeviceData()
-            totals = devdb.track_size()
+            if args.year:
+                year = int(args.year)
+            else:
+                year = 2017
+            totals = devdb.track_size(year)
             fieldnames = ("vendor",
                           "model",
                           "build",
@@ -350,6 +356,7 @@ def main():
             csvfile = open("sizes.csv", 'w', newline='')
             csvout = csv.DictWriter(csvfile, fieldnames=fieldnames)
             csvout.writeheader()
+            bar = Bar("Writing data...", max=len(totals))
             for entry in totals:
                 if entry[6] in devdata.ignore:
                     continue
@@ -366,6 +373,8 @@ def main():
                        "released": entry[8],
                        }
                 csvout.writerow(out)
+                bar.next()
+            bar.finish()
             log.info(f"Wrote sizes.csv")
             quit()
 
