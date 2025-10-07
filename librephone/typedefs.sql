@@ -87,7 +87,11 @@ CREATE TYPE public.bintypes AS ENUM (
 	'TOUCHSCREEN6',
 	'CODEC',
 	'CERT',
-	'PROXIMITY'
+	'PROXIMITY',
+	'STORAGE',
+	'AI',
+	'FASTCHG',
+	'ESIM'
 );
 DROP TYPE IF EXISTS public.archtypes CASCADE;
 CREATE TYPE public.archtypes AS ENUM (

@@ -90,6 +90,8 @@
     - PROXIMITY
     - STORAGE
     - AI
+    - FASTCHG
+    - ESIM
 
 - archtypes:
     - UNKNOWN

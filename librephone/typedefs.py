@@ -84,6 +84,10 @@ class Bintypes(Enum):
 	CODEC = 'CODEC'
 	CERT = 'CERT'
 	PROXIMITY = 'PROXIMITY'
+	STORAGE = 'STORAGE'
+	AI = 'AI'
+	FASTCHG = 'FASTCHG'
+	ESIM = 'ESIM'
 
 class Archtypes(Enum):
 	UNKNOWN = 'UNKNOWN'
