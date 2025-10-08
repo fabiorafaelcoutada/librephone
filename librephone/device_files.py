@@ -133,7 +133,9 @@ class DeviceFiles(object):
                   filespec: str,
                   ):
         """
-        Extract the magic number from a binary file.
+        Identify the file type by examining the filename where it's
+        consistent, and if not recognized, extract the possible magic
+        number from the binary file.
 
         Args:
             filespec (str): The file to get info for
@@ -147,6 +149,11 @@ class DeviceFiles(object):
                      {"pat": "aw8695.*_rtp_.*bin", "type": Bintypes.MEDIA},
                      {"pat": "aw8624.*.bin", "type":Bintypes.AUDIOAMP},
                      {"pat": "aw87xxx.*.bin", "type":Bintypes.AUDIOAMP},
+                     {"pat": "a650_.*.bin", "type":Bintypes.AUDIO},
+                     {"pat": "a650_.*.fw", "type":Bintypes.AUDIO},
+                     {"pat": "a660_.*.fw", "type":Bintypes.AUDIO},
+                     {"pat": "a660_.*.bin", "type":Bintypes.AUDIO},
+                     {"pat": "sn100u.bin", "type":Bintypes.AUDIO},
                      {"pat": "cs35l41-dsp.*.bin", "type":Bintypes.AUDIOAMP},
                      {"pat": "aw882.*.bin", "type":Bintypes.CODEC},
                      {"pat": "aw963xx.*.bin", "type":Bintypes.PROXIMITY},
@@ -163,19 +170,30 @@ class DeviceFiles(object):
                      {"pat": "misound.*.bin", "type": Bintypes.RTPSTREAM},
                      {"pat": "config.bin", "type": Bintypes.CONFIG},
                      {"pat": "[0-9]*_pre.bin", "type": Bintypes.CAMERA},
-                     {"pat": "FW_FT3518_.*.bin", "type": Bintypes.TOUCHSCREEN2},
-                     {"pat": "FW_FT3681_.*.bin", "type": Bintypes.TOUCHSCREEN2},
-                     {"pat": "FW_GT9886_.*.bin", "type": Bintypes.TOUCHSCREEN3},
-                     {"pat": "FW_NF_ILI7807S.*.bin", "type": Bintypes.TOUCHSCREEN4},
-                     {"pat": "FW_S3908_.*.bin", "type": Bintypes.OLED},
-                     {"pat": "FW_NF_NT36672C.*.bin", "type": Bintypes.TOUCHSCREEN5},
+                     {"pat": "CFR_OnePlus.*.bin", "type": Bintypes.CAMERA},
+                     {"pat": "_FT3518_.*.bin", "type": Bintypes.TOUCHSCREEN2},
+                     {"pat": "_FT3681_.*.bin", "type": Bintypes.TOUCHSCREEN2},
+                     {"pat": "_FT3681_.*.bin", "type": Bintypes.TOUCHSCREEN2},
+                     {"pat": "_FT3518_SAMSUNG.*img", "type": Bintypes.TOUCHSCREEN3},
+                     {"pat": "_NF_ILI7807S.*.bin", "type": Bintypes.TOUCHSCREEN4},
+                     {"pat": "_S3908_.*.bin", "type": Bintypes.TOUCHSCREEN},
+                     {"pat": "_S3908_.*.img", "type": Bintypes.TOUCHSCREEN},
+                     {"pat": "focaltech-[a-z]*-ft8756.*.bin", "type": Bintypes.TOUCHSCREEN},
+                     {"pat": "_NF_NT36672C.*.bin", "type": Bintypes.TOUCHSCREEN5},
+                     {"pat": "_NF_NT36672C.*.img", "type": Bintypes.TOUCHSCREEN5},
                      {"pat": "_S3706_.*.bin", "type": Bintypes.TOUCHSCREEN6},
                      {"pat": "_S6SY761_.*.bin", "type": Bintypes.TOUCHSCREEN},
+                     {"pat": "_S6SY761_.*.img", "type": Bintypes.TOUCHSCREEN},
                      {"pat": "_S6SY771_.*.bin", "type": Bintypes.TOUCHSCREEN},
+                     {"pat": "_S6SY771_.*.img", "type": Bintypes.TOUCHSCREEN},
                      {"pat": "_S6SY791_.*.bin", "type": Bintypes.TOUCHSCREEN},
+                     {"pat": "_S6SY791_.*.img", "type": Bintypes.TOUCHSCREEN},
                      {"pat": "_S6SY792_.*.bin", "type": Bintypes.TOUCHSCREEN},
+                     {"pat": "_S6SY792_.*.img", "type": Bintypes.TOUCHSCREEN},
+                     {"pat": "_GT9886_SAMSUNG.*.img", "type": Bintypes.TOUCHSCREEN},
                      {"pat": "goodix_firmware_ak.*.bin", "type": Bintypes.TOUCHSCREEN},
                      {"pat": "cs40l26.*.bin", "type": Bintypes.TOUCHSCREEN},
+                     {"pat": "aoc.bin", "type": Bintypes.TOUCHSCREEN},
                      {"pat": "shader_PROGRAM.*.bin", "type": Bintypes.SHADER},
                      {"pat": "a630_sqe.*.bin", "type": Bintypes.GPU},
                      {"pat": "mali_csffw-.*.bin", "type": Bintypes.GPU},
@@ -190,6 +208,7 @@ class DeviceFiles(object):
                      {"pat": "sec_s3n.*.bin", "type": Bintypes.NFC},
                      {"pat": "skinLUTs.*.bin", "type": Bintypes.CAMERA},
                      {"pat": "st21nfc_fw.*.bin", "type": Bintypes.CAMERA},
+                     {"pat": "unified_kb.*.bin", "type": Bintypes.CAMERA},
                      {"pat": "st54j_conf.bin", "type": Bintypes.CONFIG},
                      {"pat": "st54j_fw.bin", "type": Bintypes.NFC},
                      {"pat": "unsparse_super_empty.img", "type": Bintypes.BOOT},
@@ -206,9 +225,23 @@ class DeviceFiles(object):
                      {"pat": "a[0-9]*]_sqe.bin", "type": Bintypes.GPU},
                      {"pat": "xusb.bin", "type": Bintypes.USB},
                      {"pat": "aoa_cldb.*bin", "type": Bintypes.WIFI},
-                     {"pat": "MICRONMT128GBCAV2U3AKKYY101.*img", "type": Bintypes.STORAGE},
-                     {"pat": "KIOXIATH.*img", "type": Bintypes.STORAGE},
-                     {"pat": "SAMSUNGKLUDG4UHGC-.*img", "type": Bintypes.STORAGE},
+                     {"pat": "MICRONMT128GB.*.img", "type": Bintypes.STORAGE},
+                     {"pat": "KIOXIATH.*.img", "type": Bintypes.STORAGE},
+                     {"pat": "SAMSUNGKLUDG4UHGC-.*.img", "type": Bintypes.STORAGE},
+                     {"pat": "w_dual_calibration.bin", "type": Bintypes.CAMERA},
+                     {"pat": "esim-full.*.img", "type": Bintypes.ESIM},
+                     {"pat": "edgetpu-rio.fw", "type": Bintypes.AI},
+                     {"pat": "gxp-callisto.fw", "type": Bintypes.AI},
+                     {"pat": "ellc.bin", "type": Bintypes.CAMERA},
+                     {"pat": "com.qti.*.bin", "type": Bintypes.CAMERA},
+                     {"pat": "FW_NF_ILI7807S_.*img", "type": Bintypes.WIFI_BLUETOOTH},
+                     {"pat": "filter.bin", "type": Bintypes.CAMERA},
+                     {"pat": "[E[]ye_.*.bin", "type": Bintypes.CAMERA},
+                     {"pat": "[Ff]ac[ei].*.bin", "type": Bintypes.CAMERA},
+                     {"pat": "FW_NF_ILI7807S.*.img", "type": Bintypes.WIFI_BLUETOOTH},
+                     {"pat": "dual.*.bin", "type": Bintypes.CAMERA},
+                     {"pat": "oplus_vooc_fw_.*.bin", "type": Bintypes.FASTCHG},
+                     {"pat": "effect_[0-9].bin", "type": Bintypes.VIBRATION},
                      {"pat": "w_dual_calibration.bin", "type": Bintypes.CAMERA},
                     )
         print(f"FIXME: {filespec}")
@@ -216,6 +249,8 @@ class DeviceFiles(object):
             pat = re.compile(name["pat"])
             if re.search(pat, filespec):
                 return name["type"]
+
+        log.debug(f"No type found for {filespec}, checking magic number")
 
         # FIXME: Limit magic numbers to 4 bytes unless we can figure out
         # a better way to handle different length magic numbers.
@@ -244,7 +279,7 @@ class DeviceFiles(object):
                          'AUDIOAMP': bytes([0x57, 0x4d, 0x44, 0x52]),
                          'OLED': bytes([0x4c, 0x49, 0x4d, 0x49]),
                          'TOUCHSCREEN1': bytes([0x4c, 0x49, 0x4d, 0x49]),
-                         'FINGERPRINT': bytes([0x46, 0x77, 0x55, 0x70]),
+                         'FASTCHG': bytes([0x46, 0x77, 0x55, 0x70]),
                          'TOUCHSCREEN3': bytes([0x00, 0x00, 0x09, 0x62]),
                          'TOUCHSCREEN4': bytes([0x2b, 0x47, 0x18, 0x48]),
                          'TOUCHSCREEN5': bytes([0x54, 0x46, 0x49, 0x53]),
