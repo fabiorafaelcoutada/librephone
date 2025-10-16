@@ -19,7 +19,7 @@ that works the same way.
 
 ### [Comparing Devices](comparing.md)
 
-This describes the prpcess of analyzing all the binary blobs in the
+This describes the process of analyzing all the binary blobs in the
 devices supported by Lineage.
 
 ### [Generating Code Stubs](stubs.md)
