@@ -158,8 +158,8 @@ class QueryDevice(object):
         Returns:
             (list): The results of the query
         """
-        breakpoint()
-        sql = f"SELECT vendor,model,build FROM {self.dbname},jsonb_array_elements(blobs->'type') foo WHERE blobs  @> '[{{\"type\": \"{bintype.value}\"}}]';"
+        # breakpoint()
+        sql = f"SELECT vendor,model,build FROM {self.dbname},jsonb_array_elements(blobs) foo WHERE blobs  @> '[{{\"type\": \"{bintype.value}\"}}]';"
         # print(f"SQL: {sql}")
         result = self.dbcursor.execute(sql)
         result = self.dbcursor.fetchall()
@@ -216,11 +216,12 @@ class QueryDevice(object):
         Query a table in the database.
 
         Args:
+            year (int): The minimum year to query
 
         Returns:
             (list): The devices the file is in
         """
-        sql = f"SELECT vendor,model,build,foo->>'path',foo->>'file',foo->>'size',foo->>'md5sum',foo->>'type',released FROM devices,jsonb_array_elements(devices.blobs) AS foo WHERE released > {year};"
+        sql = f"SELECT vendor,model,build,foo->>'path',foo->>'file',foo->>'size',foo->>'md5sum',foo->>'type',released FROM devices,jsonb_array_elements(devices.blobs) AS foo WHERE released >= {year};"
         print(f"SQL: {sql}")
         result = self.dbcursor.execute(sql)
         result = self.dbcursor.fetchall()
@@ -258,7 +259,7 @@ def main():
     parser.add_argument("-l", "--list", choices=choices, help="Find device metadata")
     parser.add_argument("-t", "--track", help="Find devices containing file")
     parser.add_argument("-d", "--diff", help="Diff two builds")
-    parser.add_argument("-y", "--year", help="Limit quires by year")
+    parser.add_argument("-y", "--year", help="Start queries at year")
     args = parser.parse_args()
 
     # if verbose, dump to the terminal.
