@@ -1,9 +1,9 @@
 # Comparing Devices
 
-In order to be able to compare the devices Lineage supports, It's
+In order to be able to compare the devices Lineage supports, it's
 necessary to use the Lineage install packages if you don't have the
 device hardware. These zip files contain the proprietary files
-copied off an actual device. To compare multiple devices required
+copied off an actual device. Comparing multiple devices requires
 manually downloading all the install zip files from the Lineage
 website (210 of them). These are all large files, over a gigabyte, so
 lots of disk space is needed. In a parallel directory of the Lineage
@@ -66,14 +66,14 @@ This project contains a script to handle de-packaging the Lineage
 install files. In order to extract the proprietary files from the
 Lineage install packages, first it gets unzipped. That creates a
 handful of files, mostly system images or configuration data.
-The files in the zip are in different packaging formats, so need to be
+The files in the zip are in different packaging formats, so they need to be
 further processed before Lineage can use them. Most of the files in
 the zip package are filesystem images. When extracting files, Lineage
 mounts the filesystem, to access the files.
 
 If you have multiple zip file versions, use the *-z* option, otherwise
 it'll default to the current Lineage release. When done, the directory
-will be populated by all of the files Lineage needs to try to extract
+will be populated with all of the files Lineage needs to try to extract
 the proprietary files.
 
 ### Payload Format
@@ -113,7 +113,7 @@ When building Lineage, much of the time is spent downloading device
 specific code like the kernel source for each device which may be over
 gigabyte, so not fast. It is possible to download all the vendor and
 device data, but if you try to build Lineage you get a dependency
-problem, so have to delete the vendor directories from the vendor and
+problem, so you have to delete the vendor directories from the vendor and
 device directories (maybe run repo sync if there are problems)
 
 Command line options are:
@@ -159,8 +159,8 @@ analysis. The [extractor](extractor.md) script doesn't download the
 kernel sources since we're not compiling Lineage, so much faster if
 all you want to do is extract the proprietary files.
 
-These scripts all take a directory with the zip file as an argument
-making it easy to automate. Do to this manually for a specific
+All these scripts take a directory with the zip file as an argument
+making it easy to automate. Doing this manually for a specific
 directory requires a few steps. First unzip the install package, then
 extract the proprietary files from the filesystem images.
 
@@ -171,7 +171,7 @@ extract the proprietary files from the filesystem images.
 	extractor -v --remove [path]/motorola/nio
 
 The [images_util.sh](images_util.md) script does all of these steps
-for all supported devices, so is the best way to process the
+for all supported devices, so it's the best way to process the
 data. Doing it manually is just for development when working on a
 specific device.
 
@@ -186,10 +186,10 @@ or from the packaged zip files.
 * proprietary-firmware.txt
 * proprietary-files.txt
 
-The extract-files.py script also have a command line option to
+The extract-files.py script also has a command line option to
 regenerate these lists of files from a hardware device, but not from
 the zip packages. In some cases these lists are out of sync with the
-Lineage install packages, so don't work without a little debugging.
+Lineage install packages, so it doesn't work without a little debugging.
 
 These files also don't exist unless you have run the *breakfast*
 command to build for a device. In that case, the extractor program
@@ -201,15 +201,15 @@ files we want without downloading the kernel source for each one.
 
 Once all the proprietary files we care about are cloned to an output
 directory, metadata on each file can be imported using the
-[import-device](import-device.md] program in this project into a
+[import-device](import-device.md) program in this project into a
 postgres database. While the database can be queried directly, there
 is a [query-device](query-device.md) program with a few canned
-queries. Each query produces a CSV file so can be opened in a
+queries. Each query produces a CSV file so that it can be opened in a
 spreadsheet program for more analysis.
 
 ### Current Metadata
 
-Since this project is in it's early stages, the metadata on each is
+Since this project is in its early stages, the metadata is
 limited to the size, type, and md5sum of each file. Each device entry
 in the database uses JSONB columns, so can be extended as more data on
 each file is collected.
