@@ -166,8 +166,8 @@ clone() {
     done
 }
 
-# When changing vendors, we have to remove files from other vendors because'
-# the build system globs directories, so they wind up causing depenency issues
+# When changing vendors, we have to remove files from other vendors because
+# the build system globs directories, so they wind up causing dependency issues
 # at build time.
 change_vendor() {
     save="common|generic|google|google_car|lineage|qcom|sample"

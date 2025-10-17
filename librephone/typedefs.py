@@ -1,11 +1,5 @@
 import logging
 from enum import Enum
-class Cputypes(Enum):
-	CORTEX = 'CORTEX'
-	KRYO = 'KRYO'
-	EXPYNOS = 'EXPYNOS'
-	MEDIATEC = 'MEDIATEC'
-
 class Gpumodels(Enum):
 	MALI = 'MALI'
 	ADRENO = 'ADRENO'
@@ -37,7 +31,7 @@ class Bintypes(Enum):
 	MBR = 'MBR'
 	BOOT = 'BOOT'
 	DATA = 'DATA'
-	AVB0 = 'AVB0'
+	AVB = 'AVB'
 	MSDOS = 'MSDOS'
 	SD = 'SD'
 	DTB = 'DTB'
@@ -66,6 +60,7 @@ class Bintypes(Enum):
 	SHADER = 'SHADER'
 	BLUETOOTH = 'BLUETOOTH'
 	WIFI_GPS_BLUETOOTH = 'WIFI_GPS_BLUETOOTH'
+	CELL_WIFI_GPS_BLUETOOTH = 'CELL_WIFI_GPS_BLUETOOTH'
 	WIFI_BLUETOOTH = 'WIFI_BLUETOOTH'
 	AUDIO = 'AUDIO'
 	MEDIA = 'MEDIA'
@@ -87,17 +82,20 @@ class Bintypes(Enum):
 	STORAGE = 'STORAGE'
 	AI = 'AI'
 	FASTCHG = 'FASTCHG'
+	UEFIBOOT = 'UEFIBOOT'
+	SECUREBOOT = 'SECUREBOOT'
 	ESIM = 'ESIM'
 
 class Archtypes(Enum):
 	UNKNOWN = 'UNKNOWN'
-	ARM64 = 'ARM64'
+	ARM = 'ARM'
 	AARCH64 = 'AARCH64'
 	RISCV = 'RISCV'
 	WE32100 = 'WE32100'
 	XTENSA = 'XTENSA'
 	MIPS = 'MIPS'
-	DSP = 'DSP'
+	QUALCOMM = 'QUALCOMM'
+	CORTEXM = 'CORTEXM'
 
 class Celltypes(Enum):
 	UNKNOWN = 'UNKNOWN'

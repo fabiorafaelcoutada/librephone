@@ -1,10 +1,3 @@
-DROP TYPE IF EXISTS public.cputypes CASCADE;
-CREATE TYPE public.cputypes AS ENUM (
-	'CORTEX',
-	'KRYO',
-	'EXPYNOS',
-	'MEDIATEC'
-);
 DROP TYPE IF EXISTS public.gpumodels CASCADE;
 CREATE TYPE public.gpumodels AS ENUM (
 	'MALI',
@@ -41,7 +34,7 @@ CREATE TYPE public.bintypes AS ENUM (
 	'MBR',
 	'BOOT',
 	'DATA',
-	'AVB0',
+	'AVB',
 	'MSDOS',
 	'SD',
 	'DTB',
@@ -70,6 +63,7 @@ CREATE TYPE public.bintypes AS ENUM (
 	'SHADER',
 	'BLUETOOTH',
 	'WIFI_GPS_BLUETOOTH',
+	'CELL_WIFI_GPS_BLUETOOTH',
 	'WIFI_BLUETOOTH',
 	'AUDIO',
 	'MEDIA',
@@ -91,18 +85,21 @@ CREATE TYPE public.bintypes AS ENUM (
 	'STORAGE',
 	'AI',
 	'FASTCHG',
+	'UEFIBOOT',
+	'SECUREBOOT',
 	'ESIM'
 );
 DROP TYPE IF EXISTS public.archtypes CASCADE;
 CREATE TYPE public.archtypes AS ENUM (
 	'UNKNOWN',
-	'ARM64',
+	'ARM',
 	'AARCH64',
 	'RISCV',
 	'WE32100',
 	'XTENSA',
 	'MIPS',
-	'DSP'
+	'QUALCOMM',
+	'CORTEXM'
 );
 DROP TYPE IF EXISTS public.celltypes CASCADE;
 CREATE TYPE public.celltypes AS ENUM (

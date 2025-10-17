@@ -4,12 +4,6 @@
 # use the psycopg support for mapping python enums to postgresql
 # enums, but this does the same thing, just more static file based.
 
-- cputypes:
-    - CORTEX
-    - KRYO
-    - EXPYNOS
-    - MEDIATEC
-
 - gpumodels:
     - MALI
     - ADRENO
@@ -41,7 +35,7 @@
     - MBR
     - BOOT
     - DATA
-    - AVB0
+    - AVB
     - MSDOS
     - SD
     - DTB
@@ -70,6 +64,7 @@
     - SHADER
     - BLUETOOTH
     - WIFI_GPS_BLUETOOTH
+    - CELL_WIFI_GPS_BLUETOOTH
     - WIFI_BLUETOOTH
     - AUDIO
     - MEDIA
@@ -91,17 +86,21 @@
     - STORAGE
     - AI
     - FASTCHG
+    - UEFIBOOT
+    - SECUREBOOT
     - ESIM
+    - CELL
 
 - archtypes:
     - UNKNOWN
-    - ARM64
+    - ARM
     - AARCH64
     - RISCV
     - WE32100
     - XTENSA
     - MIPS
-    - DSP
+    - QUALCOMM
+    - CORTEXM
 
 - celltypes:
     - UNKNOWN
