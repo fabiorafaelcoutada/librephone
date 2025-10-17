@@ -27,7 +27,7 @@ from librephone.yamlfile import YamlFile
 from datetime import datetime
 from shapely.geometry import Point, LineString, Polygon
 from librephone.device import DeviceData
-from librephone.typedefs import Cputypes, Gpumodels, Devstatus, Imgtypes, Bintypes, Archtypes, Celltypes, Nettypes, Wifitypes, Filetypes, Blobtypes
+from librephone.typedefs import Gpumodels, Devstatus, Imgtypes, Bintypes, Archtypes, Celltypes, Nettypes, Wifitypes, Filetypes, Blobtypes
 
 import librephone as pt
 rootdir = pt.__path__[0]
@@ -291,7 +291,7 @@ class {table.capitalize()}Table(object):
                         elif k1 == 'timestamp':
                             out += f"{k}: datetime = '{datetime.now()}', "
                         elif k1[:7] == 'public.':
-                            breakpoint()
+                            # breakpoint()
                             typedef = k1[7:].capitalize()
                             defined = f"librephone.typedefs.{typedef}"
                             default = eval(f"{typedef}({typedef}.UNKNOWN)")
