@@ -201,7 +201,7 @@ files we want without downloading the kernel source for each one.
 
 Once all the proprietary files we care about are cloned to an output
 directory, metadata on each file can be imported using the
-[import-device](import-device.md] program in this project into a
+[import-device](import-device.md) program in this project into a
 postgres database. While the database can be queried directly, there
 is a [query-device](query-device.md) program with a few canned
 queries. Each query produces a CSV file so that it can be opened in a
