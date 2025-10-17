@@ -30,7 +30,7 @@ import psycopg
 from sys import argv
 import json
 from librephone.device import DeviceData
-from librephone.typedefs import Cputypes, Gpumodels, Devstatus, Imgtypes, Bintypes, Archtypes, Celltypes, Nettypes, Wifitypes, Filetypes, Blobtypes
+from librephone.typedefs import Gpumodels, Devstatus, Imgtypes, Bintypes, Archtypes, Celltypes, Nettypes, Wifitypes, Filetypes, Blobtypes
 from librephone.update_dev import UpdateDevice
 
 import librephone as pt
@@ -122,20 +122,7 @@ class DeviceImport(UpdateDevice):
         sql = str()
         # sort by type
         for category, files in device.files.items():
-            log.info(f"Processing the {category} file type, has {len(files)} files")
-            # if category in Imgtypes :
-            #     column = "imgfiles"
-            # elif category in Bintypes:
-            #     column = "binfiles"
-            # # elif category == "FIRMWARE":
-            # #     column = "firmware"
-            # elif category == "HEX":
-            #     column = "hexfiles"
-            # else:
-            #     suffix = Path(files[0]["file"]).suffix
-            #     log.debug(f"Unsupported type: {category} for file suffix {suffix}")
-            #     continue
-
+            # log.info(f"Processing the {category} file type, has {len(files)} files")
             sql = f"SELECT jsonb_array_length(blobs) FROM devices WHERE build='{device.build}'"
             # print(f"SQL: {sql}")
             result = self.dbcursor.execute(sql)
@@ -145,6 +132,7 @@ class DeviceImport(UpdateDevice):
             # print(result.fetchone())
             # You can't update a jsonb column that is empty, so the first entry
             # is basically an insert.
+            # breakpoint()
             if count is not None and count[0] is not None:
                 sql = f"UPDATE devices SET blobs = blobs || '{json.dumps(files)}' WHERE build='{device.build}'"
             else:
