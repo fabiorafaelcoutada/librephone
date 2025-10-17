@@ -30,6 +30,7 @@ import zipfile
 import glob
 import subprocess
 import shutil
+import magic
 from codetiming import Timer
 # from tqdm import tqdm
 # import tqdm.asyncio
@@ -191,7 +192,7 @@ class Extractor:
 
         # build = self.get_devpath(tmp[len(tmp) - 1])
         devdir = f"{tmp[len(tmp) - 2].lower()}/{build}"
-        propdir = f"{lineage}device/{devdir}"
+        propdir = f"{lineage}/device/{devdir}"
 
         propfile = f"{propdir}/proprietary-files.txt"
         props = list()
@@ -209,7 +210,14 @@ class Extractor:
                     props = glob.glob(f"{subprops}/proprietary-*.txt")
                 fd.close()
 
-        keep = (".hex",".pb", ".img", ".bin", ".dat", ".fw", ".fw2")
+        keep = (".hex",
+                ".pb",
+                ".img",
+                ".bin",
+                ".dat",
+                ".mdt",
+                ".fw",
+                ".fw2")
 
         # Mount the extracted filesystems from the install packages
         self.unmount(indir)
@@ -217,6 +225,7 @@ class Extractor:
 
         # If nothing was found, then the device directories hadn't been
         # downloaded from Lineage.
+        props = list()
         if len(props) == 0:
             if not os.path.exists(propdir):
                 os.makedirs(propdir, mode=0o700)
@@ -246,7 +255,7 @@ class Extractor:
 
         # Process the lists of proprietary files
         for file in props:
-            data = self.parse_proprietary_file(f"{file}")
+            data = self.parse_proprietary_file(file)
             for dir, files in data.items():
                 for entry in files:
                     # breakpoint()
@@ -270,9 +279,27 @@ class Extractor:
                     if not os.path.exists(f"{indir}/{src}"):
                         log.error(f"File {indir}/{src} does not exist, but it should!")
                         continue
-                    logging.debug(f"Copying {indir}/{src} to {dst}")
                     if not os.path.exists(dst):
+                        logging.debug(f"Copying {indir}/{src} to {dst}")
                         shutil.copy(f"{indir}/{src}", dst, follow_symlinks=False)
+        # eakpoint()
+        for root, dirs, files in os.walk(f"{indir}/modem/image"):
+            if len(files) == 0:
+                continue
+            for src in files:
+                if Path(src).is_symlink():
+                    logging.debug(f"{src} is a symbolic link")
+                    continue
+                # breakpoint()
+                dst = f"{outdir}/{devdir}/modem/image/"
+                if not os.path.exists(dst):
+                    os.makedirs(dst)
+                path = Path(root)
+                if not os.path.exists(path):
+                    os.makedirs(path)
+                # if not os.path.exists(dst):
+                logging.debug(f"Copying {path}/{src} to {dst}")
+                shutil.copy(f"{path}/{src}", dst, follow_symlinks=False)
         timer.stop()
         self.unmount(indir)
 
@@ -386,6 +413,27 @@ class Extractor:
               "system_ext.img": "system/system_ext/"
               }
 
+        # FIXME: there seems to be a conflict with magic modules
+        # if magic.from_file(f"{mdir}/modem.img") != "POSIX tar archive (GNU)":
+        # breakpoint()
+        if os.path.exists(f"{mdir}/modem.img"):
+            if not os.path.exists(f"{mdir}/modem"):
+                os.mkdir(f"{mdir}/modem")
+            if not os.path.ismount(f"{mdir}/modem"):
+                logging.info(f"Mounting image modem.img to {mdir}/modem")
+                result = subprocess.run(
+                    [
+                        "sudo",
+                        "mount",
+                        "-m",
+                        "-w",
+                        f"{mdir}/modem.img",
+                        f"{mdir}/modem",
+                    ]
+                )
+            else:
+                logging.info(f"Image {mdir}/modem is already mounted")
+
         for dev, img in fs.items():
             if os.path.exists(f"{mdir}/{dev}"):
                 if not os.path.exists(f"{mdir}/{img}"):
@@ -403,17 +451,6 @@ class Extractor:
                         f"{mdir}/{img}",
                     ]
                     )
-                    # Some files, like recovery.img are root only which screws up Lineage
-                    # when trying to extract files using extract-files.py.
-                    # result = subprocess.run(
-                    # [
-                    #     "sudo",
-                    #     "chown",
-                    #     "-R",
-                    #     "${USER}:${USER}",
-                    #     f"{mdir}/{img}",
-                    # ]
-                    # )
                 else:
                     logging.info(f"Image {mdir}/{img} is already mounted")
 
@@ -429,22 +466,24 @@ class Extractor:
             mdir (str): The directory containing the image files
         """
         logging.info(f"Unmounting all filesystems in {mdir}")
-        dirs = ("system", "vendor", "product")
+        dirs = ("system", "vendor", "product", "modem", "odm")
+        # breakpoint()
         for mounted in dirs:
-            if not os.path.ismount(f"{mdir}/{mounted}"):
-                logging.debug("\tNothing mounted")
-                return True
             if os.path.exists(f"{mdir}/{mounted}"):
+                if not os.path.ismount(f"{mdir}/{mounted}"):
+                    logging.debug(f"\t{mounted} isn't mounted")
+                    continue
+                logging.debug(f"Unmounting {mdir}/{mounted}")
                 result = subprocess.run(
-                    [
-                        "sudo",
-                        "umount",
-                        "-R",
-                        f"{mdir}/{mounted}",
-                    ]
-                )
+                [
+                    "sudo",
+                    "umount",
+                    "-R",
+                    f"{mdir}/{mounted}",
+                ]
+            )
         # Remove created directories
-        shutil.rmtree(f"{mdir}/system")
+        # shutil.rmtree(f"{mdir}/system")
 
     def parse_proprietary_file(self,
                                filespec: str = None,
