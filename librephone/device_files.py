@@ -96,8 +96,8 @@ class DeviceFiles(object):
             return dict()
 
         suffix = Path(filespec).suffix
-        if suffix not in self.keep:
-            return dict()
+        #if suffix not in self.keep:
+        #    return dict()
 
         # log.debug(f"Extracting file size for {file}")
         path = f"{filespec}"
@@ -132,7 +132,7 @@ class DeviceFiles(object):
             # breakpoint()
             ftype = out[match.start():match.end() - 1]
             arch = archtype[ftype].value
-            print(f"FIXME: {filespec} is {arch}")
+            # print(f"FIXME: {filespec} is {arch}")
         else:
             arch =  Archtypes(Archtypes.UNKNOWN).value
         #print(f"FIXME: {filespec} is {archtype[ftype]}")
@@ -177,6 +177,10 @@ class DeviceFiles(object):
                      {"pat": "a650_.*.fw", "type":Bintypes.AUDIO},
                      {"pat": "a660_.*.fw", "type":Bintypes.AUDIO},
                      {"pat": "a660_.*.bin", "type":Bintypes.AUDIO},
+                     {"pat": "adsp.[0-9]*", "type":Bintypes.AUDIO},
+                     {"pat": "adsp.b[a-z]*", "type":Bintypes.AUDIO},
+                     {"pat": "cdsp.b[0-9]*", "type":Bintypes.COMPUTE},
+                     {"pat": "cdsp.[a-z][a-z][a-z]", "type":Bintypes.COMPUTE},
                      {"pat": "sn100u.bin", "type":Bintypes.AUDIO},
                      {"pat": "cs35l41-dsp.*.bin", "type":Bintypes.AUDIOAMP},
                      {"pat": "aw882.*.bin", "type":Bintypes.CODEC},
@@ -224,8 +228,12 @@ class DeviceFiles(object):
                      {"pat": "a630_sqe.*.bin", "type": Bintypes.GPU},
                      {"pat": "a630_sqe.*.fw", "type": Bintypes.GPU},
                      {"pat": "mali_csffw-.*.bin", "type": Bintypes.GPU},
-                     {"pat": "bwlan.bin", "type": Bintypes.WIFI},
-                     {"pat": "bdwlan.bin", "type": Bintypes.WIFI},
+                     {"pat": "bdwlan.*.bin", "type": Bintypes.WIFI},
+                     {"pat": "bdwlan.*.e[0-9][0-9]", "type": Bintypes.WIFI},
+                     {"pat": "bm2n*.bin", "type": Bintypes.WIFI},
+                     {"pat": "wineview.b[0-9][0-9]", "type": Bintypes.DRM},
+                     {"pat": "fingerpr.b[0-9][0-9]", "type": Bintypes.FINGERPRINT},
+                     {"pat": "modem.b[0-9][0-9]", "type": Bintypes.CELL},
                      {"pat": "ringtone_.*.bin", "type": Bintypes.MEDIA},
                      {"pat": "_rtp.bin", "type": Bintypes.MEDIA},
                      {"pat": "st54l_.*bin", "type": Bintypes.NFC},
@@ -362,7 +370,7 @@ class DeviceFiles(object):
                          'WIFI': bytes([0x03, 0x46, 0x04, 0x00]),
                          }
 
-        breakpoint()
+        # breakpoint()
         # foo = magic.from_file(filespec)
         with open(filespec, "rb") as file:
             magicnum = file.read(4)
@@ -394,18 +402,22 @@ class DeviceFiles(object):
                 continue
             # Ignore anything without vendor/build in the path.
             # base = Path(root.replace(f"{indir}/", ""))
-            # print(f"FIXME: {base}")
             if len(base.parts) < 2:
                 continue
             vendor = base.parts[0]
             build = base.parts[1]
+            pat = re.compile("[a-z0-9*].[a-z][0-9][0-9]")
+            skip = [".pb", ".dat"]
             for file in files:
-                if Path(file).suffix not in self.keep:
+                if Path(file).suffix in skip:
                     continue
+                # if Path(file).suffix not in self.keep:
+                #    if not re.match(pat, file):
+                #        continue
                 metadata = self.get_metadata(f"{root}/{file}")
                 # ignore data files use by the blobs
-                if metadata["type"] in self.ignore:
-                    log.debug(f"Ignoring {metadata}")
+                if len(metadata) == 0 or metadata["type"] in self.ignore:
+                    log.debug(f"Ignoring {file}")
                     continue
                 #if  metadata["type"] == Bintypes.UNKNOWN:
                 metadata["path"] = f"{base}"
