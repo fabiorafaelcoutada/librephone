@@ -1,0 +1,38 @@
+name: Sync with Codeberg Repo
+
+on:
+  schedule:
+    # Runs once a day at 19:00 UTC
+    - cron: '0 19 * * *'
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      # Step 1: Check out your GitHub repository's files
+      - name: Checkout GitHub repository
+        uses: actions/checkout@v4
+        with:
+          # Use a Personal Access Token to allow the push step to work
+          token: ${{ secrets.PAT }}
+
+      # Step 2: Run the sync commands
+      - name: Sync and push changes
+        run: |
+          # Set a Git identity
+          git config --global user.name "GitHub Actions Sync"
+          git config --global user.email "actions@github.com"
+          
+          # Add the original Codeberg repo as a remote named "upstream"
+          git remote add upstream https://codeberg.org/rsavoye/librephone.git
+          
+          # Fetch all the branches from the upstream remote
+          git fetch upstream
+          
+          # Merge the changes from Codeberg's main branch into your main branch
+          # This is a non-destructive operation
+          git merge upstream/main
+          
+          # Push the updated main branch back to your GitHub repository
+          git push origin main
