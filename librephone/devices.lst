@@ -6,6 +6,7 @@ essential:mata:PH_1
 fairphone:FP3:FP3
 fairphone:FP4:FP4
 fairphone:FP5:FP5
+fairphone:FP6:FP6
 fxtec:pro1:Pro_1
 fxtec:pro1x:Pro_1X
 google:akita:Pixel_8A
@@ -107,11 +108,13 @@ oneplus:instantnoodle:OnePlus_8
 oneplus:instantnoodlep:OnePlus_8_Pro
 oneplus:kebab:OnePlus_8T
 oneplus:larry:Nord_N30
+oneplus:lemonade:OnePlus_9
 oneplus:lemonadep:OnePlus_9_Pro
 oneplus:lemonades:OnePlus_9R
 oneplus:martini:OnePlus_9RT
 oneplus:oscaro:Nord_CE2
 oneplus:salami:OnePlus_11_5G
+oneplus:waffle:OnePlus_12
 radxa:radxa02_tab:Zero_2_Tablet
 radxa:radxa02:Zero_2_TV
 radxa:radxa0_tab:Zero_Tablet
