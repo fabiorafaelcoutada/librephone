@@ -85,6 +85,10 @@ class Bintypes(Enum):
 	UEFIBOOT = 'UEFIBOOT'
 	SECUREBOOT = 'SECUREBOOT'
 	ESIM = 'ESIM'
+	CELL = 'CELL'
+	COMPUTE = 'COMPUTE'
+	MODEM = 'MODEM'
+	DRM = 'DRM'
 
 class Archtypes(Enum):
 	UNKNOWN = 'UNKNOWN'

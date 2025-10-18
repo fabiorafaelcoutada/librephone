@@ -90,6 +90,9 @@
     - SECUREBOOT
     - ESIM
     - CELL
+    - COMPUTE
+    - MODEM
+    - DRM
 
 - archtypes:
     - UNKNOWN

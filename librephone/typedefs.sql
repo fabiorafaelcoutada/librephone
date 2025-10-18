@@ -87,7 +87,11 @@ CREATE TYPE public.bintypes AS ENUM (
 	'FASTCHG',
 	'UEFIBOOT',
 	'SECUREBOOT',
-	'ESIM'
+	'ESIM',
+	'CELL',
+	'COMPUTE',
+	'MODEM',
+	'DRM'
 );
 DROP TYPE IF EXISTS public.archtypes CASCADE;
 CREATE TYPE public.archtypes AS ENUM (
