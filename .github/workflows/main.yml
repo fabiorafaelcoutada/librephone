@@ -30,9 +30,9 @@ jobs:
           # Fetch all the branches from the upstream remote
           git fetch upstream
           
-          # Merge the changes from Codeberg's main branch into your main branch
+          # Merge the changes, allowing for the different starting histories
           # This is a non-destructive operation
-          git merge upstream/main
+          git merge upstream/main --allow-unrelated-histories
           
           # Push the updated main branch back to your GitHub repository
           git push origin main
