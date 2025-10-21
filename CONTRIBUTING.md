@@ -67,3 +67,43 @@ the code are encouraged when necessary to explain code that may not be
 obvious, but avoid over commenting as well. Code should be able to be
 read like a book, with descriptive names used, no fancy tricks unless
 required. Always be concious of performance and security.
+
+## License & GPL basics
+
+This project is licensed under **GPL-3.0-or-later** (see [LICENSE](./LICENSE)).
+
+**What the GPL means here (quick primer):**
+- If you distribute a modified version, you must also provide the complete corresponding source under the GPL and keep copyright & license notices.
+- Don’t add extra restrictions beyond the GPL.
+- If you ship binaries, also provide the source and any build/install scripts needed to reproduce them.
+- Third-party code must be **GPL-compatible** (e.g., MIT, BSD-2/3, Apache-2.0 is OK with GPLv3). Avoid GPL-incompatible licenses.
+
+**For every new/changed file:**
+- Include an SPDX header at the top:  
+  `SPDX-License-Identifier: GPL-3.0-or-later`
+- Keep or add copyright notices where appropriate.
+
+**Declaring rights (DCO):**
+By contributing, you certify that you wrote the code or otherwise have the right to submit it under the GPL. Please use “Signed-off-by” in commits:
+
+`git commit -s -m "Your message"`
+
+### Dependencies
+
+- Prefer well-maintained, compatible licenses (MIT, BSD-2/3, Apache-2.0 with GPLv3).
+- Avoid adding libraries with GPL-incompatible licenses.
+- If bundling third-party assets, keep their LICENSE files and attribution.
+
+## Community & ways to participate
+
+You don’t need to write code to help! You can:
+- Triage issues, label duplicates, and verify bug reports.
+- Improve docs and examples; fix typos; add tutorials.
+- Write or expand tests.
+- Propose designs or review PRs.
+
+**Where we hang out**
+- Chat: IRC at irc.libera.chat:6697, #librephone.
+
+**Good first issues**
+- Look for the `good first issue` and `help wanted` labels. Ask to be assigned.
