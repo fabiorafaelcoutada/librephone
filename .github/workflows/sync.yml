@@ -1,0 +1,39 @@
+name: Sync with Codeberg Repo
+
+on:
+  schedule:
+    # Runs once a day at 11:00 UTC
+    - cron: '0 11 * * *'
+  workflow_dispatch: # Allows you to run it manually
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      # Step 1: Check out your GitHub repository's files (i.e., this .github folder)
+      - name: Checkout GitHub repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Fetches all history, required for rebase
+          token: ${{ secrets.PAT }} # Token is required for force-pushing
+
+      # Step 2: Run the sync commands
+      - name: Sync and push changes
+        run: |
+          # Set a Git identity
+          git config --global user.name "GitHub Actions Sync"
+          git config --global user.email "actions@github.com"
+
+          # Add the original Codeberg repo as a remote
+          git remote add upstream https://codeberg.org/rsavoye/librephone.git
+
+          # Fetch all the branches from the upstream remote
+          git fetch upstream
+
+          # Rebase your current main branch (with .github) onto the Codeberg main
+          # This replays your .github commit(s) on top of the Codeberg history
+          git rebase upstream/main
+
+          # Force push the rebased branch to your GitHub repository
+          # This is required because rebase rewrites history.
+          git push origin main --force
