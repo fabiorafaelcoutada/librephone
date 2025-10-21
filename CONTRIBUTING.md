@@ -74,7 +74,7 @@ This project is licensed under **GPL-3.0-or-later** (see [LICENSE](./LICENSE)).
 
 **What the GPL means here (quick primer):**
 - If you distribute a modified version, you must also provide the complete corresponding source under the GPL and keep copyright & license notices.
-- Don’t add extra restrictions beyond the GPL.
+- Don't add extra restrictions beyond the GPL.
 - If you ship binaries, also provide the source and any build/install scripts needed to reproduce them.
 - Third-party code must be **GPL-compatible** (e.g., MIT, BSD-2/3, Apache-2.0 is OK with GPLv3). Avoid GPL-incompatible licenses.
 
@@ -96,7 +96,7 @@ By contributing, you certify that you wrote the code or otherwise have the right
 
 ## Community & ways to participate
 
-You don’t need to write code to help! You can:
+You don't need to write code to help! You can:
 - Triage issues, label duplicates, and verify bug reports.
 - Improve docs and examples; fix typos; add tutorials.
 - Write or expand tests.
