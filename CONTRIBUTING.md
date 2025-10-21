@@ -20,7 +20,7 @@ complications with other developers. The old free software joke is
 "patches are better than bug reports" is how we contribute to the
 community of people involved with this project.
 
-# If you are reporting a problem
+## If you are reporting a problem
 
 - Describe exactly what you were trying to achieve, what you did, what you
   expected to happen and what did happen instead. Include relevant information
@@ -68,31 +68,48 @@ obvious, but avoid over commenting as well. Code should be able to be
 read like a book, with descriptive names used, no fancy tricks unless
 required. Always be concious of performance and security.
 
-## License & GPL basics
+## License & GNU AGPL-3.0 Basics
 
-This project is licensed under **GPL-3.0-or-later** (see [LICENSE](./LICENSE)).
+This project is licensed under the **GNU Affero General Public License, version 3.0 (AGPL-3.0)** (see [LICENSE](LICENSE)).
 
-**What the GPL means here (quick primer):**
-- If you distribute a modified version, you must also provide the complete corresponding source under the GPL and keep copyright & license notices.
-- Don't add extra restrictions beyond the GPL.
-- If you ship binaries, also provide the source and any build/install scripts needed to reproduce them.
-- Third-party code must be **GPL-compatible** (e.g., MIT, BSD-2/3, Apache-2.0 is OK with GPLv3). Avoid GPL-incompatible licenses.
+**What the AGPL means here (quick primer):**
+- Source code availability: If you distribute or make modified
+  versions available (including via a network service), you must also
+  provide the complete corresponding source code under the same license
+  (AGPL-3.0).
+- Preserve license and notices: Retain existing copyright notices,
+  license headers, and attributions.
+- No additional restrictions: You may not impose further limitations
+  on the rights granted by the AGPL.
+- Binaries and builds: When distributing binaries, you must include
+  (or provide access to) the full source and any scripts or instructions
+  needed to build and install them.
+- Network use clause: If you modify and run this software on a server 
+  that users interact with over a network, you must also offer those 
+  users the source code for your modified version.
+
+### Third-Party Dependencies
+
+All third-party components must be license-compatible with AGPL-3.0.
+Common compatible licenses include:
+- MIT
+- BSD 2-Clause / BSD 3-Clause
+- Apache License 2.0 (explicitly compatible with AGPL-3.0)
+
+Avoid using software under incompatible licenses (e.g., GPLv2-only,
+proprietary, or non-commercial licenses).
 
 **For every new/changed file:**
 - Include an SPDX header at the top:  
-  `SPDX-License-Identifier: GPL-3.0-or-later`
+  `SPDX-License-Identifier: AGPL-3.0-or-later`
 - Keep or add copyright notices where appropriate.
 
 **Declaring rights (DCO):**
-By contributing, you certify that you wrote the code or otherwise have the right to submit it under the GPL. Please use “Signed-off-by” in commits:
+By contributing, you certify that you wrote the code or otherwise have
+the right to submit it under the AGPL. Please use “Signed-off-by” in commits:
 
 `git commit -s -m "Your message"`
 
-### Dependencies
-
-- Prefer well-maintained, compatible licenses (MIT, BSD-2/3, Apache-2.0 with GPLv3).
-- Avoid adding libraries with GPL-incompatible licenses.
-- If bundling third-party assets, keep their LICENSE files and attribution.
 
 ## Community & ways to participate
 
