@@ -177,8 +177,8 @@ class DeviceFiles(object):
                      {"pat": "a650_.*.fw", "type":Bintypes.AUDIO},
                      {"pat": "a660_.*.fw", "type":Bintypes.AUDIO},
                      {"pat": "a660_.*.bin", "type":Bintypes.AUDIO},
-                     {"pat": "adsp.[0-9]*", "type":Bintypes.AUDIO},
-                     {"pat": "adsp.b[a-z]*", "type":Bintypes.AUDIO},
+                     {"pat": "adsp.[0-9]*", "type":Bintypes.CPU},
+                     {"pat": "adsp.b[a-z]*", "type":Bintypes.CPU},
                      {"pat": "cdsp.b[0-9]*", "type":Bintypes.COMPUTE},
                      {"pat": "cdsp.[a-z][a-z][a-z]", "type":Bintypes.COMPUTE},
                      {"pat": "sn100u.bin", "type":Bintypes.AUDIO},
@@ -191,6 +191,7 @@ class DeviceFiles(object):
                      {"pat": "cpp_firmware_v.*.fw", "type": Bintypes.WIFI_GPS_BLUETOOTH},
                      {"pat": "bm2n.*.bin", "type": Bintypes.ISOLATION},
                      {"pat": "_RTP.*.bin", "type": Bintypes.MEDIA},
+                     {"pat": "qdsp6m.qdb", "type": Bintypes.MEDIA},
                      {"pat": "shader_PROGRAM_.*.bin", "type": Bintypes.SHADER},
                      {"pat": "drv2624.*.bin", "type": Bintypes.VIBRATION},
                      {"pat": "[_.]rgb.bin", "type": Bintypes.GRAPHIC},
@@ -199,6 +200,13 @@ class DeviceFiles(object):
                      {"pat": "config.bin", "type": Bintypes.CONFIG},
                      {"pat": "[0-9]*_pre.bin", "type": Bintypes.CAMERA},
                      {"pat": "iris.*.fw", "type": Bintypes.CAMERA},
+                     {"pat": "fw_ipa_gsi.*elf", "type": Bintypes.CERT},
+                     {"pat": "wpss.b[0-9]", "type": Bintypes.BOOT},
+                     {"pat": "sp_license.b[0-9]*", "type": Bintypes.LICENSING},
+                     {"pat": "cpusys_vm.b[0-9]*", "type": Bintypes.SECURITY},
+                     {"pat": "ipa_fws.b[0-9]*", "type": Bintypes.CELL},
+                     {"pat": "soter[0-9]*", "type": Bintypes.FINGERPRINT},
+                     {"pat": "smplap[0-9]*.b[0-9]*", "type": Bintypes.SECURITY},
                      {"pat": "CFR_OnePlus.*.bin", "type": Bintypes.CAMERA},
                      {"pat": "_FT3518_.*.bin", "type": Bintypes.TOUCHSCREEN2},
                      {"pat": "_FT3681_.*.bin", "type": Bintypes.TOUCHSCREEN2},
@@ -230,7 +238,7 @@ class DeviceFiles(object):
                      {"pat": "mali_csffw-.*.bin", "type": Bintypes.GPU},
                      {"pat": "bdwlan.*.bin", "type": Bintypes.WIFI},
                      {"pat": "bdwlan.*.e[0-9][0-9]", "type": Bintypes.WIFI},
-                     {"pat": "bm2n*.bin", "type": Bintypes.WIFI},
+                     {"pat": "bm2n[0-9][0-9].bin", "type": Bintypes.WIFI},
                      {"pat": "wineview.b[0-9][0-9]", "type": Bintypes.DRM},
                      {"pat": "fingerpr.b[0-9][0-9]", "type": Bintypes.FINGERPRINT},
                      {"pat": "modem.b[0-9][0-9]", "type": Bintypes.CELL},
@@ -280,6 +288,7 @@ class DeviceFiles(object):
                      {"pat": "[E[]ye_.*.bin", "type": Bintypes.CAMERA},
                      {"pat": "[Ff]ac[ei].*.bin", "type": Bintypes.CAMERA},
                      {"pat": "FW_NF_ILI7807S.*.img", "type": Bintypes.WIFI_BLUETOOTH},
+                     {"pat": "hdcp.*.b[0-9]*", "type": Bintypes.DRM},
                      {"pat": "dual.*.bin", "type": Bintypes.CAMERA},
                      {"pat": "oplus_vooc_fw_.*.bin", "type": Bintypes.FASTCHG},
                      {"pat": "effect_[0-9].bin", "type": Bintypes.VIBRATION},
@@ -407,7 +416,7 @@ class DeviceFiles(object):
             vendor = base.parts[0]
             build = base.parts[1]
             pat = re.compile("[a-z0-9*].[a-z][0-9][0-9]")
-            skip = [".pb", ".dat"]
+            skip = [".pb", ".dat", ".mbn"]
             for file in files:
                 if Path(file).suffix in skip:
                     continue
