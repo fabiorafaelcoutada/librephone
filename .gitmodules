@@ -1,0 +1,3 @@
+[submodule "qdsp6-mdt-merge"]
+	path = qdsp6-mdt-merge
+	url = https://codeberg.org/Trendle/qdsp6-mdt-merge.git
