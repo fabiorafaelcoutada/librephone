@@ -33,14 +33,13 @@ name. To do this for all packages you can create the links this way:
 
 	[path]/image_utils.sh -l
 
-Since there is no way to get the device model from the Lineage build,
-this also produces a config file called *devices.list* which can be
-used to bootstrap the database with this binding which simplifies
-later SQL queries by be able to relate a Lineage build with a
-device. This file also gets used by the other functions in the
-*image_utils.sh* utility instead of having each function scan for the
-Lineage zip files, with the advantage of making the code faster and
-more readable.
+This also produces a config file called *devices.list* which can be used to
+bootstrap the database with this binding, since otherwise there is no way to get
+the device model from the Lineage build.  This allows later SQL queries to be
+able to relate a Lineage build with a device. This file also gets used by the
+other functions in the *image_utils.sh* utility instead of having each function
+scan for the Lineage zip files. This has the advantage of making the code faster
+and more readable.
 
 	[path]/[import-device](import-device.md) -v -b devices.list
 
