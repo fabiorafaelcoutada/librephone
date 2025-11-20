@@ -27,7 +27,8 @@ for the devices you are interested in researching. There is also a top
 level script [images_util.sh](docs/images_util.md) that can automate
 the processing of multiple devices.
 
-For more information, the project documentation [is here](docs/index.md).
+For more information, the project documentation [is
+here](docs/index.md). and the project website [is here](https://librephone.fsf.org).
 
 There's an initial IRC channel at irc.libera.chat:6697,
 #librephone. Please join the community!
