@@ -109,7 +109,7 @@ class Extractor:
 
     def decompress(self,
                    mdir: str = '.',
-                   version: float = 22.2,
+                   version: float = 23.0,
                    ) -> bool:
         """
         Extract files from a zip file.
@@ -282,24 +282,25 @@ class Extractor:
                     if not os.path.exists(dst):
                         logging.debug(f"Copying {indir}/{src} to {dst}")
                         shutil.copy(f"{indir}/{src}", dst, follow_symlinks=False)
-        # eakpoint()
-        for root, dirs, files in os.walk(f"{indir}/modem/image"):
-            if len(files) == 0:
-                continue
-            for src in files:
-                if Path(src).is_symlink():
-                    logging.debug(f"{src} is a symbolic link")
+        files = ["modem", "bluetooth"]
+        for blob in files:
+            for root, dirs, files in os.walk(f"{indir}/{blob}/image"):
+                if len(files) == 0:
                     continue
-                # breakpoint()
-                dst = f"{outdir}/{devdir}/modem/image/"
-                if not os.path.exists(dst):
-                    os.makedirs(dst)
-                path = Path(root)
-                if not os.path.exists(path):
-                    os.makedirs(path)
-                # if not os.path.exists(dst):
-                logging.debug(f"Copying {path}/{src} to {dst}")
-                shutil.copy(f"{path}/{src}", dst, follow_symlinks=False)
+                for src in files:
+                    if Path(src).is_symlink():
+                        logging.debug(f"{src} is a symbolic link")
+                        continue
+                    # breakpoint()
+                    dst = f"{outdir}/{devdir}/{blob}/image/"
+                    if not os.path.exists(dst):
+                        os.makedirs(dst)
+                    path = Path(root)
+                    if not os.path.exists(path):
+                        os.makedirs(path)
+                    # if not os.path.exists(dst):
+                    logging.debug(f"Copying {path}/{src} to {dst}")
+                    shutil.copy(f"{path}/{src}", dst, follow_symlinks=False)
         timer.stop()
         self.unmount(indir)
 
@@ -321,7 +322,7 @@ class Extractor:
         timer.start()
         if not os.path.exists(f"{mdir}/payload.bin"):
             # FIXME: don't hardcode the version
-            self.decompress(mdir, 22.2)
+            self.decompress(mdir, 23.0)
 
         if os.path.exists(f"{mdir}/payload.bin"):
             # for file in glob.glob(f"{mdir}/*.img"):
@@ -410,29 +411,28 @@ class Extractor:
               "product.img": "product/",
               "vendor.img": "system/vendor/",
               "vendor.img": "vendor/",
-              "system_ext.img": "system/system_ext/"
+              "system_ext.img": "system/system_ext/",
+              "modem.img": "modem",
+              "bluetooth.img": "bluetooth"
               }
 
-        # FIXME: there seems to be a conflict with magic modules
-        # if magic.from_file(f"{mdir}/modem.img") != "POSIX tar archive (GNU)":
-        # breakpoint()
-        if os.path.exists(f"{mdir}/modem.img"):
-            if not os.path.exists(f"{mdir}/modem"):
-                os.mkdir(f"{mdir}/modem")
-            if not os.path.ismount(f"{mdir}/modem"):
-                logging.info(f"Mounting image modem.img to {mdir}/modem")
-                result = subprocess.run(
-                    [
-                        "sudo",
-                        "mount",
-                        "-m",
-                        "-w",
-                        f"{mdir}/modem.img",
-                        f"{mdir}/modem",
-                    ]
-                )
-            else:
-                logging.info(f"Image {mdir}/modem is already mounted")
+        # if os.path.exists(f"{mdir}/modem.img"):
+        #     if not os.path.exists(f"{mdir}/modem"):
+        #         os.mkdir(f"{mdir}/modem")
+        #     if not os.path.ismount(f"{mdir}/modem"):
+        #         logging.info(f"Mounting image modem.img to {mdir}/modem")
+        #         result = subprocess.run(
+        #             [
+        #                 "sudo",
+        #                 "mount",
+        #                 "-m",
+        #                 "-w",
+        #                 f"{mdir}/modem.img",
+        #                 f"{mdir}/modem",
+        #             ]
+        #         )
+        #     else:
+        #         logging.info(f"Image {mdir}/modem is already mounted")
 
         for dev, img in fs.items():
             if os.path.exists(f"{mdir}/{dev}"):
@@ -596,7 +596,7 @@ unpack all the files, and mount the filesystems so the files can accessed.
                         help="Unmount all filesystems")
     parser.add_argument("-r", "--remove",
                         help="Clean all generated file")
-    parser.add_argument("-l", "--lineage", default=22.2,
+    parser.add_argument("-l", "--lineage", default=23.0,
                         help="Specify the Lineage version")
     # parser.add_argument("-b", "--build",
     #                     help="Specify the build name")
@@ -624,7 +624,7 @@ unpack all the files, and mount the filesystems so the files can accessed.
         )
 
     # Top level Lineage source tree
-    lineage = "/work/Lineage-22.2"
+    lineage = "/work/Lineage-23.0"
     base = os.getenv("LINEAGE")
     if base:
         lineage = base
