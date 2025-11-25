@@ -107,14 +107,15 @@ oneplus:hotdog:OnePlus_7T_Pro
 oneplus:instantnoodle:OnePlus_8
 oneplus:instantnoodlep:OnePlus_8_Pro
 oneplus:kebab:OnePlus_8T
-oneplus:larry:Nord_N30
 oneplus:lemonade:OnePlus_9
 oneplus:lemonadep:OnePlus_9_Pro
 oneplus:lemonades:OnePlus_9R
 oneplus:martini:OnePlus_9RT
 oneplus:oscaro:Nord_CE2
+oneplus:larry:Nord_CE3
 oneplus:salami:OnePlus_11_5G
 oneplus:waffle:OnePlus_12
+oneplus:aston:OnePlus_12R
 oneplus:dodge:OnePlus_13
 radxa:radxa02_tab:Zero_2_Tablet
 radxa:radxa02:Zero_2_TV
@@ -162,7 +163,7 @@ sony:pdx214:Xperia_5_III
 sony:pdx225:Xperia_10_IV
 sony:pdx234:Xperia_1_V
 sony:pdx235:Xperia_10_V
-sony:pdx237:Xperia_5_V
+sony:kirin:Xperia_10
 sony:pioneer:Xperia_XA2
 sony:voyager:Xperia_XA2_Plus
 sony:xz2c:Xperia_XZ2_Compact
