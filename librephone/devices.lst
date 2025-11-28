@@ -9,6 +9,8 @@ fairphone:FP5:FP5
 fairphone:FP6:FP6
 fxtec:pro1:Pro_1
 fxtec:pro1x:Pro_1X
+google:tegu:Pixel_9A
+google:komodo:Pixel_9_Pro_XL
 google:akita:Pixel_8A
 google:barbet:Pixel_5A
 google:bluejay:Pixel_6A
@@ -66,8 +68,10 @@ motorola:guamp:Moto_G9
 motorola:kane:One_Vision
 motorola:kiev:Moto_G_5G
 motorola:messi:Moto_Z3
+motorola:hawao:Moto_G42
 motorola:miami:Edge_30_Neo
 motorola:nairo:Moto_G_5G_Plus
+motorola:denver:Moto_G_Stylus_5G
 motorola:nio:Edge_S
 motorola:ocean:Moto_G7_Power
 motorola:payton:Moto_X4
@@ -79,6 +83,7 @@ motorola:rtwo:Edge_40_Pro
 motorola:troika:One_Action
 motorola:tundra:Edge_30_Fusion
 motorola:xpeng:Moto_G200
+motorola:milanf:G_Stylus_5G-2-2022
 nokia:B2N:7_Plus
 nokia:PL2:6.1_2018
 nothing:Pong:Phone_2
@@ -95,8 +100,12 @@ nvidia:porg_tab:Jetson_Tablet
 nvidia:quill_tab:TX2_Tablet
 nvidia:quill:TX2_TV
 nvidia:sif:Shield_TV_2019
+oneplus:benz:Nord_CE4
+oneplus:erhai:Pad_2_Pro
+oneplus:caihong:Pad_Pro
 oneplus:cheeseburger:OnePlus_5
 oneplus:dre:Nord_200
+oneplus:avalon:Nord_4
 oneplus:enchilada:OnePlus_6
 oneplus:fajita:OnePlus_6T
 oneplus:guacamoleb:OnePlus_7
@@ -139,8 +148,9 @@ samsung:d1:Galaxy_Note_10
 samsung:d1x:Galaxy_Note_10_5G
 samsung:d2s:Galaxy_Note_10_Plus
 samsung:f62:Galaxy_F62
-samsung:gta4l:Galaxy_TabA_10.4_LTE
+samsung:a21s:Galaxy_A21S
 samsung:gta4lwifi:Galaxy_Tab_A7_Wifi
+samsung:gta4l:Galaxy_Tab_A7_LTE
 samsung:gta4xl:Galaxy_Tab_S6_LTE
 samsung:gta4xlwifi:Galaxy_Tab_S6_Wifi
 samsung:gtowifi:Galaxy_TabA_8.0
@@ -150,6 +160,10 @@ samsung:gts7l:Galaxy_Tab_S7_LTE
 samsung:gts7lwifi:Galaxy_Tab_S7_Wifi
 samsung:m52xq:Galaxy_M52_5G
 samsung:r8q:Galaxy_S20_FE
+samsung:d2x:Galaxy:Note_10_Plus_5G
+samsung:x1s:Galaxy_S20
+samsung:y2s:Galaxy_S20_Plus
+samsung:z3s:Galaxy_S20_Ultra
 shift:axolotl:Shift_6MQ
 solana:ingot:Saga
 sony:akari:Xperia_XZ2
@@ -157,12 +171,13 @@ sony:akatsuki:Xperia_XZ3
 sony:aurora:Xperia_XZ2_Premium
 sony:discovery:Xperia_XA2_Ultra
 sony:mermaid:Xperia_10_Plus
-sony:pdx203:Xperia_1_II
 sony:pdx206:Xperia_5_II
 sony:pdx214:Xperia_5_III
+sony:pdx215:Xperia_1_II
 sony:pdx225:Xperia_10_IV
 sony:pdx234:Xperia_1_V
 sony:pdx235:Xperia_10_V
+sony:pdx237:Xperia_5_V
 sony:kirin:Xperia_10
 sony:pioneer:Xperia_XA2
 sony:voyager:Xperia_XA2_Plus
@@ -174,7 +189,6 @@ xiaomi:chiron:Mi_Mix_2
 xiaomi:cmi:Mi_10_Pro
 xiaomi:cupid:Mi_12
 xiaomi:davinci:Redmi_K20
-xiaomi:davinci:Redmi_K20_Mi_9
 xiaomi:dipper:Mi_8
 xiaomi:diting:Mi_12T_Pro
 xiaomi:earth:Poco_12C
@@ -220,4 +234,6 @@ xiaomi:vela:Mi_CC9_Meitu
 xiaomi:violet:Redmi_Note_7_Pro
 xiaomi:zeus:Mi_12_Pro
 xiaomi:zizhan:Mi_Fold_2
+xiaomi:tucana:Redmi_Note_10_Pro
+xiaomi:vermeer:Poco_F6_PRo
 zte:akershus:Axon_9_Pro
