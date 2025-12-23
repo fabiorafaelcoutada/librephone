@@ -59,8 +59,9 @@ nav:
   - Home: index.md
   - Get Started:
       - License: LICENSE.md
-#      - Changelog: CHANGELOG.md
 #      - Code of Conduct: https://docs.hotosm.org/code-of-conduct
+  - Device Details:
+      - Wireless: wireless.md
   - Comparing Devices: comparing.md
   - Current Status: builds.md
   - Code Bindings: stubs.md
@@ -69,7 +70,7 @@ nav:
   - Utilities:
       - Extracting Metadata: extractor.md
       - Importing file metadata: import-device.md
-      - Query The Database: query-device.md
+      - Querying the Database: query-device.md
       - Processing Everything: images_util.md
       - Generating Bindings: generator.md
       - Admin Script: images_util.md
