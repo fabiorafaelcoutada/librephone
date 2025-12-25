@@ -41,6 +41,9 @@ they all contain the same files, they're just packaged differently to
 make it easier to separate out the vendor and device specific files
 from the rest that is for a generic device.
 
+This next part is focused on the files found in a [Fairphone
+FP6](https://www.fairphone.com/en/2025/06/25/switch-to-the-new-fairphone-gen-6/).
+
 ### modem.img
 
 This files contains the bulk of the software used for the radio
@@ -66,6 +69,8 @@ executables for the "little" core on the SoC.
 
 ### system.img
 
+This image primarily contains the mount points for the other
+filesystem files.
 
 ### vendor.img
 
