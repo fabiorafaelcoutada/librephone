@@ -15,19 +15,22 @@ chipset is used for wifi support when coupled with a SnapDragon
 SoC. Since datasheets and most all documentation requires an NDA with
 Qualcomm, about the only decent doc is the Linux [kernel
 patch](https://lwn.net/Articles/889433/) that adds wcn6750
-support. This uses the atk11k device driver, which supports several
-other chipsets.
+support. This uses the [atk11k device
+driver](https://wireless.docs.kernel.org/en/latest/en/users/drivers/ath11k/installation.html),
+which supports several other chipsets which can be ignored.
 
-This chip appears to have an embedded ARM core, and possibly a RISCV
-core as well. These blobs are in the *modem.img* file, and are in the
-*modem/image/qca6750* directory. On a device, they're in the
+This chip appears to have an embedded 32 bit ARM core, and possibly a
+RISCV32 core as well. These blobs are in the *modem.img* file, and are
+in the
+[modem/image/qca6750](https://librephone.fsf.org/blobs/FP6/modem/image/qca6750/)
+directory. On a device, they're in the
 */vendor/firmware_mnt/image/qca6750/* directory.
 
 ## Tools
 
 A variety of open source tools have been used to attempt to identify
 all the files. Most of the fancy GUI based reverse engineering tools
-use the the [GNU Binutils](https://www.gnu.org/software/binutils/) on
+use the the [GNU Binutils](https://www.gnu.org/software/binutils/) in
 the backend. This includes *nm* for listing symbols (if any exist) and
 *objdump* which can disassemble the ELF files into assembly code. The
 fancier programs like [Cutter](https://cutter.re/), and
@@ -41,20 +44,29 @@ unpacking the files is [documented here](files.md). The Unix *file*
 utility can identify some of the blobs, for most of these it
 only sees them as just binary data. When trying to identify a binary
 blob, the various programs sometimes disagree on what they think the
-blob is. When they agree I assume that's probably accurate. I also
+blob is. When they agree I assume that's probably accurate. I then
 attempt to disassemble them for the identified architecture, not so
 much to understand the code, but to see if it's actual assembly code,
 or just gibberish that looks like real code.
 
 ## QCA6750 Blobs
 
-The higher level blobs use the WPSS to control the hardware. There are
+The higher level blobs use the [WPSS]() to control the hardware. There are
 three types of blobs. There are many files with the pattern
 *bdwlan.b[0-9][0-9]* which are Board Device Files (BDF) used to
 customize the software for a particular chipset. Only one is used, so
 the rest can be ignored. The active file gets compiled into a
 *bdwlan.bin* file. The only file loaded at boot time is *bdwlan.elf*,
-which is a 32 bit AARCH32 file.
+which is a 32 bit AARCH32 file. The format of the BDF files is unknown
+as the only documentation available from Qualcomm requires an NDA.
+
+I did find an [open source
+program](https://github.com/testuser7/ath_bdf_tool) that reads older
+versions of the Atk11k BDF files, but fails to decode the current
+version of the BDF files in the FP6. It could be updated for the
+current version. The difference appears to be in older BDF files the
+*regdb* data is in the BDF file, and in newer versions it's now a
+sepoarate regdb.bin file.
 
 In addition, there are also many files with the pattern
 *bdwlan.e[0-9][0-9]*, which are 32bit AARCH32 files. Since they aren't
@@ -62,7 +74,8 @@ loaded at boot time, I assume the *bdwlan.elf* code loads at least one
 of these blobs. It may load all of them, but because they are all the
 same size, I think like the *bdwlan.b[0-9][0-9]* files, these are each
 device specific model. Disassembling bdwlan.elf, which is supposedly an
-AARCH32 ELF file produces
+AARCH32 ELF file, produces garbage assembly, so it appears to be
+another data file.
 
 ## Wireless Processor SubSystem (WPSS)
 
