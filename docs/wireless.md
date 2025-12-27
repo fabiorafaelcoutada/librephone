@@ -1,5 +1,14 @@
 # Wifi & Bluetooth Support
 
+This document covers analyzing the [binary blobs]() that control a
+device's non cellular radio systems, wifi, bluetooth, and NFC. Since
+there is a lot of variety across devices, this is focused on the
+files in a [Fairphone
+FP6](https://en.wikipedia.org/wiki/Fairphone_6). Much of this research
+can be applied to other devices though.
+
+## The Wireless Chipset
+
 The [Qualcomm
 wcn6750](https://www.qualcomm.com/wi-fi/products/fastconnect/fastconnect-6700)
 chipset is used for wifi support when coupled with a SnapDragon
@@ -17,13 +26,25 @@ core as well. These blobs are in the *modem.img* file, and are in the
 ## Tools
 
 A variety of open source tools have been used to attempt to identify
-all the files. This includes the [GNU
-Binutils](https://www.gnu.org/software/binutils/),
-[Binwalk](https://github.com/ReFirmLabs/binwalk),
-[Cutter](https://cutter.re/), and
-[Ghidra](https://ghidra-sre.org/). While the Unix *file* utility can
-identify some of the blobs, for most of these files it only sees them
-as data.
+all the files. Most of the fancy GUI based reverse engineering tools
+use the the [GNU Binutils](https://www.gnu.org/software/binutils/) on
+the backend. This includes *nm* for listing symbols (if any exist) and
+*objdump* which can disassemble the ELF files into assembly code. The
+fancier programs like [Cutter](https://cutter.re/), and
+[Ghidra](https://ghidra-sre.org/) often combine what would be multiple
+steps in a terminal and sometimes bring in extra tools, like a *decompiler*.
+
+Another tool I use frequently for unpacking blobs is
+[Binwalk](https://github.com/ReFirmLabs/binwalk), and occasionally use
+[unblob](https://unblob.org/) for the same function. The process of
+unpacking the files is [documented here](files.md). The Unix *file*
+utility can identify some of the blobs, for most of these it
+only sees them as just binary data. When trying to identify a binary
+blob, the various programs sometimes disagree on what they think the
+blob is. When they agree I assume that's probably accurate. I also
+attempt to disassemble them for the identified architecture, not so
+much to understand the code, but to see if it's actual assembly code,
+or just gibberish that looks like real code.
 
 ## QCA6750 Blobs
 
@@ -37,10 +58,11 @@ which is a 32 bit AARCH32 file.
 
 In addition, there are also many files with the pattern
 *bdwlan.e[0-9][0-9]*, which are 32bit AARCH32 files. Since they aren't
-loaded at boot time, I assume the bdwlan.elf code loads at least one
+loaded at boot time, I assume the *bdwlan.elf* code loads at least one
 of these blobs. It may load all of them, but because they are all the
-same size, I think like the __bdwlan.b*__ files, these are each device
-specific.
+same size, I think like the *bdwlan.b[0-9][0-9]* files, these are each
+device specific model. Disassembling bdwlan.elf, which is supposedly an
+AARCH32 ELF file produces
 
 ## Wireless Processor SubSystem (WPSS)
 
