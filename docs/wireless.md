@@ -1,7 +1,7 @@
-# Wifi & Bluetooth Support
+# WiFi & Bluetooth Support
 
 This document covers analyzing the [binary blobs]() that control a
-device's non cellular radio systems, wifi, bluetooth, and NFC. Since
+device's non cellular radio systems, WiFi, Bluetooth, and NFC. Since
 there is a lot of variety across devices, this is focused on the
 files in a [Fairphone
 FP6](https://en.wikipedia.org/wiki/Fairphone_6). Much of this research
@@ -11,7 +11,7 @@ can be applied to other devices though.
 
 The [Qualcomm
 wcn6750](https://www.qualcomm.com/wi-fi/products/fastconnect/fastconnect-6700)
-chipset is used for wifi support when coupled with a SnapDragon
+chipset is used for WiFi support when coupled with a SnapDragon
 SoC. Since datasheets and most all documentation requires an NDA with
 Qualcomm, about the only decent doc is the Linux [kernel
 patch](https://lwn.net/Articles/889433/) that adds wcn6750
@@ -66,7 +66,7 @@ versions of the Atk11k BDF files, but fails to decode the current
 version of the BDF files in the FP6. It could be updated for the
 current version. The difference appears to be in older BDF files the
 *regdb* data is in the BDF file, and in newer versions it's now a
-sepoarate regdb.bin file.
+separate regdb.bin file.
 
 In addition, there are also many files with the pattern
 *bdwlan.e[0-9][0-9]*, which are 32bit AARCH32 files. Since they aren't
@@ -79,7 +79,7 @@ another data file.
 
 ## Wireless Processor SubSystem (WPSS)
 
-This is the firmware that used for wifi & bluetooth support. It
+This is the firmware that used for WiFi & Bluetooth support. It
 includes the baseband digital signal processing, an RF transceiver, and
 power amplifier. It contains an ARM Cortex-M3 or M4 core for
 application code. It looks like it also contains a RISCV core. The
@@ -100,7 +100,7 @@ blob that seems to be an Intel x86_32 is suspicious.
 
 There are several layers of software used to interface with the
 firmware. All of the source code for these layers are part of the
-Qualcomm opensource release. The architecture of the wireless software
+Qualcomm open source release. The architecture of the wireless software
 stack is explained in detail [in this
 document](https://deepwiki.com/TechNexion/qcacld-2.0/1-overview), so
 this is just a quick summary.
@@ -116,7 +116,7 @@ This is the interface between the HDD and the protocol engine.
 
 ## [Wireless Module Interface (WMI)](https://deepwiki.com/TechNexion/qcacld-2.0/5.1-wireless-module-interface-(wmi)#wmi-architecture)
 
-This is commnd and event protocol used between the driver and the firmware.
+This is command and event protocol used between the driver and the firmware.
 
 ### [Wireless Management Agent (WMA)](https://deepwiki.com/TechNexion/qcacld-2.0/5-wireless-management-agent-(wma)#wireless-management-agent-wma)
 
