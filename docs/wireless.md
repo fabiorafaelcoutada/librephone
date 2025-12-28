@@ -110,9 +110,9 @@ core, I see many __invalid__ errors, but for 16 bit, I see none of those.
 
 * wpss.b00 - ELF 32-bit LSB executable, QUALCOMM DSP6
 * wpss.b01 - ATMel AVR 8 bit little endian
-* wpss.b02 - little endian AARCH32 binary, Thumb-2
-* wpss.b03 - little endian AARCH32 binary, Thumb-2
-* wpss.b04 - little endian AARCH32 binary, Thumb-2
+* wpss.b02 - 16/32 bit Thumb-2 little endian AARCH32 binary
+* wpss.b03 - 16/32 bit Thumb-2 little endian AARCH32 binary
+* wpss.b04 - 16/32 bit Thumb-2 little endian AARCH32 binary
 * wpss.b05 - ELF6 4 little endian relocatable, AARCH64
 * wpss.b06 - looks like boot code and contains multiple files
 * wpss.b07 - ELF32 little endian RISCV32 binary
