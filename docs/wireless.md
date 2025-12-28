@@ -19,9 +19,9 @@ support. This uses the [atk11k device
 driver](https://wireless.docs.kernel.org/en/latest/en/users/drivers/ath11k/installation.html),
 which supports several other chipsets which can be ignored.
 
-This chip appears to have an embedded 32 bit ARM core, and possibly a
-RISCV32 core as well. These blobs are in the *modem.img* file, and are
-in the
+This chip appears to have an embedded 8 bit ATMel AVR core, and
+possibly a RISCV32 core as well. These blobs are in the *modem.img*
+file, and are in the
 [modem/image/qca6750](https://librephone.fsf.org/blobs/FP6/modem/image/qca6750/)
 directory. On a device, they're in the
 */vendor/firmware_mnt/image/qca6750/* directory.
@@ -101,23 +101,27 @@ are not ELF executables, these are raw binary files that have to be
 loaded at a specific address.
 
 Dissasembling them gives varying results, but looking through the code
-it appears to  be a 16 bit Cortex-M, possibly an M0 or M1. Reading
-dissasembled code can be misleading, as often it looks good, but you
-have to really dig into what the ASM code appears to be doing to be
-sure. I also look for instructions that look weird, and double check
-the ARM assembly manuals just to make sure it is legit. For a 32 bit
-core, I see many __invalid__ errors, but for 16 bit, I see none of those.
+it appears to  be a 16 bit AARCH32 Thumb-2. Reading dissasembled code
+can be misleading, as often it looks good, but you have to really dig
+into what the ASM code appears to be doing to be sure. I also look for
+instructions that look weird, and double check the ARM assembly
+manuals just to make sure it is legit.
 
 * wpss.b00 - ELF 32-bit LSB executable, QUALCOMM DSP6
 * wpss.b01 - ATMel AVR 8 bit little endian
 * wpss.b02 - 16/32 bit Thumb-2 little endian AARCH32 binary
 * wpss.b03 - 16/32 bit Thumb-2 little endian AARCH32 binary
 * wpss.b04 - 16/32 bit Thumb-2 little endian AARCH32 binary
-* wpss.b05 - ELF6 4 little endian relocatable, AARCH64
-* wpss.b06 - looks like boot code and contains multiple files
+* wpss.b05 - ELF64 little endian relocatable, AARCH64
+* wpss.b06 - looks like boot code and contains multiple AARCH32 files
 * wpss.b07 - ELF32 little endian RISCV32 binary
 * wpss.b08 - ELF32 little endian Intel i386 binary
 * wpss.b09 - 64 bit little endian AARCH64 binary
+
+The wcn6750 uses the platform device (AHB) in the kernel because it
+can't be probed at boot time. I'm assuming that's what wpss.b05 does.
+Once probed and booted communication switches to working like a PCIe
+device.
 
 ## The Software Stack
 
