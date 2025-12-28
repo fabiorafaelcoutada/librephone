@@ -32,7 +32,13 @@ A variety of open source tools have been used to attempt to identify
 all the files. Most of the fancy GUI based reverse engineering tools
 use the the [GNU Binutils](https://www.gnu.org/software/binutils/) in
 the backend. This includes *nm* for listing symbols (if any exist) and
-*objdump* which can disassemble the ELF files into assembly code. The
+*objdump* which can disassemble the ELF files into assembly code. One
+thing I have noticed is the Binutils is the only one that can
+disassemble the AARCH32 T32 (Thumb) instruction set, which is a subset
+of the AARCH32 A32 instruction set. It's executables are encoded
+differently for a small executable which is an important
+difference. For objdump add *--disassembler-options=force-thumb*( to
+the command line to get clean output. The
 fancier programs like [Cutter](https://cutter.re/), and
 [Ghidra](https://ghidra-sre.org/) often combine what would be multiple
 steps in a terminal and sometimes bring in extra tools, like a *decompiler*.
@@ -57,8 +63,9 @@ three types of blobs. There are many files with the pattern
 customize the software for a particular chipset. Only one is used, so
 the rest can be ignored. The active file gets compiled into a
 *bdwlan.bin* file. The only file loaded at boot time is *bdwlan.elf*,
-which is a 32 bit AARCH32 file. The format of the BDF files is unknown
-as the only documentation available from Qualcomm requires an NDA.
+which is a 32 bit AARCH32 Thumb file. The format of the BDF files is
+unknown as the only documentation available from Qualcomm requires an
+NDA.
 
 I did find an [open source
 program](https://github.com/testuser7/ath_bdf_tool) that reads older
@@ -73,27 +80,44 @@ In addition, there are also many files with the pattern
 loaded at boot time, I assume the *bdwlan.elf* code loads at least one
 of these blobs. It may load all of them, but because they are all the
 same size, I think like the *bdwlan.b[0-9][0-9]* files, these are each
-device specific model. Disassembling bdwlan.elf, is an AARCH32 ELF
-file using the AARCH32 Thumb (T32) instruction set.
+device specific model. bdwlan.elf, is an AARCH32 ELF file using the
+AARCH32 Thumb (T32) instruction set.
 
 ## Wireless Processor SubSystem (WPSS)
 
-This is the firmware that used for WiFi & Bluetooth support. It
-includes the baseband digital signal processing, an RF transceiver, and
-power amplifier. It contains an ARM Cortex-M3 or M4 core for
+These are the blobs used for WiFi & Bluetooth support. It includes the
+baseband digital signal processing, an RF transceiver, and power
+amplifier. It seems to contain an ATmel AVR core for some
 application code. It looks like it also contains a RISCV core. The
 blob that seems to be an Intel x86_32 is suspicious.
 
+The 3 blobs, wpss.bo2, wpss.b03, and wpss.b04 are a bit
+mysterious. All the tools have had issues identifying them, but
+they do seem to agree they are for the AARCH architecture. This is
+probably because the AARCH architecture supports multiple instructions
+sets, and the AARCH32 core can execute both A32 and T32 instructions,
+so in a binary these are often mixed in the same binary file. These
+are not ELF executables, these are raw binary files that have to be
+loaded at a specific address.
+
+Dissasembling them gives varying results, but looking through the code
+it appears to  be a 16 bit Cortex-M, possibly an M0 or M1. Reading
+dissasembled code can be misleading, as often it looks good, but you
+have to really dig into what the ASM code appears to be doing to be
+sure. I also look for instructions that look weird, and double check
+the ARM assembly manuals just to make sure it is legit. For a 32 bit
+core, I see many __invalid__ errors, but for 16 bit, I see none of those.
+
 * wpss.b00 - ELF 32-bit LSB executable, QUALCOMM DSP6
-* wpss.b01 - ATMel AVR 8 Cortex-M little endian
-* wpss.b02 - ELF64, little endian AARCH64 binary
-* wpss.b03 - ELF64, little endian AARCH64 binary
-* wpss.b04 - ELF64, little endian AARCH64 binary
+* wpss.b01 - ATMel AVR 8 bit little endian
+* wpss.b02 - little endian AARCH32 binary, Thumb-2
+* wpss.b03 - little endian AARCH32 binary, Thumb-2
+* wpss.b04 - little endian AARCH32 binary, Thumb-2
 * wpss.b05 - ELF6 4 little endian relocatable, AARCH64
 * wpss.b06 - looks like boot code and contains multiple files
 * wpss.b07 - ELF32 little endian RISCV32 binary
 * wpss.b08 - ELF32 little endian Intel i386 binary
-* wpss.b09 - 64 bit little AARCH64 binary
+* wpss.b09 - 64 bit little endian AARCH64 binary
 
 ## The Software Stack
 
