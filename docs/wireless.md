@@ -73,10 +73,8 @@ In addition, there are also many files with the pattern
 loaded at boot time, I assume the *bdwlan.elf* code loads at least one
 of these blobs. It may load all of them, but because they are all the
 same size, I think like the *bdwlan.b[0-9][0-9]* files, these are each
-device specific model. Disassembling bdwlan.elf, which is supposedly an
-AARCH32 ELF file, produces garbage assembly, so it appears to be
-another data file which probably contains the data on which device
-specific file to load.
+device specific model. Disassembling bdwlan.elf, is an AARCH32 ELF
+file using the AARCH32 Thumb (T32) instruction set.
 
 ## Wireless Processor SubSystem (WPSS)
 
@@ -88,9 +86,9 @@ blob that seems to be an Intel x86_32 is suspicious.
 
 * wpss.b00 - ELF 32-bit LSB executable, QUALCOMM DSP6
 * wpss.b01 - ATMel AVR 8 Cortex-M little endian
-* wpss.b02 - ELF32, little endian AARCH23-Thumb binary
-* wpss.b03 - ELF32, little endian AARCH32-Thumb binary
-* wpss.b04 - ELF32, little endian AARCH64-Thumb binary
+* wpss.b02 - ELF64, little endian AARCH64 binary
+* wpss.b03 - ELF64, little endian AARCH64 binary
+* wpss.b04 - ELF64, little endian AARCH64 binary
 * wpss.b05 - ELF6 4 little endian relocatable, AARCH64
 * wpss.b06 - looks like boot code and contains multiple files
 * wpss.b07 - ELF32 little endian RISCV32 binary
