@@ -122,13 +122,12 @@ class Extractor:
             (bool): Whether it worked or not
         """
         # Find the right zip file
-        # breakpoint()
         if mdir.find(".zip") > 0:
             package = mdir
         else:
             package = glob.glob(f"{mdir}/*{version}*.zip")
         if len(package) == 0:
-            logging.error(f"No lineage zip file in {mdir}!")
+            logging.warning(f"No lineage zip file in {mdir} for 23.0!")
             return False
         else:
             package = package[0]
@@ -138,8 +137,21 @@ class Extractor:
         self.build = tmp[4]
 
         # Extract all the files
+        
+        # FIXME: some of the Lineage packages have a potential zip bomb error
+        # when using the zip module, which the command line unzip doesn't
+        # have, so use that for now.
+        os.environ["UNZIP_DISABLE_ZIPBOMB_DETECTION"] = "TRUE"
         if not os.path.exists(f"{mdir}/payload.bin") and not os.path.exists(f"{mdir}/system.new.dat.br"):
             logging.info(f"Decompressing {package}")
+            # result = subprocess.run(
+            #     [
+            #         "/usr/bin/unzip ",
+            #         "${package}",
+            #         "-d",
+            #         mdir,
+            #         ]
+            # )
             with zipfile.ZipFile(package, 'r') as zip:
                 zip.extractall(mdir)
         else:
@@ -413,26 +425,8 @@ class Extractor:
               "vendor.img": "vendor/",
               "system_ext.img": "system/system_ext/",
               "modem.img": "modem",
-              "bluetooth.img": "bluetooth"
+              "bluetooth.img": "bluetooth",
               }
-
-        # if os.path.exists(f"{mdir}/modem.img"):
-        #     if not os.path.exists(f"{mdir}/modem"):
-        #         os.mkdir(f"{mdir}/modem")
-        #     if not os.path.ismount(f"{mdir}/modem"):
-        #         logging.info(f"Mounting image modem.img to {mdir}/modem")
-        #         result = subprocess.run(
-        #             [
-        #                 "sudo",
-        #                 "mount",
-        #                 "-m",
-        #                 "-w",
-        #                 f"{mdir}/modem.img",
-        #                 f"{mdir}/modem",
-        #             ]
-        #         )
-        #     else:
-        #         logging.info(f"Image {mdir}/modem is already mounted")
 
         for dev, img in fs.items():
             if os.path.exists(f"{mdir}/{dev}"):
@@ -466,7 +460,7 @@ class Extractor:
             mdir (str): The directory containing the image files
         """
         logging.info(f"Unmounting all filesystems in {mdir}")
-        dirs = ("system", "vendor", "product", "modem", "odm")
+        dirs = ("system", "vendor", "product", "modem", "odm", "system_ext", "bluetooth")
         # breakpoint()
         for mounted in dirs:
             if os.path.exists(f"{mdir}/{mounted}"):
@@ -558,7 +552,10 @@ class Extractor:
         for file in os.listdir(mdir):
             if "zip" not in file:
                 if os.path.isdir(f"{mdir}/{file}"):
-                    shutil.rmtree(f"{mdir}/{file}")
+                    if os.path.islink(f"{mdir}/{file}"):
+                        os.remove(f"{mdir}/{file}")
+                    else:
+                        shutil.rmtree(f"{mdir}/{file}")
                 else:
                     os.remove(f"{mdir}/{file}")
 
