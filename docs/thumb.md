@@ -12,9 +12,10 @@ registers so it works well as within a 32 bit embedded core.
 ## Disassmbly Tools
 
 The two best tools I've found for disassmbling Thumb-2 code are the
-GNU binutils and radre2. The Binutils is a terminal only set of
-toopls, but has very solid Thumb-2 support since it's part of the
-toolchain. 
+GNU binutils and [Radre2](https://rada.re/advent/09.html). The
+Binutils is a terminal only set of tools, but has very solid Thumb-2
+support since it's part of the toolchain. There is more detail in
+[this doc](tools.md) on the tools.
 
 ### [GNU Binutils]()
 
@@ -22,13 +23,16 @@ The primary tool for dissasembling binaries is the *objdump*
 program. You need a version compiled for the cross architecture. Since
 AARCH64 supports AARCH32, we only need to build one toolchain.
 
-	aarch64-android-elf-objdump -D --disassembler-options=force-thumb -b binary -m arm wpss.b02
+	aarch64-android-elf-objdump -D --disassembler-options=force-thumb \
+	-b binary -m arm FILE
 
 ### [Radre2](https://rada.re/advent/09.html)
 
-To run this via the command line, invoke with these options:
+The Radre2 program has more features for dissasembling binaries. 
+To analyze Thumb code, radre2 the command line, invoke with these
+options:
 
-	r2 -e asm.arch=arm -e bin.relocs.apply=true -e asm.cpu=cortex -e asm.bits=16 aarch64-android-elf-objdump -b binary -D --disassembler-options=force-thumb wpss.b02
+	r2 -e asm.arch=arm -e bin.relocs.apply=true -e asm.cpu=cortex -e asm.bits=16 FILE
 
 Optionally if you've loaded the files you want to examine, you can set
 it to the right architecture this way:
@@ -43,14 +47,14 @@ Cutter has issues when trying to identify a raw binary, for some of
 the blobs it assumes they are AARCH64. Which they are, sort-of... but
 the disassembly generates garbage. However since cutter-re is built
 using radre2 as the backend, you can specify the same options to get
-good output.
+better output.
 
-	cutter-re -c cortex -b 16 -a arm /tmp/wpss.b02
+	cutter-re -c cortex -b 16 -a arm FILE
 
 One nice thing is the Cutter supports is [a
 graph](https://librephone.fsf.org/images/graph.png) of code execution, 
 which is a nicer way to isolate the code blocks and see where
-branching goes. Radre2 support something similar if you set the
+branching goes. Radre2 supports something similar if you set the
 __aaef__ setting in the *r2* tool.
 
 
