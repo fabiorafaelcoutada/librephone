@@ -91,7 +91,7 @@ amplifier. It seems to contain an ATmel AVR core for some
 application code. It looks like it also contains a RISCV core. The
 blob that seems to be an Intel x86_32 is suspicious.
 
-The 3 blobs, wpss.bo2, wpss.b03, and wpss.b04 are a bit
+The 3 blobs, wpss.b02, wpss.b03, and wpss.b04 are a bit
 mysterious. All the tools have had issues identifying them, but
 they do seem to agree they are for the AARCH architecture. This is
 probably because the AARCH architecture supports multiple instructions
@@ -109,19 +109,36 @@ manuals just to make sure it is legit.
 
 * wpss.b00 - ELF 32-bit LSB executable, QUALCOMM DSP6
 * wpss.b01 - ATMel AVR 8 bit little endian
-* wpss.b02 - 16/32 bit Thumb-2 little endian AARCH32 binary
+* wpss.b02 - 16/32 bit Thumb-2 little endian AARCH32 binary ??
 * wpss.b03 - 16/32 bit Thumb-2 little endian AARCH32 binary
-* wpss.b04 - 16/32 bit Thumb-2 little endian AARCH32 binary
+* wpss.b04 - 16/32 bit Thumb-2 little endian AARCH32 binary ??
 * wpss.b05 - ELF64 little endian relocatable, AARCH64
-* wpss.b06 - looks like boot code and contains multiple AARCH32 files
-* wpss.b07 - ELF32 little endian RISCV32 binary
+* wpss.b06 - Multiple AARCH32 data files
+* wpss.b07 - ELF32 little endian RISCV32 binary ?
 * wpss.b08 - ELF32 little endian Intel i386 binary
-* wpss.b09 - 64 bit little endian AARCH64 binary
+* wpss.b09 - data ?
+* wpss.b10 - data file
+* wpss.b12 - 3 certificates in DER format (x509 v3)
+* wpss.mdt - ELF 32-bit LSB executable, QUALCOMM DSP6
 
 The wcn6750 uses the platform device (AHB) in the kernel because it
 can't be probed at boot time. I'm assuming that's what wpss.b05 does.
 Once probed and booted communication switches to working like a PCIe
 device.
+
+## Device Tree
+
+The memory address for communication between the driver and the
+firmware is in the kernel device tree file. In the kernel there are
+several files that get included by other device tree files. Since the
+wcn6750 is a PCI device, in the device tree file it sets the
+__msi_addr__, which is then used elsewhere in the kernel. For the
+FP6, this is *0x17110040*. There is also an IOVA IPA address which is
+*0xc0000000*, which is what is used by the PCI driver and the wcn6750
+blobs.
+
+IOMMU creates a direct access I/O connection to physical memory
+instead of a DMA connection.
 
 ## The Software Stack
 
