@@ -114,7 +114,7 @@ class DeviceFiles(object):
         #     capture_output=True,
         # )
         result = magic.from_file(path)
-        print(f"MAGIC: {filespec} is {result}")
+        # print(f"MAGIC: {filespec} is {result}")
         # if str(result.stderr).find("file format not recognized") > 0:
         #     pass
         pat = "(ARM|QUALCOMM|MIPS|RISC-V)[ a-zA-Z-]*,"
@@ -146,7 +146,7 @@ class DeviceFiles(object):
                     "type": file_type,
                     "md5sum": md5sum,
                     "path": os.path.dirname(path),
-                    "version": 22.2, # FIXME: this shouldn't be hardcoded
+                    "version": 23.0, # FIXME: this shouldn't be hardcoded
                     }
         if arch != "UNKNOWN":
             metadata["arch"] = arch
@@ -207,6 +207,7 @@ class DeviceFiles(object):
                      {"pat": "ipa_fws.b[0-9]*", "type": Bintypes.CELL},
                      {"pat": "soter[0-9]*", "type": Bintypes.FINGERPRINT},
                      {"pat": "smplap[0-9]*.b[0-9]*", "type": Bintypes.SECURITY},
+                     {"pat": ".*\.mbn", "type": Bintypes.SECURITY},
                      {"pat": "CFR_OnePlus.*.bin", "type": Bintypes.CAMERA},
                      {"pat": "_FT3518_.*.bin", "type": Bintypes.TOUCHSCREEN2},
                      {"pat": "_FT3681_.*.bin", "type": Bintypes.TOUCHSCREEN2},
@@ -416,7 +417,7 @@ class DeviceFiles(object):
             vendor = base.parts[0]
             build = base.parts[1]
             pat = re.compile("[a-z0-9*].[a-z][0-9][0-9]")
-            skip = [".pb", ".dat", ".mbn"]
+            skip = [".pb", ".dat"]
             for file in files:
                 if Path(file).suffix in skip:
                     continue
