@@ -53,8 +53,8 @@ subsystem.
 
 The core of the radio subsystem is the Qualcomm Hexagon Digitial
 Signal Processor (DSP) chip. These are easily identified. All of the
-__adsp.b[0-9][0-9]__ files are for the DSP's Application Processor, and all of
-the __cdsp.b[0-9][0-9]__ files are for the DSP Compute Engine.
+__adsp.b\[0-9\]\[0-9\]__ files are for the DSP's Application Processor, and all of
+the __cdsp.b\[0-9\]\[0-9\]__ files are for the DSP Compute Engine.
 
 #### qca6750
 
@@ -62,9 +62,9 @@ This subdirectory contains all of the files specific to the Qualcomm
 WCN6750 chip, which is the subsystem used for non-cellular radio
 support. This is covered in [more detail here](wireless.md), and
 contains the Wireless Processor SubSystem (WPSS) that used for low
-level hardware control on the WCN6750. These __wpss.[0-9][0-9]__ files are
+level hardware control on the WCN6750. These __wpss.\[0-9\]\[0-9\]__ files are
 not all executables, and the executables are for several CPU cores
-like a Cortex-M4 or a RISCV32. The __bdwlan.e[0-9][0-9]__ files are all AARCH32
+like a Cortex-M4 or a RISCV32. The __bdwlan.e\[0-9\]\[0-9\]__ files are all AARCH32
 executables for the "little" core on the SoC.
 
 ### system.img

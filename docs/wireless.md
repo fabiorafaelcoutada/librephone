@@ -59,7 +59,7 @@ or just gibberish that looks like real code.
 
 The higher level blobs use the [WPSS]() to control the hardware. There are
 three types of blobs. There are many files with the pattern
-*bdwlan.b[0-9][0-9]* which are Board Device Files (BDF) used to
+*bdwlan.b\[0-9\]\[0-9\]* which are Board Device Files (BDF) used to
 customize the software for a particular chipset. Only one is used, so
 the rest can be ignored. The active file gets compiled into a
 *bdwlan.bin* file. The only file loaded at boot time is *bdwlan.elf*,
@@ -76,10 +76,10 @@ current version. The difference appears to be in older BDF files the
 separate regdb.bin file.
 
 In addition, there are also many files with the pattern
-*bdwlan.e[0-9][0-9]*, which are 32bit AARCH32 files. Since they aren't
+*bdwlan.e\[0-9\]\[0-9\]*, which are 32bit AARCH32 files. Since they aren't
 loaded at boot time, I assume the *bdwlan.elf* code loads at least one
 of these blobs. It may load all of them, but because they are all the
-same size, I think like the *bdwlan.b[0-9][0-9]* files, these are each
+same size, I think like the *bdwlan.b\[0-9\]\[0-9\]* files, these are each
 device specific model. bdwlan.elf, is an AARCH32 ELF file using the
 AARCH32 Thumb (T32) instruction set.
 
