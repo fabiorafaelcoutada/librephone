@@ -58,20 +58,24 @@ plugins:
 nav:
   - Home: index.md
   - Get Started:
-      - License: LICENSE.md
-#      - Code of Conduct: https://docs.hotosm.org/code-of-conduct
+    - License: LICENSE.md
   - Device Details:
-      - Wireless: wireless.md
-  - Comparing Devices: comparing.md
-  - Current Status: builds.md
-  - Code Bindings: stubs.md
-  # - Extracting: extracting.md
-  # - Previous: previous.md
+    - Wireless: wireless.md
+    - File Structure: files.md
+    - Comparing Devices: comparing.md
   - Utilities:
-      - Extracting Metadata: extractor.md
-      - Importing file metadata: import-device.md
-      - Querying the Database: query-device.md
-      - Processing Everything: images_util.md
-      - Generating Bindings: generator.md
-      - Admin Script: images_util.md
-
+    - Extracting Metadata: extractor.md
+    - Importing file metadata: import-device.md
+    - Querying the Database: query-device.md
+    - Processing Everything: images_util.md
+    - Generating Code Bindings:
+      - Generating the Files: generator.md
+      - Code Stub Syntax: stubs.md
+    - Admin Script: images_util.md
+  - Tech Details:
+    - Tools: tools.md
+    - Disassembling Thumb: thumb.md
+    - Sample Data Extracts: csvdata.md
+    - Wireless Processor SubSystem:
+      - wpss.b01: wpss.b01.md
+      - wpss.bo8: wpss.b08.md
