@@ -59,8 +59,8 @@ nav:
   - Home: index.md
   - Get Started:
     - License: LICENSE.md
-  - Device Details:
-    - Wireless: wireless.md
+    - The Utilities: utilities.md
+  - Lineage Packages:
     - File Structure: files.md
     - Comparing Devices: comparing.md
   - Utilities:
@@ -76,6 +76,18 @@ nav:
     - Tools: tools.md
     - Disassembling Thumb: thumb.md
     - Sample Data Extracts: csvdata.md
+    - The ATH11k Driver: ath11k.md
     - Wireless Processor SubSystem:
+      - Wireless: wireless.md
       - wpss.b01: wpss.b01.md
-      - wpss.bo8: wpss.b08.md
+      - wpss.b02: wpss.b02.md
+      - wpss.b03: wpss.b03.md
+      - wpss.b04: wpss.b04.md
+      - wpss.b05: wpss.b05.md
+      - wpss.b06: wpss.b06.md
+      - wpss.b07: wpss.b07.md
+      - wpss.b08: wpss.b08.md
+      - wpss.b09: wpss.b09.md
+      - wpss.b10: wpss.b10.md
+#      - wpss.b11: wpss.b11.md
+#      - wpss.b12: wpss.b12.md
