@@ -1,6 +1,6 @@
 # Installing Lineage
 
-If you've unlocked the bootloader, 
+Once you've unlocked the bootloader, you can install Lineage.
 
 ## Reboot into the bootloader
 
