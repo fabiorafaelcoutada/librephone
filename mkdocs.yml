@@ -60,6 +60,7 @@ nav:
   - Get Started:
     - License: LICENSE.md
     - The Utilities: utilities.md
+    - Flashing HOWTO: flashing.md
   - Lineage Packages:
     - File Structure: files.md
     - Comparing Devices: comparing.md
