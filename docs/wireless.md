@@ -108,16 +108,16 @@ instructions that look weird, and double check the ARM assembly
 manuals just to make sure it is legit.
 
 * wpss.b00 - ELF 32-bit LSB executable, QUALCOMM DSP6
-* wpss.b01 - ATMel AVR 8 bit little endian
-* wpss.b02 - 16/32 bit Thumb-2 little endian AARCH32 binary ??
-* wpss.b03 - 16/32 bit Thumb-2 little endian AARCH32 binary
-* wpss.b04 - 16/32 bit Thumb-2 little endian AARCH32 binary ??
-* wpss.b05 - ELF64 little endian relocatable, AARCH64
-* wpss.b06 - Multiple AARCH32 data files
-* wpss.b07 - ELF32 little endian RISCV32 binary ?
-* wpss.b08 - ELF32 little endian Intel i386 binary
-* wpss.b09 - data ?
-* wpss.b10 - data file
+* [wpss.b01](wpss.b01.md) - ATMel AVR 8 bit little endian
+* [wpss.b02](wpss.b02.md) - 16/32 bit Thumb-2 little endian AARCH32 binary
+* [wpss.b03](wpss.b03.md) - 16/32 bit Thumb-2 little endian AARCH32 binary
+* [wpss.b04](wpss.b04.md) - small data file, unknown architecture
+* [wpss.b05](wpss.b05.md) - memory dump, unknown architecture
+* [wpss.b06](wpss.b06.md) - data file, unknown architecture
+* [wpss.b07](wpss.b07.md) - ELF32 little endian RISCV32 binary ?
+* [wpss.b08](wpss.b08.md) - ELF32 little endian Intel i386 binary
+* [wpss.b09](wpss.b09.md) - data file, unknown architecture
+* [wpss.b10](wpss.b10.md) - data file of error messages
 * wpss.b12 - 3 certificates in DER format (x509 v3)
 * wpss.mdt - ELF 32-bit LSB executable, QUALCOMM DSP6
 
