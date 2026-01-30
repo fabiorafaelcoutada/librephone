@@ -2,8 +2,8 @@ name: Sync with Codeberg Repo
 
 on:
   schedule:
-    # Runs once a day at 11:00 UTC
-    - cron: '0 11 * * *'
+    # Runs once a week at 11:00 UTC on Sunday
+    - cron: '0 11 * * 0'
   workflow_dispatch: # Allows you to run it manually
 
 jobs:
