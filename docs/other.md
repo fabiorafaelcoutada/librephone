@@ -10,7 +10,7 @@ know. These files are in the *vendor/firmware* directory.
 
 There is driver support for the various other subsystems in the
 Qualcomm free software release, which is located here:
-sm7635-modules/qcom/opensource/. 
+sm7635-modules/qcom/opensource/. The driver support for
 
 * audio-kernel
 * bt-kernel
@@ -44,7 +44,7 @@ have an embedded RISCV according to the datasheet.
 
 ## Camera
 
-* CAMERA_ICP.b[0-9][0-9]
+* CAMERA_ICP.b\[0-9\]\[0-9\]
 	* Tensilica Xtensa certificates  
 * CAMERA_ICP.mbn
 	* Tensilica Xtensa certificates
