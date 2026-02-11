@@ -90,5 +90,6 @@ nav:
       - wpss.b08: wpss.b08.md
       - wpss.b09: wpss.b09.md
       - wpss.b10: wpss.b10.md
-#      - wpss.b11: wpss.b11.md
-#      - wpss.b12: wpss.b12.md
+      # - wpss.b11: wpss.b11.md
+      # - wpss.b12: wpss.b12.md
+    - Other Firmware: other.md
