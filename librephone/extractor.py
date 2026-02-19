@@ -612,13 +612,17 @@ unpack all the files, and mount the filesystems so the files can accessed.
         quit()
 
     # if verbose, dump to the terminal.
-    if args.verbose is not None:
-        logging.basicConfig(
-            level=logging.DEBUG,
-            format=("%(threadName)10s - %(name)s - %(levelname)s - %(message)s"),
-            datefmt="%y-%m-%d %H:%M:%S",
-            stream=sys.stdout,
-        )
+    if args.verbose:
+        level = logging.DEBUG
+    else:
+        level = logging.INFO
+
+    logging.basicConfig(
+        level=level,
+        format=("%(threadName)10s - %(name)s - %(levelname)s - %(message)s"),
+        datefmt="%y-%m-%d %H:%M:%S",
+        stream=sys.stdout,
+    )
 
     # Top level Lineage source tree
     lineage = "/work/Lineage-23.0"
@@ -644,7 +648,6 @@ unpack all the files, and mount the filesystems so the files can accessed.
 
     # Mount the files
     if args.mount or doall:
-        logging.error(f"Need to specify the directory with the files")
         extract.mount(args.mount)
         
     if args.clone:
