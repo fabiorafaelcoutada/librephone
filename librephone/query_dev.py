@@ -16,27 +16,22 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import argparse
-import logging
-import os
-import shutil
-import sys
-from sys import argv
-from pathlib import Path
-import glob
-import hashlib
-import magic
-from enum import IntEnum
-import re
-import psycopg
-import json
-from librephone.device import DeviceData
 import csv
-from librephone.typedefs import Bintypes
-from progress.bar import Bar
+
 # from deepdiff import DeepDiff
 import difflib
+import logging
+import os
+import sys
+from sys import argv
+
+import psycopg
+from progress.bar import Bar
 
 import librephone as pt
+from librephone.device import DeviceData
+from librephone.typedefs import Bintypes
+
 rootdir = pt.__path__[0]
 
 # Instantiate logger
@@ -45,9 +40,8 @@ log = logging.getLogger(__name__)
 
 class QueryDevice(object):
     def __init__(self):
-        """
-        Returns:
-            (QueryDevice): An instance of this class
+        """Returns:
+        (QueryDevice): An instance of this class
         """
         # FIXME: this needs to be configurable
         self.dbname = "devices"
@@ -56,15 +50,14 @@ class QueryDevice(object):
         # self.dbshell = psycopg2.connect(connect)
         self.dbcursor = self.dbshell.cursor()
         if self.dbcursor.closed != 0:
-            logging.error(f"Couldn't open database!")
+            logging.error("Couldn't open database!")
         self.devices = list()
         self.lineage = os.getenv("LINEAGE")
         # self.columns = ("imgfiles", "binfiles", "firmware", "hexfiles")
         self.keep = (".hex", ".img", ".bin", ".dat", ".fw", ".fw2")
 
     def get_metadata(self):
-        """
-        Query a table in the database.
+        """Query a table in the database.
 
         Args:
             field (str): The filed to get data for
@@ -82,8 +75,7 @@ class QueryDevice(object):
                     src1: str,
                     src2: str,
                     ) -> list:
-        """
-        Find the differences in files between two Lineage devices.
+        """Find the differences in files between two Lineage devices.
         """
         # diffs = dict(src1: list(), src2: list())
         # diffs = {src1: list(), src2: list()}
@@ -123,7 +115,7 @@ class QueryDevice(object):
         index = 0
         for line in difflib.unified_diff(files1, files2,
                                          fromfile="foo", tofiledate="bar"):
-            tmp = line.split(',')
+            tmp = line.split(",")
             if len(tmp) == 1:
                 continue
             file = tmp[0]
@@ -134,8 +126,7 @@ class QueryDevice(object):
         return diffs
 
     def list_count(self) -> dict:
-        """
-        Query a table in the database.
+        """Query a table in the database.
 
         Args:
 
@@ -152,8 +143,7 @@ class QueryDevice(object):
     def list_totals(self,
                     bintype: Bintypes,
                     ) -> list:
-        """
-        Query a table in the database.
+        """Query a table in the database.
 
         Returns:
             (list): The results of the query
@@ -192,8 +182,7 @@ class QueryDevice(object):
     def track_file(self,
                    filename: str,
                    ) -> list:
-        """
-        Query a table in the database.
+        """Query a table in the database.
 
         Args:
             column (str): The column to get data from
@@ -212,8 +201,7 @@ class QueryDevice(object):
     def track_size(self,
                    year: int,
                    ) -> list:
-        """
-        Query a table in the database.
+        """Query a table in the database.
 
         Args:
             year (int): The minimum year to query
@@ -230,12 +218,11 @@ class QueryDevice(object):
 
     def list_devices(self,
                      ) -> list:
-        """
-        List all the devices containing a file.
+        """List all the devices containing a file.
 
         """
         devices = list()
-        sql = f"SELECT DISTINCT(foo->>'file') FROM devices,jsonb_array_elements(devices.blobs) AS foo;"
+        sql = "SELECT DISTINCT(foo->>'file') FROM devices,jsonb_array_elements(devices.blobs) AS foo;"
         result = self.dbcursor.execute(sql)
         files = self.dbcursor.fetchall()
 
@@ -281,10 +268,10 @@ def main():
 
     if args.diff:
         fieldnames = ("file", "type")
-        csvfile = open("diffs.csv", 'w', newline='')
+        csvfile = open("diffs.csv", "w", newline="")
         csvout = csv.DictWriter(csvfile, fieldnames=fieldnames)
         csvout.writeheader()
-        tmp = args.diff.split(',')
+        tmp = args.diff.split(",")
         src1 = tmp[0]
         src2 = tmp[1]
         result = devdb.diff_builds(src1, src2)
@@ -293,13 +280,13 @@ def main():
             log.info("Devices are the same")
         else:
             for entry in result:
-                if entry["file"][0] == '-' or entry["file"][0] == '+':
+                if entry["file"][0] == "-" or entry["file"][0] == "+":
                     csvout.writerow(entry)
-            log.info(f"Wrote diffs.csv")
+            log.info("Wrote diffs.csv")
         quit()
 
     if args.track:
-        csvfile = open("track.csv", 'a', newline='')
+        csvfile = open("track.csv", "a", newline="")
         data = devdb.track_file(column, args.track)
         # log.info(f"{len(data)} devices contain {tmp[1]}")
         totals["images"] = data
@@ -312,7 +299,7 @@ def main():
                 alldevs += f"{entry[1]}, "
             out = {"file": tmp[1], "models": alldevs[:-2]}
             csvout.writerow(out)
-        log.info(f"Wrote track.csv")
+        log.info("Wrote track.csv")
 
         # log.debug(data)
         quit()
@@ -324,7 +311,7 @@ def main():
                           "count",
                           "devices",
                           )
-            csvfile = open(f"{args.list}.csv", 'w', newline='')
+            csvfile = open(f"{args.list}.csv", "w", newline="")
             csvout = csv.DictWriter(csvfile, fieldnames=fieldnames)
             csvout.writeheader()
             bar = Bar("Writing data...", max=len(totals))
@@ -354,7 +341,7 @@ def main():
                           "type",
                           "released",
                           )
-            csvfile = open("sizes.csv", 'w', newline='')
+            csvfile = open("sizes.csv", "w", newline="")
             csvout = csv.DictWriter(csvfile, fieldnames=fieldnames)
             csvout.writeheader()
             bar = Bar("Writing data...", max=len(totals))
@@ -376,11 +363,11 @@ def main():
                 csvout.writerow(out)
                 bar.next()
             bar.finish()
-            log.info(f"Wrote sizes.csv")
+            log.info("Wrote sizes.csv")
             quit()
 
         if args.list == "count":
-            csvfile = open("count.csv", 'w', newline='')
+            csvfile = open("count.csv", "w", newline="")
             totals = devdb.list_count()
             fieldnames = ("vendor",
                           "model",
@@ -396,15 +383,15 @@ def main():
                        "total": entry[3],
                        }
                 csvout.writerow(out)
-            log.info(f"Wrote count.csv")
+            log.info("Wrote count.csv")
             quit()
 
         if args.list == "totals":
-            csvfile = open("totals.csv", 'w', newline='')
-            fieldnames = ('vendor',
-                          'model',
-                          'build',
-                          'type',
+            csvfile = open("totals.csv", "w", newline="")
+            fieldnames = ("vendor",
+                          "model",
+                          "build",
+                          "type",
                           )
             csvout = csv.DictWriter(csvfile, fieldnames=fieldnames)
             csvout.writeheader()
@@ -417,7 +404,7 @@ def main():
                     device["build"] = row[2]
                     device["type"] = row[3]
                     csvout.writerow(device)
-            log.info(f"Wrote totals.csv")
+            log.info("Wrote totals.csv")
 
         # if args.list == "files":
         #     csvfile = open("files.csv", 'w', newline='')

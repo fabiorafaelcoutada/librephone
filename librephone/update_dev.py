@@ -16,23 +16,16 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import argparse
+import csv
 import logging
 import os
-import shutil
 import sys
 from sys import argv
-from pathlib import Path
-import glob
-import hashlib
-import magic
-from enum import IntEnum
-import re
+
 import psycopg
-import json
-from librephone.device import DeviceData
-import csv
 
 import librephone as pt
+
 rootdir = pt.__path__[0]
 
 # Instantiate logger
@@ -41,9 +34,8 @@ log = logging.getLogger(__name__)
 
 class UpdateDevice(object):
     def __init__(self):
-        """
-        Returns:
-            (QueryDevice): An instance of this class
+        """Returns:
+        (QueryDevice): An instance of this class
         """
         # FIXME: this needs to be configurable
         self.dbname = "devices"
@@ -52,7 +44,7 @@ class UpdateDevice(object):
         # self.dbshell = psycopg2.connect(connect)
         self.dbcursor = self.dbshell.cursor()
         if self.dbcursor.closed != 0:
-            logging.error(f"Couldn't open database!")
+            logging.error("Couldn't open database!")
         self.devices = list()
         self.lineage = os.getenv("LINEAGE")
 
@@ -61,28 +53,26 @@ class UpdateDevice(object):
             build: str = None,
             value: str = None,
             ) -> bool:
-        """
-        Set a column for a device.
+        """Set a column for a device.
 
         Args:
         """
         if column is None or build is None or value is None:
-            logging.error(f"Need to specify all the parameters!")
+            logging.error("Need to specify all the parameters!")
             return False
 
         sql = f"UPDATE devices SET {column} = '{value}' WHERE build='{build}'"
         print(f"SQL: {sql}")
-        result = self.dbcursor.execute(sql)        
+        result = self.dbcursor.execute(sql)
 
     def set_columns(self,
                     values: dict,
                     ) -> bool:
-        """
-        Set multiple columns for a device.
+        """Set multiple columns for a device.
 
         Args:
         """
-        sql = f"UPDATE devices SET "
+        sql = "UPDATE devices SET "
         build = values["build"]
         del values["build"]
         for key, value in values.items():
@@ -100,8 +90,7 @@ class UpdateDevice(object):
     def process_file(self,
                      filespec: str,
                      ):
-        """
-        This reads in the data/builds.csv file, which keeps track of
+        """This reads in the data/builds.csv file, which keeps track of
         build status and has other info like soc and release year.
         """
         with open(filespec, newline="", encoding="latin") as file:
@@ -112,11 +101,11 @@ class UpdateDevice(object):
                          "released": row["Released"],
                          }
                 if row["Build 22.2"] == "completes":
-                    entry["builds"] = 't'
+                    entry["builds"] = "t"
                 if row["Extract 22.2"] == "completes":
-                    entry["extracts"] = 't'
+                    entry["extracts"] = "t"
                 self.set_columns(entry)
-        
+
 def main():
     """This main function lets this class be run standalone by a bash script."""
     choices = ("soc", "released", "builds")
@@ -139,7 +128,7 @@ def main():
     if len(argv) == 1:
         parser.print_help()
         quit()
-        
+
     devdb = UpdateDevice()
 
     if args.csv:

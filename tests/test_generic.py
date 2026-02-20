@@ -1,10 +1,9 @@
 
 import os
-import shutil
 import tempfile
-import pytest
+
 from librephone.extractor import Extractor
-from librephone.typedefs import Bintypes
+
 
 def test_clone_generic_fallback():
     # Verify Extractor can instantiate without devices.lst crashing
