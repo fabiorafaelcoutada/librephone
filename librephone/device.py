@@ -35,9 +35,9 @@ log = logging.getLogger(__name__)
 
 class DeviceData(DeviceFiles):
     def __init__(self,
-                 vendor: str() = None,
-                 model: str() = None,
-                 build: str() = None,
+                 vendor: str = None,
+                 model: str = None,
+                 build: str = None,
                  ):
         """
         Returns:
@@ -66,7 +66,7 @@ class DeviceData(DeviceFiles):
                   filename: str,
                   ):
         results = dict()
-        if self.files["imgfiles"] is None:
+        if "imgfiles" not in self.files or self.files["imgfiles"] is None:
             return results
 
         # FIXME: imgfiles shouldn't be hardcoded!
