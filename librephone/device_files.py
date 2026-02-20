@@ -33,6 +33,7 @@ import librephone as pt
 from librephone.typedefs import (
     Archtypes,
     Bintypes,
+    Filetypes,
 )
 
 rootdir = pt.__path__[0]
@@ -171,6 +172,9 @@ class DeviceFiles(object):
         (re.compile("oplus_vooc_fw_.*.bin"), Bintypes.FASTCHG),
         (re.compile("effect_[0-9].bin"), Bintypes.VIBRATION),
         (re.compile("w_dual_calibration.bin"), Bintypes.CAMERA),
+        (re.compile(".*kernelcache.*"), Bintypes.BOOT),
+        (re.compile(".*dyld_shared_cache.*"), Bintypes.MACH_O),
+        (re.compile(".*.plist"), Bintypes.CONFIG),
     ]
 
     RADIOBLOBS = {
@@ -211,38 +215,45 @@ class DeviceFiles(object):
 
     # FIXME: Limit magic numbers to 4 bytes unless we can figure out
     # a better way to handle different length magic numbers.
-    MAGIC_NUMBERS = {
-        "png": bytes([0x89, 0x50, 0x4E, 0x47, 0x0D, 0x0A, 0x1A, 0x0A]),
-        "AVB": bytes([0x41, 0x56, 0x42, 0x30]),
-        "ELF64": bytes([0x7f, 0x45, 0x4c, 0x46]),
-        "MSDOS": bytes([0xeb, 0x3c, 0x90, 0x4d]),
-        "BOOT": bytes([0x41, 0x4e, 0x44, 0x52]),
-        "SD": bytes([0x73, 0x64, 0x2f, 0x0]),
-        "VNDRBOOT": bytes([0x56, 0x4e, 0x44, 0x52]),
-        "DTB": bytes([0xd7, 0xb7, 0xab, 0x1e]),
-        "FILESYSTEM": bytes([0x00, 0x00, 0x00, 0x00, 0x00]),
-        "CAMERA": bytes([0x51, 0x54, 0x49, 0x20]),
-        "FIRMWARE": bytes([0x00, 0x00, 0x00, 0xff]),
-        "FIRMWARE1": bytes([0x00, 0x00, 0x20, 0x00]),
-        "FIRMWARE2": bytes([0x03, 0x01, 0x00, 0x00]),
+    # Updated to list of tuples to support multiple magic numbers per type and variable lengths.
+    MAGIC_NUMBERS = [
+        ("GRAPHIC", bytes([0x89, 0x50, 0x4E, 0x47, 0x0D, 0x0A, 0x1A, 0x0A])), # png
+        ("AVB", bytes([0x41, 0x56, 0x42, 0x30])),
+        ("ELF64", bytes([0x7f, 0x45, 0x4c, 0x46])),
+        ("MSDOS", bytes([0xeb, 0x3c, 0x90, 0x4d])),
+        ("BOOT", bytes([0x41, 0x4e, 0x44, 0x52])),
+        ("SD", bytes([0x73, 0x64, 0x2f, 0x0])),
+        ("VNDRBOOT", bytes([0x56, 0x4e, 0x44, 0x52])),
+        ("DTB", bytes([0xd7, 0xb7, 0xab, 0x1e])),
+        ("FILESYSTEM", bytes([0x00, 0x00, 0x00, 0x00, 0x00])),
+        ("CAMERA", bytes([0x51, 0x54, 0x49, 0x20])),
+        ("FIRMWARE", bytes([0x00, 0x00, 0x00, 0xff])),
+        ("FIRMWARE1", bytes([0x00, 0x00, 0x20, 0x00])),
+        ("FIRMWARE2", bytes([0x03, 0x01, 0x00, 0x00])),
         # 'AUDIOAMP2': bytes([0x08, 0xf9, 0x15, 0x0a]),
-        "NFC": bytes([0x13, 0x04, 0x98, 0x81]),
-        "FIRMWARE5": bytes([0x61, 0x6e, 0x63, 0x5f]),
-        "FIRMWARE6": bytes([0x69, 0x05, 0x00, 0x00]),
-        "FIRMWARE7": bytes([0x8a, 0x0d, 0x00, 0x00]),
-        "FIRMWARE8": bytes([0xb2, 0x25, 0x08, 0x00]),
-        "FIRMWARE9": bytes([0xf8, 0x88, 0x02, 0x00]),
-        "FIRMWARE10": bytes([0xff, 0xdb, 0xff, 0xe4]),
-        "SHADER": bytes([0x40, 0x87, 0x00, 0x00]),
-        "AUDIOAMP": bytes([0x57, 0x4d, 0x44, 0x52]),
-        "OLED": bytes([0x4c, 0x49, 0x4d, 0x49]),
-        "TOUCHSCREEN1": bytes([0x4c, 0x49, 0x4d, 0x49]),
-        "FASTCHG": bytes([0x46, 0x77, 0x55, 0x70]),
-        "TOUCHSCREEN3": bytes([0x00, 0x00, 0x09, 0x62]),
-        "TOUCHSCREEN4": bytes([0x2b, 0x47, 0x18, 0x48]),
-        "TOUCHSCREEN5": bytes([0x54, 0x46, 0x49, 0x53]),
-        "WIFI": bytes([0x03, 0x46, 0x04, 0x00]),
-    }
+        ("NFC", bytes([0x13, 0x04, 0x98, 0x81])),
+        ("FIRMWARE5", bytes([0x61, 0x6e, 0x63, 0x5f])),
+        ("FIRMWARE6", bytes([0x69, 0x05, 0x00, 0x00])),
+        ("FIRMWARE7", bytes([0x8a, 0x0d, 0x00, 0x00])),
+        ("FIRMWARE8", bytes([0xb2, 0x25, 0x08, 0x00])),
+        ("FIRMWARE9", bytes([0xf8, 0x88, 0x02, 0x00])),
+        ("FIRMWARE10", bytes([0xff, 0xdb, 0xff, 0xe4])),
+        ("SHADER", bytes([0x40, 0x87, 0x00, 0x00])),
+        ("AUDIOAMP", bytes([0x57, 0x4d, 0x44, 0x52])),
+        ("OLED", bytes([0x4c, 0x49, 0x4d, 0x49])),
+        ("TOUCHSCREEN1", bytes([0x4c, 0x49, 0x4d, 0x49])),
+        ("FASTCHG", bytes([0x46, 0x77, 0x55, 0x70])),
+        ("TOUCHSCREEN3", bytes([0x00, 0x00, 0x09, 0x62])),
+        ("TOUCHSCREEN4", bytes([0x2b, 0x47, 0x18, 0x48])),
+        ("TOUCHSCREEN5", bytes([0x54, 0x46, 0x49, 0x53])),
+        ("WIFI", bytes([0x03, 0x46, 0x04, 0x00])),
+        ("MACH_O", bytes([0xfe, 0xed, 0xfa, 0xce])), # 32-bit BE
+        ("MACH_O", bytes([0xce, 0xfa, 0xed, 0xfe])), # 32-bit LE
+        ("MACH_O", bytes([0xfe, 0xed, 0xfa, 0xcf])), # 64-bit BE
+        ("MACH_O", bytes([0xcf, 0xfa, 0xed, 0xfe])), # 64-bit LE
+        ("MACH_O", bytes([0xca, 0xfe, 0xba, 0xbe])), # Fat BE
+        ("MACH_O", bytes([0xbe, 0xba, 0xfe, 0xca])), # Fat LE
+    ]
 
     def __init__(self):
         """Returns:
@@ -304,9 +315,16 @@ class DeviceFiles(object):
 
         # log.debug(f"Extracting file size for {file}")
         path = f"{filespec}"
-        file_size = os.stat(path).st_size
+        try:
+            file_size = os.stat(path).st_size
+        except FileNotFoundError:
+             return dict()
+
         # log.debug(f"Extracting md5sum for file {file}")
-        md5sum = hashlib.md5(open(path,"rb").read()).hexdigest()
+        try:
+            md5sum = hashlib.md5(open(path,"rb").read()).hexdigest()
+        except Exception:
+             md5sum = "unknown"
 
         # result = subprocess.run(
         #     [
@@ -316,7 +334,11 @@ class DeviceFiles(object):
         #     ],
         #     capture_output=True,
         # )
-        result = magic.from_file(path)
+        try:
+            result = magic.from_file(path)
+        except Exception:
+            result = "unknown"
+
         # print(f"MAGIC: {filespec} is {result}")
         # if str(result.stderr).find("file format not recognized") > 0:
         #     pass
@@ -387,21 +409,29 @@ class DeviceFiles(object):
 
         # breakpoint()
         # foo = magic.from_file(filespec)
-        with open(filespec, "rb") as file:
-            magicnum = file.read(4)
-            for ftype, num in self.MAGIC_NUMBERS.items():
-                if num == magicnum:
-                    log.debug(f"{filespec} is {ftype}")
-                    return Bintypes(ftype)
+        try:
+            with open(filespec, "rb") as file:
+                header = file.read(8)
+                for ftype, num in self.MAGIC_NUMBERS:
+                    if header.startswith(num):
+                        log.debug(f"{filespec} is {ftype}")
+                        # Handle GRAPHIC (png) manually or map to Bintypes.GRAPHIC
+                        if ftype == "GRAPHIC":
+                             return Bintypes.GRAPHIC
+                        return Bintypes(ftype)
+        except Exception:
+            pass
         return Bintypes.UNKNOWN
 
     def find_files(self,
                    indir: str,
+                   force_all: bool = False,
                    ) -> dict:
         """Find all the proprietary files for a device.
 
         Args:
             indir (str): The input directory with the extracted files
+            force_all (bool): If True, ignore directory structure checks (for generic/ios)
 
         Return:
             (list): The files from the device
@@ -410,17 +440,20 @@ class DeviceFiles(object):
         for root, dirs, files in os.walk(indir):
             # spinner.next()
             base = Path(root)
-            if root == indir:
-                continue
-            if "META-INF" in base.parts:
-                continue
-            # Ignore anything without vendor/build in the path.
-            # base = Path(root.replace(f"{indir}/", ""))
-            if len(base.parts) < 2:
-                continue
-            vendor = base.parts[0]
-            build = base.parts[1]
-            pat = re.compile("[a-z0-9*].[a-z][0-9][0-9]")
+
+            if not force_all:
+                if root == indir:
+                    continue
+                if "META-INF" in base.parts:
+                    continue
+                # Ignore anything without vendor/build in the path.
+                # base = Path(root.replace(f"{indir}/", ""))
+                if len(base.parts) < 2:
+                    continue
+
+            # vendor = base.parts[0]
+            # build = base.parts[1]
+            # pat = re.compile("[a-z0-9*].[a-z][0-9][0-9]")
             skip = [".pb", ".dat"]
             for file in files:
                 if Path(file).suffix in skip:
@@ -431,6 +464,8 @@ class DeviceFiles(object):
                 metadata = self.get_metadata(f"{root}/{file}")
                 # ignore data files use by the blobs
                 if len(metadata) == 0 or metadata["type"] in self.ignore:
+                    # Don't ignore in generic mode, maybe?
+                    # For now keep ignoring known junk types to reduce noise.
                     log.debug(f"Ignoring {file}")
                     continue
                 #if  metadata["type"] == Bintypes.UNKNOWN:
