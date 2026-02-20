@@ -1,10 +1,10 @@
 
 import os
-import shutil
 import tempfile
-import pytest
+
 from librephone.device_files import DeviceFiles
 from librephone.typedefs import Bintypes
+
 
 def test_ios_magic_detection():
     df = DeviceFiles()

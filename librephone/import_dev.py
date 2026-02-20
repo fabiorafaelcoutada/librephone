@@ -16,24 +16,19 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import argparse
+import json
 import logging
 import os
-import shutil
 import sys
 from pathlib import Path
-import glob
-import hashlib
-import magic
-from enum import IntEnum
-import re
-import psycopg
 from sys import argv
-import json
-from librephone.device import DeviceData
-from librephone.typedefs import Gpumodels, Devstatus, Imgtypes, Bintypes, Archtypes, Celltypes, Nettypes, Wifitypes, Filetypes, Blobtypes
-from librephone.update_dev import UpdateDevice
+
+import psycopg
 
 import librephone as pt
+from librephone.device import DeviceData
+from librephone.update_dev import UpdateDevice
+
 rootdir = pt.__path__[0]
 
 # Instantiate logger
@@ -44,8 +39,7 @@ class DeviceImport(UpdateDevice):
     def __init__(self,
                  dbname: str = "devices",
                  ):
-        """
-        Args:
+        """Args:
             dbname (str): The database name for device data
         
         Return:
@@ -61,7 +55,7 @@ class DeviceImport(UpdateDevice):
         self.dbshell = psycopg.connect(connect, autocommit=True)
         self.dbcursor = self.dbshell.cursor()
         if self.dbcursor.closed != 0:
-            log.error(f"Couldn't open database!")
+            log.error("Couldn't open database!")
         else:
             log.info(f"Connected to {dbname}")
 
@@ -74,23 +68,34 @@ class DeviceImport(UpdateDevice):
                      model: str,
                      build: str,
                      ):
-        sql = f"INSERT into devices(vendor, model, build) VALUES('{vendor}', '{model}', '{build}') ON CONFLICT (build) DO UPDATE SET vendor='{vendor}', model='{model}' WHERE devices.build='{build}'"
+        """Create a new device entry in the database.
+
+        Args:
+            vendor (str): The device vendor
+            model (str): The device model
+            build (str): The device build
+        """
+        sql = (
+            "INSERT into devices(vendor, model, build) "
+            "VALUES(%s, %s, %s) "
+            "ON CONFLICT (build) DO UPDATE SET vendor=%s, model=%s "
+            "WHERE devices.build=%s"
+        )
         log.info(f"Bootstrapping {vendor}, {model}, {build}: {sql}")
-        print(sql)
-        result = self.dbcursor.execute(sql)
+        # print(sql)
+        self.dbcursor.execute(sql, (vendor, model, build, vendor, model, build))
 
     def bootstrap(self,
                   filespec: str,
                   ):
-        """
-        This bootstraps the database with statc data.
+        """This bootstraps the database with statc data.
         """
         # This is the CSV file produced by image_utils -l that sets
         # the vendor, model, and build columns need by all the other
         # database queries
         datafile = open(filespec, "r")
         for line in datafile.readlines():
-            parts = line.rstrip().split(':')
+            parts = line.rstrip().split(":")
             self.create_entry(parts[0], parts[2], parts[1])
         datafile.close()
 
@@ -101,8 +106,7 @@ class DeviceImport(UpdateDevice):
     def write_db(self,
                  device: DeviceData
                  ) -> bool:
-        """
-        Write the metadata for a device build to the database.
+        """Write the metadata for a device build to the database.
 
         Args:
             device (DeviceData): The metadata for this file
@@ -121,24 +125,24 @@ class DeviceImport(UpdateDevice):
 
         sql = str()
         # sort by type
-        for category, files in device.files.items():
+        for _category, files in device.files.items():
             # log.info(f"Processing the {category} file type, has {len(files)} files")
-            sql = f"SELECT jsonb_array_length(blobs) FROM devices WHERE build='{device.build}'"
+            sql = "SELECT jsonb_array_length(blobs) FROM devices WHERE build=%s"
             # print(f"SQL: {sql}")
-            result = self.dbcursor.execute(sql)
+            result = self.dbcursor.execute(sql, (device.build,))
             # None as a result means no entries in the jsonb column
             count = result.fetchone()
-        
+
             # print(result.fetchone())
             # You can't update a jsonb column that is empty, so the first entry
             # is basically an insert.
             # breakpoint()
             if count is not None and count[0] is not None:
-                sql = f"UPDATE devices SET blobs = blobs || '{json.dumps(files)}' WHERE build='{device.build}'"
+                sql = "UPDATE devices SET blobs = blobs || %s::jsonb WHERE build=%s"
             else:
-                sql = f"UPDATE devices SET blobs = '{json.dumps(files)}' WHERE build='{device.build}'"
+                sql = "UPDATE devices SET blobs = %s::jsonb WHERE build=%s"
             # print(f"SQL: {sql}")
-            result = self.dbcursor.execute(sql)
+            self.dbcursor.execute(sql, (json.dumps(files), device.build))
 
     def dump(self):
         print(f"Dumping a Device from {os.path.abspath(self.directory)}")
@@ -202,7 +206,7 @@ def main():
         model = os.path.basename(Path(args.indir).resolve())
         vendor = os.path.basename(os.path.dirname(indir))
         # dev = DeviceData(vendor=vendor, model=model, build=build)
-        dev = DeviceData(vendor=vendor, build=build)        
+        dev = DeviceData(vendor=vendor, build=build)
         files = dev.find_files(args.indir)
         devimport.write_db(dev)
 

@@ -1,8 +1,10 @@
+from unittest.mock import mock_open, patch
+
 import pytest
-from unittest.mock import patch, MagicMock, mock_open
-import os
+
 from librephone.device_files import DeviceFiles
 from librephone.typedefs import Bintypes
+
 
 class TestDeviceFiles:
     @pytest.fixture
@@ -11,7 +13,7 @@ class TestDeviceFiles:
 
     def test_get_magic_avb(self, device_files):
         # AVB magic number: 41 56 42 30 (AVB0)
-        avb_magic = b'\x41\x56\x42\x30'
+        avb_magic = b"\x41\x56\x42\x30"
         with patch("builtins.open", mock_open(read_data=avb_magic)):
             # We mock the file read to return AVB0
             # Note: builtins.open is used in get_magic
@@ -19,7 +21,7 @@ class TestDeviceFiles:
 
     def test_get_magic_unknown(self, device_files):
         # Random bytes
-        random_magic = b'\x00\x01\x02\x03'
+        random_magic = b"\x00\x01\x02\x03"
         with patch("builtins.open", mock_open(read_data=random_magic)):
             assert device_files.get_magic("test.bin") == Bintypes.UNKNOWN
 
@@ -46,7 +48,7 @@ class TestDeviceFiles:
         mock_magic.return_value = "ELF 64-bit LSB pie executable, ARM aarch64"
 
         # Mock get_magic to return something specific if called
-        with patch.object(DeviceFiles, 'get_magic', return_value=Bintypes.ELF64):
+        with patch.object(DeviceFiles, "get_magic", return_value=Bintypes.ELF64):
             metadata = device_files.get_metadata("test_file.bin")
 
         assert metadata["file"] == "test_file.bin"
@@ -57,7 +59,7 @@ class TestDeviceFiles:
 
     def test_get_magic_png_works(self, device_files):
         # PNG magic is 8 bytes. Previously buggy, now fixed.
-        png_magic = b'\x89\x50\x4E\x47\x0D\x0A\x1A\x0A'
+        png_magic = b"\x89\x50\x4E\x47\x0D\x0A\x1A\x0A"
         with patch("builtins.open", mock_open(read_data=png_magic)):
              # Should return GRAPHIC now
              assert device_files.get_magic("test.png") == Bintypes.GRAPHIC

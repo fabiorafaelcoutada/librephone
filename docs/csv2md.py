@@ -15,11 +15,12 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-import pandas as pd
 import argparse
+import logging
 import sys
 from sys import argv
-import logging
+
+import pandas as pd
 
 
 def main():
@@ -49,11 +50,11 @@ def main():
     if args.infile:
         if not args.outfile:
             outfile = args.infile.replace(".csv", ".md")
-        df = pd.read_csv(args.infile, engine='python')
-        with open(outfile, 'w') as md:
-            df.fillna('', inplace=True)
+        df = pd.read_csv(args.infile, engine="python")
+        with open(outfile, "w") as md:
+            df.fillna("", inplace=True)
             df.to_markdown(buf=md, index=False)
-        
+
 if __name__ == "__main__":
     """This is just a hook so this file can be run standalone during development."""
     main()
