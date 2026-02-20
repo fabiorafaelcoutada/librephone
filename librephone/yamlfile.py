@@ -17,8 +17,8 @@
 
 import argparse
 import logging
-import sys
 import os
+import sys
 
 import yaml
 
@@ -52,8 +52,7 @@ class YamlFile(object):
             keyword: str,
             tag: str = None,
             ):
-        """
-        Get the values for a top level keyword\
+        """Get the values for a top level keyword\
 
         Args:
             keyword (str): The top level keyword to get the values for
@@ -65,8 +64,7 @@ class YamlFile(object):
         return self.yaml[keyword][tag]
 
     def getEntries(self):
-        """
-        Convert the list from the YAML file into a searchable data structure
+        """Convert the list from the YAML file into a searchable data structure
 
         Returns:
             (dict): The parsed config file
@@ -107,7 +105,7 @@ class YamlFile(object):
 
         # breakpoint()
         return self.data
-    
+
     def dump(self):
         """Dump internal data structures, for debugging purposes only."""
         if self.filespec:

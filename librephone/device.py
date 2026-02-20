@@ -18,16 +18,12 @@
 # base class to contain device data
 import argparse
 import logging
-import os
-from sys import argv
 import sys
-from pathlib import Path
-import re
-import json
-import hashlib
-from librephone.device_files import DeviceFiles
+from sys import argv
 
 import librephone as pt
+from librephone.device_files import DeviceFiles
+
 rootdir = pt.__path__[0]
 
 # Instantiate logger
@@ -39,8 +35,7 @@ class DeviceData(DeviceFiles):
                  model: str = None,
                  build: str = None,
                  ):
-        """
-        Returns:
+        """Returns:
             (Device): An instance of this class
 
         Args:
@@ -90,7 +85,7 @@ class DeviceData(DeviceFiles):
         for key, val in self.files.items():
             print(f"{self.vendor}, {self.model}, {self.build}")
             print(f"\t{key}: {self.files[key]}")
-            
+
 
 def main():
     """This main function lets this class be run standalone by a bash script."""
