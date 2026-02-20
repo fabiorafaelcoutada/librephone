@@ -19,6 +19,7 @@ class Imgtypes(Enum):
 	SD = 'SD'
 	DTB = 'DTB'
 	VNDRBOOT = 'VNDRBOOT'
+	DMG = 'DMG'
 	UNKNOWN = 'UNKNOWN'
 
 class Filesystems(Enum):
@@ -89,6 +90,7 @@ class Bintypes(Enum):
 	COMPUTE = 'COMPUTE'
 	MODEM = 'MODEM'
 	DRM = 'DRM'
+	MACH_O = 'MACH_O'
 
 class Archtypes(Enum):
 	UNKNOWN = 'UNKNOWN'
@@ -134,6 +136,9 @@ class Filetypes(Enum):
 	LIBRARY = 'LIBRARY'
 	TEXT = 'TEXT'
 	KEY = 'KEY'
+	PLIST = 'PLIST'
+	DMG = 'DMG'
+	IPSW = 'IPSW'
 
 class Blobtypes(Enum):
 	DATA = 'DATA'

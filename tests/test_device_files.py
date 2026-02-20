@@ -55,9 +55,9 @@ class TestDeviceFiles:
         # assert metadata["type"] == Bintypes.ELF64.value # get_metadata calls get_magic(filespec).value
         # Wait, get_metadata calls self.get_magic(filespec).value
 
-    def test_get_magic_bug_png(self, device_files):
-        # Demonstrating the bug where PNG magic is 8 bytes but only 4 are read
+    def test_get_magic_png_works(self, device_files):
+        # PNG magic is 8 bytes. Previously buggy, now fixed.
         png_magic = b'\x89\x50\x4E\x47\x0D\x0A\x1A\x0A'
         with patch("builtins.open", mock_open(read_data=png_magic)):
-             # This will return UNKNOWN because read(4) won't match 8-byte key
-             assert device_files.get_magic("test.png") == Bintypes.UNKNOWN
+             # Should return GRAPHIC now
+             assert device_files.get_magic("test.png") == Bintypes.GRAPHIC
