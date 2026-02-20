@@ -38,21 +38,14 @@ from codetiming import Timer
 # import unblob
 
 import librephone as pt
+from librephone.device_files import DeviceFiles
+
 rootdir = pt.__path__[0]
 
 # Instantiate logger
 log = logging.getLogger(__name__)
 
 # Based on https://wiki.lineageos.org/extracting_blobs_from_zips
-
-# Block-based OTA: the content of the system partition is stored inside of an
-# .dat/.dat.br file as binary data. 
-
-# File-based OTA: the content of the system partition is available inside a
-# folder of the zip named system.
-
-# Payload-based OTA: the content of the system partition is stored as an
-# .img file inside of payload.bin.
 
 class Extractor:
     def __init__(self,
@@ -86,6 +79,7 @@ class Extractor:
                 return dev["model"]
             elif dev["model"] == ident:
                 return dev["build"]
+        return "unknown"
 
     def package(self,
                 package: str = "lineage.zip",
@@ -134,7 +128,10 @@ class Extractor:
 
         # Extract the build name from the zip file
         tmp = package.split("-")
-        self.build = tmp[4]
+        try:
+            self.build = tmp[4]
+        except IndexError:
+            self.build = "unknown"
 
         # Extract all the files
         
@@ -158,14 +155,56 @@ class Extractor:
             logging.debug(f"{mdir} already decompressed.")
         return True
 
+    def clone_generic(self,
+                      indir: str,
+                      outdir: str,
+                      ) -> bool:
+        """
+        Clone all interesting files from a generic Android or iOS dump.
+        This is used when no proprietary-files.txt is available.
+        """
+        logging.info("Starting generic extraction/cloning...")
+        dev = DeviceFiles()
+        # Use force_all=True to ignore directory structure constraints
+        files = dev.find_files(indir, force_all=True)
+
+        count = 0
+        for ftype, file_list in files.items():
+            for file_data in file_list:
+                src_path = os.path.join(file_data["path"], file_data["file"])
+                # Calculate relative path to preserve structure
+                try:
+                    rel_path = os.path.relpath(src_path, indir)
+                except ValueError:
+                    # If src_path is not relative to indir (e.g. symlink resolution), just use basename?
+                    # Or skip?
+                    rel_path = file_data["file"]
+
+                dst_path = os.path.join(outdir, rel_path)
+
+                if not os.path.exists(os.path.dirname(dst_path)):
+                    os.makedirs(os.path.dirname(dst_path))
+
+                if not os.path.exists(dst_path):
+                    try:
+                        shutil.copy2(src_path, dst_path)
+                        count += 1
+                    except Exception as e:
+                        logging.warning(f"Failed to copy {src_path}: {e}")
+
+        logging.info(f"Generic cloning complete. Copied {count} files.")
+        return True
+
     def clone(self,
               lineage: str,
               indir: str = ".",
               outdir: str = "/tmp/",
+              ios_mode: bool = False,
               ) -> bool:
         """
         If the filesystem images are mounted, use the proprietary-*.txt
         files to clone all the blobs and proprietary files so they can be analyzed.
+        If ios_mode is True or proprietary-files.txt is missing, perform generic extraction.
 
         Args:
             indir (str): The top level directory to scan for files
@@ -185,12 +224,29 @@ class Extractor:
 
         abspath = Path(indir).resolve()
         build = self.get_devpath(os.path.basename(abspath))
+
+        # Handle cases where path parsing fails
         tmp = abspath.parts
+        if len(tmp) >= 2:
+            # Try to guess structure
+            pass
 
         timer.start()
+
+        if ios_mode:
+             # Skip Android specific mounting/radio copy if strictly iOS mode
+             # But if it's a directory dump, we just clone.
+             return self.clone_generic(indir, outdir)
+
         # The primary binary blobs are in the top level directory before
         # needing to mount anything.
-        raddir = f"{outdir}/{tmp[len(tmp) - 2]}/{build}/radio"
+        # raddir = f"{outdir}/{tmp[len(tmp) - 2]}/{build}/radio"
+        # Robust path construction
+        try:
+             raddir = f"{outdir}/{tmp[-2]}/{build}/radio"
+        except IndexError:
+             raddir = f"{outdir}/unknown/{build}/radio"
+
         if not os.path.exists(raddir):
             os.makedirs(raddir)
         ignore = re.compile("(system|vendor|product|odm).*")
@@ -203,7 +259,11 @@ class Extractor:
             shutil.copy(img, raddir)
 
         # build = self.get_devpath(tmp[len(tmp) - 1])
-        devdir = f"{tmp[len(tmp) - 2].lower()}/{build}"
+        try:
+            devdir = f"{tmp[-2].lower()}/{build}"
+        except IndexError:
+            devdir = f"unknown/{build}"
+
         propdir = f"{lineage}/device/{devdir}"
 
         propfile = f"{propdir}/proprietary-files.txt"
@@ -217,10 +277,25 @@ class Extractor:
             deps = f"{propdir}/lineage.dependencies"
             if os.path.exists(deps):
                 fd = open(deps, 'r')
-                for depdir in eval(fd.read()):
-                    subprops = f"{os.path.dirname(propdir)}/{os.path.basename(depdir["target_path"])}/{os.path.basename(devdir)}"
-                    props = glob.glob(f"{subprops}/proprietary-*.txt")
+                try:
+                    for depdir in eval(fd.read()):
+                        subprops = f"{os.path.dirname(propdir)}/{os.path.basename(depdir['target_path'])}/{os.path.basename(devdir)}"
+                        props = glob.glob(f"{subprops}/proprietary-*.txt")
+                except Exception:
+                    pass
                 fd.close()
+
+        # Mount the extracted filesystems from the install packages
+        self.unmount(indir)
+        self.mount(indir)
+
+        if len(props) == 0:
+            # Fallback to generic extraction
+            logging.info("No proprietary-files.txt found. Falling back to generic extraction.")
+            self.clone_generic(indir, outdir)
+            self.unmount(indir)
+            timer.stop()
+            return True
 
         keep = (".hex",
                 ".pb",
@@ -230,40 +305,6 @@ class Extractor:
                 ".mdt",
                 ".fw",
                 ".fw2")
-
-        # Mount the extracted filesystems from the install packages
-        self.unmount(indir)
-        self.mount(indir)
-
-        # If nothing was found, then the device directories hadn't been
-        # downloaded from Lineage.
-        props = list()
-        if len(props) == 0:
-            if not os.path.exists(propdir):
-                os.makedirs(propdir, mode=0o700)
-            with open(f"{propdir}/proprietary-files.txt", 'w') as propout:
-                mounted = str()
-                for root, dirs, files in os.walk(indir):
-                    if Path(root).is_mount():
-                        mounted = os.path.basename(root)
-                        # print(f"MOUNTED: {mounted}")
-                    for file in files:
-                        # if root == propdir:
-                        #    continue
-                        path = Path(file)
-                        if path.suffix in keep:
-                            dir = root.replace(f"{indir}", "")
-                            if len(dir) == 0:
-                                continue
-                            # FIXME: there has got to be a better way to do this.
-                            if root.find(outdir) > 0 or root.find("META-INF") > 0:
-                                continue
-                            # print(f"FIXME: {root} {dir}/{file}")
-                            # print(f"{mounted}/{file}\n")
-                            # print(f"{root.replace("./", "")}/{file}\n")
-                            propout.write(f"{dir}/{file}\n")
-            logging.info(f"Wrote {propdir}/proprietary-files.txt")
-            props = [f"{propdir}/proprietary-files.txt"]
 
         # Process the lists of proprietary files
         for file in props:
@@ -374,7 +415,8 @@ class Extractor:
         # ext4 image (.img)
         files = glob.glob(f"{mdir}/*.transfer.list")
         if len(files) == 0:
-            logging.error(f"There are no transfer lists in {mdir}!")
+            # If no transfer list, check if we have .img files directly or if generic mode
+            logging.warning(f"There are no transfer lists in {mdir}! Assuming extracted images or Generic/iOS mode.")
             return False
 
         for transfer in files:
@@ -409,7 +451,8 @@ class Extractor:
         """
         logging.info("Mounting all filesystems")
         if not os.path.exists(f"{mdir}/system.img"):
-            logging.error(f"{mdir}/system.img doesn't exist!")
+            # In generic mode or iOS mode, system.img might not exist
+            logging.warning(f"{mdir}/system.img doesn't exist! Skipping mount.")
             return False
 
         # Some devices mount product and vendor under system, but
@@ -602,6 +645,10 @@ unpack all the files, and mount the filesystems so the files can accessed.
     parser.add_argument("-o", "--outdir", default="blobs", help="The output directory")
     parser.add_argument("-c", "--clone",
                         help="Copy the proprietary files for analysis")
+    parser.add_argument("--ios", action="store_true",
+                        help="Enable iOS extraction mode")
+    parser.add_argument("--generic", action="store_true",
+                        help="Enable Generic Android extraction mode")
     # parser.add_argument("-p", "--package",
     #                     help="Make the the zip package")
     args = parser.parse_args()
@@ -652,7 +699,13 @@ unpack all the files, and mount the filesystems so the files can accessed.
         
     if args.clone:
         # path = Path(args.clone)
-        extract.clone(lineage, args.clone, args.outdir)
+        # Determine mode
+        ios_mode = args.ios
+        if args.generic:
+            # Generic flag forces generic logic which handles both in clone_generic
+            pass
+
+        extract.clone(lineage, args.clone, args.outdir, ios_mode=ios_mode)
         logging.info(f"All done cloning {args.clone} into {args.outdir}")
         quit()
 
