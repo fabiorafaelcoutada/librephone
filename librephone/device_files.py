@@ -33,7 +33,6 @@ import librephone as pt
 from librephone.typedefs import (
     Archtypes,
     Bintypes,
-    Filetypes,
 )
 
 rootdir = pt.__path__[0]

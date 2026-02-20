@@ -17,19 +17,19 @@
 
 import argparse
 import logging
-import sys
 import os
-from sys import argv
-from pathlib import Path
-# import types_tm
-from librephone.yamlfile import YamlFile
+import sys
+
 # import librephone.typedefs
 from datetime import datetime
-from shapely.geometry import Point, LineString, Polygon
-from librephone.device import DeviceData
-from librephone.typedefs import Gpumodels, Devstatus, Imgtypes, Bintypes, Archtypes, Celltypes, Nettypes, Wifitypes, Filetypes, Blobtypes
+from pathlib import Path
+from sys import argv
 
 import librephone as pt
+
+# import types_tm
+from librephone.yamlfile import YamlFile
+
 rootdir = pt.__path__[0]
 
 # Instantiate logger
@@ -39,8 +39,7 @@ class Generator(object):
     def __init__(self,
                 filespec: str = None,
                 ):
-        """
-        A class that generates the output files from the config data.
+        """A class that generates the output files from the config data.
 
         Args:
             filespec (str): The config file to use as source.
@@ -54,37 +53,36 @@ class Generator(object):
             self.filespec = Path(filespec)
             self.yaml = YamlFile(filespec)
         self.createTypes()
-        self.yaml2py = {'int32': 'int',
-                    'int64': 'int',
-                    'float': 'float',
-                    'double': 'float',
-                    'bool': 'bool',
-                    'string': 'str',
-                    'bytes': 'bytes',
-                    'timestamp': 'timestamp without time zone',
-                    'polygon': 'Polygon',
-                    'point': 'Point',
-                    'jsonb': 'dict',
+        self.yaml2py = {"int32": "int",
+                    "int64": "int",
+                    "float": "float",
+                    "double": "float",
+                    "bool": "bool",
+                    "string": "str",
+                    "bytes": "bytes",
+                    "timestamp": "timestamp without time zone",
+                    "polygon": "Polygon",
+                    "point": "Point",
+                    "jsonb": "dict",
                     }
 
-        self.yaml2sql = {'int32': 'int',
-                    'int64': 'bigint',
-                    'bool': 'bool',
-                    'string': 'character varying',
-                    'bytes': 'bytea',
-                    'timestamp': 'timestamp without time zone',
-                    'polygon': 'geometry(Polygon,4326)',
-                    'point': 'geometry(Point,4326)',
-                    'jsonb': 'jsonb',
-                    'float': 'float',
-                    'double': 'float',
-                    }        
+        self.yaml2sql = {"int32": "int",
+                    "int64": "bigint",
+                    "bool": "bool",
+                    "string": "character varying",
+                    "bytes": "bytea",
+                    "timestamp": "timestamp without time zone",
+                    "polygon": "geometry(Polygon,4326)",
+                    "point": "geometry(Point,4326)",
+                    "jsonb": "jsonb",
+                    "float": "float",
+                    "double": "float",
+                    }
 
     def readConfig(self,
                     filespec: str,
                     ):
-        """
-        Reads in the YAML config file.
+        """Reads in the YAML config file.
 
         Args:
             filespec (str): The config file to use as source.
@@ -93,23 +91,21 @@ class Generator(object):
         self.yaml = YamlFile(filespec)
 
     def createTypes(self):
-        """
-        Creates the enum files, which need to be done first, since the
+        """Creates the enum files, which need to be done first, since the
         other generated files reference these.
         """
-        gen = self.readConfig(f'{rootdir}/typedefs.yaml')
+        gen = self.readConfig(f"{rootdir}/typedefs.yaml")
         out = self.createSQLEnums()
-        with open('typedefs.sql', 'w') as file:
+        with open("typedefs.sql", "w") as file:
             file.write(out)
             file.close()
         out = self.createPyEnums()
-        with open('typedefs.py', 'w') as file:
+        with open("typedefs.py", "w") as file:
             file.write(out)
             file.close()
 
     def createSQLEnums(self):
-        """
-        Create an input file for postgres of the custom types.
+        """Create an input file for postgres of the custom types.
 
         Returns:
             (str): The source for postgres to create the SQL types.
@@ -131,14 +127,13 @@ class Generator(object):
         return out
 
     def createPyEnums(self):
-        """
-        Create an input file for python of the custom types.
+        """Create an input file for python of the custom types.
 
         Returns:
             (str): The source for python to create the enums.
         """
-        out = f"import logging\n"
-        out += f"from enum import Enum\n"
+        out = "import logging\n"
+        out += "from enum import Enum\n"
         for entry in self.yaml.yaml:
             index = 1
             [[table, values]] = entry.items()
@@ -152,12 +147,11 @@ class Generator(object):
                     # out += f"\t{line} = {index}\n"
                     out += f"\t{line} = '{line}'\n"
                 index += 1
-            out += '\n'
+            out += "\n"
         return out
 
     def createSQLTable(self):
-        """
-        Create the source for an SQL table.
+        """Create the source for an SQL table.
 
         Returns:
             (str): The protobuf message source.
@@ -187,23 +181,23 @@ class Generator(object):
                 partition = list()
                 for item in v:
                     if type(item) == dict:
-                        if 'sequence' in item and item['sequence']:
+                        if "sequence" in item and item["sequence"]:
                             sequence.append(k)
-                        if 'required' in item and item['required']:
-                            required = ' NOT NULL'
-                        if 'array' in item and item['array']:
+                        if "required" in item and item["required"]:
+                            required = " NOT NULL"
+                        if "array" in item and item["array"]:
                             array = "[]"
-                        if 'unique' in item and item['unique']:
+                        if "unique" in item and item["unique"]:
                             unique.append(k)
-                        if 'primary' in item and item['primary']:
+                        if "primary" in item and item["primary"]:
                             primary.append(k)
-                        if 'partition' in item and item['partition']:
+                        if "partition" in item and item["partition"]:
                             partition.append(k)
                     if len(v) >= 2:
-                        if 'required' in v[1] and v[1]['required']:
-                            required = ' NOT NULL'
+                        if "required" in v[1] and v[1]["required"]:
+                            required = " NOT NULL"
                     if type(item) == str:
-                        if item[:7] == 'public.' and item[15:8] != 'geometry':
+                        if item[:7] == "public." and item[15:8] != "geometry":
                             public = True
                         # elif item[15:8] == 'geometry':
                         #     out += f"\t{k} {self.yaml2py[v[0]]}{array}{required},\n"
@@ -213,7 +207,7 @@ class Generator(object):
                     # print(v)
                     # FIXME: if this produces an error, check the yaml file as this
                     # usually means the type field isn't first in the list.
-                    if v[0][:6] == 'table.':
+                    if v[0][:6] == "table.":
                         out += f"\t{k} {v[0][6:]}{array},\n"
                     else:
                         try:
@@ -221,9 +215,9 @@ class Generator(object):
                         except:
                             breakpoint()
             if len(unique) > 0:
-                keys = str(unique).replace("'", "")[1:-1];
+                keys = str(unique).replace("'", "")[1:-1]
                 out += f"\tUNIQUE({keys})\n);\n"
-            if out[-2:] == ',\n':
+            if out[-2:] == ",\n":
                 out = f"{out[:-2]}\n);\n\n"
             if len(sequence) > 0:
                 for key in sequence:
@@ -238,19 +232,18 @@ CREATE SEQUENCE public.{table}_{key}_seq
 
 """
         if len(primary) > 0:
-            keys = str(primary).replace("'", "")[1:-1];
+            keys = str(primary).replace("'", "")[1:-1]
             out += f"\tALTER TABLE {table} ADD CONSTRAINT {table}_pkey PRIMARY KEY({keys})\n);\n"
 
         return out + "\n"
 
     def createPyClass(self):
-        """
-        Creates a python class wrapper for the protobuf messages.
+        """Creates a python class wrapper for the protobuf messages.
 
         Returns:
             (str): The source for python to create the class stubs.
         """
-        out = f"""
+        out = """
 import logging
 from datetime import datetime
 import librephone.typedefs
@@ -275,10 +268,10 @@ class {table.capitalize()}Table(object):
                         if type(k1) == dict:
                             continue
                         elif type(k1) == str:
-                            if k1[:15] == 'public.geometry':
-                                datatype = k1[16:-1].split(',')[0]
+                            if k1[:15] == "public.geometry":
+                                datatype = k1[16:-1].split(",")[0]
                                 log.warning(f"GEOMETRY: {datatype}")
-                            elif k1[:7] == 'public.':
+                            elif k1[:7] == "public.":
                                 datatype = f"librephone.typesdefs.{k1[7:].capitalize()}"
                                 # log.warning(f"SQL ENUM {k1}! {datatype}")
                             elif k1 in self.yaml2py:
@@ -286,11 +279,11 @@ class {table.capitalize()}Table(object):
                             else:
                                 datatype = item
                                 continue
-                        if k1 == 'bool':
+                        if k1 == "bool":
                             out += f"{k}: {datatype} = False, "
-                        elif k1 == 'timestamp':
+                        elif k1 == "timestamp":
                             out += f"{k}: datetime = '{datetime.now()}', "
-                        elif k1[:7] == 'public.':
+                        elif k1[:7] == "public.":
                             # breakpoint()
                             typedef = k1[7:].capitalize()
                             defined = f"librephone.typedefs.{typedef}"
@@ -345,11 +338,11 @@ def main():
     if args.classes:
         gen.readConfig("tabledefs.yaml")
         out = gen.createSQLTable()
-        with open('tabledefs.sql', 'w') as file:
+        with open("tabledefs.sql", "w") as file:
             file.write(out)
             file.close()
         out = gen.createPyClass()
-        with open('tabledefs.py', 'w') as file:
+        with open("tabledefs.py", "w") as file:
             file.write(out)
             file.close()
 
