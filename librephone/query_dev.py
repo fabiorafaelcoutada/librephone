@@ -17,6 +17,7 @@
 
 import argparse
 import csv
+import json
 
 # from deepdiff import DeepDiff
 import difflib
@@ -80,11 +81,11 @@ class QueryDevice(object):
         # diffs = dict(src1: list(), src2: list())
         # diffs = {src1: list(), src2: list()}
         diffs = list()
-        sql = f"SELECT foo->>'path',foo->>'file',foo->>'type' FROM devices,jsonb_array_elements(devices.blobs) AS foo WHERE build = '{src1}' ORDER BY foo->>'file';"
+        sql = "SELECT foo->>'path',foo->>'file',foo->>'type' FROM devices,jsonb_array_elements(devices.blobs) AS foo WHERE build = %s ORDER BY foo->>'file';"
 
         # print(f"SQL: {sql}")
         files1 = list()
-        result = self.dbcursor.execute(sql)
+        result = self.dbcursor.execute(sql, (src1,))
         result1 = self.dbcursor.fetchall()
         # print(result1)
         for entry in result1:
@@ -93,11 +94,11 @@ class QueryDevice(object):
                 continue
             files1.append(f"{entry[1]}, {entry[2]}")
 
-        sql = f"SELECT foo->>'path',foo->>'file',foo->>'type' FROM devices,jsonb_array_elements(devices.blobs) AS foo WHERE build = '{src2}' ORDER BY foo->>'file';"
+        sql = "SELECT foo->>'path',foo->>'file',foo->>'type' FROM devices,jsonb_array_elements(devices.blobs) AS foo WHERE build = %s ORDER BY foo->>'file';"
 
         # print(f"SQL: {sql}")
         files2 = list()
-        result = self.dbcursor.execute(sql)
+        result = self.dbcursor.execute(sql, (src2,))
         result2 = self.dbcursor.fetchall()
         # print(result2)
         for entry in result2:
@@ -149,9 +150,10 @@ class QueryDevice(object):
             (list): The results of the query
         """
         # breakpoint()
-        sql = f"SELECT vendor,model,build FROM {self.dbname},jsonb_array_elements(blobs) foo WHERE blobs  @> '[{{\"type\": \"{bintype.value}\"}}]';"
+        sql = f"SELECT vendor,model,build FROM {self.dbname},jsonb_array_elements(blobs) foo WHERE blobs  @> %s::jsonb;"
         # print(f"SQL: {sql}")
-        result = self.dbcursor.execute(sql)
+        query_json = json.dumps([{"type": bintype.value}])
+        result = self.dbcursor.execute(sql, (query_json,))
         result = self.dbcursor.fetchall()
         # print(result)
         return result
@@ -190,10 +192,11 @@ class QueryDevice(object):
         Returns:
             (list): The devices the file is in
         """
-        file = str({"file": filename}).replace("'", '"')
-        sql = f"SELECT ARRAY_AGG(model) FROM devices WHERE blobs @> '[{file}]';"
+        # file = str({"file": filename}).replace("'", '"')
+        sql = "SELECT ARRAY_AGG(model) FROM devices WHERE blobs @> %s::jsonb;"
         # print(f"SQL: {sql}")
-        result = self.dbcursor.execute(sql)
+        query_json = json.dumps([{"file": filename}])
+        result = self.dbcursor.execute(sql, (query_json,))
         result = self.dbcursor.fetchall()
 
         return result
@@ -209,9 +212,9 @@ class QueryDevice(object):
         Returns:
             (list): The devices the file is in
         """
-        sql = f"SELECT vendor,model,build,foo->>'path',foo->>'file',foo->>'size',foo->>'md5sum',foo->>'type',released FROM devices,jsonb_array_elements(devices.blobs) AS foo WHERE released >= {year};"
-        print(f"SQL: {sql}")
-        result = self.dbcursor.execute(sql)
+        sql = "SELECT vendor,model,build,foo->>'path',foo->>'file',foo->>'size',foo->>'md5sum',foo->>'type',released FROM devices,jsonb_array_elements(devices.blobs) AS foo WHERE released >= %s;"
+        # print(f"SQL: {sql}")
+        result = self.dbcursor.execute(sql, (year,))
         result = self.dbcursor.fetchall()
 
         return result
@@ -228,9 +231,10 @@ class QueryDevice(object):
 
         bar = Bar("Processing files", max=len(files))
         for file in files:
-            sql = f"SELECT ARRAY_AGG(model) FROM devices WHERE blobs  @> '[{{\"file\": \"{file[0]}\"}}]';"
+            sql = "SELECT ARRAY_AGG(model) FROM devices WHERE blobs  @> %s::jsonb;"
             # print(f"SQL: {sql}")
-            result = self.dbcursor.execute(sql)
+            query_json = json.dumps([{"file": file[0]}])
+            result = self.dbcursor.execute(sql, (query_json,))
             devs = self.dbcursor.fetchone()
             devices.append({"file": file[0], "devices": devs[0]})
             bar.next()
