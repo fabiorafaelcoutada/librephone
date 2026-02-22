@@ -10,6 +10,7 @@ dependencies = [
     "python_magic>=0.4.27",
     "sdat2img-brotli>=1.0.3",
     "unblob>=25.5.26",
+    "PyYAML>=6.0",
 ]
 requires-python = ">=3.10"
 readme = "README.md"
@@ -101,3 +102,4 @@ convention = "google"
 extractor = "librephone.extractor:main"
 import-device = "librephone.import_dev:main"
 query-device = "librephone.query_dev:main"
+machina = "librephone.machina.cli:main"
