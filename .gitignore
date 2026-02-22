@@ -15,6 +15,10 @@ autom4te.cache/
 *.ods
 
 
+# Python
+__pycache__/
+*.pyc
+
 # output files
 x*
 .~lock.*#
