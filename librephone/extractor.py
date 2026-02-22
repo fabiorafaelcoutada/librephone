@@ -17,6 +17,7 @@
 
 import argparse
 import glob
+import json
 import logging
 import os
 import re
@@ -270,7 +271,7 @@ class Extractor:
             if os.path.exists(deps):
                 fd = open(deps, "r")
                 try:
-                    for depdir in eval(fd.read()):
+                    for depdir in json.load(fd):
                         subprops = f"{os.path.dirname(propdir)}/{os.path.basename(depdir['target_path'])}/{os.path.basename(devdir)}"
                         props = glob.glob(f"{subprops}/proprietary-*.txt")
                 except Exception:
