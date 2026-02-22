@@ -1,0 +1,9 @@
+# Example Machina configuration (Static YAML)
+project_name: "YAML Configured Project"
+version: "0.5.0"
+target_arch: "arm64"
+target_platform: "linux"
+
+settings:
+  kernel_version: "6.1.10"
+  build_threads: 16
