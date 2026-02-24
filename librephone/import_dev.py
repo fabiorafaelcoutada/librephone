@@ -36,12 +36,13 @@ log = logging.getLogger(__name__)
 
 
 class DeviceImport(UpdateDevice):
-    def __init__(self,
-                 dbname: str = "devices",
-                 ):
+    def __init__(
+        self,
+        dbname: str = "devices",
+    ):
         """Args:
             dbname (str): The database name for device data
-        
+
         Return:
             (DeviceImport): An instance of this class
         """
@@ -63,11 +64,12 @@ class DeviceImport(UpdateDevice):
         # self.keep = (".hex", ".pb", ".img", ".bin", ".dat", ".fw", ".fw2")
         self.keep = (".hex", ".img", ".bin", ".dat", ".fw", ".fw2")
 
-    def create_entry(self,
-                     vendor: str,
-                     model: str,
-                     build: str,
-                     ):
+    def create_entry(
+        self,
+        vendor: str,
+        model: str,
+        build: str,
+    ):
         """Create a new device entry in the database.
 
         Args:
@@ -85,11 +87,11 @@ class DeviceImport(UpdateDevice):
         # print(sql)
         self.dbcursor.execute(sql, (vendor, model, build, vendor, model, build))
 
-    def bootstrap(self,
-                  filespec: str,
-                  ):
-        """This bootstraps the database with statc data.
-        """
+    def bootstrap(
+        self,
+        filespec: str,
+    ):
+        """This bootstraps the database with statc data."""
         # This is the CSV file produced by image_utils -l that sets
         # the vendor, model, and build columns need by all the other
         # database queries
@@ -103,9 +105,7 @@ class DeviceImport(UpdateDevice):
         # like soc and released.
         self.process_file(f"{os.path.dirname(rootdir)}/data/builds.csv")
 
-    def write_db(self,
-                 device: DeviceData
-                 ) -> bool:
+    def write_db(self, device: DeviceData) -> bool:
         """Write the metadata for a device build to the database.
 
         Args:
@@ -121,7 +121,6 @@ class DeviceImport(UpdateDevice):
         #     item = json.dumps(files)
         #     queries[suffix].append(item)
         #     # print(f"SQL: {item}")
-
 
         sql = str()
         # sort by type
@@ -149,6 +148,7 @@ class DeviceImport(UpdateDevice):
         for dev in self.files:
             dev.dump()
 
+
 def main():
     """This main function lets this class be run standalone by a bash script."""
     parser = argparse.ArgumentParser(description="Import device data into postgres")
@@ -156,10 +156,9 @@ def main():
     parser.add_argument("-i", "--indir", help="The top level vendor directory")
     # parser.add_argument("-o", "--outdir", default="blobs", help="The output directory")
     parser.add_argument("-f", "--file", help="Get data for a file, only for debugging")
-    parser.add_argument("-b", "--bootstrap", action="store_true",
-                        help="Bootstrap a table with minimal data")
+    parser.add_argument("-b", "--bootstrap", action="store_true", help="Bootstrap a table with minimal data")
     # parser.add_argument("-c", "--company", help="The vendor name")
-    #parser.add_argument("-m", "--model", help="The model name")
+    # parser.add_argument("-m", "--model", help="The model name")
     args = parser.parse_args()
 
     # if verbose, dump to the terminal.
@@ -209,6 +208,7 @@ def main():
         dev = DeviceData(vendor=vendor, build=build)
         files = dev.find_files(args.indir)
         devimport.write_db(dev)
+
 
 if __name__ == "__main__":
     """

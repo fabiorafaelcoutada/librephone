@@ -25,6 +25,7 @@ import yaml
 # Instantiate logger
 log = logging.getLogger(__name__)
 
+
 class YamlFile(object):
     """Config file in YAML format."""
 
@@ -48,10 +49,11 @@ class YamlFile(object):
         self.data = dict()
         # self.getEntries()
 
-    def get(self,
-            keyword: str,
-            tag: str = None,
-            ):
+    def get(
+        self,
+        keyword: str,
+        tag: str = None,
+    ):
         """Get the values for a top level keyword\
 
         Args:
@@ -115,6 +117,7 @@ class YamlFile(object):
             for k, v in values.items():
                 print(f"\t{k} = {v}")
             print("------------------")
+
 
 #
 # This script can be run standalone for debugging purposes. It's easier to debug

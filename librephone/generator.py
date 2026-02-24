@@ -35,10 +35,12 @@ rootdir = pt.__path__[0]
 # Instantiate logger
 log = logging.getLogger(__name__)
 
+
 class Generator(object):
-    def __init__(self,
-                filespec: str = None,
-                ):
+    def __init__(
+        self,
+        filespec: str = None,
+    ):
         """A class that generates the output files from the config data.
 
         Args:
@@ -53,35 +55,38 @@ class Generator(object):
             self.filespec = Path(filespec)
             self.yaml = YamlFile(filespec)
         self.createTypes()
-        self.yaml2py = {"int32": "int",
-                    "int64": "int",
-                    "float": "float",
-                    "double": "float",
-                    "bool": "bool",
-                    "string": "str",
-                    "bytes": "bytes",
-                    "timestamp": "timestamp without time zone",
-                    "polygon": "Polygon",
-                    "point": "Point",
-                    "jsonb": "dict",
-                    }
+        self.yaml2py = {
+            "int32": "int",
+            "int64": "int",
+            "float": "float",
+            "double": "float",
+            "bool": "bool",
+            "string": "str",
+            "bytes": "bytes",
+            "timestamp": "timestamp without time zone",
+            "polygon": "Polygon",
+            "point": "Point",
+            "jsonb": "dict",
+        }
 
-        self.yaml2sql = {"int32": "int",
-                    "int64": "bigint",
-                    "bool": "bool",
-                    "string": "character varying",
-                    "bytes": "bytea",
-                    "timestamp": "timestamp without time zone",
-                    "polygon": "geometry(Polygon,4326)",
-                    "point": "geometry(Point,4326)",
-                    "jsonb": "jsonb",
-                    "float": "float",
-                    "double": "float",
-                    }
+        self.yaml2sql = {
+            "int32": "int",
+            "int64": "bigint",
+            "bool": "bool",
+            "string": "character varying",
+            "bytes": "bytea",
+            "timestamp": "timestamp without time zone",
+            "polygon": "geometry(Polygon,4326)",
+            "point": "geometry(Point,4326)",
+            "jsonb": "jsonb",
+            "float": "float",
+            "double": "float",
+        }
 
-    def readConfig(self,
-                    filespec: str,
-                    ):
+    def readConfig(
+        self,
+        filespec: str,
+    ):
         """Reads in the YAML config file.
 
         Args:
@@ -299,6 +304,7 @@ class {table.capitalize()}Table(object):
 
         return out
 
+
 def main():
     """This main function lets this class be run standalone by a bash script."""
     parser = argparse.ArgumentParser(
@@ -345,6 +351,7 @@ def main():
         with open("tabledefs.py", "w") as file:
             file.write(out)
             file.close()
+
 
 if __name__ == "__main__":
     """This is just a hook so this file can be run standalone during development."""
