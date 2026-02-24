@@ -1,4 +1,3 @@
-
 import os
 import tempfile
 
@@ -13,7 +12,7 @@ def test_ios_magic_detection():
         # Mach-O 64-bit LE (0xcffaedfe)
         macho_path = os.path.join(tmpdir, "test_macho")
         with open(macho_path, "wb") as f:
-            f.write(bytes([0xcf, 0xfa, 0xed, 0xfe]))
+            f.write(bytes([0xCF, 0xFA, 0xED, 0xFE]))
 
         # Verify
         magic_type = df.get_magic(macho_path)
@@ -28,6 +27,7 @@ def test_ios_magic_detection():
         magic_type = df.get_magic(png_path)
         assert magic_type == Bintypes.GRAPHIC
 
+
 def test_find_files_generic():
     df = DeviceFiles()
     with tempfile.TemporaryDirectory() as tmpdir:
@@ -38,7 +38,7 @@ def test_find_files_generic():
         # Create a file
         fpath = os.path.join(bin_dir, "ls")
         with open(fpath, "wb") as f:
-            f.write(bytes([0x7f, 0x45, 0x4c, 0x46])) # ELF64
+            f.write(bytes([0x7F, 0x45, 0x4C, 0x46]))  # ELF64
 
         # Run with force_all=True to ensure generic mode picks it up
         files = df.find_files(tmpdir, force_all=True)
@@ -52,6 +52,7 @@ def test_find_files_generic():
                 found = True
                 break
         assert found
+
 
 def test_ios_nametypes():
     df = DeviceFiles()

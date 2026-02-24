@@ -17,10 +17,10 @@
 
 import argparse
 import csv
-import json
 
 # from deepdiff import DeepDiff
 import difflib
+import json
 import logging
 import os
 import sys
@@ -72,12 +72,12 @@ class QueryDevice(object):
         # print(result)
         return result
 
-    def diff_builds(self,
-                    src1: str,
-                    src2: str,
-                    ) -> list:
-        """Find the differences in files between two Lineage devices.
-        """
+    def diff_builds(
+        self,
+        src1: str,
+        src2: str,
+    ) -> list:
+        """Find the differences in files between two Lineage devices."""
         # diffs = dict(src1: list(), src2: list())
         # diffs = {src1: list(), src2: list()}
         diffs = list()
@@ -114,14 +114,13 @@ class QueryDevice(object):
         #     diffs.append(bar)
 
         index = 0
-        for line in difflib.unified_diff(files1, files2,
-                                         fromfile="foo", tofiledate="bar"):
+        for line in difflib.unified_diff(files1, files2, fromfile="foo", tofiledate="bar"):
             tmp = line.split(",")
             if len(tmp) == 1:
                 continue
             file = tmp[0]
             ftype = tmp[1].strip()
-            entry =  {"file": file, "type": ftype}
+            entry = {"file": file, "type": ftype}
             diffs.append(entry)
 
         return diffs
@@ -141,9 +140,10 @@ class QueryDevice(object):
         # print(result)
         return result
 
-    def list_totals(self,
-                    bintype: Bintypes,
-                    ) -> list:
+    def list_totals(
+        self,
+        bintype: Bintypes,
+    ) -> list:
         """Query a table in the database.
 
         Returns:
@@ -181,9 +181,10 @@ class QueryDevice(object):
         for dev in self.devices:
             dev.dump()
 
-    def track_file(self,
-                   filename: str,
-                   ) -> list:
+    def track_file(
+        self,
+        filename: str,
+    ) -> list:
         """Query a table in the database.
 
         Args:
@@ -201,9 +202,10 @@ class QueryDevice(object):
 
         return result
 
-    def track_size(self,
-                   year: int,
-                   ) -> list:
+    def track_size(
+        self,
+        year: int,
+    ) -> list:
         """Query a table in the database.
 
         Args:
@@ -219,11 +221,10 @@ class QueryDevice(object):
 
         return result
 
-    def list_devices(self,
-                     ) -> list:
-        """List all the devices containing a file.
-
-        """
+    def list_devices(
+        self,
+    ) -> list:
+        """List all the devices containing a file."""
         devices = list()
         sql = "SELECT DISTINCT(foo->>'file') FROM devices,jsonb_array_elements(devices.blobs) AS foo;"
         result = self.dbcursor.execute(sql)
@@ -240,6 +241,7 @@ class QueryDevice(object):
             bar.next()
         bar.finish()
         return devices
+
 
 def main():
     """This main function lets this class be run standalone by a bash script."""
@@ -311,10 +313,11 @@ def main():
     if args.list:
         if args.list == "devices":
             totals = devdb.list_devices()
-            fieldnames = ("file",
-                          "count",
-                          "devices",
-                          )
+            fieldnames = (
+                "file",
+                "count",
+                "devices",
+            )
             csvfile = open(f"{args.list}.csv", "w", newline="")
             csvout = csv.DictWriter(csvfile, fieldnames=fieldnames)
             csvout.writeheader()
@@ -335,16 +338,17 @@ def main():
             else:
                 year = 2017
             totals = devdb.track_size(year)
-            fieldnames = ("vendor",
-                          "model",
-                          "build",
-                          "path",
-                          "file",
-                          "size",
-                          "md5sum",
-                          "type",
-                          "released",
-                          )
+            fieldnames = (
+                "vendor",
+                "model",
+                "build",
+                "path",
+                "file",
+                "size",
+                "md5sum",
+                "type",
+                "released",
+            )
             csvfile = open("sizes.csv", "w", newline="")
             csvout = csv.DictWriter(csvfile, fieldnames=fieldnames)
             csvout.writeheader()
@@ -353,17 +357,18 @@ def main():
                 if entry[6] in devdata.ignore:
                     continue
                 pos = entry[3].find(entry[2])
-                path = entry[3][pos + len(entry[2]) + 1:]
-                out = {"vendor": entry[0].title(),
-                       "model": entry[1],
-                       "build": entry[2],
-                       "path": path,
-                       "file": entry[4],
-                       "size": entry[5],
-                       "md5sum": entry[6],
-                       "type": entry[7],
-                       "released": entry[8],
-                       }
+                path = entry[3][pos + len(entry[2]) + 1 :]
+                out = {
+                    "vendor": entry[0].title(),
+                    "model": entry[1],
+                    "build": entry[2],
+                    "path": path,
+                    "file": entry[4],
+                    "size": entry[5],
+                    "md5sum": entry[6],
+                    "type": entry[7],
+                    "released": entry[8],
+                }
                 csvout.writerow(out)
                 bar.next()
             bar.finish()
@@ -373,30 +378,33 @@ def main():
         if args.list == "count":
             csvfile = open("count.csv", "w", newline="")
             totals = devdb.list_count()
-            fieldnames = ("vendor",
-                          "model",
-                          "build",
-                          "total",
-                          )
+            fieldnames = (
+                "vendor",
+                "model",
+                "build",
+                "total",
+            )
             csvout = csv.DictWriter(csvfile, fieldnames=fieldnames)
             csvout.writeheader()
             for entry in totals:
-                out = {"vendor": entry[0].title(),
-                       "model": entry[1],
-                       "build": entry[2],
-                       "total": entry[3],
-                       }
+                out = {
+                    "vendor": entry[0].title(),
+                    "model": entry[1],
+                    "build": entry[2],
+                    "total": entry[3],
+                }
                 csvout.writerow(out)
             log.info("Wrote count.csv")
             quit()
 
         if args.list == "totals":
             csvfile = open("totals.csv", "w", newline="")
-            fieldnames = ("vendor",
-                          "model",
-                          "build",
-                          "type",
-                          )
+            fieldnames = (
+                "vendor",
+                "model",
+                "build",
+                "type",
+            )
             csvout = csv.DictWriter(csvfile, fieldnames=fieldnames)
             csvout.writeheader()
             for val in Bintypes:
