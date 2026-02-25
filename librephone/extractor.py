@@ -16,6 +16,7 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import argparse
+import ast
 import glob
 import logging
 import os
@@ -270,8 +271,12 @@ class Extractor:
             if os.path.exists(deps):
                 fd = open(deps, "r")
                 try:
-                    for depdir in eval(fd.read()):
-                        subprops = f"{os.path.dirname(propdir)}/{os.path.basename(depdir['target_path'])}/{os.path.basename(devdir)}"
+                    # SENTINEL: Use ast.literal_eval() instead of eval() to prevent arbitrary code execution
+                    # while maintaining support for Python literals (like single quotes).
+                    for depdir in ast.literal_eval(fd.read()):
+                        target_base = os.path.basename(depdir['target_path'])
+                        dev_base = os.path.basename(devdir)
+                        subprops = f"{os.path.dirname(propdir)}/{target_base}/{dev_base}"
                         props = glob.glob(f"{subprops}/proprietary-*.txt")
                 except Exception:
                     pass
