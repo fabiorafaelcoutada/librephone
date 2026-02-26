@@ -24,6 +24,7 @@ import shutil
 import subprocess
 import sys
 import zipfile
+import json
 from pathlib import Path
 from sys import argv
 
@@ -270,7 +271,7 @@ class Extractor:
             if os.path.exists(deps):
                 fd = open(deps, "r")
                 try:
-                    for depdir in eval(fd.read()):
+                    for depdir in json.load(fd):
                         subprops = f"{os.path.dirname(propdir)}/{os.path.basename(depdir['target_path'])}/{os.path.basename(devdir)}"
                         props = glob.glob(f"{subprops}/proprietary-*.txt")
                 except Exception:
