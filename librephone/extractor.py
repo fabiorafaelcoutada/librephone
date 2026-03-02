@@ -16,6 +16,7 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import argparse
+import ast
 import glob
 import logging
 import os
@@ -270,12 +271,15 @@ class Extractor:
             if os.path.exists(deps):
                 fd = open(deps, "r")
                 try:
-                    for depdir in eval(fd.read()):
+                    # SECURITY: parse lineage.dependencies securely using ast.literal_eval instead of eval
+                    # This handles single quotes and trailing commas safely unlike json.load
+                    for depdir in ast.literal_eval(fd.read()):
                         subprops = f"{os.path.dirname(propdir)}/{os.path.basename(depdir['target_path'])}/{os.path.basename(devdir)}"
                         props = glob.glob(f"{subprops}/proprietary-*.txt")
-                except Exception:
-                    pass
-                fd.close()
+                except Exception as e:
+                    logging.warning(f"Failed to parse {deps}: {e}")
+                finally:
+                    fd.close()
 
         # Mount the extracted filesystems from the install packages
         self.unmount(indir)
