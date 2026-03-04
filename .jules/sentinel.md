@@ -1,4 +1,5 @@
-## 2025-02-14 - Arbitrary Code Execution via eval()
-**Vulnerability:** Found `eval(fd.read())` used to parse a Python-literal configuration file (`lineage.dependencies`) in `extractor.py`.
-**Learning:** Legacy parsing of configuration files might use `eval()` assuming trusted input, but file content can be malicious or compromised.
-**Prevention:** Never use `eval()` for parsing data. Use `ast.literal_eval()` for safe parsing of Python literals, or strict parsers like `json.load()` if the format allows.
+## 2025-05-24 - Arbitrary Code Execution via `eval()`
+
+**Vulnerability:** The application used `eval()` to parse `lineage.dependencies` files, which are externally controllable.
+**Learning:** Never trust file content, even if it looks like configuration. Python's `eval()` executes arbitrary code.
+**Prevention:** Always use safe parsers like `json.load()` for data serialization formats.
