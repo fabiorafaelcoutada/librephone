@@ -48,11 +48,12 @@ class UpdateDevice(object):
         self.devices = list()
         self.lineage = os.getenv("LINEAGE")
 
-    def set_column(self,
-            column: str = None,
-            build: str = None,
-            value: str = None,
-            ) -> bool:
+    def set_column(
+        self,
+        column: str = None,
+        build: str = None,
+        value: str = None,
+    ) -> bool:
         """Set a column for a device.
 
         Args:
@@ -65,9 +66,10 @@ class UpdateDevice(object):
         print(f"SQL: {sql}")
         result = self.dbcursor.execute(sql)
 
-    def set_columns(self,
-                    values: dict,
-                    ) -> bool:
+    def set_columns(
+        self,
+        values: dict,
+    ) -> bool:
         """Set multiple columns for a device.
 
         Args:
@@ -87,24 +89,27 @@ class UpdateDevice(object):
         # print(f"SQL: {sql}")
         result = self.dbcursor.execute(sql)
 
-    def process_file(self,
-                     filespec: str,
-                     ):
+    def process_file(
+        self,
+        filespec: str,
+    ):
         """This reads in the data/builds.csv file, which keeps track of
         build status and has other info like soc and release year.
         """
         with open(filespec, newline="", encoding="latin") as file:
             reader = csv.DictReader(file, delimiter=",")
             for row in reader:
-                entry = {"build": row["Build"],
-                         "soc": row["SOC"],
-                         "released": row["Released"],
-                         }
+                entry = {
+                    "build": row["Build"],
+                    "soc": row["SOC"],
+                    "released": row["Released"],
+                }
                 if row["Build 22.2"] == "completes":
                     entry["builds"] = "t"
                 if row["Extract 22.2"] == "completes":
                     entry["extracts"] = "t"
                 self.set_columns(entry)
+
 
 def main():
     """This main function lets this class be run standalone by a bash script."""
@@ -138,8 +143,12 @@ def main():
     elif args.set:
         devdb.set_column("builds", build, True)
         devdb.set_column("released", build, True)
-        devdb.set_column("soc", build, )
+        devdb.set_column(
+            "soc",
+            build,
+        )
     # devdb.dump()
+
 
 if __name__ == "__main__":
     """This is just a hook so this file can be run standlone during development."""
