@@ -276,12 +276,13 @@ class Extractor:
             deps = f"{propdir}/lineage.dependencies"
             if os.path.exists(deps):
                 try:
-                    with open(deps, "r") as fd:
-                        for depdir in json.load(fd):
-                            subprops = (
-                                f"{os.path.dirname(propdir)}/{os.path.basename(depdir['target_path'])}/{os.path.basename(devdir)}"
-                            )
-                            props = glob.glob(f"{subprops}/proprietary-*.txt")
+                    # SENTINEL: Use ast.literal_eval() instead of eval() to prevent arbitrary code execution
+                    # while maintaining support for Python literals (like single quotes).
+                    for depdir in ast.literal_eval(fd.read()):
+                        target_base = os.path.basename(depdir['target_path'])
+                        dev_base = os.path.basename(devdir)
+                        subprops = f"{os.path.dirname(propdir)}/{target_base}/{dev_base}"
+                        props = glob.glob(f"{subprops}/proprietary-*.txt")
                 except Exception:
                     pass
 

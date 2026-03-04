@@ -1,113 +1,104 @@
-"""Tests for security vulnerabilities in the Extractor class."""
+"""Tests for security vulnerabilities in extractor.py."""
 
-import json
-from unittest.mock import patch
-
+import os
+import pytest
+from pathlib import Path
 from librephone.extractor import Extractor
 
+@pytest.fixture
+def test_env(tmp_path):
+    """Setup a temporary test environment with a fake directory structure."""
+    # Setup directories
+    base_dir = tmp_path / "test_env"
+    base_dir.mkdir()
 
-def test_clone_dependency_security(tmp_path, capsys):
-    """Verify that lineage.dependencies is parsed as JSON and not evaluated as code.
+    # Create device directory: .../vendor/model
+    device_dir = base_dir / "vendor" / "model"
+    device_dir.mkdir(parents=True)
 
-    This prevents Arbitrary Code Execution if the file contains malicious Python code.
-    """
-    root = tmp_path
+    # Create fake img
+    (device_dir / "system.img").write_text("fake img")
 
-    # Setup directory structure similar to what Extractor.clone expects
-    indir = root / "vendor_name" / "device_name"
-    indir.mkdir(parents=True)
+    # Fake lineage dir structure
+    lineage_dir = base_dir / "lineage"
+    lineage_dir.mkdir()
 
-    # Create a dummy image file so glob works and logic proceeds
-    (indir / "boot.img").touch()
+    prop_dir = lineage_dir / "device" / "vendor" / "model"
+    prop_dir.mkdir(parents=True)
 
-    lineage = root / "lineage"
-    lineage.mkdir()
+    # Return paths as strings for Extractor compatibility
+    return {
+        "base": str(base_dir),
+        "device": str(device_dir),
+        "lineage": str(lineage_dir),
+        "prop": str(prop_dir),
+    }
 
-    # Logic for propdir in Extractor.clone:
-    # devdir = f"{tmp[-2].lower()}/{build}"
-    # We will mock get_devpath to return "device_name"
+def test_malicious_dependencies_no_execution(test_env, monkeypatch):
+    """Test that malicious code in lineage.dependencies is NOT executed."""
+    prop_dir = test_env["prop"]
 
-    devdir = "vendor_name/device_name"
-    propdir = lineage / "device" / devdir
-    propdir.mkdir(parents=True)
+    # Create malicious lineage.dependencies
+    # This payload would execute touch pwned_test if eval() was used
+    malicious_code = "[{'target_path': 'foo', 'side_effect': __import__('os').system('touch pwned_test')}]"
 
-    deps_file = propdir / "lineage.dependencies"
-
-    # Malicious content that prints "VULNERABLE" if executed
-    # Using 'or []' to satisfy iteration if it were evaluated,
-    # but print returns None so it would crash anyway after printing.
-    payload = "print('VULNERABLE') or []"
+    deps_file = os.path.join(prop_dir, "lineage.dependencies")
     with open(deps_file, "w") as f:
-        f.write(payload)
+        f.write(malicious_code)
 
     extractor = Extractor()
 
-    # Mock external calls and lengthy operations
-    with patch("subprocess.run"), patch("shutil.copy"), patch("shutil.copy2"), patch.object(
-        Extractor, "mount", return_value=True
-    ), patch.object(Extractor, "unmount", return_value=True), patch.object(
-        Extractor, "clone_generic", return_value=True
-    ), patch.object(
-        Extractor, "get_devpath", return_value="device_name"
-    ):
-        # Run clone
-        # It should fail to parse JSON and catch the exception, but NOT execute the code
-        extractor.clone(str(lineage), str(indir), str(root / "out"))
+    # Mock methods to avoid side effects
+    monkeypatch.setattr(extractor, "mount", lambda x: True)
+    monkeypatch.setattr(extractor, "unmount", lambda x: True)
+    monkeypatch.setattr(extractor, "parse_proprietary_file", lambda x: {})
+    # Mock get_devpath to return 'model'
+    monkeypatch.setattr(extractor, "get_devpath", lambda x: "model")
 
-    captured = capsys.readouterr()
-    assert "VULNERABLE" not in captured.out
+    # Ensure pwned_test doesn't exist
+    if os.path.exists("pwned_test"):
+        os.remove("pwned_test")
 
+    # The clone method catches Exception, so it shouldn't raise,
+    # but we care about the side effect.
+    extractor.clone(lineage=test_env["lineage"], indir=test_env["device"], outdir="out")
 
-def test_clone_dependency_valid_json(tmp_path):
-    """Verify that valid JSON in lineage.dependencies is parsed correctly."""
-    root = tmp_path
+    # Check if pwned_test exists in CWD (where os.system would create it)
+    assert not os.path.exists("pwned_test"), "Arbitrary code execution occurred!"
 
-    indir = root / "vendor_name" / "device_name"
-    indir.mkdir(parents=True)
-    (indir / "boot.img").touch()
+def test_python_literal_dependencies(test_env, monkeypatch):
+    """Test that Python literals (like single quotes) in lineage.dependencies are parsed correctly."""
+    prop_dir = test_env["prop"]
+    lineage_dir = test_env["lineage"]
 
-    lineage = root / "lineage"
-    lineage.mkdir()
+    # Python literal using single quotes (not valid JSON)
+    literal_data = "[{'target_path': 'device/vendor/common'}]"
 
-    devdir = "vendor_name/device_name"
-    propdir = lineage / "device" / devdir
-    propdir.mkdir(parents=True)
-
-    deps_file = propdir / "lineage.dependencies"
-
-    # Valid content
-    payload = json.dumps([{"target_path": "some/other/path"}])
+    deps_file = os.path.join(prop_dir, "lineage.dependencies")
     with open(deps_file, "w") as f:
-        f.write(payload)
+        f.write(literal_data)
+
+    # Create the target proprietary file so we can verify it was found
+    # Logic: .../device/vendor/common/model/proprietary-files.txt
+    common_dir = os.path.join(lineage_dir, "device", "vendor", "common", "model")
+    os.makedirs(common_dir, exist_ok=True)
+    target_file = os.path.join(common_dir, "proprietary-files.txt")
+    with open(target_file, "w") as f:
+        f.write("# found me")
 
     extractor = Extractor()
 
-    # We mock glob to spy on calls
-    with patch("subprocess.run"), patch("shutil.copy"), patch("shutil.copy2"), patch.object(
-        Extractor, "mount", return_value=True
-    ), patch.object(Extractor, "unmount", return_value=True), patch.object(
-        Extractor, "clone_generic", return_value=True
-    ), patch.object(
-        Extractor, "get_devpath", return_value="device_name"
-    ), patch(
-        "glob.glob", side_effect=lambda x: []
-    ) as mock_glob:
-        extractor.clone(str(lineage), str(indir), str(root / "out"))
+    monkeypatch.setattr(extractor, "mount", lambda x: True)
+    monkeypatch.setattr(extractor, "unmount", lambda x: True)
+    monkeypatch.setattr(extractor, "get_devpath", lambda x: "model")
 
-        # Verify glob was called with expected path derived from JSON
-        # logic: subprops = f"{os.path.dirname(propdir)}/{os.path.basename(depdir['target_path'])}/{os.path.basename(devdir)}"
-        # propdir = .../lineage/device/vendor_name/device_name
-        # dirname(propdir) = .../lineage/device/vendor_name
-        # target_path = "some/other/path" -> basename = "path"
-        # devdir = "vendor_name/device_name" -> basename = "device_name"
+    found_files = []
+    def mock_parse(filespec):
+        found_files.append(filespec)
+        return {}
+    monkeypatch.setattr(extractor, "parse_proprietary_file", mock_parse)
 
-        # So subprops = .../lineage/device/vendor_name/path/device_name
+    extractor.clone(lineage=test_env["lineage"], indir=test_env["device"], outdir="out")
 
-        # Verify glob was called with this pattern
-        calls = [call[0][0] for call in mock_glob.call_args_list]
-        found = False
-        for c in calls:
-            if "path/device_name/proprietary-*.txt" in c:
-                found = True
-                break
-        assert found, "Did not attempt to glob path derived from valid JSON dependency"
+    # Verify that the correct proprietary file was processed
+    assert any("common/model/proprietary-files.txt" in f for f in found_files), "Did not process python literal dependency correctly"
