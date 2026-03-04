@@ -1,4 +1,3 @@
-
 import json
 import os
 import sys
@@ -46,7 +45,7 @@ class TestSQLInjection(unittest.TestCase):
 
         # Verify parameterized query
         self.assertIn("VALUES(%s, %s, %s)", sql_query)
-        self.assertNotIn(vendor, sql_query) # Vendor should NOT be in the query string
+        self.assertNotIn(vendor, sql_query)  # Vendor should NOT be in the query string
         self.assertEqual(sql_args, (vendor, model, build, vendor, model, build))
 
     @patch("librephone.import_dev.psycopg")
@@ -71,7 +70,7 @@ class TestSQLInjection(unittest.TestCase):
         # Mock the initial SELECT query return value
         # First call is SELECT jsonb_array_length
         # Second call is UPDATE
-        mock_cursor.fetchone.return_value = [1] # Indicate existing JSON array
+        mock_cursor.fetchone.return_value = [1]  # Indicate existing JSON array
 
         importer.write_db(mock_device)
 
@@ -97,11 +96,12 @@ class TestSQLInjection(unittest.TestCase):
         self.assertIn("UPDATE devices SET blobs =", update_sql)
         self.assertIn("WHERE build=%s", update_sql)
         self.assertNotIn(mock_device.build, update_sql)
-        self.assertNotIn("test_category", update_sql) # JSON should be passed as arg
+        self.assertNotIn("test_category", update_sql)  # JSON should be passed as arg
 
         # Check args: (json_string, build)
         self.assertEqual(update_args[1], mock_device.build)
         self.assertEqual(json.loads(update_args[0]), [{"file": "test.bin"}])
+
 
 if __name__ == "__main__":
     unittest.main()

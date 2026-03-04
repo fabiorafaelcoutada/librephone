@@ -59,7 +59,7 @@ class TestDeviceFiles:
 
     def test_get_magic_png_works(self, device_files):
         # PNG magic is 8 bytes. Previously buggy, now fixed.
-        png_magic = b"\x89\x50\x4E\x47\x0D\x0A\x1A\x0A"
+        png_magic = b"\x89\x50\x4e\x47\x0d\x0a\x1a\x0a"
         with patch("builtins.open", mock_open(read_data=png_magic)):
-             # Should return GRAPHIC now
-             assert device_files.get_magic("test.png") == Bintypes.GRAPHIC
+            # Should return GRAPHIC now
+            assert device_files.get_magic("test.png") == Bintypes.GRAPHIC

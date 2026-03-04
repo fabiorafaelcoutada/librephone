@@ -1,4 +1,3 @@
-
 import logging
 from datetime import datetime
 
@@ -8,16 +7,82 @@ log = logging.getLogger(__name__)
 
 
 class DevicesTable(object):
-    def __init__(self,
-            version: float = None, vendor: str = None, model: str = None, build: str = None, blobs: dict = None, available: bool = False, builds: bool = False, extracts: bool = False, soc: str = None, released: int = None):
-            self.data = {"version": version, "vendor": vendor, "model": model, "build": build, "blobs": blobs, "available": available, "builds": builds, "extracts": extracts, "soc": soc, "released": released}
+    def __init__(
+        self,
+        version: float = None,
+        vendor: str = None,
+        model: str = None,
+        build: str = None,
+        blobs: dict = None,
+        available: bool = False,
+        builds: bool = False,
+        extracts: bool = False,
+        soc: str = None,
+        released: int = None,
+    ):
+        self.data = {
+            "version": version,
+            "vendor": vendor,
+            "model": model,
+            "build": build,
+            "blobs": blobs,
+            "available": available,
+            "builds": builds,
+            "extracts": extracts,
+            "soc": soc,
+            "released": released,
+        }
+
 
 class SpecsTable(object):
-    def __init__(self,
-            release: datetime = "2025-10-12 10:42:36.298322", arch: librephone.typedefs.Archtypes =  librephone.typedefs.Archtypes.UNKNOWN, soc: str = None, cpus: str = None, peripherals: str = None, bluetooth: str = None, wifi: librephone.typedefs.Wifitypes =  librephone.typedefs.Wifitypes.UNKNOWN, build: str = None, gpu: str = None, network: librephone.typedefs.Nettypes =  librephone.typedefs.Nettypes.UNKNOWN, kernel: float = None):
-            self.data = {"release": release, "arch": arch, "soc": soc, "cpus": cpus, "peripherals": peripherals, "bluetooth": bluetooth, "wifi": wifi, "build": build, "gpu": gpu, "network": network, "kernel": kernel}
+    def __init__(
+        self,
+        release: datetime = "2025-10-12 10:42:36.298322",
+        arch: librephone.typedefs.Archtypes = librephone.typedefs.Archtypes.UNKNOWN,
+        soc: str = None,
+        cpus: str = None,
+        peripherals: str = None,
+        bluetooth: str = None,
+        wifi: librephone.typedefs.Wifitypes = librephone.typedefs.Wifitypes.UNKNOWN,
+        build: str = None,
+        gpu: str = None,
+        network: librephone.typedefs.Nettypes = librephone.typedefs.Nettypes.UNKNOWN,
+        kernel: float = None,
+    ):
+        self.data = {
+            "release": release,
+            "arch": arch,
+            "soc": soc,
+            "cpus": cpus,
+            "peripherals": peripherals,
+            "bluetooth": bluetooth,
+            "wifi": wifi,
+            "build": build,
+            "gpu": gpu,
+            "network": network,
+            "kernel": kernel,
+        }
+
 
 class GsmarenaTable(object):
-    def __init__(self,
-            vendor: str = None, model: str = None, annnounced: str = None, chipset: str = None, cpu: str = None, sensors: str = None, wlan: str = None, status: librephone.typedefs.Devstatus =  librephone.typedefs.Devstatus.UNKNOWN):
-            self.data = {"vendor": vendor, "model": model, "annnounced": annnounced, "chipset": chipset, "cpu": cpu, "sensors": sensors, "wlan": wlan, "status": status}
+    def __init__(
+        self,
+        vendor: str = None,
+        model: str = None,
+        annnounced: str = None,
+        chipset: str = None,
+        cpu: str = None,
+        sensors: str = None,
+        wlan: str = None,
+        status: librephone.typedefs.Devstatus = librephone.typedefs.Devstatus.UNKNOWN,
+    ):
+        self.data = {
+            "vendor": vendor,
+            "model": model,
+            "annnounced": annnounced,
+            "chipset": chipset,
+            "cpu": cpu,
+            "sensors": sensors,
+            "wlan": wlan,
+            "status": status,
+        }

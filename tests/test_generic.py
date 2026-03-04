@@ -1,4 +1,3 @@
-
 import os
 import tempfile
 
@@ -21,7 +20,7 @@ def test_clone_generic_fallback():
         # Create a file
         fpath = os.path.join(bin_dir, "test_file")
         with open(fpath, "wb") as f:
-            f.write(bytes([0x7f, 0x45, 0x4c, 0x46])) # ELF64
+            f.write(bytes([0x7F, 0x45, 0x4C, 0x46]))  # ELF64
 
         # Output dir
         out_dir = os.path.join(tmpdir, "output")
@@ -39,7 +38,7 @@ def test_clone_generic_fallback():
         # Let's put out_dir outside.
 
         with tempfile.TemporaryDirectory() as out_tmp:
-            out_dir = out_tmp # Use separate temp dir for output
+            out_dir = out_tmp  # Use separate temp dir for output
 
             e.clone_generic(tmpdir, out_dir)
 

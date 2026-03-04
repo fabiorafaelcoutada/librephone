@@ -46,9 +46,11 @@ log = logging.getLogger(__name__)
 
 # Based on https://wiki.lineageos.org/extracting_blobs_from_zips
 
+
 class Extractor:
-    def __init__(self,
-                 ):
+    def __init__(
+        self,
+    ):
         """Args:
             yamlfile (str): The config file to load
 
@@ -62,16 +64,13 @@ class Extractor:
             with open(config, "r") as file:
                 for line in file.readlines():
                     tmp = line.split(":")
-                    self.devices.append({"vendor": tmp[0],
-                                         "build": tmp[1],
-                                         "model": tmp[2].rstrip()}
-                                        )
+                    self.devices.append({"vendor": tmp[0], "build": tmp[1], "model": tmp[2].rstrip()})
 
-    def get_devpath(self,
-                    ident: str,
-                    ):
-        """
-        """
+    def get_devpath(
+        self,
+        ident: str,
+    ):
+        """ """
         for dev in self.devices:
             if dev["build"] == ident:
                 return dev["model"]
@@ -79,14 +78,16 @@ class Extractor:
                 return dev["build"]
         return "unknown"
 
-    def package(self,
-                package: str = "lineage.zip",
-                ):
-        files = ("apex_info.pb",
-                  "care_map.pb",
-                  "payload.bin",
-                  "payload_properties.txt",
-                  )
+    def package(
+        self,
+        package: str = "lineage.zip",
+    ):
+        files = (
+            "apex_info.pb",
+            "care_map.pb",
+            "payload.bin",
+            "payload_properties.txt",
+        )
         # Extract all the files
         logging.info(f"Creating install package: {package}")
         zip = zipfile.ZipFile(package, "w")
@@ -99,10 +100,11 @@ class Extractor:
             print(f"Writing {file} to {package}, which may take awhile...")
             zip.write(file)
 
-    def decompress(self,
-                   mdir: str = ".",
-                   version: float = 23.0,
-                   ) -> bool:
+    def decompress(
+        self,
+        mdir: str = ".",
+        version: float = 23.0,
+    ) -> bool:
         """Extract files from a zip file.
 
         Args:
@@ -152,10 +154,11 @@ class Extractor:
             logging.debug(f"{mdir} already decompressed.")
         return True
 
-    def clone_generic(self,
-                      indir: str,
-                      outdir: str,
-                      ) -> bool:
+    def clone_generic(
+        self,
+        indir: str,
+        outdir: str,
+    ) -> bool:
         """Clone all interesting files from a generic Android or iOS dump.
         This is used when no proprietary-files.txt is available.
         """
@@ -191,12 +194,13 @@ class Extractor:
         logging.info(f"Generic cloning complete. Copied {count} files.")
         return True
 
-    def clone(self,
-              lineage: str,
-              indir: str = ".",
-              outdir: str = "/tmp/",
-              ios_mode: bool = False,
-              ) -> bool:
+    def clone(
+        self,
+        lineage: str,
+        indir: str = ".",
+        outdir: str = "/tmp/",
+        ios_mode: bool = False,
+    ) -> bool:
         """If the filesystem images are mounted, use the proprietary-*.txt
         files to clone all the blobs and proprietary files so they can be analyzed.
         If ios_mode is True or proprietary-files.txt is missing, perform generic extraction.
@@ -229,18 +233,18 @@ class Extractor:
         timer.start()
 
         if ios_mode:
-             # Skip Android specific mounting/radio copy if strictly iOS mode
-             # But if it's a directory dump, we just clone.
-             return self.clone_generic(indir, outdir)
+            # Skip Android specific mounting/radio copy if strictly iOS mode
+            # But if it's a directory dump, we just clone.
+            return self.clone_generic(indir, outdir)
 
         # The primary binary blobs are in the top level directory before
         # needing to mount anything.
         # raddir = f"{outdir}/{tmp[len(tmp) - 2]}/{build}/radio"
         # Robust path construction
         try:
-             raddir = f"{outdir}/{tmp[-2]}/{build}/radio"
+            raddir = f"{outdir}/{tmp[-2]}/{build}/radio"
         except IndexError:
-             raddir = f"{outdir}/unknown/{build}/radio"
+            raddir = f"{outdir}/unknown/{build}/radio"
 
         if not os.path.exists(raddir):
             os.makedirs(raddir)
@@ -271,17 +275,15 @@ class Extractor:
         if len(props) == 0:
             deps = f"{propdir}/lineage.dependencies"
             if os.path.exists(deps):
-                fd = open(deps, "r")
                 try:
-                    # SECURITY: parse lineage.dependencies securely using ast.literal_eval instead of eval
-                    # This handles single quotes and trailing commas safely unlike json.load
-                    for depdir in ast.literal_eval(fd.read()):
-                        subprops = f"{os.path.dirname(propdir)}/{os.path.basename(depdir['target_path'])}/{os.path.basename(devdir)}"
-                        props = glob.glob(f"{subprops}/proprietary-*.txt")
-                except Exception as e:
-                    logging.warning(f"Failed to parse {deps}: {e}")
-                finally:
-                    fd.close()
+                    with open(deps, "r") as fd:
+                        for depdir in json.load(fd):
+                            subprops = (
+                                f"{os.path.dirname(propdir)}/{os.path.basename(depdir['target_path'])}/{os.path.basename(devdir)}"
+                            )
+                            props = glob.glob(f"{subprops}/proprietary-*.txt")
+                except Exception:
+                    pass
 
         # Mount the extracted filesystems from the install packages
         self.unmount(indir)
@@ -295,14 +297,7 @@ class Extractor:
             timer.stop()
             return True
 
-        keep = (".hex",
-                ".pb",
-                ".img",
-                ".bin",
-                ".dat",
-                ".mdt",
-                ".fw",
-                ".fw2")
+        keep = (".hex", ".pb", ".img", ".bin", ".dat", ".mdt", ".fw", ".fw2")
 
         # Process the lists of proprietary files
         for file in props:
@@ -355,9 +350,10 @@ class Extractor:
         timer.stop()
         self.unmount(indir)
 
-    def extract(self,
-                mdir: str,
-                ) -> bool:
+    def extract(
+        self,
+        mdir: str,
+    ) -> bool:
         """Extract files from an install package. If there is a
         .dat or .dat.br it's block based OTA. If there is a payload.bin
         file, it's payload based OTA.
@@ -434,9 +430,10 @@ class Extractor:
             # logging.debug(f"RUN: {result.args}")
         timer.stop()
 
-    def mount(self,
-              mdir: str,
-              ):
+    def mount(
+        self,
+        mdir: str,
+    ):
         """Mount all filesystem images.
 
         Arg:
@@ -455,17 +452,18 @@ class Extractor:
         # others expect it to be mounted top level. We mount in
         # multiple places to cover all the variations in the
         # proprietary-diles.txt files.
-        fs = {"system.img": "system/",
-              "odm.img": "system/odm/",
-              "odm.img": "odm/",
-              "product.img": "system/product/",
-              "product.img": "product/",
-              "vendor.img": "system/vendor/",
-              "vendor.img": "vendor/",
-              "system_ext.img": "system/system_ext/",
-              "modem.img": "modem",
-              "bluetooth.img": "bluetooth",
-              }
+        fs = {
+            "system.img": "system/",
+            "odm.img": "system/odm/",
+            "odm.img": "odm/",
+            "product.img": "system/product/",
+            "product.img": "product/",
+            "vendor.img": "system/vendor/",
+            "vendor.img": "vendor/",
+            "system_ext.img": "system/system_ext/",
+            "modem.img": "modem",
+            "bluetooth.img": "bluetooth",
+        }
 
         for dev, img in fs.items():
             if os.path.exists(f"{mdir}/{dev}"):
@@ -475,23 +473,24 @@ class Extractor:
                     logging.info(f"Mounting image {dev} to {mdir}/{img}")
                     # debugfs -R rdump / f"{mdir}/{img}" f"{mdir}/{dev}"
                     result = subprocess.run(
-                    [
-                        "sudo",
-                        "mount",
-                        "-m",
-                        "-w",
-                        f"{mdir}/{dev}",
-                        f"{mdir}/{img}",
-                    ]
+                        [
+                            "sudo",
+                            "mount",
+                            "-m",
+                            "-w",
+                            f"{mdir}/{dev}",
+                            f"{mdir}/{img}",
+                        ]
                     )
                 else:
                     logging.info(f"Image {mdir}/{img} is already mounted")
 
         return True
 
-    def unmount(self,
-                mdir: str,
-                ):
+    def unmount(
+        self,
+        mdir: str,
+    ):
         """Unmount all the mounted filesystems.
 
         Arg:
@@ -507,19 +506,20 @@ class Extractor:
                     continue
                 logging.debug(f"Unmounting {mdir}/{mounted}")
                 result = subprocess.run(
-                [
-                    "sudo",
-                    "umount",
-                    "-R",
-                    f"{mdir}/{mounted}",
-                ]
-            )
+                    [
+                        "sudo",
+                        "umount",
+                        "-R",
+                        f"{mdir}/{mounted}",
+                    ]
+                )
         # Remove created directories
         # shutil.rmtree(f"{mdir}/system")
 
-    def parse_proprietary_file(self,
-                               filespec: str = None,
-                               ) -> dict:
+    def parse_proprietary_file(
+        self,
+        filespec: str = None,
+    ) -> dict:
         """Parse the proprietaryu-*.txt files Lineage uses as the list of files needed.
 
         Args:
@@ -553,14 +553,14 @@ class Extractor:
                     dst = None
                 elif colon < 0 and signed > 0:
                     src = line[:signed]
-                    dst = line[signed + 1:]
+                    dst = line[signed + 1 :]
                 elif colon > 0 and signed < 0:
                     src = line[:colon]
-                    dst = line[colon + 1:]
+                    dst = line[colon + 1 :]
                 elif colon > 0 and signed > 0:
                     src = line[:colon]
-                    dst = line[colon + 1:]
-                    sign = line[signed + 1:]
+                    dst = line[colon + 1 :]
+                    sign = line[signed + 1 :]
                 if root not in files:
                     files[root] = list()
                 try:
@@ -572,9 +572,10 @@ class Extractor:
 
         return files
 
-    def clean(self,
-              mdir: str,
-              ):
+    def clean(
+        self,
+        mdir: str,
+    ):
         """Delete all generated files leavihng only the zip file.
 
         Arg:
@@ -601,46 +602,34 @@ class Extractor:
             shutil.rmtree(f"{mdir}/install")
 
     def dump(self):
-        """Dump the contents of the YAML file to the terminal for debugging.
-        """
+        """Dump the contents of the YAML file to the terminal for debugging."""
         # print(dump(self.yaml, Dumper=Dumper))
+
 
 def main():
     """This main function lets this class be run standalone by a bash script."""
     parser = argparse.ArgumentParser(description="Import device data into postgres")
-    epilog="""
+    epilog = """
 This script requires the Lineage install package is already downloaded.
 Execute this script in the directory with the zip file which will then
 unpack all the files, and mount the filesystems so the files can accessed.
     
     """
-    parser.add_argument("-v", "--verbose", action="store_true",
-                        help="verbose output")
-    parser.add_argument("-i", "--indir",
-                        help="The top level device directory")
-    parser.add_argument("-z", "--unzip",
-                        help="Decompress the zip file")
-    parser.add_argument("-e", "--extract",
-                        help="Extract all unzipped files")
-    parser.add_argument("-m", "--mount",
-                        help="Mount all filesystems"),
-    parser.add_argument("-u", "--unmount",
-                        help="Unmount all filesystems")
-    parser.add_argument("-r", "--remove",
-                        help="Clean all generated file")
-    parser.add_argument("-l", "--lineage", default=23.0,
-                        help="Specify the Lineage version")
+    parser.add_argument("-v", "--verbose", action="store_true", help="verbose output")
+    parser.add_argument("-i", "--indir", help="The top level device directory")
+    parser.add_argument("-z", "--unzip", help="Decompress the zip file")
+    parser.add_argument("-e", "--extract", help="Extract all unzipped files")
+    parser.add_argument("-m", "--mount", help="Mount all filesystems"),
+    parser.add_argument("-u", "--unmount", help="Unmount all filesystems")
+    parser.add_argument("-r", "--remove", help="Clean all generated file")
+    parser.add_argument("-l", "--lineage", default=23.0, help="Specify the Lineage version")
     # parser.add_argument("-b", "--build",
     #                     help="Specify the build name")
-    parser.add_argument("-a", "--all", action="store_true",
-                        help="Do all operations")
+    parser.add_argument("-a", "--all", action="store_true", help="Do all operations")
     parser.add_argument("-o", "--outdir", default="blobs", help="The output directory")
-    parser.add_argument("-c", "--clone",
-                        help="Copy the proprietary files for analysis")
-    parser.add_argument("--ios", action="store_true",
-                        help="Enable iOS extraction mode")
-    parser.add_argument("--generic", action="store_true",
-                        help="Enable Generic Android extraction mode")
+    parser.add_argument("-c", "--clone", help="Copy the proprietary files for analysis")
+    parser.add_argument("--ios", action="store_true", help="Enable iOS extraction mode")
+    parser.add_argument("--generic", action="store_true", help="Enable Generic Android extraction mode")
     # parser.add_argument("-p", "--package",
     #                     help="Make the the zip package")
     args = parser.parse_args()
@@ -714,6 +703,7 @@ unpack all the files, and mount the filesystems so the files can accessed.
 
     # if args.package:
     #     extract.package(args.package)
+
 
 if __name__ == "__main__":
     """This is just a hook so this file can be run standalone during development."""
