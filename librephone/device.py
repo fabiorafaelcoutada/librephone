@@ -29,12 +29,14 @@ rootdir = pt.__path__[0]
 # Instantiate logger
 log = logging.getLogger(__name__)
 
+
 class DeviceData(DeviceFiles):
-    def __init__(self,
-                 vendor: str = None,
-                 model: str = None,
-                 build: str = None,
-                 ):
+    def __init__(
+        self,
+        vendor: str = None,
+        model: str = None,
+        build: str = None,
+    ):
         """Returns:
             (Device): An instance of this class
 
@@ -57,9 +59,10 @@ class DeviceData(DeviceFiles):
         # self.keep = (".hex",".pb", ".img", ".bin", ".dat", ".fw", ".fw2")
         super().__init__()
 
-    def file_data(self,
-                  filename: str,
-                  ):
+    def file_data(
+        self,
+        filename: str,
+    ):
         results = dict()
         if "imgfiles" not in self.files or self.files["imgfiles"] is None:
             return results
@@ -75,10 +78,11 @@ class DeviceData(DeviceFiles):
 
         return results
 
-    def add_files(self,
-                  column: str,
-                  data: list,
-                  ):
+    def add_files(
+        self,
+        column: str,
+        data: list,
+    ):
         self.files[column] = data
 
     def dump(self):
@@ -111,6 +115,7 @@ def main():
     dev = DeviceData("devices")
     if args.indir:
         files = dev.find_files(args.indir)
+
 
 if __name__ == "__main__":
     """
