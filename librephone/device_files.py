@@ -40,6 +40,7 @@ rootdir = pt.__path__[0]
 # Instantiate logger
 log = logging.getLogger(__name__)
 
+
 class DeviceFiles(object):
     # Optimization: Pre-compile regexes and define constants at class level
     # to avoid recreation on every function call.
@@ -216,42 +217,42 @@ class DeviceFiles(object):
     # a better way to handle different length magic numbers.
     # Updated to list of tuples to support multiple magic numbers per type and variable lengths.
     MAGIC_NUMBERS = [
-        ("GRAPHIC", bytes([0x89, 0x50, 0x4E, 0x47, 0x0D, 0x0A, 0x1A, 0x0A])), # png
+        ("GRAPHIC", bytes([0x89, 0x50, 0x4E, 0x47, 0x0D, 0x0A, 0x1A, 0x0A])),  # png
         ("AVB", bytes([0x41, 0x56, 0x42, 0x30])),
-        ("ELF64", bytes([0x7f, 0x45, 0x4c, 0x46])),
-        ("MSDOS", bytes([0xeb, 0x3c, 0x90, 0x4d])),
-        ("BOOT", bytes([0x41, 0x4e, 0x44, 0x52])),
-        ("SD", bytes([0x73, 0x64, 0x2f, 0x0])),
-        ("VNDRBOOT", bytes([0x56, 0x4e, 0x44, 0x52])),
-        ("DTB", bytes([0xd7, 0xb7, 0xab, 0x1e])),
+        ("ELF64", bytes([0x7F, 0x45, 0x4C, 0x46])),
+        ("MSDOS", bytes([0xEB, 0x3C, 0x90, 0x4D])),
+        ("BOOT", bytes([0x41, 0x4E, 0x44, 0x52])),
+        ("SD", bytes([0x73, 0x64, 0x2F, 0x0])),
+        ("VNDRBOOT", bytes([0x56, 0x4E, 0x44, 0x52])),
+        ("DTB", bytes([0xD7, 0xB7, 0xAB, 0x1E])),
         ("FILESYSTEM", bytes([0x00, 0x00, 0x00, 0x00, 0x00])),
         ("CAMERA", bytes([0x51, 0x54, 0x49, 0x20])),
-        ("FIRMWARE", bytes([0x00, 0x00, 0x00, 0xff])),
+        ("FIRMWARE", bytes([0x00, 0x00, 0x00, 0xFF])),
         ("FIRMWARE1", bytes([0x00, 0x00, 0x20, 0x00])),
         ("FIRMWARE2", bytes([0x03, 0x01, 0x00, 0x00])),
         # 'AUDIOAMP2': bytes([0x08, 0xf9, 0x15, 0x0a]),
         ("NFC", bytes([0x13, 0x04, 0x98, 0x81])),
-        ("FIRMWARE5", bytes([0x61, 0x6e, 0x63, 0x5f])),
+        ("FIRMWARE5", bytes([0x61, 0x6E, 0x63, 0x5F])),
         ("FIRMWARE6", bytes([0x69, 0x05, 0x00, 0x00])),
-        ("FIRMWARE7", bytes([0x8a, 0x0d, 0x00, 0x00])),
-        ("FIRMWARE8", bytes([0xb2, 0x25, 0x08, 0x00])),
-        ("FIRMWARE9", bytes([0xf8, 0x88, 0x02, 0x00])),
-        ("FIRMWARE10", bytes([0xff, 0xdb, 0xff, 0xe4])),
+        ("FIRMWARE7", bytes([0x8A, 0x0D, 0x00, 0x00])),
+        ("FIRMWARE8", bytes([0xB2, 0x25, 0x08, 0x00])),
+        ("FIRMWARE9", bytes([0xF8, 0x88, 0x02, 0x00])),
+        ("FIRMWARE10", bytes([0xFF, 0xDB, 0xFF, 0xE4])),
         ("SHADER", bytes([0x40, 0x87, 0x00, 0x00])),
-        ("AUDIOAMP", bytes([0x57, 0x4d, 0x44, 0x52])),
-        ("OLED", bytes([0x4c, 0x49, 0x4d, 0x49])),
-        ("TOUCHSCREEN1", bytes([0x4c, 0x49, 0x4d, 0x49])),
+        ("AUDIOAMP", bytes([0x57, 0x4D, 0x44, 0x52])),
+        ("OLED", bytes([0x4C, 0x49, 0x4D, 0x49])),
+        ("TOUCHSCREEN1", bytes([0x4C, 0x49, 0x4D, 0x49])),
         ("FASTCHG", bytes([0x46, 0x77, 0x55, 0x70])),
         ("TOUCHSCREEN3", bytes([0x00, 0x00, 0x09, 0x62])),
-        ("TOUCHSCREEN4", bytes([0x2b, 0x47, 0x18, 0x48])),
+        ("TOUCHSCREEN4", bytes([0x2B, 0x47, 0x18, 0x48])),
         ("TOUCHSCREEN5", bytes([0x54, 0x46, 0x49, 0x53])),
         ("WIFI", bytes([0x03, 0x46, 0x04, 0x00])),
-        ("MACH_O", bytes([0xfe, 0xed, 0xfa, 0xce])), # 32-bit BE
-        ("MACH_O", bytes([0xce, 0xfa, 0xed, 0xfe])), # 32-bit LE
-        ("MACH_O", bytes([0xfe, 0xed, 0xfa, 0xcf])), # 64-bit BE
-        ("MACH_O", bytes([0xcf, 0xfa, 0xed, 0xfe])), # 64-bit LE
-        ("MACH_O", bytes([0xca, 0xfe, 0xba, 0xbe])), # Fat BE
-        ("MACH_O", bytes([0xbe, 0xba, 0xfe, 0xca])), # Fat LE
+        ("MACH_O", bytes([0xFE, 0xED, 0xFA, 0xCE])),  # 32-bit BE
+        ("MACH_O", bytes([0xCE, 0xFA, 0xED, 0xFE])),  # 32-bit LE
+        ("MACH_O", bytes([0xFE, 0xED, 0xFA, 0xCF])),  # 64-bit BE
+        ("MACH_O", bytes([0xCF, 0xFA, 0xED, 0xFE])),  # 64-bit LE
+        ("MACH_O", bytes([0xCA, 0xFE, 0xBA, 0xBE])),  # Fat BE
+        ("MACH_O", bytes([0xBE, 0xBA, 0xFE, 0xCA])),  # Fat LE
     ]
 
     def __init__(self):
@@ -267,37 +268,40 @@ class DeviceFiles(object):
 
         # These are the values returned from using the command line
         # file program
-        self.filetypes = {"TEXT": "ASCII text.*",
-             "APK": "Android package.*",
-             "FILESYSTEM": ".*filesystem data.*",
-             "KERNEL": "Android bootimg",
-             "TAR": "POSIX tar archive.*",
-             "JAR": "Java archive data.*",
-             "LIBRARY": "LF 64-bit LSB shared object.*",
-             "XML": "XML .*",
-             "PYTHON": "Python script",
-             "DATA": "data",
-             "EXE": "ELF 64-bit LSB pie executable.*",
-             "OpenPGP": "OpenPGP secret key",
-             "ARIA": "aria2 control file.*",
-             "BITMAP": "Atari DEGAS Elite bitmap",
-             "UNKNOWN": "PB something or other",
-             "FIRMWARE": "Firmware",
-             }
+        self.filetypes = {
+            "TEXT": "ASCII text.*",
+            "APK": "Android package.*",
+            "FILESYSTEM": ".*filesystem data.*",
+            "KERNEL": "Android bootimg",
+            "TAR": "POSIX tar archive.*",
+            "JAR": "Java archive data.*",
+            "LIBRARY": "LF 64-bit LSB shared object.*",
+            "XML": "XML .*",
+            "PYTHON": "Python script",
+            "DATA": "data",
+            "EXE": "ELF 64-bit LSB pie executable.*",
+            "OpenPGP": "OpenPGP secret key",
+            "ARIA": "aria2 control file.*",
+            "BITMAP": "Atari DEGAS Elite bitmap",
+            "UNKNOWN": "PB something or other",
+            "FIRMWARE": "Firmware",
+        }
         # We don't care about these types now, maybe later.
-        self.ignore = ["RTPSTREAM",
-                       "CONFIG",
-                       "ISOLATION",
-                       "VIBRATION",
-                       "SHADER",
-                       "GRAPHIC",
-                       "CAMERA",
-                       "MEDIA",
-                       ]
+        self.ignore = [
+            "RTPSTREAM",
+            "CONFIG",
+            "ISOLATION",
+            "VIBRATION",
+            "SHADER",
+            "GRAPHIC",
+            "CAMERA",
+            "MEDIA",
+        ]
 
-    def get_metadata(self,
-                     filespec: str = None,
-                     ) -> dict:
+    def get_metadata(
+        self,
+        filespec: str = None,
+    ) -> dict:
         """Args:
             filespec (str): The file to get info for
 
@@ -309,7 +313,7 @@ class DeviceFiles(object):
             return dict()
 
         suffix = Path(filespec).suffix
-        #if suffix not in self.keep:
+        # if suffix not in self.keep:
         #    return dict()
 
         # log.debug(f"Extracting file size for {file}")
@@ -317,13 +321,13 @@ class DeviceFiles(object):
         try:
             file_size = os.stat(path).st_size
         except FileNotFoundError:
-             return dict()
+            return dict()
 
         # log.debug(f"Extracting md5sum for file {file}")
         try:
-            md5sum = hashlib.md5(open(path,"rb").read()).hexdigest()
+            md5sum = hashlib.md5(open(path, "rb").read()).hexdigest()
         except Exception:
-             md5sum = "unknown"
+            md5sum = "unknown"
 
         # result = subprocess.run(
         #     [
@@ -342,44 +346,47 @@ class DeviceFiles(object):
         # if str(result.stderr).find("file format not recognized") > 0:
         #     pass
         pat = "(ARM|QUALCOMM|MIPS|RISC-V)[ a-zA-Z-]*,"
-        archtype = {"ARM": Archtypes.ARM,
-                    "ARM aarch64": Archtypes.AARCH64,
-                    "QUALCOMM DSP6": Archtypes.QUALCOMM,
-                    "UNKNOWN": Archtypes.UNKNOWN,
-                    "RISC-V": Archtypes.RISCV,
-                    "ARM Cortex-M firmware": Archtypes.CORTEXM,
-                    # FIXME need to add risc-v and mips
-                    }
+        archtype = {
+            "ARM": Archtypes.ARM,
+            "ARM aarch64": Archtypes.AARCH64,
+            "QUALCOMM DSP6": Archtypes.QUALCOMM,
+            "UNKNOWN": Archtypes.UNKNOWN,
+            "RISC-V": Archtypes.RISCV,
+            "ARM Cortex-M firmware": Archtypes.CORTEXM,
+            # FIXME need to add risc-v and mips
+        }
         out = str(result)
         match = re.search(pat, out)
         if match:
             # breakpoint()
-            ftype = out[match.start():match.end() - 1]
+            ftype = out[match.start() : match.end() - 1]
             arch = archtype[ftype].value
             # print(f"FIXME: {filespec} is {arch}")
         else:
-            arch =  Archtypes(Archtypes.UNKNOWN).value
-        #print(f"FIXME: {filespec} is {archtype[ftype]}")
+            arch = Archtypes(Archtypes.UNKNOWN).value
+        # print(f"FIXME: {filespec} is {archtype[ftype]}")
 
         # file_type = self.get_filetype(path)
         file_type = self.get_magic(filespec).value
-        #if file_type not in self.files:
+        # if file_type not in self.files:
         #    self.files[file_type] = list()
-        metadata = {"file": os.path.basename(filespec),
-                    "size": file_size,
-                    "type": file_type,
-                    "md5sum": md5sum,
-                    "path": os.path.dirname(path),
-                    "version": 23.0, # FIXME: this shouldn't be hardcoded
-                    }
+        metadata = {
+            "file": os.path.basename(filespec),
+            "size": file_size,
+            "type": file_type,
+            "md5sum": md5sum,
+            "path": os.path.dirname(path),
+            "version": 23.0,  # FIXME: this shouldn't be hardcoded
+        }
         if arch != "UNKNOWN":
             metadata["arch"] = arch
         # print(metadata)
         return metadata
 
-    def get_magic(self,
-                  filespec: str,
-                  ):
+    def get_magic(
+        self,
+        filespec: str,
+    ):
         """Identify the file type by examining the filename where it's
         consistent, and if not recognized, extract the possible magic
         number from the binary file.
@@ -416,16 +423,17 @@ class DeviceFiles(object):
                         log.debug(f"{filespec} is {ftype}")
                         # Handle GRAPHIC (png) manually or map to Bintypes.GRAPHIC
                         if ftype == "GRAPHIC":
-                             return Bintypes.GRAPHIC
+                            return Bintypes.GRAPHIC
                         return Bintypes(ftype)
         except Exception:
             pass
         return Bintypes.UNKNOWN
 
-    def find_files(self,
-                   indir: str,
-                   force_all: bool = False,
-                   ) -> dict:
+    def find_files(
+        self,
+        indir: str,
+        force_all: bool = False,
+    ) -> dict:
         """Find all the proprietary files for a device.
 
         Args:
@@ -467,7 +475,7 @@ class DeviceFiles(object):
                     # For now keep ignoring known junk types to reduce noise.
                     log.debug(f"Ignoring {file}")
                     continue
-                #if  metadata["type"] == Bintypes.UNKNOWN:
+                # if  metadata["type"] == Bintypes.UNKNOWN:
                 metadata["path"] = f"{base}"
                 if metadata["type"] not in self.files:
                     self.files[metadata["type"]] = list()
@@ -507,6 +515,7 @@ def main():
     if args.indir:
         files = dev.find_files(Path(args.indir).resolve())
         print(files)
+
 
 if __name__ == "__main__":
     """
