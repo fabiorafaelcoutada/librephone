@@ -1,4 +1,4 @@
-## 2025-02-17 - Arbitrary Code Execution via eval()
-**Vulnerability:** `librephone/extractor.py` used `eval()` to parse `lineage.dependencies` files, which allows arbitrary code execution if the file is malicious.
-**Learning:** `eval()` was likely used as a shortcut to parse a Python list-like structure (JSON), but it executes any Python code.
-**Prevention:** Use safe parsers like `json.load()` for data files. Never use `eval()` on untrusted input.
+## 2024-05-01 - [Arbitrary Code Execution in Dependency Parsing]
+**Vulnerability:** Extractor used `eval()` to parse `.dependencies` files, which could execute arbitrary python code if an attacker provides a malicious `.dependencies` file.
+**Learning:** `.dependencies` files in this codebase (like `lineage.dependencies`) contain Python literals rather than standard valid JSON, making `json.load()` unsuitable.
+**Prevention:** Always use `ast.literal_eval()` instead of `eval()` when parsing strings containing python literals to prevent arbitrary code execution, while strictly avoiding `eval()`.
