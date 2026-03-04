@@ -16,6 +16,7 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import argparse
+import ast
 import glob
 import json
 import logging
@@ -270,14 +271,17 @@ class Extractor:
         if len(props) == 0:
             deps = f"{propdir}/lineage.dependencies"
             if os.path.exists(deps):
-                with open(deps, "r") as fd:
-                    try:
-                        # Use ast.literal_eval instead of eval to prevent arbitrary code execution
-                        for depdir in ast.literal_eval(fd.read()):
-                            subprops = f"{os.path.dirname(propdir)}/{os.path.basename(depdir['target_path'])}/{os.path.basename(devdir)}"
-                            props = glob.glob(f"{subprops}/proprietary-*.txt")
-                    except Exception as e:
-                        logging.warning(f"Failed to parse dependencies file {deps}: {e}")
+                fd = open(deps, "r")
+                try:
+                    # SECURITY: parse lineage.dependencies securely using ast.literal_eval instead of eval
+                    # This handles single quotes and trailing commas safely unlike json.load
+                    for depdir in ast.literal_eval(fd.read()):
+                        subprops = f"{os.path.dirname(propdir)}/{os.path.basename(depdir['target_path'])}/{os.path.basename(devdir)}"
+                        props = glob.glob(f"{subprops}/proprietary-*.txt")
+                except Exception as e:
+                    logging.warning(f"Failed to parse {deps}: {e}")
+                finally:
+                    fd.close()
 
         # Mount the extracted filesystems from the install packages
         self.unmount(indir)
