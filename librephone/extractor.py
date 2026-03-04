@@ -24,6 +24,7 @@ import re
 import shutil
 import subprocess
 import sys
+import ast
 import zipfile
 from pathlib import Path
 from sys import argv
