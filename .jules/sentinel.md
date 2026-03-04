@@ -1,5 +1,4 @@
-## 2025-01-22 - [CRITICAL] Prevent Arbitrary Code Execution (ACE) via `eval()`
-
-**Vulnerability:** Arbitrary Code Execution (ACE) via `eval()` parsing of `lineage.dependencies` files. The project was using `eval(fd.read())` to parse the external JSON-like `lineage.dependencies` files.
-**Learning:** `eval()` executes the passed string as arbitrary Python code, leaving the application extremely vulnerable to executing malicious code if an attacker can manipulate the dependency files.
-**Prevention:** Always use safe and appropriate parsers like `json.load()` to parse external configuration or dependency files. Never use `eval()` on untrusted input data.
+## 2025-05-15 - Arbitrary Code Execution via eval()
+**Vulnerability:** Found `eval(fd.read())` being used to parse `lineage.dependencies` files in `librephone/extractor.py`. This allowed Arbitrary Code Execution if a user cloned a repository with a malicious dependency file.
+**Learning:** Developers might use `eval()` as a quick way to parse Python-like data structures (like lists of dicts), not realizing it executes code. This is a common pattern in Python when people want to parse "configuration" that looks like Python code.
+**Prevention:** Strictly enforce the use of `json.load()` for data files. If Python syntax is absolutely required for configuration, use `ast.literal_eval()` which is safer but still less standard than JSON. Added regression test `tests/test_extractor_security.py` to prevent reintroduction.
