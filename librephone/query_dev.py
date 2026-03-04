@@ -17,10 +17,10 @@
 
 import argparse
 import csv
-import json
 
 # from deepdiff import DeepDiff
 import difflib
+import json
 import logging
 import os
 import sys
