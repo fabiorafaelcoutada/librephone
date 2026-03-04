@@ -55,6 +55,7 @@ def main():
             df.fillna("", inplace=True)
             df.to_markdown(buf=md, index=False)
 
+
 if __name__ == "__main__":
     """This is just a hook so this file can be run standalone during development."""
     main()
