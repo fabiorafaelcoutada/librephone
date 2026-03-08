@@ -1,8 +1,9 @@
 """Build context for Machina."""
 from dataclasses import dataclass, field
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 from librephone.machina.conf.config import Config
+
 
 @dataclass
 class Context:

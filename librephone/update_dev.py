@@ -62,9 +62,15 @@ class UpdateDevice(object):
             logging.error("Need to specify all the parameters!")
             return False
 
-        sql = f"UPDATE devices SET {column} = '{value}' WHERE build='{build}'"
-        print(f"SQL: {sql}")
-        result = self.dbcursor.execute(sql)
+        # SECURITY: Validate column name to prevent SQL injection
+        if not str(column).replace("_", "").isalnum():
+            logging.error(f"Invalid column name: {column}")
+            return False
+
+        sql = f"UPDATE devices SET {column} = %s WHERE build=%s"
+        # print(f"SQL: {sql}")
+        self.dbcursor.execute(sql, (value, build))
+        return True
 
     def set_columns(
         self,
@@ -74,20 +80,37 @@ class UpdateDevice(object):
 
         Args:
         """
-        sql = "UPDATE devices SET "
-        build = values["build"]
-        del values["build"]
+        build = values.get("build")
+        if not build:
+            logging.error("Need to specify build parameter!")
+            return False
+
+        valid_columns = []
+        sql_args = []
+
         for key, value in values.items():
-            if len(value) == 0:
+            if key == "build":
                 continue
-            sql += f" {key} = '{value}',"
-        sql = sql[:-1]
-        sql += f" WHERE build='{build}'"
-        # A blank line in the file
-        if sql.find("SET WHERE") > 0:
-            return
+            if len(str(value)) == 0:
+                continue
+            # SECURITY: Validate column names to prevent SQL injection
+            if not str(key).replace("_", "").isalnum():
+                logging.error(f"Invalid column name: {key}")
+                continue
+
+            valid_columns.append(f"{key} = %s")
+            sql_args.append(value)
+
+        if not valid_columns:
+            return False
+
+        columns_sql = ", ".join(valid_columns)
+        sql = f"UPDATE devices SET {columns_sql} WHERE build=%s"
+        sql_args.append(build)
+
         # print(f"SQL: {sql}")
-        result = self.dbcursor.execute(sql)
+        self.dbcursor.execute(sql, tuple(sql_args))
+        return True
 
     def process_file(
         self,
