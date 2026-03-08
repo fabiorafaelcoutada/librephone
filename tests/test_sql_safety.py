@@ -102,6 +102,109 @@ class TestSQLInjection(unittest.TestCase):
         self.assertEqual(update_args[1], mock_device.build)
         self.assertEqual(json.loads(update_args[0]), [{"file": "test.bin"}])
 
+    @patch("librephone.update_dev.psycopg")
+    def test_update_dev_injection_set_column(self, mock_psycopg):
+        """Test set_column for SQL injection vulnerabilities."""
+        # Setup mock
+        mock_conn = MagicMock()
+        mock_cursor = MagicMock()
+        mock_psycopg.connect.return_value = mock_conn
+        mock_conn.cursor.return_value = mock_cursor
+
+        from librephone.update_dev import UpdateDevice
+        importer = UpdateDevice()
+
+        # Malicious inputs
+        column = "released"
+        value = "2024'; DROP TABLE devices; --"
+        build = "build"
+
+        importer.set_column(column, build, value)
+
+        call_args = mock_cursor.execute.call_args
+        sql_query = call_args[0][0]
+        sql_args = call_args[0][1]
+
+        self.assertIn("UPDATE devices SET released = %s WHERE build=%s", sql_query)
+        self.assertNotIn(value, sql_query)
+        self.assertEqual(sql_args, (value, build))
+
+    @patch("librephone.update_dev.psycopg")
+    def test_update_dev_injection_set_column_invalid_col(self, mock_psycopg):
+        """Test set_column rejects invalid column names."""
+        # Setup mock
+        mock_conn = MagicMock()
+        mock_cursor = MagicMock()
+        mock_psycopg.connect.return_value = mock_conn
+        mock_conn.cursor.return_value = mock_cursor
+
+        from librephone.update_dev import UpdateDevice
+        importer = UpdateDevice()
+
+        # Malicious input
+        column = "released; DROP TABLE devices; --"
+        value = "2024"
+        build = "build"
+
+        importer.set_column(column, build, value)
+
+        self.assertEqual(mock_cursor.execute.call_count, 0)
+
+    @patch("librephone.update_dev.psycopg")
+    def test_update_dev_injection_set_columns(self, mock_psycopg):
+        """Test set_columns for SQL injection vulnerabilities."""
+        # Setup mock
+        mock_conn = MagicMock()
+        mock_cursor = MagicMock()
+        mock_psycopg.connect.return_value = mock_conn
+        mock_conn.cursor.return_value = mock_cursor
+
+        from librephone.update_dev import UpdateDevice
+        importer = UpdateDevice()
+
+        values = {
+            "build": "build'; DROP TABLE devices; --",
+            "soc": "soc'; DROP TABLE devices; --",
+            "released": "2024",
+        }
+
+        importer.set_columns(values)
+
+        call_args = mock_cursor.execute.call_args
+        sql_query = call_args[0][0]
+        sql_args = call_args[0][1]
+
+        self.assertIn("UPDATE devices SET soc = %s, released = %s WHERE build=%s", sql_query)
+        self.assertNotIn("DROP TABLE", sql_query)
+        self.assertEqual(sql_args, ("soc'; DROP TABLE devices; --", "2024", "build'; DROP TABLE devices; --"))
+
+    @patch("librephone.update_dev.psycopg")
+    def test_update_dev_injection_set_columns_invalid_col(self, mock_psycopg):
+        """Test set_columns rejects invalid column names."""
+        # Setup mock
+        mock_conn = MagicMock()
+        mock_cursor = MagicMock()
+        mock_psycopg.connect.return_value = mock_conn
+        mock_conn.cursor.return_value = mock_cursor
+
+        from librephone.update_dev import UpdateDevice
+        importer = UpdateDevice()
+
+        values = {
+            "build": "build1",
+            "soc; DROP TABLE devices; --": "soc",
+            "released": "2024",
+        }
+
+        importer.set_columns(values)
+
+        call_args = mock_cursor.execute.call_args
+        sql_query = call_args[0][0]
+        sql_args = call_args[0][1]
+
+        self.assertIn("UPDATE devices SET released = %s WHERE build=%s", sql_query)
+        self.assertNotIn("DROP TABLE", sql_query)
+        self.assertEqual(sql_args, ("2024", "build1"))
 
 if __name__ == "__main__":
     unittest.main()

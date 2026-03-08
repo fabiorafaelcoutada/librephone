@@ -3,6 +3,7 @@ from dataclasses import dataclass
 
 from librephone.machina.targets.target import BaseTarget
 
+
 @dataclass
 class ArmTarget(BaseTarget):
     """Generic ARM target."""
