@@ -62,9 +62,14 @@ class UpdateDevice(object):
             logging.error("Need to specify all the parameters!")
             return False
 
-        sql = f"UPDATE devices SET {column} = '{value}' WHERE build='{build}'"
+        if not str(column).replace("_", "").isalnum():
+            logging.error("Invalid column name!")
+            return False
+
+        sql = f"UPDATE devices SET {column} = %s WHERE build=%s"
         print(f"SQL: {sql}")
-        result = self.dbcursor.execute(sql)
+        result = self.dbcursor.execute(sql, (value, build))
+        return True
 
     def set_columns(
         self,
@@ -77,17 +82,27 @@ class UpdateDevice(object):
         sql = "UPDATE devices SET "
         build = values["build"]
         del values["build"]
+
+        sql_params = []
         for key, value in values.items():
             if len(value) == 0:
                 continue
-            sql += f" {key} = '{value}',"
+            if not str(key).replace("_", "").isalnum():
+                logging.error(f"Invalid column name: {key}")
+                return False
+            sql += f" {key} = %s,"
+            sql_params.append(value)
+
         sql = sql[:-1]
-        sql += f" WHERE build='{build}'"
+        sql += " WHERE build=%s"
+        sql_params.append(build)
+
         # A blank line in the file
-        if sql.find("SET WHERE") > 0:
-            return
+        if sql.find("SET  WHERE") > 0 or len(sql_params) <= 1:
+            return False
         # print(f"SQL: {sql}")
-        result = self.dbcursor.execute(sql)
+        result = self.dbcursor.execute(sql, tuple(sql_params))
+        return True
 
     def process_file(
         self,

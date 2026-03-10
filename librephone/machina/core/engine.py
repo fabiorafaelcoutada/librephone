@@ -1,9 +1,9 @@
 """Core execution engine for Machina."""
 import logging
-from typing import Dict, List, Set
+from typing import Dict, List
 
 from librephone.machina.core.context import Context
-from librephone.machina.core.task import Task, TaskStatus
+from librephone.machina.core.task import Task
 
 log = logging.getLogger(__name__)
 
