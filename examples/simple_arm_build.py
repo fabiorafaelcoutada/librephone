@@ -1,5 +1,4 @@
 """Example Machina configuration (Dynamic Python)."""
-from librephone.machina.targets.arm import ArmTarget
 
 def configure(config):
     """Configure the build."""

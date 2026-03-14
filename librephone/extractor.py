@@ -25,9 +25,7 @@ import re
 import shutil
 import subprocess
 import sys
-import ast
 import zipfile
-import json
 from pathlib import Path
 from sys import argv
 
@@ -277,12 +275,22 @@ class Extractor:
             deps = f"{propdir}/lineage.dependencies"
             if os.path.exists(deps):
                 fd = open(deps, "r")
+                data = None
                 try:
-                    for depdir in json.load(fd):
+                    data = json.load(fd)
+                except Exception:
+                    # Fallback for python literals
+                    fd.seek(0)
+                    content = fd.read()
+                    try:
+                        data = ast.literal_eval(content)
+                    except Exception:
+                        pass
+
+                if data:
+                    for depdir in data:
                         subprops = f"{os.path.dirname(propdir)}/{os.path.basename(depdir['target_path'])}/{os.path.basename(devdir)}"
                         props = glob.glob(f"{subprops}/proprietary-*.txt")
-                except Exception:
-                    pass
                 fd.close()
 
         # Mount the extracted filesystems from the install packages
