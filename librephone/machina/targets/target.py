@@ -1,6 +1,7 @@
 """Base target definition."""
 from dataclasses import dataclass, field
-from typing import Dict, List, Optional
+from typing import Dict, List
+
 
 @dataclass
 class BaseTarget:
