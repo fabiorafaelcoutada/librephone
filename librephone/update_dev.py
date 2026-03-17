@@ -79,13 +79,17 @@ class UpdateDevice(object):
 
         Args:
         """
+        build = values.pop("build", None)
+        if build is None:
+            return False
+
         sql = "UPDATE devices SET "
         build = values["build"]
         del values["build"]
 
         sql_params = []
         for key, value in values.items():
-            if len(value) == 0:
+            if len(str(value)) == 0:
                 continue
             if not str(key).replace("_", "").isalnum():
                 logging.error(f"Invalid column name: {key}")

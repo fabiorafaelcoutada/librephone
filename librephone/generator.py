@@ -292,8 +292,7 @@ class {table.capitalize()}Table(object):
                             # breakpoint()
                             typedef = k1[7:].capitalize()
                             defined = f"librephone.typedefs.{typedef}"
-                            default = eval(f"{typedef}({typedef}.UNKNOWN)")
-                            out += f"{k}: {defined} =  {defined}.{default.name.upper()}, "
+                            out += f"{k}: {defined} = {defined}.UNKNOWN, "
                         else:
                             out += f"{k}: {datatype} = None, "
                         # print(k)
