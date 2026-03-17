@@ -274,18 +274,17 @@ class Extractor:
             deps = f"{propdir}/lineage.dependencies"
             if os.path.exists(deps):
                 fd = open(deps, "r")
-                content = fd.read()
-                fd.close()
+                data = []
                 try:
-                    data = json.loads(content)
-                except Exception:
-                    # Fallback to safe literal_eval since some dependencies files
-                    # contain Python literals (e.g. single quotes) instead of valid JSON.
-                    # This prevents Arbitrary Code Execution (ACE) compared to eval().
+                    data = json.load(fd)
+                except json.JSONDecodeError:
+                    fd.seek(0)
                     try:
-                        data = ast.literal_eval(content)
+                        data = ast.literal_eval(fd.read())
                     except Exception:
-                        data = []
+                        pass
+                except Exception:
+                    pass
                 try:
                     for depdir in data:
                         subprops = f"{os.path.dirname(propdir)}/{os.path.basename(depdir['target_path'])}/{os.path.basename(devdir)}"
