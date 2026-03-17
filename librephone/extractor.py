@@ -276,17 +276,11 @@ class Extractor:
                 fd = open(deps, "r")
                 data = None
                 try:
-                    data = json.load(fd)
-                except Exception:
-                    # Fallback for python literals
-                    fd.seek(0)
                     content = fd.read()
                     try:
+                        data = json.loads(content)
+                    except json.JSONDecodeError:
                         data = ast.literal_eval(content)
-                    except Exception:
-                        pass
-
-                if data:
                     for depdir in data:
                         subprops = f"{os.path.dirname(propdir)}/{os.path.basename(depdir['target_path'])}/{os.path.basename(devdir)}"
                         props = glob.glob(f"{subprops}/proprietary-*.txt")
