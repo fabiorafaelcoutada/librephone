@@ -273,22 +273,24 @@ class Extractor:
         if len(props) == 0:
             deps = f"{propdir}/lineage.dependencies"
             if os.path.exists(deps):
-                with open(deps, "r") as fd:
+                fd = open(deps, "r")
+                data = None
+                try:
+                    data = json.load(fd)
+                except Exception:
+                    # Fallback for python literals
+                    fd.seek(0)
                     content = fd.read()
-                    data = None
                     try:
-                        data = json.loads(content)
+                        data = ast.literal_eval(content)
                     except Exception:
-                        import ast
-                        try:
-                            data = ast.literal_eval(content)
-                        except Exception:
-                            pass
+                        pass
 
-                    if data:
-                        for depdir in data:
-                            subprops = f"{os.path.dirname(propdir)}/{os.path.basename(depdir['target_path'])}/{os.path.basename(devdir)}"
-                            props.extend(glob.glob(f"{subprops}/proprietary-*.txt"))
+                if data:
+                    for depdir in data:
+                        subprops = f"{os.path.dirname(propdir)}/{os.path.basename(depdir['target_path'])}/{os.path.basename(devdir)}"
+                        props = glob.glob(f"{subprops}/proprietary-*.txt")
+                fd.close()
 
         # Mount the extracted filesystems from the install packages
         self.unmount(indir)
