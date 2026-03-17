@@ -2,7 +2,7 @@
 import logging
 from dataclasses import dataclass, field
 from enum import Enum, auto
-from typing import Callable, List, Optional, Set
+from typing import Callable, Optional, Set
 
 log = logging.getLogger(__name__)
 

@@ -2,7 +2,6 @@
 import argparse
 import logging
 import sys
-from pathlib import Path
 
 from librephone.machina.conf.config import Config
 from librephone.machina.conf.loader import ConfigLoader

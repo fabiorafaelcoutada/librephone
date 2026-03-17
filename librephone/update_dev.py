@@ -62,9 +62,13 @@ class UpdateDevice(object):
             logging.error("Need to specify all the parameters!")
             return False
 
-        sql = f"UPDATE devices SET {column} = '{value}' WHERE build='{build}'"
+        if not str(column).replace("_", "").isalnum():
+            logging.error(f"Invalid column name: {column}")
+            return False
+
+        sql = f"UPDATE devices SET {column} = %s WHERE build=%s"
         print(f"SQL: {sql}")
-        result = self.dbcursor.execute(sql)
+        result = self.dbcursor.execute(sql, (value, build))
 
     def set_columns(
         self,
@@ -77,17 +81,26 @@ class UpdateDevice(object):
         sql = "UPDATE devices SET "
         build = values["build"]
         del values["build"]
+
+        args = []
         for key, value in values.items():
             if len(value) == 0:
                 continue
-            sql += f" {key} = '{value}',"
+            if not str(key).replace("_", "").isalnum():
+                logging.error(f"Invalid column name: {key}")
+                continue
+            sql += f" {key} = %s,"
+            args.append(value)
+
         sql = sql[:-1]
-        sql += f" WHERE build='{build}'"
+        sql += " WHERE build=%s"
+        args.append(build)
+
         # A blank line in the file
         if sql.find("SET WHERE") > 0:
             return
         # print(f"SQL: {sql}")
-        result = self.dbcursor.execute(sql)
+        result = self.dbcursor.execute(sql, args)
 
     def process_file(
         self,

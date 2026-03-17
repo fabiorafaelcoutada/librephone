@@ -5,12 +5,14 @@ import os
 import sys
 from pathlib import Path
 from unittest.mock import MagicMock, patch
+
 import pytest
 
 # Ensure librephone is in path
 sys.path.append(os.getcwd())
 
 from librephone.extractor import Extractor
+
 
 @pytest.fixture
 def temp_dirs(tmp_path):
