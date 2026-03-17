@@ -62,15 +62,14 @@ class UpdateDevice(object):
             logging.error("Need to specify all the parameters!")
             return False
 
-        # Security Enhancement: Validate column name to prevent SQL Injection
-        column = str(column)
-        if not column.replace("_", "").isalnum():
+        if not str(column).replace("_", "").isalnum():
             logging.error("Invalid column name!")
             return False
 
         sql = f"UPDATE devices SET {column} = %s WHERE build=%s"
-        # print(f"SQL: {sql}")
+        print(f"SQL: {sql}")
         result = self.dbcursor.execute(sql, (value, build))
+        return True
 
     def set_columns(
         self,
@@ -85,27 +84,29 @@ class UpdateDevice(object):
             return False
 
         sql = "UPDATE devices SET "
-        params = []
+        build = values["build"]
+        del values["build"]
+
+        sql_params = []
         for key, value in values.items():
             if len(str(value)) == 0:
                 continue
-            # Security Enhancement: Validate column name to prevent SQL Injection
-            key = str(key)
-            if not key.replace("_", "").isalnum():
+            if not str(key).replace("_", "").isalnum():
                 logging.error(f"Invalid column name: {key}")
-                continue
+                return False
             sql += f" {key} = %s,"
-            params.append(value)
-
-        if not params:
-            return False
+            sql_params.append(value)
 
         sql = sql[:-1]
         sql += " WHERE build=%s"
-        params.append(build)
+        sql_params.append(build)
 
+        # A blank line in the file
+        if sql.find("SET  WHERE") > 0 or len(sql_params) <= 1:
+            return False
         # print(f"SQL: {sql}")
-        result = self.dbcursor.execute(sql, tuple(params))
+        result = self.dbcursor.execute(sql, tuple(sql_params))
+        return True
 
     def process_file(
         self,
