@@ -6,6 +6,7 @@ from librephone.machina.core.context import Context
 from librephone.machina.core.engine import Engine
 from librephone.machina.core.task import Task, TaskStatus
 
+
 class TestEngine(unittest.TestCase):
     def setUp(self):
         self.config = Config()

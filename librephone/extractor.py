@@ -16,7 +16,6 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import argparse
-import ast
 import glob
 import json
 import logging
@@ -25,9 +24,7 @@ import re
 import shutil
 import subprocess
 import sys
-import ast
 import zipfile
-import json
 from pathlib import Path
 from sys import argv
 
@@ -277,6 +274,7 @@ class Extractor:
             deps = f"{propdir}/lineage.dependencies"
             if os.path.exists(deps):
                 fd = open(deps, "r")
+                data = None
                 try:
                     content = fd.read()
                     try:
@@ -286,8 +284,6 @@ class Extractor:
                     for depdir in data:
                         subprops = f"{os.path.dirname(propdir)}/{os.path.basename(depdir['target_path'])}/{os.path.basename(devdir)}"
                         props = glob.glob(f"{subprops}/proprietary-*.txt")
-                except Exception:
-                    pass
                 fd.close()
 
         # Mount the extracted filesystems from the install packages
