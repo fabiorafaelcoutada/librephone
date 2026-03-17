@@ -274,17 +274,24 @@ class Extractor:
             deps = f"{propdir}/lineage.dependencies"
             if os.path.exists(deps):
                 fd = open(deps, "r")
-                data = None
+                content = fd.read()
+                fd.close()
                 try:
-                    content = fd.read()
+                    data = json.loads(content)
+                except Exception:
+                    # Fallback to safe literal_eval since some dependencies files
+                    # contain Python literals (e.g. single quotes) instead of valid JSON.
+                    # This prevents Arbitrary Code Execution (ACE) compared to eval().
                     try:
-                        data = json.loads(content)
-                    except json.JSONDecodeError:
                         data = ast.literal_eval(content)
+                    except Exception:
+                        data = []
+                try:
                     for depdir in data:
                         subprops = f"{os.path.dirname(propdir)}/{os.path.basename(depdir['target_path'])}/{os.path.basename(devdir)}"
-                        props = glob.glob(f"{subprops}/proprietary-*.txt")
-                fd.close()
+                        props.extend(glob.glob(f"{subprops}/proprietary-*.txt"))
+                except Exception:
+                    pass
 
         # Mount the extracted filesystems from the install packages
         self.unmount(indir)
