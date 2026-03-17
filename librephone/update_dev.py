@@ -23,6 +23,7 @@ import sys
 from sys import argv
 
 import psycopg
+from psycopg import sql
 
 import librephone as pt
 
@@ -62,9 +63,9 @@ class UpdateDevice(object):
             logging.error("Need to specify all the parameters!")
             return False
 
-        sql = f"UPDATE devices SET {column} = '{value}' WHERE build='{build}'"
-        print(f"SQL: {sql}")
-        result = self.dbcursor.execute(sql)
+        query = sql.SQL("UPDATE devices SET {} = %s WHERE build = %s").format(sql.Identifier(column))
+        # print(f"SQL: {query.as_string(self.dbshell)}")
+        result = self.dbcursor.execute(query, (value, build))
 
     def set_columns(
         self,
@@ -74,20 +75,22 @@ class UpdateDevice(object):
 
         Args:
         """
-        sql = "UPDATE devices SET "
-        build = values["build"]
-        del values["build"]
+        build = values.pop("build")
+        items_to_set = []
+        sql_params = []
         for key, value in values.items():
             if len(value) == 0:
                 continue
-            sql += f" {key} = '{value}',"
-        sql = sql[:-1]
-        sql += f" WHERE build='{build}'"
-        # A blank line in the file
-        if sql.find("SET WHERE") > 0:
+            items_to_set.append(sql.SQL("{} = %s").format(sql.Identifier(key)))
+            sql_params.append(value)
+        if not items_to_set:
             return
-        # print(f"SQL: {sql}")
-        result = self.dbcursor.execute(sql)
+        sql_params.append(build)
+        query = sql.SQL("UPDATE devices SET {} WHERE build = %s").format(
+            sql.SQL(", ").join(items_to_set)
+        )
+        # print(f"SQL: {query.as_string(self.dbshell)}")
+        result = self.dbcursor.execute(query, sql_params)
 
     def process_file(
         self,
