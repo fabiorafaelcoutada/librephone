@@ -62,12 +62,14 @@ class UpdateDevice(object):
             logging.error("Need to specify all the parameters!")
             return False
 
-        if not str(column).replace("_", "").isalnum():
-            logging.error(f"Invalid column name: {column}")
+        # Security Enhancement: Validate column name to prevent SQL Injection
+        column = str(column)
+        if not column.replace("_", "").isalnum():
+            logging.error("Invalid column name!")
             return False
 
         sql = f"UPDATE devices SET {column} = %s WHERE build=%s"
-        print(f"SQL: {sql}")
+        # print(f"SQL: {sql}")
         result = self.dbcursor.execute(sql, (value, build))
 
     def set_columns(
@@ -78,29 +80,32 @@ class UpdateDevice(object):
 
         Args:
         """
-        sql = "UPDATE devices SET "
-        build = values["build"]
-        del values["build"]
+        build = values.pop("build", None)
+        if build is None:
+            return False
 
-        args = []
+        sql = "UPDATE devices SET "
+        params = []
         for key, value in values.items():
-            if len(value) == 0:
+            if len(str(value)) == 0:
                 continue
-            if not str(key).replace("_", "").isalnum():
+            # Security Enhancement: Validate column name to prevent SQL Injection
+            key = str(key)
+            if not key.replace("_", "").isalnum():
                 logging.error(f"Invalid column name: {key}")
                 continue
             sql += f" {key} = %s,"
-            args.append(value)
+            params.append(value)
+
+        if not params:
+            return False
 
         sql = sql[:-1]
         sql += " WHERE build=%s"
-        args.append(build)
+        params.append(build)
 
-        # A blank line in the file
-        if sql.find("SET WHERE") > 0:
-            return
         # print(f"SQL: {sql}")
-        result = self.dbcursor.execute(sql, args)
+        result = self.dbcursor.execute(sql, tuple(params))
 
     def process_file(
         self,
