@@ -4,6 +4,7 @@ from typing import List, Optional
 
 from librephone.machina.core.task import Task
 
+
 @dataclass
 class Component:
     """A buildable software component (e.g., Kernel, Bootloader)."""
