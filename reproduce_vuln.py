@@ -1,7 +1,9 @@
 import os
 import shutil
 import sys
+
 from librephone.extractor import Extractor
+
 
 def main():
     # Setup directories

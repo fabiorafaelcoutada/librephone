@@ -2,10 +2,8 @@
 import importlib.util
 import json
 import logging
-import os
 import sys
 from pathlib import Path
-from typing import Any, Dict, Optional
 
 import yaml
 
@@ -26,11 +24,11 @@ class ConfigLoader:
             log.warning(f"Configuration file not found: {filepath}")
             return
 
-        if path.suffix in ['.yaml', '.yml']:
+        if path.suffix in [".yaml", ".yml"]:
             self._load_yaml(path)
-        elif path.suffix == '.json':
+        elif path.suffix == ".json":
             self._load_json(path)
-        elif path.suffix == '.py':
+        elif path.suffix == ".py":
             self._load_python(path)
         else:
             log.error(f"Unsupported configuration format: {path.suffix}")
@@ -38,7 +36,7 @@ class ConfigLoader:
     def _load_yaml(self, path: Path) -> None:
         """Load YAML configuration."""
         try:
-            with open(path, 'r') as f:
+            with open(path, "r") as f:
                 data = yaml.safe_load(f)
                 if data:
                     self.config.update(data)
@@ -48,7 +46,7 @@ class ConfigLoader:
     def _load_json(self, path: Path) -> None:
         """Load JSON configuration."""
         try:
-            with open(path, 'r') as f:
+            with open(path, "r") as f:
                 data = json.load(f)
                 if data:
                     self.config.update(data)
@@ -65,10 +63,10 @@ class ConfigLoader:
             spec.loader.exec_module(module)
 
             # Look for a 'configure' function or a 'CONFIG' dictionary
-            if hasattr(module, 'configure'):
+            if hasattr(module, "configure"):
                 # Allow the user function to modify the config object directly
                 module.configure(self.config)
-            elif hasattr(module, 'CONFIG'):
+            elif hasattr(module, "CONFIG"):
                 # Update with the dictionary
                 self.config.update(module.CONFIG)
             else:

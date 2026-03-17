@@ -1,9 +1,11 @@
 """Tests for security vulnerabilities in extractor.py."""
 
 import os
+
 import pytest
-from pathlib import Path
+
 from librephone.extractor import Extractor
+
 
 @pytest.fixture
 def test_env(tmp_path):

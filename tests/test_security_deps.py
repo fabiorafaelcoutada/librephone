@@ -1,9 +1,11 @@
-import os
 import json
+import os
 import tempfile
+
 import pytest
-from unittest.mock import patch, mock_open
+
 from librephone.extractor import Extractor
+
 
 def test_extractor_eval_vulnerability():
     with tempfile.TemporaryDirectory() as tmpdir:

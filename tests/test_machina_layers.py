@@ -4,9 +4,10 @@ import unittest
 from librephone.machina.conf.config import Config
 from librephone.machina.core.context import Context
 from librephone.machina.core.engine import Engine
-from librephone.machina.targets.arm import ArmTarget
-from librephone.machina.layers.kernel import LinuxKernel
 from librephone.machina.core.task import TaskStatus
+from librephone.machina.layers.kernel import LinuxKernel
+from librephone.machina.targets.arm import ArmTarget
+
 
 class TestBaseAbstractions(unittest.TestCase):
     def setUp(self):
