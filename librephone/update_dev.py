@@ -62,9 +62,15 @@ class UpdateDevice(object):
             logging.error("Need to specify all the parameters!")
             return False
 
-        sql = f"UPDATE devices SET {column} = '{value}' WHERE build='{build}'"
-        print(f"SQL: {sql}")
-        result = self.dbcursor.execute(sql)
+        clean_column = str(column).replace('_', '')
+        if not clean_column.isalnum():
+            logging.error(f"Invalid column name: {column}")
+            return False
+
+        sql = f"UPDATE devices SET {column} = %s WHERE build=%s"
+        # print(f"SQL: {sql}")
+        result = self.dbcursor.execute(sql, (value, build))
+        return True
 
     def set_columns(
         self,
@@ -74,20 +80,32 @@ class UpdateDevice(object):
 
         Args:
         """
-        sql = "UPDATE devices SET "
-        build = values["build"]
-        del values["build"]
-        for key, value in values.items():
-            if len(value) == 0:
-                continue
-            sql += f" {key} = '{value}',"
-        sql = sql[:-1]
-        sql += f" WHERE build='{build}'"
-        # A blank line in the file
-        if sql.find("SET WHERE") > 0:
-            return
+        build = values.get("build")
+        if not build:
+            return False
+
+        # We need a copy because we are removing 'build'
+        update_vals = {k: v for k, v in values.items() if k != "build" and len(v) > 0}
+        if not update_vals:
+            return False
+
+        set_clauses = []
+        sql_params = []
+        for key, value in update_vals.items():
+            clean_key = str(key).replace('_', '')
+            if not clean_key.isalnum():
+                logging.error(f"Invalid column name: {key}")
+                return False
+            set_clauses.append(f"{key} = %s")
+            sql_params.append(value)
+
+        sql_params.append(build)
+
+        sql = "UPDATE devices SET " + ", ".join(set_clauses) + " WHERE build=%s"
+
         # print(f"SQL: {sql}")
-        result = self.dbcursor.execute(sql)
+        result = self.dbcursor.execute(sql, sql_params)
+        return True
 
     def process_file(
         self,
