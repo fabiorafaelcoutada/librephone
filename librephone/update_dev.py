@@ -62,13 +62,14 @@ class UpdateDevice(object):
             logging.error("Need to specify all the parameters!")
             return False
 
+        # SECURITY: Validate column name to prevent SQL injection
         if not str(column).replace("_", "").isalnum():
-            logging.error("Invalid column name!")
+            logging.error(f"Invalid column name: {column}")
             return False
 
         sql = f"UPDATE devices SET {column} = %s WHERE build=%s"
-        print(f"SQL: {sql}")
-        result = self.dbcursor.execute(sql, (value, build))
+        # print(f"SQL: {sql}")
+        self.dbcursor.execute(sql, (value, build))
         return True
 
     def set_columns(
@@ -79,33 +80,36 @@ class UpdateDevice(object):
 
         Args:
         """
-        build = values.pop("build", None)
-        if build is None:
+        build = values.get("build")
+        if not build:
+            logging.error("Need to specify build parameter!")
             return False
 
-        sql = "UPDATE devices SET "
-        build = values["build"]
-        del values["build"]
+        valid_columns = []
+        sql_args = []
 
-        sql_params = []
         for key, value in values.items():
+            if key == "build":
+                continue
             if len(str(value)) == 0:
                 continue
+            # SECURITY: Validate column names to prevent SQL injection
             if not str(key).replace("_", "").isalnum():
                 logging.error(f"Invalid column name: {key}")
-                return False
-            sql += f" {key} = %s,"
-            sql_params.append(value)
+                continue
 
-        sql = sql[:-1]
-        sql += " WHERE build=%s"
-        sql_params.append(build)
+            valid_columns.append(f"{key} = %s")
+            sql_args.append(value)
 
-        # A blank line in the file
-        if sql.find("SET  WHERE") > 0 or len(sql_params) <= 1:
+        if not valid_columns:
             return False
+
+        columns_sql = ", ".join(valid_columns)
+        sql = f"UPDATE devices SET {columns_sql} WHERE build=%s"
+        sql_args.append(build)
+
         # print(f"SQL: {sql}")
-        result = self.dbcursor.execute(sql, tuple(sql_params))
+        self.dbcursor.execute(sql, tuple(sql_args))
         return True
 
     def process_file(

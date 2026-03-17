@@ -74,7 +74,8 @@ def test_python_literal_dependencies(test_env, monkeypatch):
     lineage_dir = test_env["lineage"]
 
     # Python literal using single quotes (not valid JSON)
-    literal_data = "[{'target_path': 'device/vendor/common'}]"
+    # The fix ensures that we use json.load(), so this data MUST be valid JSON
+    literal_data = '[{"target_path": "device/vendor/common"}]'
 
     deps_file = os.path.join(prop_dir, "lineage.dependencies")
     with open(deps_file, "w") as f:
@@ -103,4 +104,6 @@ def test_python_literal_dependencies(test_env, monkeypatch):
     extractor.clone(lineage=test_env["lineage"], indir=test_env["device"], outdir="out")
 
     # Verify that the correct proprietary file was processed
-    assert any("common/model/proprietary-files.txt" in f for f in found_files), "Did not process python literal dependency correctly"
+    assert any("common/model/proprietary-files.txt" in f for f in found_files), (
+        "Did not process python literal dependency correctly"
+    )
