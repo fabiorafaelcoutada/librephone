@@ -45,7 +45,8 @@ class YamlFile(object):
         # if data == str:
         self.filespec = filespec
         self.file = open(filespec, "rb").read()
-        self.yaml = yaml.load(self.file, Loader=yaml.Loader)
+        # Security: use safe_load to prevent arbitrary code execution
+        self.yaml = yaml.safe_load(self.file)
         self.data = dict()
         # self.getEntries()
 

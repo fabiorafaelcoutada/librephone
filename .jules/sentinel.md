@@ -9,3 +9,9 @@
 **Vulnerability:** Found SQL injection vulnerabilities in `librephone/update_dev.py` (`set_column` and `set_columns`) where the string interpolation of user input variables into SQL queries occurred instead of parameterization.
 **Learning:** `psycopg3` requires using explicit parameterized queries with `%s` to prevent SQL Injection. Moreover, when table or column names need to be dynamically specified, they cannot be parameterized with `%s`. String formatting must be used but only after strict validation, e.g., using `isalnum()` to verify the identifier only contains safe characters.
 **Prevention:** Always parameterize user inputs as query arguments using `%s`. For dynamic identifier names, sanitize and validate strictly (e.g., `str(column).replace('_', '').isalnum()`) before injecting into the SQL string.
+
+## 2025-02-18 - [CRITICAL] Fix Insecure YAML Deserialization leading to ACE
+
+**Vulnerability:** Discovered the use of `yaml.load(self.file, Loader=yaml.Loader)` in `librephone/yamlfile.py`, which permits the execution of arbitrary Python code embedded in YAML files.
+**Learning:** The default `Loader` allows constructing arbitrary Python objects, meaning an attacker could craft a malicious YAML file that executes a remote payload upon parsing.
+**Prevention:** Always replace `yaml.load(..., Loader=yaml.Loader)` with the secure `yaml.safe_load(...)` which limits deserialization to simple primitive types.
