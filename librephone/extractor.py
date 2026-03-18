@@ -16,7 +16,6 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import argparse
-import ast
 import glob
 import json
 import logging
@@ -25,9 +24,7 @@ import re
 import shutil
 import subprocess
 import sys
-import ast
 import zipfile
-import json
 from pathlib import Path
 from sys import argv
 
