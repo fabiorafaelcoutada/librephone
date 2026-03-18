@@ -62,12 +62,13 @@ class UpdateDevice(object):
             logging.error("Need to specify all the parameters!")
             return False
 
-        if not str(column).replace("_", "").isalnum():
-            logging.error("Invalid column name!")
+        clean_column = str(column).replace('_', '')
+        if not clean_column.isalnum():
+            logging.error(f"Invalid column name: {column}")
             return False
 
         sql = f"UPDATE devices SET {column} = %s WHERE build=%s"
-        print(f"SQL: {sql}")
+        # print(f"SQL: {sql}")
         result = self.dbcursor.execute(sql, (value, build))
         return True
 
@@ -79,33 +80,31 @@ class UpdateDevice(object):
 
         Args:
         """
-        build = values.pop("build", None)
-        if build is None:
+        build = values.get("build")
+        if not build:
             return False
 
-        sql = "UPDATE devices SET "
-        build = values["build"]
-        del values["build"]
+        # We need a copy because we are removing 'build'
+        update_vals = {k: v for k, v in values.items() if k != "build" and len(v) > 0}
+        if not update_vals:
+            return False
 
+        set_clauses = []
         sql_params = []
-        for key, value in values.items():
-            if len(str(value)) == 0:
-                continue
-            if not str(key).replace("_", "").isalnum():
+        for key, value in update_vals.items():
+            clean_key = str(key).replace('_', '')
+            if not clean_key.isalnum():
                 logging.error(f"Invalid column name: {key}")
                 return False
-            sql += f" {key} = %s,"
+            set_clauses.append(f"{key} = %s")
             sql_params.append(value)
 
-        sql = sql[:-1]
-        sql += " WHERE build=%s"
         sql_params.append(build)
 
-        # A blank line in the file
-        if sql.find("SET  WHERE") > 0 or len(sql_params) <= 1:
-            return False
+        sql = "UPDATE devices SET " + ", ".join(set_clauses) + " WHERE build=%s"
+
         # print(f"SQL: {sql}")
-        result = self.dbcursor.execute(sql, tuple(sql_params))
+        result = self.dbcursor.execute(sql, sql_params)
         return True
 
     def process_file(
