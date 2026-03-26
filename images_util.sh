@@ -94,34 +94,30 @@ create_dirtree() {
 }
 
 get_metadata() {
-    zip=$(basename $1)
-    build=$(echo ${zip} | cut -d '-' -f 5)
-    config=$(grep "${build}" ${devlist})
-    vendor=$(echo ${config} | cut -d ':' -f 1)
-    model=$(echo ${config} | cut -d ':' -f 3)
-    declare -A meta
-    meta["vendor"]="${vendor}"
-    meta["model"]="${model}"
-    meta["build"]="${build}"
-    declare -p meta
+    zip=$(basename "$1")
+    build=$(echo "${zip}" | cut -d '-' -f 5)
+    config=$(grep "${build}" "${devlist}")
+    vendor=$(echo "${config}" | cut -d ':' -f 1)
+    model=$(echo "${config}" | cut -d ':' -f 3)
+    # Safely output metadata delimited by a pipe to avoid eval and command injection
+    echo "${vendor}|${model}|${build}"
 }
 
 # Move a directory of zip files to the right location.
 move_zip() {
     for zip in *.zip; do
-	foo="$(get_metadata ${zip})"
-	eval "$foo"
- 	build=$(echo ${zip} | tr -d '\n' | cut -d '-' -f 5)
+	IFS='|' read -r vendor model meta_build <<< "$(get_metadata "${zip}")"
+	build=$(echo "${zip}" | tr -d '\n' | cut -d '-' -f 5)
  	echo "Processing ${build}"
-	echo "FIXME: ${meta["vendor"]}"
-	dir="${images}/${meta["vendor"]}/${meta["model"]}"
+	echo "FIXME: ${vendor}"
+	dir="${images}/${vendor}/${model}"
  	if test ! -d "${dir}"; then
- 	    ${dryrun} mkdir -p ${images}/${vendor}/${model}
+	    ${dryrun} mkdir -p "${images}/${vendor}/${model}"
 	fi
-	if test ! -d ${images}/${meta["vendor"]}/${build}; then
- 	    ${dryrun} ln -s ${images}/${meta["vendor"]}/${meta["model"]} ${build}
+	if test ! -d "${images}/${vendor}/${build}"; then
+	    ${dryrun} ln -s "${images}/${vendor}/${model}" "${build}"
 	fi
-	${dryrun} mv ${zip} ${dir}/
+	${dryrun} mv "${zip}" "${dir}/"
 # 	    echo "${build} is missing"
 # 	fi
     done
