@@ -99,24 +99,27 @@ get_metadata() {
     config=$(grep "${build}" ${devlist})
     vendor=$(echo ${config} | cut -d ':' -f 1)
     model=$(echo ${config} | cut -d ':' -f 3)
-    declare -A meta
-    meta["vendor"]="${vendor}"
-    meta["model"]="${model}"
-    meta["build"]="${build}"
-    declare -p meta
+    # Output metadata as a delimiter-separated string to prevent command injection
+    echo "${vendor}|${model}|${build}"
 }
 
 # Move a directory of zip files to the right location.
 move_zip() {
     for zip in *.zip; do
 	foo="$(get_metadata ${zip})"
-	eval "$foo"
+	# Safely parse the delimiter-separated output instead of using eval
+	IFS='|' read -r meta_vendor meta_model meta_build <<< "$foo"
+	declare -A meta
+	meta["vendor"]="${meta_vendor}"
+	meta["model"]="${meta_model}"
+	meta["build"]="${meta_build}"
+
  	build=$(echo ${zip} | tr -d '\n' | cut -d '-' -f 5)
  	echo "Processing ${build}"
 	echo "FIXME: ${meta["vendor"]}"
 	dir="${images}/${meta["vendor"]}/${meta["model"]}"
  	if test ! -d "${dir}"; then
- 	    ${dryrun} mkdir -p ${images}/${vendor}/${model}
+	    ${dryrun} mkdir -p ${images}/${meta["vendor"]}/${meta["model"]}
 	fi
 	if test ! -d ${images}/${meta["vendor"]}/${build}; then
  	    ${dryrun} ln -s ${images}/${meta["vendor"]}/${meta["model"]} ${build}

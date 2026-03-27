@@ -15,3 +15,9 @@
 **Vulnerability:** Discovered the use of `yaml.load(self.file, Loader=yaml.Loader)` in `librephone/yamlfile.py`, which permits the execution of arbitrary Python code embedded in YAML files.
 **Learning:** The default `Loader` allows constructing arbitrary Python objects, meaning an attacker could craft a malicious YAML file that executes a remote payload upon parsing.
 **Prevention:** Always replace `yaml.load(..., Loader=yaml.Loader)` with the secure `yaml.safe_load(...)` which limits deserialization to simple primitive types.
+
+## 2025-02-19 - [CRITICAL] Fix Command Injection in shell script via eval
+
+**Vulnerability:** Found command injection via `eval "$foo"` in `images_util.sh` when parsing the output from the `get_metadata` function.
+**Learning:** Using `eval` to assign variables from command output in bash scripts allows arbitrary commands hidden in filenames or other untrusted metadata to be executed. The `declare -p` trick paired with `eval` is dangerous when processing variable contents.
+**Prevention:** To safely pass multiple variables from a function output, use a safe delimiter (like `|`) and read them into variables using `IFS='|' read -r var1 var2 <<< "$output"`.
