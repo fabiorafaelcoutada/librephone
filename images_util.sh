@@ -94,24 +94,28 @@ create_dirtree() {
 }
 
 get_metadata() {
-    zip=$(basename $1)
-    build=$(echo ${zip} | cut -d '-' -f 5)
-    config=$(grep "${build}" ${devlist})
-    vendor=$(echo ${config} | cut -d ':' -f 1)
-    model=$(echo ${config} | cut -d ':' -f 3)
-    declare -A meta
-    meta["vendor"]="${vendor}"
-    meta["model"]="${model}"
-    meta["build"]="${build}"
-    declare -p meta
+    zip=$(basename "$1")
+    build=$(echo "${zip}" | cut -d '-' -f 5)
+    config=$(grep "${build}" "${devlist}")
+    vendor=$(echo "${config}" | cut -d ':' -f 1)
+    model=$(echo "${config}" | cut -d ':' -f 3)
+    # Echo values separated by a safe delimiter
+    echo "${vendor}|${model}|${build}"
 }
 
 # Move a directory of zip files to the right location.
 move_zip() {
     for zip in *.zip; do
-	foo="$(get_metadata ${zip})"
-	eval "$foo"
- 	build=$(echo ${zip} | tr -d '\n' | cut -d '-' -f 5)
+	foo="$(get_metadata "${zip}")"
+
+	# Securely read the values avoiding 'eval' and command injection
+	declare -A meta
+	IFS='|' read -r meta_vendor meta_model meta_build <<< "$foo"
+	meta["vendor"]="${meta_vendor}"
+	meta["model"]="${meta_model}"
+	meta["build"]="${meta_build}"
+
+	build=$(echo "${zip}" | tr -d '\n' | cut -d '-' -f 5)
  	echo "Processing ${build}"
 	echo "FIXME: ${meta["vendor"]}"
 	dir="${images}/${meta["vendor"]}/${meta["model"]}"
