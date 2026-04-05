@@ -27,6 +27,7 @@ import sys
 from sys import argv
 
 import psycopg
+from psycopg import sql
 from progress.bar import Bar
 
 import librephone as pt
@@ -65,9 +66,9 @@ class QueryDevice(object):
         Returns:
             (list): The results of the query
         """
-        sql = f"SELECT vendor, model, build FROM {self.dbname}"
-        # print(f"SQL: {sql}")
-        result = self.dbcursor.execute(sql)
+        query = sql.SQL("SELECT vendor, model, build FROM {}").format(sql.Identifier(self.dbname))
+        # print(f"SQL: {query}")
+        result = self.dbcursor.execute(query)
         result = self.dbcursor.fetchone()
         # print(result)
         return result
@@ -133,9 +134,9 @@ class QueryDevice(object):
         Returns:
             (list): The results of the query
         """
-        sql = f"SELECT vendor,model,build,jsonb_array_length(blobs) FROM {self.dbname} ORDER BY jsonb_array_elements(blobs)"
-        # print(f"SQL: {sql}")
-        result = self.dbcursor.execute(sql)
+        query = sql.SQL("SELECT vendor,model,build,jsonb_array_length(blobs) FROM {} ORDER BY jsonb_array_elements(blobs)").format(sql.Identifier(self.dbname))
+        # print(f"SQL: {query}")
+        result = self.dbcursor.execute(query)
         result = self.dbcursor.fetchall()
         # print(result)
         return result
@@ -150,10 +151,10 @@ class QueryDevice(object):
             (list): The results of the query
         """
         # breakpoint()
-        sql = f"SELECT vendor,model,build FROM {self.dbname},jsonb_array_elements(blobs) foo WHERE blobs  @> %s::jsonb;"
-        # print(f"SQL: {sql}")
+        query = sql.SQL("SELECT vendor,model,build FROM {},jsonb_array_elements(blobs) foo WHERE blobs  @> %s::jsonb;").format(sql.Identifier(self.dbname))
+        # print(f"SQL: {query}")
         query_json = json.dumps([{"type": bintype.value}])
-        result = self.dbcursor.execute(sql, (query_json,))
+        result = self.dbcursor.execute(query, (query_json,))
         result = self.dbcursor.fetchall()
         # print(result)
         return result

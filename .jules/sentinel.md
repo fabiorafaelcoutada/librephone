@@ -15,3 +15,7 @@
 **Vulnerability:** Discovered the use of `yaml.load(self.file, Loader=yaml.Loader)` in `librephone/yamlfile.py`, which permits the execution of arbitrary Python code embedded in YAML files.
 **Learning:** The default `Loader` allows constructing arbitrary Python objects, meaning an attacker could craft a malicious YAML file that executes a remote payload upon parsing.
 **Prevention:** Always replace `yaml.load(..., Loader=yaml.Loader)` with the secure `yaml.safe_load(...)` which limits deserialization to simple primitive types.
+## 2025-02-17 - [CRITICAL] Fix SQL Injection via String Interpolation in psycopg3
+**Vulnerability:** Found multiple instances where table names (`self.dbname`) and dynamic column names (`column`, `key`) were being injected directly into SQL query strings using `f"..."` interpolation (e.g., `f"SELECT vendor, model, build FROM {self.dbname}"` and `f"UPDATE devices SET {column} = %s WHERE build=%s"`).
+**Learning:** Using string interpolation for any part of a SQL query—even structural components like table or column names—creates a high risk for SQL injection if those values ever originate from or become influenced by untrusted sources.
+**Prevention:** To prevent SQL injection when dynamic identifiers are required, strictly use the `psycopg.sql` module (`sql.SQL().format(sql.Identifier())`) instead of string interpolation or manual validation.
