@@ -1,5 +1,4 @@
-import psycopg
 from psycopg import sql
 
-query = sql.SQL("UPDATE devices SET {} = %s WHERE build=%s").format(sql.Identifier("builds"))
-print(query)
+# Test the psycopg sql string formatting
+print(sql.SQL("UPDATE devices SET {} WHERE build=%s").format(sql.SQL(", ").join([sql.SQL("{} = %s").format(sql.Identifier("foo")), sql.SQL("{} = %s").format(sql.Identifier("bar"))])))
