@@ -9,6 +9,7 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")
 
 from librephone.device import DeviceData
 from librephone.import_dev import DeviceImport
+from librephone.update_dev import UpdateDevice
 
 
 class TestSQLInjection(unittest.TestCase):
@@ -101,6 +102,42 @@ class TestSQLInjection(unittest.TestCase):
         # Check args: (json_string, build)
         self.assertEqual(update_args[1], mock_device.build)
         self.assertEqual(json.loads(update_args[0]), [{"file": "test.bin"}])
+
+    @patch("librephone.update_dev.psycopg")
+    def test_update_dev_injection(self, mock_psycopg):
+        """Test set_column and set_columns for SQL injection vulnerabilities."""
+        # Setup mock
+        mock_conn = MagicMock()
+        mock_cursor = MagicMock()
+        mock_psycopg.connect.return_value = mock_conn
+        mock_conn.cursor.return_value = mock_cursor
+
+        # Initialize UpdateDevice
+        updater = UpdateDevice()
+
+        # Test set_column
+        updater.set_column("builds", "my_build", "t")
+
+        call_args = mock_cursor.execute.call_args
+        sql_query = call_args[0][0]
+        sql_args = call_args[0][1]
+
+        # Use as_string to extract the composed query string properly without needing connection context for testing
+        query_string = sql_query.as_string(context=None)
+        self.assertIn('"builds"', query_string)
+        self.assertEqual(sql_args, ("t", "my_build"))
+
+        # Test set_columns
+        updater.set_columns({"builds": "t", "extracts": "t", "build": "my_build"})
+
+        call_args = mock_cursor.execute.call_args
+        sql_query = call_args[0][0]
+        sql_args = call_args[0][1]
+
+        query_string = sql_query.as_string(context=None)
+        self.assertIn('"builds"', query_string)
+        self.assertIn('"extracts"', query_string)
+        self.assertEqual(sql_args, ["t", "t", "my_build"])
 
 
 if __name__ == "__main__":
