@@ -28,6 +28,7 @@ from sys import argv
 
 import psycopg
 from progress.bar import Bar
+from psycopg import sql
 
 import librephone as pt
 from librephone.device import DeviceData
@@ -42,7 +43,7 @@ log = logging.getLogger(__name__)
 class QueryDevice(object):
     def __init__(self):
         """Returns:
-        (QueryDevice): An instance of this class
+        (QueryDevice): An instance of this class.
         """
         # FIXME: this needs to be configurable
         self.dbname = "devices"
@@ -65,9 +66,11 @@ class QueryDevice(object):
         Returns:
             (list): The results of the query
         """
-        sql = f"SELECT vendor, model, build FROM {self.dbname}"
-        # print(f"SQL: {sql}")
-        result = self.dbcursor.execute(sql)
+        query = sql.SQL("SELECT vendor, model, build FROM {}").format(
+            sql.Identifier(self.dbname)
+        )
+        # print(f"SQL: {query.as_string(self.dbcursor)}")
+        result = self.dbcursor.execute(query)
         result = self.dbcursor.fetchone()
         # print(result)
         return result
@@ -85,7 +88,7 @@ class QueryDevice(object):
 
         # print(f"SQL: {sql}")
         files1 = list()
-        result = self.dbcursor.execute(sql, (src1,))
+        self.dbcursor.execute(sql, (src1,))
         result1 = self.dbcursor.fetchall()
         # print(result1)
         for entry in result1:
@@ -98,7 +101,7 @@ class QueryDevice(object):
 
         # print(f"SQL: {sql}")
         files2 = list()
-        result = self.dbcursor.execute(sql, (src2,))
+        self.dbcursor.execute(sql, (src2,))
         result2 = self.dbcursor.fetchall()
         # print(result2)
         for entry in result2:
@@ -113,7 +116,6 @@ class QueryDevice(object):
         #     print(bar)
         #     diffs.append(bar)
 
-        index = 0
         for line in difflib.unified_diff(files1, files2, fromfile="foo", tofiledate="bar"):
             tmp = line.split(",")
             if len(tmp) == 1:
@@ -133,9 +135,11 @@ class QueryDevice(object):
         Returns:
             (list): The results of the query
         """
-        sql = f"SELECT vendor,model,build,jsonb_array_length(blobs) FROM {self.dbname} ORDER BY jsonb_array_elements(blobs)"
-        # print(f"SQL: {sql}")
-        result = self.dbcursor.execute(sql)
+        query = sql.SQL("SELECT vendor,model,build,jsonb_array_length(blobs) FROM {} ORDER BY jsonb_array_elements(blobs)").format(
+            sql.Identifier(self.dbname)
+        )
+        # print(f"SQL: {query.as_string(self.dbcursor)}")
+        result = self.dbcursor.execute(query)
         result = self.dbcursor.fetchall()
         # print(result)
         return result
@@ -150,10 +154,12 @@ class QueryDevice(object):
             (list): The results of the query
         """
         # breakpoint()
-        sql = f"SELECT vendor,model,build FROM {self.dbname},jsonb_array_elements(blobs) foo WHERE blobs  @> %s::jsonb;"
-        # print(f"SQL: {sql}")
+        query = sql.SQL("SELECT vendor,model,build FROM {},jsonb_array_elements(blobs) foo WHERE blobs  @> %s::jsonb;").format(
+            sql.Identifier(self.dbname)
+        )
+        # print(f"SQL: {query.as_string(self.dbcursor)}")
         query_json = json.dumps([{"type": bintype.value}])
-        result = self.dbcursor.execute(sql, (query_json,))
+        result = self.dbcursor.execute(query, (query_json,))
         result = self.dbcursor.fetchall()
         # print(result)
         return result
@@ -227,7 +233,7 @@ class QueryDevice(object):
         """List all the devices containing a file."""
         devices = list()
         sql = "SELECT DISTINCT(foo->>'file') FROM devices,jsonb_array_elements(devices.blobs) AS foo;"
-        result = self.dbcursor.execute(sql)
+        self.dbcursor.execute(sql)
         files = self.dbcursor.fetchall()
 
         bar = Bar("Processing files", max=len(files))
@@ -235,7 +241,7 @@ class QueryDevice(object):
             sql = "SELECT ARRAY_AGG(model) FROM devices WHERE blobs  @> %s::jsonb;"
             # print(f"SQL: {sql}")
             query_json = json.dumps([{"file": file[0]}])
-            result = self.dbcursor.execute(sql, (query_json,))
+            self.dbcursor.execute(sql, (query_json,))
             devs = self.dbcursor.fetchone()
             devices.append({"file": file[0], "devices": devs[0]})
             bar.next()
@@ -299,7 +305,7 @@ def main():
         fieldnames = ("file", "models")
         csvout = csv.DictWriter(csvfile, fieldnames=fieldnames)
         csvout.writeheader()
-        for key, value in totals.items():
+        for _key, value in totals.items():
             alldevs = str()
             for entry in value:
                 alldevs += f"{entry[1]}, "
