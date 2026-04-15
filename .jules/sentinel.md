@@ -15,3 +15,8 @@
 **Vulnerability:** Discovered the use of `yaml.load(self.file, Loader=yaml.Loader)` in `librephone/yamlfile.py`, which permits the execution of arbitrary Python code embedded in YAML files.
 **Learning:** The default `Loader` allows constructing arbitrary Python objects, meaning an attacker could craft a malicious YAML file that executes a remote payload upon parsing.
 **Prevention:** Always replace `yaml.load(..., Loader=yaml.Loader)` with the secure `yaml.safe_load(...)` which limits deserialization to simple primitive types.
+
+## 2025-02-18 - [CRITICAL] SQL Injection Risk via Dynamic Column/Table Names
+**Vulnerability:** Discovered SQL injection vulnerabilities in `librephone/update_dev.py` and `librephone/query_dev.py` where SQL queries were constructed using string concatenation/f-strings with dynamic column names and table names.
+**Learning:** `psycopg` 3 parameterized queries only protect against data values injection. Dynamic identifiers (such as column or table names) cannot use `%s` placeholders safely with string interpolation.
+**Prevention:** Always use the `psycopg.sql` module (`psycopg.sql.SQL` and `psycopg.sql.Identifier`) when passing dynamic identifiers into queries to safely construct SQL statements in `psycopg` 3.
