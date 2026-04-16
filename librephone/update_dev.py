@@ -23,6 +23,7 @@ import sys
 from sys import argv
 
 import psycopg
+from psycopg import sql
 
 import librephone as pt
 
@@ -62,14 +63,16 @@ class UpdateDevice(object):
             logging.error("Need to specify all the parameters!")
             return False
 
-        clean_column = str(column).replace('_', '')
+        clean_column = str(column).replace("_", "")
         if not clean_column.isalnum():
             logging.error(f"Invalid column name: {column}")
             return False
 
-        sql = f"UPDATE devices SET {column} = %s WHERE build=%s"
-        # print(f"SQL: {sql}")
-        result = self.dbcursor.execute(sql, (value, build))
+        # Security fix: Use psycopg.sql to prevent SQL injection
+        query = sql.SQL("UPDATE devices SET {} = %s WHERE build=%s").format(sql.Identifier(column))
+
+        # print(f"SQL: {query.as_string(context=None)}")
+        result = self.dbcursor.execute(query, (value, build))
         return True
 
     def set_columns(
@@ -92,19 +95,21 @@ class UpdateDevice(object):
         set_clauses = []
         sql_params = []
         for key, value in update_vals.items():
-            clean_key = str(key).replace('_', '')
+            clean_key = str(key).replace("_", "")
             if not clean_key.isalnum():
                 logging.error(f"Invalid column name: {key}")
                 return False
-            set_clauses.append(f"{key} = %s")
+
+            # Security fix: Use psycopg.sql to prevent SQL injection
+            set_clauses.append(sql.SQL("{} = %s").format(sql.Identifier(key)))
             sql_params.append(value)
 
         sql_params.append(build)
 
-        sql = "UPDATE devices SET " + ", ".join(set_clauses) + " WHERE build=%s"
+        query = sql.SQL("UPDATE devices SET {} WHERE build=%s").format(sql.SQL(", ").join(set_clauses))
 
-        # print(f"SQL: {sql}")
-        result = self.dbcursor.execute(sql, sql_params)
+        # print(f"SQL: {query.as_string(context=None)}")
+        result = self.dbcursor.execute(query, sql_params)
         return True
 
     def process_file(
