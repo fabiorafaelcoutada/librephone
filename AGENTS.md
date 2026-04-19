@@ -5,6 +5,20 @@ This project, **librephone**, aims to reverse engineer Android proprietary blobs
 ## Goal
 To analyze, document, and eventually replace proprietary Android binary blobs.
 
+## Agent Workflow (Auto/Manual Sessions)
+
+At the beginning of every chat session, you (the agent/replica) **must** ask the user:
+> "Is this a manual or auto session?"
+
+Depending on the user's answer, follow these workflows:
+
+- **If Manual**: The user needs to review and merge the changes themselves. You will assist with coding, but do not automatically merge to `main`.
+- **If Auto**:
+  1. The user defines the task.
+  2. You have a discussion, define a plan, and wait for the user to accept it.
+  3. Once accepted, you do all the rest: implementing, rebasing, and merging to `main`.
+  4. When submitting/merging in an auto session, you can use any persona (heterónimo) you think is most adequate for the tone of the commits and messages. Alternatively, you can ask the user which persona to use to publish the changes.
+
 ## Current Focus
 We are currently focusing on:
 1.  **Testing**: Establishing a robust test suite.
