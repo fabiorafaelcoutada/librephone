@@ -28,8 +28,6 @@ class ConfigLoader:
             self._load_yaml(path)
         elif path.suffix == ".json":
             self._load_json(path)
-        elif path.suffix == ".py":
-            self._load_python(path)
         else:
             log.error(f"Unsupported configuration format: {path.suffix}")
 
@@ -52,25 +50,3 @@ class ConfigLoader:
                     self.config.update(data)
         except Exception as e:
             log.error(f"Failed to load JSON config {path}: {e}")
-
-    def _load_python(self, path: Path) -> None:
-        """Load Python configuration module."""
-        try:
-            # Import the python file as a module
-            spec = importlib.util.spec_from_file_location("machina_user_config", path)
-            module = importlib.util.module_from_spec(spec)
-            sys.modules["machina_user_config"] = module
-            spec.loader.exec_module(module)
-
-            # Look for a 'configure' function or a 'CONFIG' dictionary
-            if hasattr(module, "configure"):
-                # Allow the user function to modify the config object directly
-                module.configure(self.config)
-            elif hasattr(module, "CONFIG"):
-                # Update with the dictionary
-                self.config.update(module.CONFIG)
-            else:
-                log.warning(f"Python config {path} must define 'configure(config)' or 'CONFIG' dict.")
-
-        except Exception as e:
-            log.error(f"Failed to load Python config {path}: {e}")
