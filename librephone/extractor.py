@@ -572,8 +572,8 @@ class Extractor:
                     files[root] = list()
                 try:
                     new = {"src": src, "dst": dst}
-                except:
-                    breakpoint()
+                except Exception as e:
+                    logging.error(f"Error parsing proprietary file entry: {e}")
                 files[root].append(new)
                 # print(new)
 
