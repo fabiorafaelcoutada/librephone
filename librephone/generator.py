@@ -123,7 +123,7 @@ class Generator(object):
             for line in values:
                 if type(line) == dict:
                     [[k, v]] = line.items()
-                    breakpoint()
+                    log.error(f"Error: unexpected dict in enum definition for {k}")
                     out += f"\t'{k}',\n"
                 else:
                     out += f"\t'{line}',\n"
@@ -144,7 +144,7 @@ class Generator(object):
             [[table, values]] = entry.items()
             out += f"class {table.capitalize()}(Enum):\n"
             for line in values:
-                # breakpoint()
+                # log.debug("Processing line in PyEnum")
                 if type(line) == dict:
                     [[k, v]] = line.items()
                     out += f"\t{k} = '{v}'\n"
@@ -217,8 +217,8 @@ class Generator(object):
                     else:
                         try:
                             out += f"\t{k} {self.yaml2sql[v[0].replace(',', '')]}{array}{required},\n"
-                        except:
-                            breakpoint()
+                        except Exception as e:
+                            log.error(f"Error mapping YAML to SQL type for {k}: {e}")
             if len(unique) > 0:
                 keys = str(unique).replace("'", "")[1:-1]
                 out += f"\tUNIQUE({keys})\n);\n"
@@ -289,7 +289,7 @@ class {table.capitalize()}Table(object):
                         elif k1 == "timestamp":
                             out += f"{k}: datetime = '{datetime.now()}', "
                         elif k1[:7] == "public.":
-                            # breakpoint()
+                            # log.debug(f"Handling public. type for {k1}")
                             typedef = k1[7:].capitalize()
                             defined = f"librephone.typedefs.{typedef}"
                             out += f"{k}: {defined} = {defined}.UNKNOWN, "
