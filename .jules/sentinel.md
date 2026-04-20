@@ -19,3 +19,9 @@
 **Vulnerability:** Discovered SQL injection vulnerabilities in `librephone/update_dev.py` where SQL queries were dynamically constructed using f-strings with user input for column names (e.g., `f"UPDATE devices SET {column} = %s WHERE build=%s"`). This bypasses the typical parameterized query safety measures when user input directly defines the structure of the SQL command.
 **Learning:** Even if data values are safely parameterized (using `%s`), dynamically injecting table or column names via string formatting remains an SQL injection vector. The previous implementation relied on a weak manual check (`isalnum()`) which is prone to edge cases and makes the application harder to maintain.
 **Prevention:** Always use `psycopg.sql.SQL` in combination with `psycopg.sql.Identifier` to securely interpolate database identifiers (table or column names) instead of standard string manipulation or f-strings. Combine this with traditional parameterization for values to ensure full query safety.
+
+## 2025-02-19 - [CRITICAL] Fix SQL Injection via string interpolation of database identifiers in queries
+
+**Vulnerability:** Discovered SQL injection vulnerabilities in `librephone/query_dev.py` where SQL queries were dynamically constructed using f-strings with variables like `{self.dbname}` (e.g., `f"SELECT vendor, model, build FROM {self.dbname}"`). This bypasses the typical parameterized query safety measures when user input directly defines the structure of the SQL command.
+**Learning:** Even if data values are safely parameterized (using `%s`), dynamically injecting table or column names via string formatting remains an SQL injection vector.
+**Prevention:** Always use `psycopg.sql.SQL` in combination with `psycopg.sql.Identifier` to securely interpolate database identifiers (table or column names) instead of standard string manipulation or f-strings. Combine this with traditional parameterization for values to ensure full query safety.
