@@ -78,6 +78,7 @@ nav:
     - Disassembling Thumb: thumb.md
     - Sample Data Extracts: csvdata.md
     - The ATH11k Driver: ath11k.md
+    - The CopyEngine: CopyEngine.md
     - Wireless Processor SubSystem:
       - Wireless: wireless.md
       - wpss.b01: wpss.b01.md
