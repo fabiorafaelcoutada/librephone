@@ -33,6 +33,9 @@ AARCH32, which supports 2 instruction sets.
 
 - [WPSS](wireless.md) This describes the Wireless Processor SubSystem.
 
+- [CopyEngine](CopyEngine.md) This describes the CopyEngine, which
+  configures the hardware for DMA transfers.
+
 ## Utility Programs
 
 This project contains [several utilities](utilities.md) for analyzing
