@@ -298,50 +298,39 @@ class MDTTool(object):
     def get_certs(self):
         """
         Extracts the SSL certs from the MDT file, and writes them to disk.
+        The ASN.1 data starts with a 0x30 that designates a sequence,
+        followed by a 0x82, that specifies the following word is the length
+        in bytes of the rest of thwe ASN.1 data packet.
         """
         self.infile.seek(0)
         data = self.infile.read()
         index = 0
         certs = list()
-        cert = {"start": 0, "end": 0}
         ignore = False
         for loc in data:
             # 0x30 followed by 0x82 is the ASN.1 sequence.
             if loc == 0x30:
                 if data[index + 1] == 0x82:
-                    log.debug(f"Found start of cert! {hex(index)}")
-                    if cert["start"] == 0:
-                        cert["start"] = index
-                    elif cert["start"] > 0:
-                        if index - cert["start"] > 4:
-                            if len(certs) != 0:
-                                cert["start"] -= 4
-                            # breakpoint()
-                            cert["end"] = index
-                            certs.append(cert)
-                            cert = {"start": 0, "end": 0}
+                    log.debug(f"Found start of ASN.1 record! {hex(index)}")
+                    # This is the length field in the ASN.1 sequence type,
+                    # which is the entire cert.
+                    length = int.from_bytes(data[index+2:index+4])
+                    # log.debug(f"LENGTH: {length}")
+                    cert = {"start": 0, "end": 0}
+                    cert["start"] = index
+                    cert["end"] = index + length + 4
+                    print(cert)
+                    if len(certs) == 0:
+                        certs.append(cert)
                     else:
-                        # certs[len(certs)]["end"] = index
-                        log.debug(f"\tFound end of cert! {hex(index)}")
-                        if not ignore:
-                            log.debug(f"\tIgnore first end {hex(index)}")
-                            # cert["end"] = cert["start"]
-                            ignore = False
-                            # continue
-                        else:
-                            ignore = True
-                            cert["end"] = index
-                    if cert["end"] > 0:
-                        print(cert)
-
+                        last = certs[-1:][0]
+                        if index - last["start"] > 4:
+                            certs.append(cert)
             index += 1
-        # The last cert ends at the end of the file
-        cert["end"] = len(data)
-        cert["start"] -= 4
-        certs.append(cert)
 
         for entry in certs:
             log.debug(entry)
+            log.debug(f"Writing cert file {str(hex(entry['start'])[2:])}")
             file = open(str(hex(entry["start"])[2:]), "wb")
             file.write(data[entry["start"]:entry["end"]])
             file.close()
