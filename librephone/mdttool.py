@@ -27,6 +27,7 @@ import struct
 import hashlib
 import binascii
 from enum import IntEnum
+from glob import glob
 
 import librephone as lp
 rootdir = lp.__path__[0]
@@ -66,34 +67,11 @@ StructTypes = {
     "Elf64_Sxword": "<Q",
     }
 
-    
-# elf321_phdr = {
-#     "p_type": None,
-#     "p_offset": None,
-#     "p_vaddr": None,
-#     "p_paddr": None,
-#     "p_filesz": None,
-#     "p_memsz": None,
-#     "p_flags": None,
-#     "p_align": None,
-# }
 
-# elf32_hdr = {
-#     "e_ident": None,
-#     "e_type": None,
-#     "e_machine": None,
-#     "e_version": None,
-#     "e_entry": None,
-#     "e_phoff": None,
-#     "e_shoff": None,
-#     "e_flags": None,
-#     "e_ehsize": None,
-#     "e_phentsize": None,
-#     "e_phnum": None,
-#     "e_shentsize": None,
-#     "e_shnum": None,
-#     "e_shstrndx": None,
-# }
+P_Types = ["PT_NULL", "PT_LOAD", "PT_DYNAMIC", "PT_INTERP", "PT_NOTE", "PT_SHLIB", "PT_PHDR"]
+
+# This program does multiple reads of the same file, so if you screw up the size of a
+# data field, all the following ones will be wrong.
 
 class MDTTool(object):
     def __init__(self,
@@ -109,18 +87,17 @@ class MDTTool(object):
         if mdtfile:
             self.mdtfile = Path(mdtfile)
             output = mdtfile.replace(".mdt", ".elf")
-            self.outfile = open(output, "w")
+            if os.path.exists(output):
+                os.remove(output)
+            self.outfile = open(output, "ab")
             self.infile = open(mdtfile, "rb")
         else:
             self.mdtfile = None
             self.outfile = None
             self.infile = None
 
-        self.elf_header_size = 64
-        self.magic_size = 0x10
-        self.this_hdr_size = 0
-        self.hdr_count = 0
-        self.hdr_size = 0
+        self.elf_header = dict()
+        self.seg_headers = list()
         
     def read_mdt(self,
                  mdtfile = None,
@@ -132,127 +109,197 @@ class MDTTool(object):
         elif self.mdtfile:
             mdt = open(self.mdtfile, "rb")
 
-        magic = self.infile.read(self.magic_size)
-        self.read_magic(magic)
+        self.magic = self.infile.read(16)
+        self.read_magic(self.magic)
+        # self.outfile.write(self.magic)
 
         # The offsets are from the elf.h header file
-        elf_header = self.infile.read(self.elf_header_size)
-        self.read_elf(elf_header)
+        elf_header = self.infile.read(64)
+        self.magic + elf_header
+        self.elf_header = self.read_elf(elf_header)
+        # self.outfile.write(elf_header)
 
-        for i in range(0, self.hdr_count):
-            self.read_header()
+        # print("Dumping ELF Header")
+        # self.dump_header(self.elf_header)
+        # print("------------------------------")
+        for i in range(0, self.elf_header["e_shnum"]):
+            data = self.read_header(self.elf_header["e_shentsize"])
+            # print("Dumping segment header")
+            # self.dump_header(data)
+            self.seg_headers.append(data)
 
     def read_magic(self,
                    magic: byes,
                    ):
         """
         """
-        print(f"MAGIC: {binascii.hexlify(magic)}")
+        # print(f"MAGIC: {binascii.hexlify(magic)}")
         if magic[:4].hex() != "7f454c46":
             log.error("Must supply an ELF file!")
             return 1
         else:
+            # 0x01 is litte endian last byte
+            # 0x02 is big endian last byte
             return 0
         
     def read_elf(self,
                  elf_header: bytes,
-                 ):
+                 ) -> dict:
         """
         """
-        print(f"ELF: {binascii.hexlify(elf_header, sep=' ')}")
-        elf32_hdr = dict()
+        # print(f"ELF: {binascii.hexlify(elf_header, sep=' ')}")
+        elf64_hdr = dict()
 
-        # EI_NIDENT = 16 (0x10)hex(offset)}
-        # the first field is the e_ident, which is a string
-        # elf32_hdr["e_ident"] = struct.unpack_from("<s", elf_header, 0)[0]
-        
         offset = 0
-        elf32_hdr["e_type"] = struct.unpack_from(StructTypes["Elf64_Half"],
+        elf64_hdr["e_type"] = struct.unpack_from(StructTypes["Elf64_Half"],
                                                  elf_header, offset)[0]
         offset += DataSizes["Elf64_Half"]
-        
-        elf32_hdr["e_machine"] = struct.unpack_from(StructTypes["Elf64_Half"],
+
+        elf64_hdr["e_machine"] = struct.unpack_from(StructTypes["Elf64_Half"],
                                                     elf_header, offset)[0]
         offset += DataSizes["Elf64_Half"]
 
-        elf32_hdr["e_version"] = struct.unpack_from(StructTypes["Elf64_Word"],
+        elf64_hdr["e_version"] = struct.unpack_from(StructTypes["Elf64_Word"],
                                                     elf_header, offset)[0]
         offset += DataSizes["Elf64_Word"]
 
-        elf32_hdr["e_entry"] = struct.unpack_from(StructTypes["Elf64_Addr"],
+        elf64_hdr["e_entry"] = struct.unpack_from(StructTypes["Elf64_Addr"],
                                                   elf_header, offset)[0]
         offset += DataSizes["Elf64_Addr"]
 
-        elf32_hdr["e_phoff"] = struct.unpack_from(StructTypes["Elf64_Off"],
+        elf64_hdr["e_phoff"] = struct.unpack_from(StructTypes["Elf64_Off"],
                                                   elf_header, offset)[0]
         offset += DataSizes["Elf64_Off"]
 
-        elf32_hdr["e_shoff"] = struct.unpack_from(StructTypes["Elf64_Off"],
+        elf64_hdr["e_shoff"] = struct.unpack_from(StructTypes["Elf64_Off"],
                                                   elf_header, offset)[0]
         offset += DataSizes["Elf64_Off"]
 
-        elf32_hdr["e_flags"] = struct.unpack_from(StructTypes["Elf64_Word"],
+        elf64_hdr["e_flags"] = struct.unpack_from(StructTypes["Elf64_Word"],
                                                   elf_header, offset)[0]
         offset += DataSizes["Elf32_Word"]
         
-        elf32_hdr["e_ehsize"] = struct.unpack_from(StructTypes["Elf64_Half"],
+        elf64_hdr["e_ehsize"] = struct.unpack_from(StructTypes["Elf64_Half"],
                                                       elf_header, offset)[0]
         offset += DataSizes["Elf64_Half"]
 
-        elf32_hdr["e_shentsize"] = struct.unpack_from(StructTypes["Elf64_Half"],
+        elf64_hdr["e_shentsize"] = struct.unpack_from(StructTypes["Elf64_Half"],
                                                       elf_header, offset)[0]
         offset += DataSizes["Elf64_Half"]
 
-        elf32_hdr["e_shnum"] = struct.unpack_from(StructTypes["Elf64_Half"],
+        elf64_hdr["e_shnum"] = struct.unpack_from(StructTypes["Elf64_Half"],
                                                   elf_header, offset)[0]
         offset += DataSizes["Elf32_Half"]
 
-        elf32_hdr["e_shstrndx"] = struct.unpack_from(StructTypes["Elf64_Half"],
+        elf64_hdr["e_shstrndx"] = struct.unpack_from(StructTypes["Elf64_Half"],
                                                      elf_header, offset)[0]
 
-        print(elf32_hdr)
-
-        return elf32_hdr
+        return elf64_hdr
         
     def read_header(self,
-                    ):
+                    hdr_size: int,
+                    ) -> dict:
         """
         """
-        # log.info(f"Processing {filespec}")
-        elf321_phdr = dict()        
-        header = self.infile.read(self.hdr_size)
-        print(f"{binascii.hexlify(header)}")
-        elf321_phdr["p_type"] = struct.unpack("<I", header[:4])[0]
-        print(f"p_type: {hex(elf321_phdr["p_type"])}")
+        elf64_phdr = dict()
+        offset = 0
+        seg_header = self.infile.read(hdr_size)
 
-        elf321_phdr["p_offset"] = struct.unpack("<I", header[4:8])[0]
-        print(f"p_offset: {hex(elf321_phdr["p_offset"])}")
+        print(f"SEGMENT: {binascii.hexlify(seg_header, sep=' ', bytes_per_sep=8)}")
+        elf64_phdr["p_type"] = struct.unpack_from(StructTypes["Elf64_Word"],
+                                                    seg_header, offset)[0]
+        offset += DataSizes["Elf64_Word"]
 
-        elf321_phdr["p_vaddr"] = struct.unpack("<I", header[8:12])[0]
-        print(f"p_vaddr: {hex(elf321_phdr["p_vaddr"])}")
+        elf64_phdr["p_flags"] = struct.unpack_from(StructTypes["Elf64_Word"],
+                                                    seg_header, offset)[0]
+        offset += DataSizes["Elf64_Word"]
 
-        elf321_phdr["p_paddr"] = struct.unpack("<I", header[12:16])[0]
-        print(f"p_paddr: {hex(elf321_phdr["p_paddr"])}")
+        elf64_phdr["p_offset"] = struct.unpack_from(StructTypes["Elf64_Off"],
+                                                    seg_header, offset)[0]
+        offset += DataSizes["Elf64_Off"]
 
-        elf321_phdr["p_filesz"] = struct.unpack("<I", header[16:20])[0]
-        print(f"p_filesz: {hex(elf321_phdr["p_filesz"])}")
+        elf64_phdr["p_vaddr"] = struct.unpack_from(StructTypes["Elf64_Addr"],
+                                                    seg_header, offset)[0]
+        offset += DataSizes["Elf64_Addr"]
 
-        elf321_phdr["p_memsiz"] = struct.unpack("<I", header[20:24])[0]
-        print(f"p_memsiz: {hex(elf321_phdr["p_memsiz"])}")
+        elf64_phdr["p_paddr"] = struct.unpack_from(StructTypes["Elf64_Addr"],
+                                                    seg_header, offset)[0]
+        offset += DataSizes["Elf64_Addr"]
 
-        elf321_phdr["p_flags"] = struct.unpack("<I", header[24:28])[0]
-        print(f"p_flags: {hex(elf321_phdr["p_flags"])}")
+        elf64_phdr["p_filesz"] = struct.unpack_from(StructTypes["Elf64_XWord"],
+                                                    seg_header, offset)[0]
+        offset += DataSizes["Elf64_XWord"]
 
-        elf321_phdr["p_align"] = struct.unpack("<I", header[28:32])[0]
-        print(f"p_align: {hex(elf321_phdr["p_align"])}")
+        elf64_phdr["p_memsz"] = struct.unpack_from(StructTypes["Elf64_XWord"],
+                                                    seg_header, offset)[0]
+        offset += DataSizes["Elf64_XWord"]
 
-        return elf321_phdr
+        elf64_phdr["p_align"] = struct.unpack_from(StructTypes["Elf64_XWord"],
+                                                    seg_header, offset)[0]
+        # offset += DataSizes["Elf64_XWord"]
+
+        self.dump_header(elf64_phdr)
+        return elf64_phdr
+
+    def dump_all(self):
+        """
+        """
+        print("Dumping ELF header")
+        self.dump_header(self.elf_header)
+        print("-------------------------")
+        for index in range(0, self.elf_header["e_shnum"]):
+            print(f"Dumping program header {index}")
+            self.dump_header(self.seg_headers[index])
+
+    def dump_header(self,
+                    header: dict,
+                    ) -> dict:
+        """
+        """
+        # if self.mdtfile:
+        #    print("MDT file: %s" % self.mdtfile)
+        for key, value in header.items():
+            print(f"\t{key} = {hex(value)} ({value})")
+        if "p_type" in header:
+            foo = header["p_type"]
+            # P_Types[h)eader["p_type"]]
+
+    def merge_blobs(self) -> list:
+        """
+        """
+        base = f"{self.mdtfile.parent}/{self.mdtfile.stem}.b"
+        # self.outfile.write(self.magic)
+        for index in range(0, self.elf_header["e_shnum"]):
+            if self.seg_headers[index]["p_filesz"] == 0:
+                print(f"{base}{index:02d} has no file size")
+                # continue
+            print(f"Merging {base}{index:02d}...")
+            file = open(f"{base}{index:02d}", "rb")
+            blob = file.read()
+            self.outfile.write(blob)
+
+    def get_memsize(self) -> int:
+        """
+        Acquire size of the memory region needed to load mdt.
+        """
+        min_addr = 0
+        max_addr = 0
+        for index in range(0, self.elf_header["e_shnum"]):
+            if  self.seg_headers[index]["p_paddr"] < min_addr:
+                min_addr = self.seg_headers[index]["p_paddr"]
+
+            if  self.seg_headers[index]["p_paddr"] + self.seg_headers[index]["p_memsz"] > max_addr:
+                # FIXME: this needs to be aligned to a 4K page
+                max_addr = self.seg_headers[index]["p_paddr"] + self.seg_headers[index]["p_memsz"]
+
+            return max_addr - min_addr
 
 def main():
     """This main function lets this class be run standalone by a bash script."""
     parser = argparse.ArgumentParser(description="")
     parser.add_argument("-v", "--verbose", action="store_true", help="verbose output")
-    parser.add_argument("-m", "--mdt", default=".", help="MDT file")
+    parser.add_argument("-m", "--mdt", help="MDT file")
+    parser.add_argument("-d", "--dump", action="store_true", help="Dump All Headers")
     args = parser.parse_args()
 
     # if verbose, dump to the terminal.
@@ -271,6 +318,12 @@ def main():
 
     mdt = MDTTool(args.mdt)
     mdt.read_mdt()
+    memsize = mdt.get_memsize()
+    print(f"Memory required {hex(memsize)}")
+
+    mdt.merge_blobs()
+    if args.dump:
+        mdt.dump_all()
 
 if __name__ == "__main__":
     """
