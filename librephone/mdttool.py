@@ -28,6 +28,7 @@ import hashlib
 import binascii
 from enum import IntEnum
 from glob import glob
+from pprint import pprint
 
 import librephone as lp
 rootdir = lp.__path__[0]
@@ -205,7 +206,7 @@ class MDTTool(object):
         offset = 0
         seg_header = self.infile.read(hdr_size)
 
-        print(f"SEGMENT: {binascii.hexlify(seg_header, sep=' ', bytes_per_sep=8)}")
+        # log.debug(f"SEGMENT: {binascii.hexlify(seg_header, sep=' ', bytes_per_sep=8)}")
         elf64_phdr["p_type"] = struct.unpack_from(StructTypes["Elf64_Word"],
                                                     seg_header, offset)[0]
         offset += DataSizes["Elf64_Word"]
@@ -238,7 +239,7 @@ class MDTTool(object):
                                                     seg_header, offset)[0]
         # offset += DataSizes["Elf64_XWord"]
 
-        self.dump_header(elf64_phdr)
+        # self.dump_header(elf64_phdr)
         return elf64_phdr
 
     def dump_all(self):
@@ -294,6 +295,57 @@ class MDTTool(object):
 
             return max_addr - min_addr
 
+    def get_certs(self):
+        """
+        Extracts the SSL certs from the MDT file, and writes them to disk.
+        """
+        self.infile.seek(0)
+        data = self.infile.read()
+        index = 0
+        certs = list()
+        cert = {"start": 0, "end": 0}
+        ignore = False
+        for loc in data:
+            # 0x30 followed by 0x82 is the ASN.1 sequence.
+            if loc == 0x30:
+                if data[index + 1] == 0x82:
+                    log.debug(f"Found start of cert! {hex(index)}")
+                    if cert["start"] == 0:
+                        cert["start"] = index
+                    elif cert["start"] > 0:
+                        if index - cert["start"] > 4:
+                            if len(certs) != 0:
+                                cert["start"] -= 4
+                            # breakpoint()
+                            cert["end"] = index
+                            certs.append(cert)
+                            cert = {"start": 0, "end": 0}
+                    else:
+                        # certs[len(certs)]["end"] = index
+                        log.debug(f"\tFound end of cert! {hex(index)}")
+                        if not ignore:
+                            log.debug(f"\tIgnore first end {hex(index)}")
+                            # cert["end"] = cert["start"]
+                            ignore = False
+                            # continue
+                        else:
+                            ignore = True
+                            cert["end"] = index
+                    if cert["end"] > 0:
+                        print(cert)
+
+            index += 1
+        # The last cert ends at the end of the file
+        cert["end"] = len(data)
+        cert["start"] -= 4
+        certs.append(cert)
+
+        for entry in certs:
+            log.debug(entry)
+            file = open(str(hex(entry["start"])[2:]), "wb")
+            file.write(data[entry["start"]:entry["end"]])
+            file.close()
+
 def main():
     """This main function lets this class be run standalone by a bash script."""
     parser = argparse.ArgumentParser(description="")
@@ -316,14 +368,17 @@ def main():
         parser.print_help()
         quit()
 
+    print(args)
     mdt = MDTTool(args.mdt)
     mdt.read_mdt()
     memsize = mdt.get_memsize()
     print(f"Memory required {hex(memsize)}")
 
-    mdt.merge_blobs()
+    # mdt.merge_blobs()
     if args.dump:
         mdt.dump_all()
+
+    mdt.get_certs()
 
 if __name__ == "__main__":
     """
