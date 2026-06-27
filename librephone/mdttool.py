@@ -300,7 +300,7 @@ class MDTTool(object):
         Extracts the SSL certs from the MDT file, and writes them to disk.
         The ASN.1 data starts with a 0x30 that designates a sequence,
         followed by a 0x82, that specifies the following word is the length
-        in bytes of the rest of thwe ASN.1 data packet.
+        in bytes of the rest of the ASN.1 data packet..
         """
         self.infile.seek(0)
         data = self.infile.read()
@@ -330,8 +330,7 @@ class MDTTool(object):
 
         for entry in certs:
             log.debug(entry)
-            log.debug(f"Writing cert file {str(hex(entry['start'])[2:])}")
-            file = open(str(hex(entry["start"])[2:]), "wb")
+            file = open(f"{self.mdtfile.parent/str(hex(entry['start'])[2:])}", "wb")
             file.write(data[entry["start"]:entry["end"]])
             file.close()
 
