@@ -77,6 +77,7 @@ P_Types = ["PT_NULL", "PT_LOAD", "PT_DYNAMIC", "PT_INTERP", "PT_NOTE", "PT_SHLIB
 class MDTTool(object):
     def __init__(self,
                  mdtfile: str() = None,
+                 outdir: str() = None,
                  ):
         """
         Returns:
@@ -84,14 +85,15 @@ class MDTTool(object):
 
         Args:
             mdtfile (str): The MDT file
+            outdir (str): output directory
         """
         if mdtfile:
             self.mdtfile = Path(mdtfile)
             output = mdtfile.replace(".mdt", ".elf")
             if os.path.exists(output):
                 os.remove(output)
-            self.outfile = open(output, "ab")
-            self.infile = open(mdtfile, "rb")
+            #self.outfile = open(output, "ab")
+            # self.infile = open(mdtfile, "rb")
         else:
             self.mdtfile = None
             self.outfile = None
@@ -101,11 +103,16 @@ class MDTTool(object):
         self.seg_headers = list()
         
     def read_mdt(self,
-                 mdtfile = None,
+                 mdtfile: str = None,
                  ):
         """
         """
         if mdtfile:
+            self.mdtfile = Path(mdtfile)
+            output = mdtfile.replace(".mdt", ".elf")
+            if os.path.exists(output):
+                os.remove(output)
+            self.outfile = open(output, "ab")
             self.infile = open(mdtfile, "rb")
         elif self.mdtfile:
             mdt = open(self.mdtfile, "rb")
@@ -265,19 +272,51 @@ class MDTTool(object):
             foo = header["p_type"]
             # P_Types[h)eader["p_type"]]
 
-    def merge_blobs(self) -> list:
+    def merge_blobs(self,
+                        pattern: str,
+                        indir: str = '.',
+                        outdir: str = 'out',
+                        ):
         """
+        Merge all the blobs into a single ELF file, which is easier
+        to analyze.
+
+        Args:
+            pattern (str):
+            indir (str):
+            outdir (str):
         """
-        base = f"{self.mdtfile.parent}/{self.mdtfile.stem}.b"
-        # self.outfile.write(self.magic)
-        for index in range(0, self.elf_header["e_shnum"]):
-            if self.seg_headers[index]["p_filesz"] == 0:
-                print(f"{base}{index:02d} has no file size")
-                # continue
-            print(f"Merging {base}{index:02d}...")
-            file = open(f"{base}{index:02d}", "rb")
+
+        # if not self.elf_header:
+        #     mdtfile = f"{indir}{pattern}")
+        #     self.read_mdt()
+
+        pat = f"{indir}/{pattern}.b*"
+        files = sorted(glob(f"{pat}"))
+
+        if not os.path.exists(outdir):
+            os.mkdir(outdir)
+        outfile = open(f"{outdir}/{pattern}.elf", "wb")
+        for file in files:
+            log.debug(f"Merging {file} ...")
+            file = open(file, "rb")
             blob = file.read()
-            self.outfile.write(blob)
+            outfile.write(blob)
+
+        log.info(f"{outdir}/{pattern}.elf")
+
+        # comments on the net claim no file size shouldn't be
+        # part of the output file, but it turns out that's the
+        # ELF header.
+        # for index in range(0, self.elf_header["e_shnum"]):
+        #     if self.seg_headers[index]["p_filesz"] == 0:
+        #         print(f"{base}{index:02d} has no file size")
+        #         # continue
+        #     log.debug(f"Merging {base}{index:02d}...")
+        #     file = open(f"{base}{index:02d}", "rb")
+        #     blob = file.read()
+        #     self.outfile.write(blob)
+        # log.info(f"Wrote {base}{index:02d}")
 
     def get_memsize(self) -> int:
         """
@@ -334,12 +373,30 @@ class MDTTool(object):
             file.write(data[entry["start"]:entry["end"]])
             file.close()
 
+    def create_mdt(self,
+                    mdtfile: str,
+                    indir: str,
+                    ):
+        """
+        Create and MDT file.
+        """
+        self.mdtfile = Path(mdtfile)
+        # self.outfile = open(mdtfile, "wb")
+        files = glob(f"{indir}{self.mdtfile.stem}.b*")
+        log.debug(f"Found {len(files)} relevant files matching {self.mdtfile.stem}.b*")
+        for file in files:
+            size = os.path.getsize(file)
+
 def main():
     """This main function lets this class be run standalone by a bash script."""
     parser = argparse.ArgumentParser(description="")
     parser.add_argument("-v", "--verbose", action="store_true", help="verbose output")
     parser.add_argument("-m", "--mdt", help="MDT file")
     parser.add_argument("-d", "--dump", action="store_true", help="Dump All Headers")
+    parser.add_argument("-i", "--indir", help="Create  an MDT file for a directory")
+    parser.add_argument("-o", "--outdir", default="out", help="Output directory")
+    parser.add_argument("-s", "--stats", help="Get some stats on an MDT file")
+    parser.add_argument("-e", "--elf", help="Merge all the program headers into an ELF file")
     args = parser.parse_args()
 
     # if verbose, dump to the terminal.
@@ -356,17 +413,24 @@ def main():
         parser.print_help()
         quit()
 
-    print(args)
-    mdt = MDTTool(args.mdt)
-    mdt.read_mdt()
-    memsize = mdt.get_memsize()
-    print(f"Memory required {hex(memsize)}")
+    mdt = MDTTool()
 
-    # mdt.merge_blobs()
-    if args.dump:
+    if args.elf:
+        mdt.merge_blobs(args.elf, args.indir, args.outdir)
+    elif args.stats:
+        mdt.read_mdt(args.mdt)
+        memsize = mdt.get_memsize()
+        log.info(f"Memory required {hex(memsize)}")
+    elif args.stats:
+        mdt.read_mdt(args.mdt)
+        mdt.get_certs()
+    elif args.dump:
+        mdt.read_mdt(args.mdt)
         mdt.dump_all()
 
-    mdt.get_certs()
+    if args.indir:
+        # mdt.create_mdt(args.indir)
+        pass
 
 if __name__ == "__main__":
     """
