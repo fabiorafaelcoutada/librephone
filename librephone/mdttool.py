@@ -268,7 +268,7 @@ class MDTTool(object):
         # executable.
         if elf64_hdr["e_shnum"] == 0 and elf64_hdr["e_shentsize"] == 0 and elf64_hdr["e_phnum"] > 0:
             log.info(f"{self.mdtfile.name} is an executable ELF file")
-        print(elf64_hdr)
+        # print(elf64_hdr)
         return elf64_hdr
         
     def read_section_header(self,
@@ -326,9 +326,9 @@ class MDTTool(object):
     def dump_all(self):
         """
         """
-        print("Dumping ELF header")
+        #print("Dumping ELF header")
         # self.dump_header(self.elf_header)
-        print(self.elf_header)
+        # print(self.elf_header)
         print("-------------------------")
         for index in range(0, self.elf_header["e_shnum"]):
             print(f"Dumping header {index}")
@@ -388,7 +388,7 @@ class MDTTool(object):
                                                     prog_header, offset)[0]
         # offset += DataSizes["Elf64_XWord"]
 
-        self.dump_header(elf64_phdr)
+        # self.dump_header(elf64_phdr)
         return elf64_phdr
 
     def dump_header(self,
