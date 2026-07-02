@@ -121,6 +121,7 @@ class MDTTool(object):
         self.elf_header = dict()
         self.magic = dict()
         self.seg_headers = list()
+        self.prog_headers = list()
         
     def read_mdt(self,
                  mdtfile: str = None,
@@ -169,7 +170,7 @@ class MDTTool(object):
         # The ELF header is always 16 bytes
         magic = self.infile.read(16)
 
-        print(f"MAGIC: {binascii.hexlify(magic, bytes_per_sep=2)}")
+        # print(f"MAGIC: {binascii.hexlify(magic, bytes_per_sep=2)}")
         if magic[:4].hex() != "7f454c46":
             log.error("Must supply an ELF file!")
             return 1
@@ -208,7 +209,7 @@ class MDTTool(object):
         # An ELF 64 packet is always 64 bytes, ELF 32 is 52 bytes
         elf_header = self.infile.read(48)
 
-        print(f"ELF: {binascii.hexlify(elf_header, sep=' ')}")
+        # print(f"ELF: {binascii.hexlify(elf_header, sep=' ')}")
         elf64_hdr = dict()
 
         offset = 0
@@ -326,14 +327,17 @@ class MDTTool(object):
     def dump_all(self):
         """
         """
-        #print("Dumping ELF header")
-        # self.dump_header(self.elf_header)
-        # print(self.elf_header)
-        print("-------------------------")
+        if self.mdtfile:
+            print("MDT file: %s" % self.mdtfile)
+        for index in range(0, self.elf_header["e_phnum"]):
+            print(f"Dumping header {index}")
+            self.dump_header(self.prog_headers[index])
+            # print(self.prog_headers)
+
         for index in range(0, self.elf_header["e_shnum"]):
             print(f"Dumping header {index}")
-            # self.dump_header(self.seg_headers[index])
-            print(seg_headers)
+            self.dump_header(self.seg_headers[index])
+            # print(seg_headers)
 
     def read_program_header(self,
                     ) -> dict:
@@ -355,7 +359,7 @@ class MDTTool(object):
         offset = 0 # self.elf_header["e_phoff"]
         prog_header = self.infile.read(self.elf_header["e_phentsize"])
 
-        log.debug(f"PROGRAM: {binascii.hexlify(prog_header, sep=' ', bytes_per_sep=8)}")
+        # log.debug(f"PROGRAM: {binascii.hexlify(prog_header, sep=' ', bytes_per_sep=8)}")
         elf64_phdr["p_type"] = struct.unpack_from(StructTypes["Elf64_Word"],
                                                     prog_header, offset)[0]
         offset += DataSizes["Elf64_Word"]
@@ -389,6 +393,7 @@ class MDTTool(object):
         # offset += DataSizes["Elf64_XWord"]
 
         # self.dump_header(elf64_phdr)
+        self.prog_headers.append(elf64_phdr)
         return elf64_phdr
 
     def dump_header(self,
@@ -396,8 +401,6 @@ class MDTTool(object):
                     ) -> dict:
         """
         """
-        if self.mdtfile:
-            print("MDT file: %s" % self.mdtfile)
         for key, value in header.items():
             print(f"\t{key} = {hex(value)} ({value})")
         if "p_flags" in header:
@@ -422,8 +425,6 @@ class MDTTool(object):
                     # PT_HIOS         0x6fffffff  /* End of OS-specific */
                     # PT_LOPROC       0x70000000  /* Start of processor-specific */
                     # PT_HIPROC       0x7fffffff  /* End of processor-specific */
-
-
                     if header["p_type"] == 0x6474e552:
                         print(f"\tProgram header is a PT_GNU_RELOC")
                     else:
