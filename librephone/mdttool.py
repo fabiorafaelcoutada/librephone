@@ -68,7 +68,7 @@ StructTypes = {
     "Elf64_Sxword": "<Q",
     }
 
-SegTypes = [
+ProgTypes = [
     "PT_NULL",
     "PT_LOAD",
     "PT_DYNAMIC",
@@ -78,11 +78,75 @@ SegTypes = [
     "PT_PHDR"
     ]
 
+SegTypes = [
+	"SHT_NULL",
+	"SHT_PROGBITS",
+	"SHT_SYMTAB",
+	"SHT_STRTAB",
+	"SHT_RELA",
+	"SHT_HASH",
+	"SHT_DYNAMIC",
+	"SHT_NOTE",
+	"SHT_NOBITS",
+	"SHT_REL",
+	"SHT_SHLIB",
+	"SHT_DYNSYM",
+	"SHT_NUM",
+    ]
+
+SegFlags = {
+	"SHF_WRITE": 0x1,
+	"SHF_ALLOC": 0x2,
+	"SHF_EXECINSTR": 0x4,
+	"SHF_MERGE": 0x10,
+	"SHF_STRINGS": 0x20,
+	"SHF_INFO_LINK": 0x40,
+	"SHF_LINK_ORDER": 0x80,
+	"SHF_OS_NONCONFORMING": 0x100,
+	"SHF_GROUP": 0x200,
+	"SHF_TLS": 0x400,
+	"SHF_RELA_LIVEPATCH": 0x00100000,
+	"SHF_RO_AFTER_INIT": 0x00200000,
+	"SHF_ORDERED": 0x04000000,
+	"SHF_EXCLUDE": 0x08000000,
+	"SHF_MASKOS": 0x0ff00000,
+	"SHF_MASKPROC": 0xf0000000,
+    }
+
+SegNames = {
+    "None": 0x0,
+    ".note.gnu.build-id": 0x1b,
+    ".init": 0x2e,
+    ".text": 0x34,
+    ".fini": 0x3a,
+    ".rodata": 0x40,
+    ".eh_frame": 0x48,
+    ".init_array": 0x52,
+    ".fini_array": 0x5e,
+    ".got": 0x6a,
+    ".got.plt": 0x6f,
+    ".data": 0x78,
+    ".bss": 0x7e,
+    ".comment": 0x83,
+    ".debug_aranges": 0x9b,
+    ".debug_info": 0xa7,
+    ".debug_abbrev": 0xb5,
+    ".debug_line": 0xc1,
+    ".debug_frame": 0xce,
+    ".debug_str": 0xd9,
+    ".debug_line_str": 0xe9,
+    ".debug_loclists": 0xf9,
+    ".debug_rnglists":0x1,
+    ".symtab": 0x9,
+    ".strtab": 0x11,
+    }
+
 PflagPerms = {
     "PF_R": 0x4, # 100 binary
     "PF_W": 0x2, # 10 binary
     "PF_X": 0x1, # 1  binary
     }
+
 
 # This program does multiple reads of the same file, so if you screw up
 # the size of a data field, all the following ones will be wrong.
@@ -144,15 +208,9 @@ class MDTTool(object):
             self.elf_header = self.read_elf32()
 
         # print("Dumping ELF Header")
-        # self.dump_header(self.elf_header)
-        # print("------------------------------")
-        # The offsets are from the elf.h header file
-        for i in range(0, self.elf_header["e_shnum"]):
-            data = self.read_section_header(self.elf_header["e_shentsize"])
-            # print("Dumping segment header")
-            # self.dump_header(data)
-            self.seg_headers.append(data)
+        self.dump_header(self.elf_header)
 
+        loc = self.infile.seek(self.elf_header["e_phoff"], 0)
         for i in range(0, self.elf_header["e_phnum"]):
             if self.magic["ei_class"] == 0x2:
                 data = self.read_program_header64()
@@ -161,6 +219,13 @@ class MDTTool(object):
             # print("Dumping program header")
             # self.dump_header(data)
             # self.seg_headers.append(data)
+
+        loc = self.infile.seek(self.elf_header["e_shoff"], 0)
+        for i in range(0, self.elf_header["e_shnum"]):
+            data = self.read_section_header64()
+            # print("Dumping segment header")
+            # self.dump_header(data)
+            self.seg_headers.append(data)
 
     def read_magic(self,
                    ) -> dict:
@@ -193,7 +258,7 @@ class MDTTool(object):
 
             return self.magic
         
-    def read_el6f4(self,
+    def read_elf64(self,
                  ) -> dict:
         """
         An ELF file looks like this:
@@ -351,16 +416,15 @@ class MDTTool(object):
         print(elf32_hdr)
         return elf32_hdr
 
-    def read_section_header(self,
-                    hdr_size: int,
+    def read_section_header64(self,
                     ) -> dict:
         """
         """
         elf64_shdr = dict()
         offset = 0
-        seg_header = self.infile.read(hdr_size)
+        seg_header = self.infile.read(self.elf_header["e_ehsize"])
 
-        # log.debug(f"SEGMENT: {binascii.hexlify(seg_header, sep=' ', bytes_per_sep=8)}")
+        log.debug(f"SEGMENT: {binascii.hexlify(seg_header, sep=' ', bytes_per_sep=8)}")
         elf64_shdr["sh_name"] = struct.unpack_from(StructTypes["Elf64_Word"],
                                                     seg_header, offset)[0]
         offset += DataSizes["Elf64_Word"]
@@ -369,9 +433,9 @@ class MDTTool(object):
                                                     seg_header, offset)[0]
         offset += DataSizes["Elf64_Word"]
 
-        elf64_shdr["sh_flags"] = struct.unpack_from(StructTypes["Elf64_Word"],
+        elf64_shdr["sh_flags"] = struct.unpack_from(StructTypes["Elf64_XWord"],
                                                     seg_header, offset)[0]
-        offset += DataSizes["Elf64_Word"]
+        offset += DataSizes["Elf64_XWord"]
 
         elf64_shdr["sh_addr"] = struct.unpack_from(StructTypes["Elf64_Addr"],
                                                     seg_header, offset)[0]
@@ -381,9 +445,9 @@ class MDTTool(object):
                                                     seg_header, offset)[0]
         offset += DataSizes["Elf64_Off"]
 
-        elf64_shdr["sh_size"] = struct.unpack_from(StructTypes["Elf64_Word"],
+        elf64_shdr["sh_size"] = struct.unpack_from(StructTypes["Elf64_XWord"],
                                                     seg_header, offset)[0]
-        offset += DataSizes["Elf64_Addr"]
+        offset += DataSizes["Elf64_XWord"]
 
         elf64_shdr["sh_link"] = struct.unpack_from(StructTypes["Elf64_Word"],
                                                     seg_header, offset)[0]
@@ -393,14 +457,15 @@ class MDTTool(object):
                                                     seg_header, offset)[0]
         offset += DataSizes["Elf64_Word"]
 
-        elf64_shdr["sh_addralign"] = struct.unpack_from(StructTypes["Elf64_Word"],
+        elf64_shdr["sh_addralign"] = struct.unpack_from(StructTypes["Elf64_XWord"],
                                                     seg_header, offset)[0]
-        offset += DataSizes["Elf64_Word"]
-        elf64_shdr["sh_entisze"] = struct.unpack_from(StructTypes["Elf64_Word"],
-                                                    seg_header, offset)[0]
-         # offset += DataSizes["Elf64_Word"]
+        offset += DataSizes["Elf64_XWord"]
 
-        # self.dump_header(elf64_phdr)
+        elf64_shdr["sh_entisze"] = struct.unpack_from(StructTypes["Elf64_XWord"],
+                                                    seg_header, offset)[0]
+        # offset += DataSizes["Elf64_XWord"]
+
+        self.dump_header(elf64_shdr)
         return elf64_shdr
 
     def dump_all(self):
@@ -410,17 +475,14 @@ class MDTTool(object):
             print("MDT file: %s" % self.mdtfile)
         for index in range(0, self.elf_header["e_phnum"]):
             print(f"Dumping header .b{index:02d}")
-            try:
-                self.dump_header(self.prog_headers[index])
-            except:
-                breakpoint()
-            # print(self.prog_headers)
+            self.dump_header(self.prog_headers[index])
 
+        print("")
         if self.elf_header["e_shnum"] > 0:
             for index in range(0, self.elf_header["e_shnum"]):
                 print(f"Dumping header {index}")
                 self.dump_header(self.seg_headers[index])
-                # print(seg_headers)
+                # print(self.seg_headers[index])
 
     def read_program_header64(self,
                     ) -> dict:
@@ -439,10 +501,10 @@ class MDTTool(object):
         # skip to the start of the headers
         # self.infile.read(elf64_hdr["e_phoff"])
 
-        offset = 0 # self.elf_header["e_phoff"]
+        offset = 0
         prog_header = self.infile.read(self.elf_header["e_phentsize"])
 
-        # log.debug(f"PROGRAM: {binascii.hexlify(prog_header, sep=' ', bytes_per_sep=8)}")
+        log.debug(f"PROGRAM: {binascii.hexlify(prog_header, sep=' ', bytes_per_sep=8)}")
         elf64_phdr["p_type"] = struct.unpack_from(StructTypes["Elf64_Word"],
                                                     prog_header, offset)[0]
         offset += DataSizes["Elf64_Word"]
@@ -542,7 +604,8 @@ class MDTTool(object):
         """
         """
         for key, value in header.items():
-            print(f"\t{key} = {hex(value)} ({value})")
+            if key != "sh_name":
+                print(f"\t{key} = {hex(value)} ({value})")
         if "p_flags" in header:
                 out = ""
                 for name, type in PflagPerms.items():
@@ -550,25 +613,41 @@ class MDTTool(object):
                         out += f"{name}, "
                 if len(out) != 0:
                         print(f"\tpermissions are {out[:-2]}")
+        if "sh_name" in header:
+            for name, value in SegNames.items():
+                if value == int(header["sh_name"]):
+                    print(f"\tSection name is a {name}")
+                    continue
+        if "sh_type" in header:
+            if int(header["sh_type"]) <= len(ProgTypes):
+                print(f"\tSection header is a {SegTypes[header["sh_type"]]}")
+        if "sh_flags" in header:
+            flags = str()
+            if int(header["sh_flags"]) <= len(SegFlags):
+                for name, mask in SegFlags.items():
+                    if header["sh_flags"] & mask:
+                        flags += f"{name}, "
+                print(f"\tSection flags are {flags[:-2]}")
+
         if "p_type" in header:
-                if int(header["p_type"]) <= len(SegTypes):
-                    print(f"\tProgram header is a {SegTypes[header["p_type"]]}")
+            if int(header["p_type"]) <= len(ProgTypes):
+                print(f"\tProgram header is a {ProgTypes[header["p_type"]]}")
+            else:
+                # from linux/elf.h
+                # PT_GNU_EH_FRAME 0x6474e550  /* GCC .eh_frame_hdr segment */
+                # PT_GNU_STACK    0x6474e551  /* Indicates stack executability */
+                # PT_GNU_RELRO    0x6474e552  /* Read-only after relocation */
+                # PT_LOSUNW       0x6ffffffa
+                # PT_SUNWBSS      0x6ffffffa  /* Sun Specific segment */
+                # PT_SUNWSTACK    0x6ffffffb  /* Stack segment */
+                # PT_HISUNW       0x6fffffff
+                # PT_HIOS         0x6fffffff  /* End of OS-specific */
+                # PT_LOPROC       0x70000000  /* Start of processor-specific */
+                # PT_HIPROC       0x7fffffff  /* End of processor-specific */
+                if header["p_type"] == 0x6474e552:
+                    print(f"\tProgram header is a PT_GNU_RELOC")
                 else:
-                    # from linux/elf.h
-                    # PT_GNU_EH_FRAME 0x6474e550  /* GCC .eh_frame_hdr segment */
-                    # PT_GNU_STACK    0x6474e551  /* Indicates stack executability */
-                    # PT_GNU_RELRO    0x6474e552  /* Read-only after relocation */
-                    # PT_LOSUNW       0x6ffffffa
-                    # PT_SUNWBSS      0x6ffffffa  /* Sun Specific segment */
-                    # PT_SUNWSTACK    0x6ffffffb  /* Stack segment */
-                    # PT_HISUNW       0x6fffffff
-                    # PT_HIOS         0x6fffffff  /* End of OS-specific */
-                    # PT_LOPROC       0x70000000  /* Start of processor-specific */
-                    # PT_HIPROC       0x7fffffff  /* End of processor-specific */
-                    if header["p_type"] == 0x6474e552:
-                        print(f"\tProgram header is a PT_GNU_RELOC")
-                    else:
-                        log.error(f"Unknown Type {header["p_type"]}")
+                    log.error(f"Unknown Type {header["p_type"]}")
 
     def merge_blobs(self,
                         mdtfile: str,
@@ -670,12 +749,10 @@ class MDTTool(object):
 def main():
     """This main function lets this class be run standalone by a bash script."""
     parser = argparse.ArgumentParser(description="")
+    # parser.add_argument("-m", "--mdt", help="MDT file")
     parser.add_argument("-v", "--verbose", action="store_true", help="verbose output")
-    parser.add_argument("-m", "--mdt", help="MDT file")
-    parser.add_argument("-d", "--dump", action="store_true", help="Dump All Headers")
-    parser.add_argument("-i", "--indir", help="Create  an MDT file for a directory")
-    parser.add_argument("-o", "--outdir", default="out", help="Output directory")
-    parser.add_argument("-s", "--stats", help="Get some stats on an MDT file")
+    parser.add_argument("-d", "--dump", help="Dump All Headers")
+    parser.add_argument("-s", "--stats", action="store_true", help="Get some stats on an MDT file")
     parser.add_argument("-e", "--elf", help="Merge all the program headers into an ELF file")
     args = parser.parse_args()
 
@@ -702,15 +779,11 @@ def main():
         memsize = mdt.get_memsize()
         log.info(f"Memory required {hex(memsize)}")
     elif args.stats:
-        mdt.read_mdt(args.mdt)
+        mdt.read_mdt(args.stats)
         mdt.get_certs()
     elif args.dump:
-        mdt.read_mdt(args.mdt)
+        mdt.read_mdt(args.dump)
         mdt.dump_all()
-
-    if args.indir:
-        # mdt.create_mdt(args.indir)
-        pass
 
 if __name__ == "__main__":
     """
