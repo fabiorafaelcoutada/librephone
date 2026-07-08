@@ -413,7 +413,7 @@ class MDTTool(object):
         if elf32_hdr["e_shnum"] == 0 and elf32_hdr["e_shentsize"] == 0 and elf32_hdr["e_phnum"] > 0:
             log.info(f"{self.mdtfile.name} is an executable ELF file")
 
-        print(elf32_hdr)
+        # print(elf32_hdr)
         return elf32_hdr
 
     def read_section_header64(self,
@@ -424,7 +424,7 @@ class MDTTool(object):
         offset = 0
         seg_header = self.infile.read(self.elf_header["e_ehsize"])
 
-        log.debug(f"SEGMENT: {binascii.hexlify(seg_header, sep=' ', bytes_per_sep=8)}")
+        # log.debug(f"SEGMENT: {binascii.hexlify(seg_header, sep=' ', bytes_per_sep=8)}")
         elf64_shdr["sh_name"] = struct.unpack_from(StructTypes["Elf64_Word"],
                                                     seg_header, offset)[0]
         offset += DataSizes["Elf64_Word"]
@@ -465,7 +465,7 @@ class MDTTool(object):
                                                     seg_header, offset)[0]
         # offset += DataSizes["Elf64_XWord"]
 
-        self.dump_header(elf64_shdr)
+        # self.dump_header(elf64_shdr)
         return elf64_shdr
 
     def dump_all(self):
@@ -474,13 +474,13 @@ class MDTTool(object):
         if self.mdtfile:
             print("MDT file: %s" % self.mdtfile)
         for index in range(0, self.elf_header["e_phnum"]):
-            print(f"Dumping header .b{index:02d}")
+            print(f"Dumping program header .b{index:02d}")
             self.dump_header(self.prog_headers[index])
 
         print("")
         if self.elf_header["e_shnum"] > 0:
             for index in range(0, self.elf_header["e_shnum"]):
-                print(f"Dumping header {index}")
+                print(f"Dumping section header {index}")
                 self.dump_header(self.seg_headers[index])
                 # print(self.seg_headers[index])
 
@@ -504,7 +504,7 @@ class MDTTool(object):
         offset = 0
         prog_header = self.infile.read(self.elf_header["e_phentsize"])
 
-        log.debug(f"PROGRAM: {binascii.hexlify(prog_header, sep=' ', bytes_per_sep=8)}")
+        # log.debug(f"PROGRAM: {binascii.hexlify(prog_header, sep=' ', bytes_per_sep=8)}")
         elf64_phdr["p_type"] = struct.unpack_from(StructTypes["Elf64_Word"],
                                                     prog_header, offset)[0]
         offset += DataSizes["Elf64_Word"]
@@ -616,7 +616,7 @@ class MDTTool(object):
         if "sh_name" in header:
             for name, value in SegNames.items():
                 if value == int(header["sh_name"]):
-                    print(f"\tSection name is a {name}")
+                    print(f"\tSection name is {name}")
                     continue
         if "sh_type" in header:
             if int(header["sh_type"]) <= len(ProgTypes):
