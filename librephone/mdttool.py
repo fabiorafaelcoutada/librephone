@@ -245,7 +245,10 @@ class MDTTool(object):
 
         loc = self.infile.seek(self.elf_header["e_shoff"], 0)
         for i in range(0, self.elf_header["e_shnum"]):
-            data = self.read_section_header64()
+            if self.magic["ei_class"] == 0x2:
+                data = self.read_section_header64()
+            else:
+                data = self.read_section_header32()
             # print("Dumping segment header")
             # self.dump_header(data)
             self.seg_headers.append(data)
@@ -445,9 +448,9 @@ class MDTTool(object):
         """
         elf64_shdr = dict()
         offset = 0
-        seg_header = self.infile.read(self.elf_header["e_ehsize"])
+        seg_header = self.infile.read(self.elf_header["e_shentsize"])
 
-        # log.debug(f"SEGMENT: {binascii.hexlify(seg_header, sep=' ', bytes_per_sep=8)}")
+        # log.debug(f"SEGMENT64: {binascii.hexlify(seg_header, sep=' ', bytes_per_sep=8)}")
         elf64_shdr["sh_name"] = struct.unpack_from(StructTypes["Elf64_Word"],
                                                     seg_header, offset)[0]
         offset += DataSizes["Elf64_Word"]
@@ -490,6 +493,60 @@ class MDTTool(object):
 
         # self.dump_header(elf64_shdr)
         return elf64_shdr
+
+    def read_section_header32(self,
+                    ) -> dict:
+        """
+        """
+        elf32_shdr = dict()
+        offset = 0
+        seg_header = self.infile.read(self.elf_header["e_shentsize"])
+
+        log.debug(f"SEGMENT32: {binascii.hexlify(seg_header, sep=' ', bytes_per_sep=4)}")
+        elf32_shdr["sh_name"] = struct.unpack_from(StructTypes["Elf32_Word"],
+                                                    seg_header, offset)[0]
+        offset += DataSizes["Elf32_Word"]
+
+        elf32_shdr["sh_type"] = struct.unpack_from(StructTypes["Elf32_Word"],
+                                                    seg_header, offset)[0]
+        offset += DataSizes["Elf32_Word"]
+
+        elf32_shdr["sh_flags"] = struct.unpack_from(StructTypes["Elf32_Word"],
+                                                    seg_header, offset)[0]
+        offset += DataSizes["Elf32_Word"]
+
+        elf32_shdr["sh_addr"] = struct.unpack_from(StructTypes["Elf32_Addr"],
+                                                    seg_header, offset)[0]
+        offset += DataSizes["Elf32_Addr"]
+
+        elf32_shdr["sh_offset"] = struct.unpack_from(StructTypes["Elf32_Off"],
+                                                    seg_header, offset)[0]
+        offset += DataSizes["Elf32_Off"]
+
+        elf32_shdr["sh_size"] = struct.unpack_from(StructTypes["Elf32_Word"],
+                                                    seg_header, offset)[0]
+        offset += DataSizes["Elf32_Word"]
+
+        elf32_shdr["sh_link"] = struct.unpack_from(StructTypes["Elf32_Word"],
+                                                    seg_header, offset)[0]
+        offset += DataSizes["Elf32_Word"]
+
+        elf32_shdr["sh_info"] = struct.unpack_from(StructTypes["Elf32_Word"],
+                                                    seg_header, offset)[0]
+        offset += DataSizes["Elf32_Word"]
+
+        elf32_shdr["sh_addralign"] = struct.unpack_from(StructTypes["Elf32_Word"],
+                                                    seg_header, offset)[0]
+        offset += DataSizes["Elf32_Word"]
+
+        elf32_shdr["sh_entisze"] = struct.unpack_from(StructTypes["Elf32_Word"],
+                                                    seg_header, offset)[0]
+        # offset += DataSizes["Elf32_Word"]
+
+        breakpoint()
+        # self.dump_header(elf32_shdr)
+        elf32_shdr
+        return elf32_shdr
 
     def dump_all(self):
         """
