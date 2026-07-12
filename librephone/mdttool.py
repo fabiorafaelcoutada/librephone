@@ -147,6 +147,28 @@ PflagPerms = {
     "PF_X": 0x1, # 1  binary
     }
 
+MachineTypes = {
+    "EM_X86": 0x3,
+    "EM_ARM": 0x28,
+    "EM_AARCH64": 0xb7,
+    "EM_X86_64": 0x3e,
+    "EM_OPENRISC": 0x5c,
+    "EM_DSP6": 0xa4,
+    "EM_RISCV": 0xf3,
+    "EM_ATMEL8": 0x53,
+    "EM_MIPS64": 0x8,
+    }
+
+  # EM_NONE = 0,
+  # EM_M32 = 1,
+  # EM_SPARC = 2,
+  # EM_386 = 3,
+  # EM_MIPS = 8,
+  # EM_PPC = 20,
+  # EM_PPC64 = 21,
+  # EM_MIPS_X = 51,
+  # EM_ARM = 40,
+  # EM_AARCH64 = 183,
 
 # This program does multiple reads of the same file, so if you screw up
 # the size of a data field, all the following ones will be wrong.
@@ -179,6 +201,7 @@ class MDTTool(object):
         self.magic = dict()
         self.seg_headers = list()
         self.prog_headers = list()
+        self.got = list()
         
     def read_mdt(self,
                  mdtfile: str = None,
@@ -234,7 +257,7 @@ class MDTTool(object):
         # The ELF header is always 16 bytes
         magic = self.infile.read(16)
 
-        # print(f"MAGIC: {binascii.hexlify(magic, bytes_per_sep=2)}")
+        print(f"MAGIC: {binascii.hexlify(magic, bytes_per_sep=2)}")
         if magic[:4].hex() != "7f454c46":
             log.error("Must supply an ELF file!")
             return dict()
@@ -247,10 +270,11 @@ class MDTTool(object):
             # 0x01 is litte endian
             # 0x02 is big endian
             print("EI Ident values")
+            breakpoint()
             if self.magic["ei_class"] == 0x2:
-                print("\tARCH64")
+                print("\t64 bit")
             elif self.magic["ei_class"] == 0x1:
-                print("\tAARCH32")
+                print("\t32 bit")
             if self.magic["ei_data"] == 0x1:
                 print("\tLittle endian")
             elif self.magic["ei_data"] == 0x2:
@@ -483,6 +507,8 @@ class MDTTool(object):
                 print(f"Dumping section header {index}")
                 self.dump_header(self.seg_headers[index])
                 # print(self.seg_headers[index])
+        if len(self.got) > 0:
+            print(f"")
 
     def read_program_header64(self,
                     ) -> dict:
@@ -598,56 +624,95 @@ class MDTTool(object):
         self.prog_headers.append(elf32_phdr)
         return elf32_phdr
 
+    def read_got_section(self):
+        offset = 0
+        if len(self.seg_headers) == 0:
+            log.info(f"No section headers in {self.mdtfile}")
+            return
+
+        section = self.seg_headers[9]
+        loc = self.infile.seek(section["sh_addr"], 0)
+        section_header = self.infile.read(section["sh_size"])
+        if len(section_header) == 0:
+            log.info(f"Empty .got section in {self.mdtfile}, probably statically linked.")
+            return
+        # print(f"GOT: {binascii.hexlify(section_header, sep=' ', bytes_per_sep=4)}")
+
+        for data in range(0, section["sh_size"], 8):
+            got = dict()
+            try:
+                got["address"] = struct.unpack_from(StructTypes["Elf64_Half"],
+                                               section_header, offset)[0]
+                offset += DataSizes["Elf64_Half"]
+
+                got["reloc"] = struct.unpack_from(StructTypes["Elf64_Half"],
+                                               section_header, offset)[0]
+                offset += DataSizes["Elf64_Half"]
+            except:
+                breakpoint()
+
+            #  print(got)
+            self.got.append(got)
+
     def dump_header(self,
                     header: dict,
                     ) -> dict:
         """
         """
         for key, value in header.items():
-            if key != "sh_name":
+            #print(f"KEY: {key}: {value}")
+            if key != "sh_name" and key != "sh_type":
                 print(f"\t{key} = {hex(value)} ({value})")
-        if "p_flags" in header:
+            if key == "e_machine":
                 out = ""
-                for name, type in PflagPerms.items():
-                    if type & header["p_flags"] > 0:
+                for name, val in MachineTypes.items():
+                    if val == header["e_machine"]:
+                        out += f"{name}, "
+                        continue
+                if len(out) != 0:
+                        print(f"\tmachine is {out[:-2]}")
+            if key == "p_flags":
+                out = ""
+                for name, val in PflagPerms.items():
+                    if val == header["p_flags"]:
                         out += f"{name}, "
                 if len(out) != 0:
                         print(f"\tpermissions are {out[:-2]}")
-        if "sh_name" in header:
-            for name, value in SegNames.items():
-                if value == int(header["sh_name"]):
-                    print(f"\tSection name is {name}")
-                    continue
-        if "sh_type" in header:
-            if int(header["sh_type"]) <= len(ProgTypes):
-                print(f"\tSection header is a {SegTypes[header["sh_type"]]}")
-        if "sh_flags" in header:
-            flags = str()
-            if int(header["sh_flags"]) <= len(SegFlags):
-                for name, mask in SegFlags.items():
-                    if header["sh_flags"] & mask:
-                        flags += f"{name}, "
-                print(f"\tSection flags are {flags[:-2]}")
+            if key == "sh_name":
+                for name, value in SegNames.items():
+                    if value == int(header["sh_name"]):
+                        print(f"\tSection name is {name}")
+                        continue
+            if key == "sh_type":
+                if int(header["sh_type"]) <= len(SegTypes):
+                    print(f"\tSection header is a {SegTypes[header["sh_type"]]}")
+            if key == "sh_flags":
+                flags = str()
+                if int(header["sh_flags"]) <= len(SegFlags):
+                    for name, mask in SegFlags.items():
+                        if header["sh_flags"] & mask:
+                            flags += f"{name}, "
+                    print(f"\tSection flags are {flags[:-2]}")
 
-        if "p_type" in header:
-            if int(header["p_type"]) <= len(ProgTypes):
-                print(f"\tProgram header is a {ProgTypes[header["p_type"]]}")
-            else:
-                # from linux/elf.h
-                # PT_GNU_EH_FRAME 0x6474e550  /* GCC .eh_frame_hdr segment */
-                # PT_GNU_STACK    0x6474e551  /* Indicates stack executability */
-                # PT_GNU_RELRO    0x6474e552  /* Read-only after relocation */
-                # PT_LOSUNW       0x6ffffffa
-                # PT_SUNWBSS      0x6ffffffa  /* Sun Specific segment */
-                # PT_SUNWSTACK    0x6ffffffb  /* Stack segment */
-                # PT_HISUNW       0x6fffffff
-                # PT_HIOS         0x6fffffff  /* End of OS-specific */
-                # PT_LOPROC       0x70000000  /* Start of processor-specific */
-                # PT_HIPROC       0x7fffffff  /* End of processor-specific */
-                if header["p_type"] == 0x6474e552:
-                    print(f"\tProgram header is a PT_GNU_RELOC")
+            if key == "p_type":
+                if int(header["p_type"]) <= len(ProgTypes):
+                    print(f"\tProgram header is a {ProgTypes[header["p_type"]]}")
                 else:
-                    log.error(f"Unknown Type {header["p_type"]}")
+                    # from linux/elf.h
+                    # PT_GNU_EH_FRAME 0x6474e550  /* GCC .eh_frame_hdr segment */
+                    # PT_GNU_STACK    0x6474e551  /* Indicates stack executability */
+                    # PT_GNU_RELRO    0x6474e552  /* Read-only after relocation */
+                    # PT_LOSUNW       0x6ffffffa
+                    # PT_SUNWBSS      0x6ffffffa  /* Sun Specific segment */
+                    # PT_SUNWSTACK    0x6ffffffb  /* Stack segment */
+                    # PT_HISUNW       0x6fffffff
+                    # PT_HIOS         0x6fffffff  /* End of OS-specific */
+                    # PT_LOPROC       0x70000000  /* Start of processor-specific */
+                    # PT_HIPROC       0x7fffffff  /* End of processor-specific */
+                    if header["p_type"] == 0x6474e552:
+                        print(f"\tProgram header is a PT_GNU_RELOC")
+                    else:
+                        log.error(f"Unknown Type {header["p_type"]}")
 
     def merge_blobs(self,
                         mdtfile: str,
@@ -754,6 +819,7 @@ def main():
     parser.add_argument("-d", "--dump", help="Dump All Headers")
     parser.add_argument("-s", "--stats", action="store_true", help="Get some stats on an MDT file")
     parser.add_argument("-e", "--elf", help="Merge all the program headers into an ELF file")
+    parser.add_argument("-g", "--got", help="Dump the .got section")
     args = parser.parse_args()
 
     # if verbose, dump to the terminal.
@@ -784,6 +850,10 @@ def main():
     elif args.dump:
         mdt.read_mdt(args.dump)
         mdt.dump_all()
+    elif args.got:
+        mdt.read_mdt(args.got)
+        mdt.read_got_section()
+        print(mdt.got)
 
 if __name__ == "__main__":
     """
