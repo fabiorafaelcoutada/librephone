@@ -543,7 +543,6 @@ class MDTTool(object):
                                                     seg_header, offset)[0]
         # offset += DataSizes["Elf32_Word"]
 
-        breakpoint()
         # self.dump_header(elf32_shdr)
         elf32_shdr
         return elf32_shdr
