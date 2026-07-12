@@ -270,7 +270,6 @@ class MDTTool(object):
             # 0x01 is litte endian
             # 0x02 is big endian
             print("EI Ident values")
-            breakpoint()
             if self.magic["ei_class"] == 0x2:
                 print("\t64 bit")
             elif self.magic["ei_class"] == 0x1:
