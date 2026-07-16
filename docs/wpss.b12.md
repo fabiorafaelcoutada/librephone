@@ -1,5 +1,8 @@
 # wpss.b12 — X.509 Secure Boot Certificates (Fairphone FP6 / LineageOS)
 
+SPDX-License-Identifier: CC-BY-SA-4.0
+SPDX-FileCopyrightText: 2026 Gustavo Paredes <lu2jgp@gmail.com>
+
 The `wpss.b12` segment contains the **OEM Secure Boot certificate chain** for the
 WPSS (Wireless SubSystem, Qualcomm Hexagon DSP) firmware. These certificates
 authenticate the DSP firmware image during the PIL (Peripheral Image Loader)
