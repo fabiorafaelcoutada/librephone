@@ -143,7 +143,7 @@ SegNames = {
     ".strtab": 0x11,
     }
 
-SegFlags = {
+ProgFlags = {
     "none": 0x0, #
     "PF_X": 0x1, # 1  binary
     "PF_W": 0x2, # 10 binary
@@ -690,24 +690,19 @@ class MDTTool(object):
         # breakpoint()
         header = self.read_mdt(filespec)
         path = Path(filespec)
-        # print(f"BLOB: {self.elf_header}")
-        # print(f"\tFound ELF header! {self.elf_header}")
-        # self.dump_header(header)
         index = 0
         for header in self.prog_headers:
             print("---------------------------------")
             out = f"{path.parent}/{str(hex(header["p_offset"]))}"
             log.info(f"Program Header {index} {out}")
-            if header["p_flags"] & SegFlags["PF_X"]:
-                print(f"ELF file: {header}")
+            if header["p_flags"] & ProgFlags["PF_X"] > 0:
+                print(f"ELF file in header {index}: {header}")
             self.dump_header(header)
             file = open(f"{out}", 'wb')
-            # file.write(b'0' * header["p_filesz"])
             file.truncate(header["p_filesz"])
             file.seek(0)
             # # The magic number
-            # magic = file.read(16)
-            # FIXME: these shouldn't use all default values
+            # FIXME: these shouldn't use all default values for the headers
             magic = self.create_magic(self.magic)
             file.write(magic)
             pad = b'\x00\x00\x00\x00\x00\x00\x00\x00'
@@ -715,8 +710,9 @@ class MDTTool(object):
             # FIXME: pad shouldn't be hardcoded
             file.write(pad)
             self.create_elf_header32(self.elf_header)
-            new = self.create_elf_header32(self.elf_header)
-            file.write(new)
+            newhead = self.create_elf_header32(self.elf_header)
+            file.write(newhead)
+            # FIXME: write data
             index += 1
 
     def create_magic(self,
@@ -848,7 +844,7 @@ class MDTTool(object):
                         print(f"\tmachine is {out[:-2]}")
             if key == "p_flags":
                 out = ""
-                for name, val in SegFlags.items():
+                for name, val in ProgFlags.items():
                     if val == header["p_flags"] & 0x7:
                         out += f"{name}, "
                 if len(out) != 0:
