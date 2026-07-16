@@ -15,19 +15,19 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-"""Lookup de mensajes del protocolo HTT (Host-Target Transport).
+"""HTT (Host-Target Transport) protocol message lookup.
 
-Protocolo usado en ath11k/WCN6750 para comunicación host ↔ firmware WPSS.
-Datos extraídos del documento técnico `docs/htt.md` (rama `docs/htt-protocol`).
+Protocol used in ath11k/WCN6750 for host ↔ WPSS firmware communication.
+Data extracted from the technical document `docs/htt.md` (branch `docs/htt-protocol`).
 
-Uso:
+Usage:
     from tools.librephone.htt_protocol import lookup_htt_message, list_htt_messages
 
     msg = lookup_htt_message(0x00, "H2T")
     print(msg["name"])  # HTT_H2T_MSG_TYPE_VERSION_REQ
 
-    todos = list_htt_messages("H2T")
-    print(f"{len(todos)} mensajes H2T conocidos")
+    all_msgs = list_htt_messages("H2T")
+    print(f"{len(all_msgs)} known H2T messages")"""
 """
 
 from __future__ import annotations

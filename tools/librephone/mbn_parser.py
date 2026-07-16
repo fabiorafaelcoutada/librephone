@@ -15,12 +15,12 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-"""Parser de archivos MBN/MDT en formato PIL (Qualcomm Peripheral Image Loader).
+"""MBN/MDT file parser in PIL (Qualcomm Peripheral Image Loader) format.
 
-Analiza headers ELF32/ELF64, tabla de segmentos, entry points,
-y extrae metadatos relevantes para el análisis de firmware WPSS.
+Parses ELF32/ELF64 headers, segment tables, entry points,
+and extracts relevant metadata for WPSS firmware analysis.
 
-Uso:
+Usage:
     from tools.librephone.mbn_parser import parse_mbn, extract_sections
 
     parsed = parse_mbn("wlanmdsp.mbn")

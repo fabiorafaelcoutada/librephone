@@ -15,12 +15,12 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-"""Trazado de dependencias entre blobs del firmware WPSS y sus fuentes.
+"""Dependency tracing between WPSS firmware blobs and their sources.
 
-Analiza qué blobs dependen de otros, dónde obtenerlos, y estima
-el porcentaje de cobertura libre vs propietario.
+Analyzes which blobs depend on others, where to obtain them, and estimates
+the free vs proprietary coverage percentage.
 
-Uso:
+Usage:
     from tools.librephone.dependency_tracer import trace_dependencies, find_blob_source
 
     deps = trace_dependencies("wlanmdsp.mbn")
