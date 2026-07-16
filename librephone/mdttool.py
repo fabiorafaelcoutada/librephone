@@ -183,9 +183,10 @@ class MDTTool(object):
         """
         if mdtfile:
             self.mdtfile = Path(mdtfile)
-            output = mdtfile.replace(".mdt", ".elf")
-            if os.path.exists(output):
-                os.remove(output)
+            if mdtfile.endswith(".mdt"):
+                output = mdtfile.replace(".mdt", ".elf")
+                if os.path.exists(output):
+                    os.remove(output)
             #self.outfile = open(output, "ab")
             # self.infile = open(mdtfile, "rb")
         else:
@@ -332,7 +333,7 @@ class MDTTool(object):
         
         elf64_hdr["e_ehsize"] = struct.unpack_from(StructTypes["Elf64_Half"],
                                                       elf_header, offset)[0]
-        offset += DataSizes["Eglf64_Half"]
+        offset += DataSizes["Elf64_Half"]
 
         elf64_hdr["e_phentsize"] = struct.unpack_from(StructTypes["Elf64_Half"],
                                                       elf_header, offset)[0]
@@ -618,7 +619,7 @@ class MDTTool(object):
         # offset += DataSizes["Elf64_XWord"]
 
         # self.dump_header(elf64_phdr)
-        self.prog_headers.append(elf64_phdr)
+        # self.prog_headers.append(elf64_phdr)
         return elf64_phdr
 
     def read_program_header32(self,
@@ -920,14 +921,14 @@ class MDTTool(object):
         min_addr = 0
         max_addr = 0
         for index in range(0, self.elf_header["e_shnum"]):
-            if  self.seg_headers[index]["p_paddr"] < min_addr:
-                min_addr = self.seg_headers[index]["p_paddr"]
+            if  self.seg_headers[index]["sh_addr"] < min_addr:
+                min_addr = self.seg_headers[index]["sh_addr"]
 
-            if  self.seg_headers[index]["p_paddr"] + self.seg_headers[index]["p_memsz"] > max_addr:
+            if  self.seg_headers[index]["sh_addr"] + self.seg_headers[index]["sh_size"] > max_addr:
                 # FIXME: this needs to be aligned to a 4K page
-                max_addr = self.seg_headers[index]["p_paddr"] + self.seg_headers[index]["p_memsz"]
+                max_addr = self.seg_headers[index]["sh_addr"] + self.seg_headers[index]["sh_size"]
 
-            return max_addr - min_addr
+        return max_addr - min_addr
 
     def get_certs(self):
         """
