@@ -78,6 +78,9 @@ nav:
     - Disassembling Thumb: thumb.md
     - Sample Data Extracts: csvdata.md
     - The ATH11k Driver: ath11k.md
+    - Host Interface layer for WCN6750: hif.md
+    - Host-to-Target Transport Protocol: htt.md
+    - Factory Test Mode: ftm.md
     - The CopyEngine: CopyEngine.md
     - Wireless Processor SubSystem:
       - Wireless: wireless.md

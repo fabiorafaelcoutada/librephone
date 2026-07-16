@@ -306,8 +306,9 @@ Macro: `#define HTT_RX_RING_CFG_NUM_RINGS_M 0xff00  /* shift 8 */`
  │  idx_init_val │ enabled_flags  │
  └───────────────┴────────────────┘
 ```
+
 | Flag bit | Field name          | Enables                        |
-|----------|---------------------|--------------------------------|
+| --------:|--------------------|--------------------------------|
 | [0]      | `ENABLED_802_11_HDR`| 802.11 header in descriptor    |
 | [1]      | `ENABLED_MSDU_PAYLD`| MSDU payload                   |
 | [2]      | `ENABLED_PPDU_START`| PPDU start descriptor          |
@@ -606,17 +607,3 @@ the existing blob uses — which matches the swizzle applied by
    `htt_t2h_lp_msg_handler()` (low priority), and
    `htt_t2h_msg_handler_fast()` (CE fastpath). 21 distinct message types
    handled; callbacks documented per type.
-
----
-
-## How to contribute to this document
-
-1. Fork `https://codeberg.org/rsavoye/librephone`
-2. Add this file as `docs/htt.md`
-3. Expand each mandatory message's bit-field layout (from `fw-api/fw/htt.h`)
-4. Sign commits: `git commit -s`
-5. Open PR once complete
-
-```
-SPDX-License-Identifier: AGPL-3.0-or-later
-```

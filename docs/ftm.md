@@ -2,14 +2,23 @@
 
 **Sources analyzed:**
 - `qca-wifi-host-cmn/ftm/core/src/wlan_ftm_svc.c`
+
 - `qca-wifi-host-cmn/ftm/core/src/wlan_ftm_svc_i.h`
+
 - `qca-wifi-host-cmn/ftm/dispatcher/inc/wlan_ftm_ucfg_api.h`
+
 - `qca-wifi-host-cmn/ftm/dispatcher/src/wlan_ftm_ucfg_api.c`
+
 - `qca-wifi-host-cmn/target_if/ftm/src/target_if_ftm.c`
+
 - `qca-wifi-host-cmn/target_if/ftm/inc/target_if_ftm.h`
+
 - `qca-wifi-host-cmn/os_if/linux/ftm/inc/wlan_cfg80211_ftm.h`
+
 - `qca-wifi-host-cmn/os_if/linux/ftm/src/wlan_cfg80211_ftm.c`
+
 - `qca-wifi-host-cmn/os_if/linux/ftm/inc/wlan_ioctl_ftm.h`
+
 - `qcacld-3.0/core/hdd/src/wlan_hdd_ftm.c`
 
 ---
@@ -211,9 +220,3 @@ HTT is active in all other modes.
 | `ftm/core/src/wlan_ftm_svc.c` | pdev lifecycle, `wlan_ftm_cmd_send()` |
 | `ftm/core/src/wlan_ftm_svc_i.h` | `ftm_seg_hdr_info` struct |
 | `target_if/ftm/src/target_if_ftm.c` | WMI send/receive — blob boundary |
-
----
-
-```
-SPDX-License-Identifier: AGPL-3.0-or-later
-```

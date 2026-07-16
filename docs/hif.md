@@ -1,8 +1,5 @@
 # HIF — Host Interface layer for WCN6750 (SNOC/fake-PCI)
 
-SPDX-License-Identifier: CC-BY-SA-4.0
-SPDX-FileCopyrightText: 2026 Gustavo Paredes <lu2jgp@gmail.com>
-
 ## Overview
 
 The **HIF** (Host Interface) is the transport abstraction layer between the

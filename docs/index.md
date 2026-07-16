@@ -36,6 +36,15 @@ AARCH32, which supports 2 instruction sets.
 - [CopyEngine](CopyEngine.md) This describes the CopyEngine, which
   configures the hardware for DMA transfers.
 
+- [The ATH11k Driver](ath11k.md)
+
+- [Factory Test Mode](ftm.md)
+
+- [Host Interface layer for WCN6750](hif.md)
+
+- [Host-to-Target Transport Protocol](htt.md)
+
+
 ## Utility Programs
 
 This project contains [several utilities](utilities.md) for analyzing
