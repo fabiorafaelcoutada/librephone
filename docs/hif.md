@@ -299,11 +299,3 @@ enum hif_system_pm_state {
 On SNOC, the bus stays in `ON` state even when the target sleeps — there's
 no PCI link power management. Wake is handled by `enable_irq_wake()` on
 the wake-capable CE instead of PCI `PCIE_SOC_WAKE` register toggling.
-
-## Related documentation
-
-- [docs/htt.md](htt.md) — HTT protocol (CE 1 T2H, CE 4 H2T)
-- [docs/ftm.md](ftm.md) — FTM/UTF testing API (over WMI on CE 0)
-- [docs/ath11k_corrections.md](ath11k_corrections.md) — Corrections to upstream ath11k.md
-- [upstream ath11k.md](../upstream-librephone/docs/ath11k.md) — Original (needs SNOC/fake-PCI corrections)
-- [upstream CopyEngine.md](../upstream-librephone/docs/CopyEngine.md) — CE documentation
