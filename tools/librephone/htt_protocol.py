@@ -17,7 +17,7 @@
 
 """HTT (Host-Target Transport) protocol message lookup.
 
-Protocol used in ath11k/WCN6750 for host ↔ WPSS firmware communication.
+Protocol used in ath11k/WCN6750 for host <-> WPSS firmware communication.
 Data extracted from the technical document `docs/htt.md` (branch `docs/htt-protocol`).
 
 Usage:
@@ -28,7 +28,6 @@ Usage:
 
     all_msgs = list_htt_messages("H2T")
     print(f"{len(all_msgs)} known H2T messages")"""
-"""
 
 from __future__ import annotations
 
@@ -43,295 +42,295 @@ __all__ = [
 
 
 class HTTMessageNotFound(LookupError):
-    """El ID de mensaje HTT solicitado no está en el rango conocido."""
+    """The requested HTT message ID is not in the known range."""
 
 
-# ── Tabla H2T (Host → Target): 43 mensajes (0x00–0x2a) ────────────────────
+# ── H2T table (Host -> Target): 43 messages (0x00-0x2a) ────────────────────
 
 _H2T_MESSAGES: List[Dict[str, Any]] = [
     {"id": 0x00, "name": "HTT_H2T_MSG_TYPE_VERSION_REQ",
-     "desc": "Solicitud de versión del protocolo HTT. Inicia el handshake."},
+     "desc": "HTT protocol version request. Initiates the handshake."},
     {"id": 0x01, "name": "HTT_H2T_MSG_TYPE_FRAG_DESC_BANK_CFG",
-     "desc": "Configura bancos de descriptores de fragmentos para RX."},
+     "desc": "Configures fragment descriptor banks for RX."},
     {"id": 0x02, "name": "HTT_H2T_MSG_TYPE_RX_RING_CFG",
-     "desc": "Configura anillos DMA de recepción (RX rings)."},
+     "desc": "Configures DMA receive rings (RX rings)."},
     {"id": 0x03, "name": "HTT_H2T_MSG_TYPE_IPA_CFG",
-     "desc": "Configura la interfaz IPA (IP Accelerator)."},
+     "desc": "Configures the IPA (IP Accelerator) interface."},
     {"id": 0x04, "name": "HTT_H2T_MSG_TYPE_IPA_OFFLOAD_CFG",
-     "desc": "Configura offloading IPA."},
+     "desc": "Configures IPA offloading."},
     {"id": 0x05, "name": "HTT_H2T_MSG_TYPE_6G_LNA_CHAIN",
-     "desc": "Selecciona cadena LNA para banda de 6 GHz."},
+     "desc": "Selects LNA chain for 6 GHz band."},
     {"id": 0x06, "name": "HTT_H2T_MSG_TYPE_FW_STATS_REQ",
-     "desc": "Solicitud de estadísticas del firmware."},
+     "desc": "Firmware statistics request."},
     {"id": 0x07, "name": "HTT_H2T_MSG_TYPE_GET_FW_STATS",
-     "desc": "Obtiene estadísticas detalladas del firmware."},
+     "desc": "Gets detailed firmware statistics."},
     {"id": 0x08, "name": "HTT_H2T_MSG_TYPE_TX_FETCH_REQ",
-     "desc": "Solicita descriptores TX desde el host al target."},
+     "desc": "Requests TX descriptors from host to target."},
     {"id": 0x09, "name": "HTT_H2T_MSG_TYPE_TX_FETCH_IND",
-     "desc": "Indicación de descriptores TX listos."},
+     "desc": "TX descriptors ready indication."},
     {"id": 0x0A, "name": "HTT_H2T_MSG_TYPE_TX_FETCH_CONF",
-     "desc": "Confirmación de descriptores TX recibidos."},
+     "desc": "TX descriptors received confirmation."},
     {"id": 0x0B, "name": "HTT_H2T_MSG_TYPE_TX_FRAG",
-     "desc": "Transfiere fragmentos de trama TX."},
+     "desc": "Transfers TX frame fragments."},
     {"id": 0x0C, "name": "HTT_H2T_MSG_TYPE_TX_FRAG_DESC",
-     "desc": "Descriptor de fragmento TX."},
+     "desc": "TX fragment descriptor."},
     {"id": 0x0D, "name": "HTT_H2T_MSG_TYPE_TX_OFFLOAD",
-     "desc": "Solicitud de offloading TX."},
+     "desc": "TX offloading request."},
     {"id": 0x0E, "name": "HTT_H2T_MSG_TYPE_TX_OFFLOAD_NORES",
-     "desc": "Offloading TX sin recurso adicional."},
+     "desc": "TX offloading without additional resource."},
     {"id": 0x0F, "name": "HTT_H2T_MSG_TYPE_TX_FLOW_DELETE",
-     "desc": "Elimina un flujo TX."},
+     "desc": "Deletes a TX flow."},
     {"id": 0x10, "name": "HTT_H2T_MSG_TYPE_TX_FLOW_DELETE_NO_RBM",
-     "desc": "Elimina un flujo TX sin retorno de buffer."},
+     "desc": "Deletes a TX flow without buffer return."},
     {"id": 0x11, "name": "HTT_H2T_MSG_TYPE_TX_FLOW_MGMT",
-     "desc": "Gestión de flujos TX (creación/modificación)."},
+     "desc": "TX flow management (creation/modification)."},
     {"id": 0x12, "name": "HTT_H2T_MSG_TYPE_TX_CLEANUP",
-     "desc": "Limpieza de recursos TX."},
+     "desc": "TX resource cleanup."},
     {"id": 0x13, "name": "HTT_H2T_MSG_TYPE_RX_FETCH",
-     "desc": "Solicita buffers RX del host al target."},
+     "desc": "Requests RX buffers from host to target."},
     {"id": 0x14, "name": "HTT_H2T_MSG_TYPE_RX_FETCH_CONF",
-     "desc": "Confirmación de buffers RX recibidos."},
+     "desc": "RX buffers received confirmation."},
     {"id": 0x15, "name": "HTT_H2T_MSG_TYPE_RX_OFFLOAD",
-     "desc": "Configura offloading RX."},
+     "desc": "Configures RX offloading."},
     {"id": 0x16, "name": "HTT_H2T_MSG_TYPE_PKTLOG_HDR",
-     "desc": "Cabecera de paquete de logging."},
+     "desc": "Packet logging header."},
     {"id": 0x17, "name": "HTT_H2T_MSG_TYPE_WDS_EXT_MAC",
-     "desc": "Configuración WDS de MAC extendida."},
+     "desc": "Extended MAC WDS configuration."},
     {"id": 0x18, "name": "HTT_H2T_MSG_TYPE_TX_COMP_CONF",
-     "desc": "Configuración de completado TX."},
+     "desc": "TX completion configuration."},
     {"id": 0x19, "name": "HTT_H2T_MSG_TYPE_PEER_MAP",
-     "desc": "Mapeo de peer (asociación station-id → peer)."},
+     "desc": "Peer mapping (station-id -> peer association)."},
     {"id": 0x1A, "name": "HTT_H2T_MSG_TYPE_PEER_UNMAP",
-     "desc": "Desmapeo de peer."},
+     "desc": "Peer unmap."},
     {"id": 0x1B, "name": "HTT_H2T_MSG_TYPE_MGMT_TX_DESC",
-     "desc": "Descriptor para tramas de gestión TX."},
+     "desc": "TX management frame descriptor."},
     {"id": 0x1C, "name": "HTT_H2T_MSG_TYPE_SEC_IND",
-     "desc": "Indicación de seguridad (cifrado/autenticación)."},
+     "desc": "Security indication (encryption/authentication)."},
     {"id": 0x1D, "name": "HTT_H2T_MSG_TYPE_SMART_LOG_HDR",
-     "desc": "Cabecera de smart logging."},
+     "desc": "Smart logging header."},
     {"id": 0x1E, "name": "HTT_H2T_MSG_TYPE_SRNG_SETUP",
-     "desc": "Configuración de SRNG (Scheduler Ring)."},
+     "desc": "SRNG (Scheduler Ring) configuration."},
     {"id": 0x1F, "name": "HTT_H2T_MSG_TYPE_TYPED_CFG",
-     "desc": "Configuración tipada (parámetro genérico)."},
+     "desc": "Typed configuration (generic parameter)."},
     {"id": 0x20, "name": "HTT_H2T_MSG_TYPE_FLOW_POOL_EXT_CFG",
-     "desc": "Configuración extendida de pool de flujos."},
+     "desc": "Extended flow pool configuration."},
     {"id": 0x21, "name": "HTT_H2T_MSG_TYPE_SEC_CFG_V2",
-     "desc": "Configuración de seguridad versión 2."},
+     "desc": "Security configuration version 2."},
     {"id": 0x22, "name": "HTT_H2T_MSG_TYPE_RX_FRM_DEFRAG_CFG",
-     "desc": "Configuración de desfragmentación RX."},
+     "desc": "RX defragmentation configuration."},
     {"id": 0x23, "name": "HTT_H2T_MSG_TYPE_PKTLOG_REGISTER",
-     "desc": "Registro de filtros de packet logging."},
+     "desc": "Packet logging filter registration."},
     {"id": 0x24, "name": "HTT_H2T_MSG_TYPE_TX_COMP_UNMAP_CFG",
-     "desc": "Configuración de unmap en completado TX."},
+     "desc": "TX completion unmap configuration."},
     {"id": 0x25, "name": "HTT_H2T_MSG_TYPE_PEER_STATS_REQ",
-     "desc": "Solicitud de estadísticas por peer."},
+     "desc": "Per-peer statistics request."},
     {"id": 0x26, "name": "HTT_H2T_MSG_TYPE_RX_MONITOR_CFG",
-     "desc": "Configuración de monitor RX."},
+     "desc": "RX monitor configuration."},
     {"id": 0x27, "name": "HTT_H2T_MSG_TYPE_RX_MONITOR_PPDU_DESC_CFG",
-     "desc": "Configuración de descriptores PPDU para monitor RX."},
+     "desc": "PPDU descriptor configuration for RX monitor."},
     {"id": 0x28, "name": "HTT_H2T_MSG_TYPE_PPDU_STATS_REQ",
-     "desc": "Solicitud de estadísticas PPDU."},
+     "desc": "PPDU statistics request."},
     {"id": 0x29, "name": "HTT_H2T_MSG_TYPE_MAC_OFFLOAD_CFG",
-     "desc": "Configuración de offloading MAC."},
+     "desc": "MAC offloading configuration."},
     {"id": 0x2A, "name": "HTT_H2T_MSG_TYPE_WBM2SW_RING_CFG",
-     "desc": "Configuración del anillo WBM-to-SW."},
+     "desc": "WBM-to-SW ring configuration."},
 ]
 
-# ── Tabla T2H (Target → Host): 64 mensajes (0x00–0x3f) ────────────────────
+# ── T2H table (Target -> Host): 64 messages (0x00-0x3f) ────────────────────
 
 _T2H_MESSAGES: List[Dict[str, Any]] = [
     {"id": 0x00, "name": "HTT_T2H_MSG_TYPE_VERSION_CONF",
-     "desc": "Confirmación de versión HTT. Respuesta a VERSION_REQ."},
+     "desc": "HTT version confirmation. Response to VERSION_REQ."},
     {"id": 0x01, "name": "HTT_T2H_MSG_TYPE_RX_FRAG_IND",
-     "desc": "Indicación de fragmento RX recibido."},
+     "desc": "RX fragment received indication."},
     {"id": 0x02, "name": "HTT_T2H_MSG_TYPE_FW_STATS_CONF",
-     "desc": "Confirmación con estadísticas del firmware."},
+     "desc": "Firmware statistics confirmation."},
     {"id": 0x03, "name": "HTT_T2H_MSG_TYPE_TX_COMP_IND",
-     "desc": "Indicación de completado de transmisión TX."},
+     "desc": "TX transmission completion indication."},
     {"id": 0x04, "name": "HTT_T2H_MSG_TYPE_TX_SCHED_IND",
-     "desc": "Indicación de programación TX."},
+     "desc": "TX scheduling indication."},
     {"id": 0x05, "name": "HTT_T2H_MSG_TYPE_PEER_MAP_IND",
-     "desc": "Indicación de mapeo de peer completado."},
+     "desc": "Peer mapping completed indication."},
     {"id": 0x06, "name": "HTT_T2H_MSG_TYPE_PEER_UNMAP_IND",
-     "desc": "Indicación de desmapeo de peer completado."},
+     "desc": "Peer unmap completion indication."},
     {"id": 0x07, "name": "HTT_T2H_MSG_TYPE_RX_OFFLOAD_DELIVER_IND",
-     "desc": "Indicación de entrega de offloading RX."},
+     "desc": "RX offloading delivery indication."},
     {"id": 0x08, "name": "HTT_T2H_MSG_TYPE_RX_OFFLOAD_PKTLOSS",
-     "desc": "Notificación de pérdida de paquetes en offloading RX."},
+     "desc": "RX offloading packet loss notification."},
     {"id": 0x09, "name": "HTT_T2H_MSG_TYPE_STATS_CONF",
-     "desc": "Confirmación de estadísticas."},
+     "desc": "Statistics confirmation."},
     {"id": 0x0A, "name": "HTT_T2H_MSG_TYPE_TX_FETCH_IND",
-     "desc": "Indicación de fetch TX desde target."},
+     "desc": "TX fetch indication from target."},
     {"id": 0x0B, "name": "HTT_T2H_MSG_TYPE_WDI_IPA_OP_RESPONSE",
-     "desc": "Respuesta de operación IPA WDI."},
+     "desc": "IPA WDI operation response."},
     {"id": 0x0C, "name": "HTT_T2H_MSG_TYPE_WDI_IPA_CHUNK_READY",
-     "desc": "Chunk IPA WDI listo."},
+     "desc": "IPA WDI chunk ready."},
     {"id": 0x0D, "name": "HTT_T2H_MSG_TYPE_SMART_LOG_EVENT",
-     "desc": "Evento de smart logging."},
+     "desc": "Smart logging event."},
     {"id": 0x0E, "name": "HTT_T2H_MSG_TYPE_TX_CREDIT_UPDATE_IND",
-     "desc": "Actualización de créditos TX (control de flujo)."},
+     "desc": "TX credit update (flow control)."},
     {"id": 0x0F, "name": "HTT_T2H_MSG_TYPE_RX_PEER_MAP_IND",
-     "desc": "Indicación de mapeo de peer RX."},
+     "desc": "RX peer mapping indication."},
     {"id": 0x10, "name": "HTT_T2H_MSG_TYPE_WDS_EXT_MAC_IND",
-     "desc": "Indicación WDS de MAC extendida."},
+     "desc": "Extended MAC WDS indication."},
     {"id": 0x11, "name": "HTT_T2H_MSG_TYPE_PEER_STATS_IND",
-     "desc": "Estadísticas de peer."},
+     "desc": "Peer statistics."},
     {"id": 0x12, "name": "HTT_T2H_MSG_TYPE_PPDU_STATS_IND",
-     "desc": "Estadísticas PPDU."},
+     "desc": "PPDU statistics."},
     {"id": 0x13, "name": "HTT_T2H_MSG_TYPE_PPDU_DESC_IND",
-     "desc": "Descriptor PPDU."},
+     "desc": "PPDU descriptor."},
     {"id": 0x14, "name": "HTT_T2H_MSG_TYPE_EMPTY_BUF_IND",
-     "desc": "Indicación de buffer vacío."},
+     "desc": "Empty buffer indication."},
     {"id": 0x15, "name": "HTT_T2H_MSG_TYPE_SEC_IND",
-     "desc": "Indicación de seguridad (T2H)."},
+     "desc": "Security indication (T2H)."},
     {"id": 0x16, "name": "HTT_T2H_MSG_TYPE_TX_L2_PEER_MAP_IND",
-     "desc": "Indicación de mapeo L2 de peer TX."},
+     "desc": "TX peer L2 mapping indication."},
     {"id": 0x17, "name": "HTT_T2H_MSG_TYPE_TX_HW_ENQ_IND",
-     "desc": "Indicación de encolamiento TX por hardware."},
+     "desc": "TX hardware enqueue indication."},
     {"id": 0x18, "name": "HTT_T2H_MSG_TYPE_TX_FLUSH_IND",
-     "desc": "Indicación de flush TX completado."},
+     "desc": "TX flush completed indication."},
     {"id": 0x19, "name": "HTT_T2H_MSG_TYPE_PEER_EXT_STATS_IND",
-     "desc": "Estadísticas extendidas de peer."},
+     "desc": "Extended peer statistics."},
     {"id": 0x1A, "name": "HTT_T2H_MSG_TYPE_MAX_LINK_STATS_IND",
-     "desc": "Estadísticas máximas de enlace."},
+     "desc": "Maximum link statistics."},
     {"id": 0x1B, "name": "HTT_T2H_MSG_TYPE_EXT_STATS_CONF",
-     "desc": "Confirmación de estadísticas extendidas."},
+     "desc": "Extended statistics confirmation."},
     {"id": 0x1C, "name": "HTT_T2H_MSG_TYPE_BSS_CHAN_INFO_RESPONSE",
-     "desc": "Respuesta de información de canal BSS."},
+     "desc": "BSS channel information response."},
     {"id": 0x1D, "name": "HTT_T2H_MSG_TYPE_BEACON_REPORT",
-     "desc": "Reporte de beacon."},
+     "desc": "Beacon report."},
     {"id": 0x1E, "name": "HTT_T2H_MSG_TYPE_ERROR_RESPONSE",
-     "desc": "Respuesta de error genérica."},
+     "desc": "Generic error response."},
     {"id": 0x1F, "name": "HTT_T2H_MSG_TYPE_PEER_INFO_IND",
-     "desc": "Información de peer."},
+     "desc": "Peer information."},
     {"id": 0x20, "name": "HTT_T2H_MSG_TYPE_MAC_OFFLOAD_IND",
-     "desc": "Indicación de offloading MAC."},
+     "desc": "MAC offloading indication."},
     {"id": 0x21, "name": "HTT_T2H_MSG_TYPE_TX_MULTI_PEER_MAP_IND",
-     "desc": "Mapeo multi-peer TX."},
+     "desc": "TX multi-peer mapping."},
     {"id": 0x22, "name": "HTT_T2H_MSG_TYPE_RX_RING_ERR_IND",
-     "desc": "Error en anillo RX."},
+     "desc": "RX ring error."},
     {"id": 0x23, "name": "HTT_T2H_MSG_TYPE_RX_PPDU_START_IND",
-     "desc": "Inicio de PPDU RX."},
+     "desc": "RX PPDU start."},
     {"id": 0x24, "name": "HTT_T2H_MSG_TYPE_RX_PPDU_END_IND",
-     "desc": "Fin de PPDU RX."},
+     "desc": "RX PPDU end."},
     {"id": 0x25, "name": "HTT_T2H_MSG_TYPE_TX_OFFLOAD_DELIVER_IND",
-     "desc": "Entrega de offloading TX (fastpath CE)."},
+     "desc": "TX offloading delivery (fastpath CE)."},
     {"id": 0x26, "name": "HTT_T2H_MSG_TYPE_UPDATE_RX_REO",
-     "desc": "Actualización de REO (Re-order) RX."},
+     "desc": "RX REO (Re-order) update."},
     {"id": 0x27, "name": "HTT_T2H_MSG_TYPE_TX_TEMPLATE_DESC_ALLOC",
-     "desc": "Asignación de descriptor de plantilla TX."},
+     "desc": "TX template descriptor allocation."},
     {"id": 0x28, "name": "HTT_T2H_MSG_TYPE_TX_DE_ALLOC_IND",
-     "desc": "Indicación de desasignación TX."},
+     "desc": "TX de-allocation indication."},
     {"id": 0x29, "name": "HTT_T2H_MSG_TYPE_STATS_DUMP_CMD",
-     "desc": "Comando de volcado de estadísticas."},
+     "desc": "Statistics dump command."},
     {"id": 0x2A, "name": "HTT_T2H_MSG_TYPE_PEER_INFO_EXT_IND",
-     "desc": "Información extendida de peer."},
+     "desc": "Extended peer information."},
     {"id": 0x2B, "name": "HTT_T2H_MSG_TYPE_RX_MONITOR_PPDU_STATUS",
-     "desc": "Estado de PPDU de monitor RX."},
+     "desc": "RX monitor PPDU status."},
     {"id": 0x2C, "name": "HTT_T2H_MSG_TYPE_RX_MONITOR_DEST_RING",
-     "desc": "Anillo destino de monitor RX."},
+     "desc": "RX monitor destination ring."},
     {"id": 0x2D, "name": "HTT_T2H_MSG_TYPE_RX_MONITOR_BUFFER",
-     "desc": "Buffer de monitor RX."},
+     "desc": "RX monitor buffer."},
     {"id": 0x2E, "name": "HTT_T2H_MSG_TYPE_RX_MONITOR_STATUS_SUMMARY",
-     "desc": "Resumen de estado de monitor RX."},
+     "desc": "RX monitor status summary."},
     {"id": 0x2F, "name": "HTT_T2H_MSG_TYPE_RX_MONITOR_PPDU_DESC",
-     "desc": "Descriptor PPDU de monitor RX."},
+     "desc": "RX monitor PPDU descriptor."},
     {"id": 0x30, "name": "HTT_T2H_MSG_TYPE_TX_MULTI_PEER_MAP_CFM",
-     "desc": "Confirmación de mapeo multi-peer TX."},
+     "desc": "TX multi-peer mapping confirmation."},
     {"id": 0x31, "name": "HTT_T2H_MSG_TYPE_RX_MONITOR_DEST_RING_CFG",
-     "desc": "Configuración de anillo destino de monitor RX."},
+     "desc": "RX monitor destination ring configuration."},
     {"id": 0x32, "name": "HTT_T2H_MSG_TYPE_6G_LNA_CHAIN_IND",
-     "desc": "Indicación de cadena LNA para 6 GHz."},
+     "desc": "LNA chain indication for 6 GHz."},
     {"id": 0x33, "name": "HTT_T2H_MSG_TYPE_MAC_OFFLOAD_STATS",
-     "desc": "Estadísticas de offloading MAC."},
+     "desc": "MAC offloading statistics."},
     {"id": 0x34, "name": "HTT_T2H_MSG_TYPE_ATS_IND",
-     "desc": "Indicación ATS (Accurate Time Service)."},
+     "desc": "ATS (Accurate Time Service) indication."},
     {"id": 0x35, "name": "HTT_T2H_MSG_TYPE_CFR_IND",
-     "desc": "Indicación CFR (Channel Frequency Response)."},
+     "desc": "CFR (Channel Frequency Response) indication."},
     {"id": 0x36, "name": "HTT_T2H_MSG_TYPE_CFR_DUMP_CONF",
-     "desc": "Confirmación de dump CFR."},
+     "desc": "CFR dump confirmation."},
     {"id": 0x37, "name": "HTT_T2H_MSG_TYPE_MSDUQ_STATS_IND",
-     "desc": "Estadísticas de cola MSDU."},
+     "desc": "MSDU queue statistics."},
     {"id": 0x38, "name": "HTT_T2H_MSG_TYPE_SENSING_STATS_IND",
-     "desc": "Estadísticas de sensing."},
+     "desc": "Sensing statistics."},
     {"id": 0x39, "name": "HTT_T2H_MSG_TYPE_PEER_URGENT_STATS_IND",
-     "desc": "Estadísticas urgentes de peer."},
+     "desc": "Urgent peer statistics."},
     {"id": 0x3A, "name": "HTT_T2H_MSG_TYPE_TX_HWQ_CFG_IND",
-     "desc": "Configuración de hardware queue TX."},
+     "desc": "TX hardware queue configuration."},
     {"id": 0x3B, "name": "HTT_T2H_MSG_TYPE_WRDA_CMD_IND",
-     "desc": "Comando WRDA (Wireless Radio Device Abstraction)."},
+     "desc": "WRDA (Wireless Radio Device Abstraction) command."},
     {"id": 0x3C, "name": "HTT_T2H_MSG_TYPE_WRDA_NON_WLAN_ID_IND",
-     "desc": "Identificador non-WLAN WRDA."},
+     "desc": "WRDA non-WLAN identifier."},
     {"id": 0x3D, "name": "HTT_T2H_MSG_TYPE_MAC_PHY_CONFIG_IND",
-     "desc": "Configuración MAC/PHY."},
+     "desc": "MAC/PHY configuration."},
     {"id": 0x3E, "name": "HTT_T2H_MSG_TYPE_MLO_CAPS_IND",
-     "desc": "Capacidades MLO (Multi-Link Operation)."},
+     "desc": "MLO (Multi-Link Operation) capabilities."},
     {"id": 0x3F, "name": "HTT_T2H_MSG_TYPE_TX_CREDIT_UPDATE_IND",
-     "desc": "Actualización de créditos TX (último ID conocido)."},
+     "desc": "TX credit update (last known ID)."},
 ]
 
-# ── Handshake HTT: secuencia de init ──────────────────────────────────────
+# ── HTT handshake: init sequence ──────────────────────────────────────
 
 _HANDSHAKE_SEQUENCE = [
     {"step": 1, "msg": "VERSION_REQ",
      "direction": "H2T",
-     "desc": "Host solicita versión del protocolo HTT al target."},
+     "desc": "Host requests HTT protocol version from target."},
     {"step": 2, "msg": "VERSION_CONF",
      "direction": "T2H",
-     "desc": "Target responde con su versión soportada."},
+     "desc": "Target responds with its supported version."},
     {"step": 3, "msg": "FRAG_DESC_BANK_CFG",
      "direction": "H2T",
-     "desc": "Host configura bancos de descriptores de fragmentos."},
+     "desc": "Host configures fragment descriptor banks."},
     {"step": 4, "msg": "RX_RING_CFG",
      "direction": "H2T",
-     "desc": "Host configura anillos DMA de recepción."},
+     "desc": "Host configures DMA receive rings."},
     {"step": 5, "msg": "SRNG_SETUP",
      "direction": "H2T",
-     "desc": "Host configura Scheduler Rings."},
+     "desc": "Host configures Scheduler Rings."},
     {"step": 6, "msg": "RX_FETCH",
      "direction": "H2T",
-     "desc": "Host solicita buffers RX iniciales."},
+     "desc": "Host requests initial RX buffers."},
 ]
 
-# ── Mapas de lookup rápido ─────────────────────────────────────────────────
+# ── Quick lookup maps ─────────────────────────────────────────────────
 
 _H2T_BY_ID: Dict[int, Dict[str, Any]] = {m["id"]: m for m in _H2T_MESSAGES}
 _T2H_BY_ID: Dict[int, Dict[str, Any]] = {m["id"]: m for m in _T2H_MESSAGES}
 
 
-# ── API pública ────────────────────────────────────────────────────────────
+# ── Public API ────────────────────────────────────────────────────────────
 
 def lookup_htt_message(msg_id: int, direction: str) -> Dict[str, Any]:
-    """Busca un mensaje HTT por su ID numérico y dirección.
+    """Look up an HTT message by its numeric ID and direction.
 
     Args:
-        msg_id: ID del mensaje (0–0x2a para H2T, 0–0x3f para T2H).
-        direction: "H2T" (Host → Target) o "T2H" (Target → Host).
+        msg_id: Message ID (0-0x2a for H2T, 0-0x3f for T2H).
+        direction: "H2T" (Host -> Target) or "T2H" (Target -> Host).
 
     Returns:
-        Diccionario con id, name, desc del mensaje.
+        Dictionary with id, name, desc of the message.
 
     Raises:
-        HTTMessageNotFound: si el ID está fuera del rango conocido.
+        HTTMessageNotFound: if the ID is outside the known range.
     """
     table = _resolve_table(direction)
     msg = table.get(msg_id)
     if msg is None:
         raise HTTMessageNotFound(
-            f"Mensaje HTT {direction} ID 0x{msg_id:02X} no encontrado "
-            f"(rango válido: 0x00–0x{max(table):02X})"
+            f"HTT {direction} message ID 0x{msg_id:02X} not found "
+            f"(valid range: 0x00-0x{max(table):02X})"
         )
     return dict(msg)
 
 
 def list_htt_messages(direction: Optional[str] = None) -> List[Dict[str, Any]]:
-    """Lista todos los mensajes HTT conocidos.
+    """List all known HTT messages.
 
     Args:
-        direction: Opcional. "H2T", "T2H" o None (todos).
+        direction: Optional. "H2T", "T2H", or None (all).
 
     Returns:
-        Lista de diccionarios con id, name, desc.
+        List of dictionaries with id, name, desc.
     """
     if direction is None:
         result = list(_H2T_MESSAGES) + list(_T2H_MESSAGES)
@@ -342,15 +341,15 @@ def list_htt_messages(direction: Optional[str] = None) -> List[Dict[str, Any]]:
 
 
 def get_htt_handshake() -> List[Dict[str, Any]]:
-    """Devuelve la secuencia completa del handshake de inicialización HTT.
+    """Return the complete HTT initialization handshake sequence.
 
     Returns:
-        Lista ordenada de pasos del handshake.
+        Ordered list of handshake steps.
     """
     return [dict(step) for step in _HANDSHAKE_SEQUENCE]
 
 
-# ── Helpers internos ───────────────────────────────────────────────────────
+# ── Internal helpers ──────────────────────────────────────────────────────
 
 def _resolve_table(direction: str) -> Dict[int, Dict[str, Any]]:
     if direction == "H2T":
@@ -358,4 +357,4 @@ def _resolve_table(direction: str) -> Dict[int, Dict[str, Any]]:
     elif direction == "T2H":
         return _T2H_BY_ID
     else:
-        raise ValueError(f"Dirección inválida: '{direction}'. Use 'H2T' o 'T2H'.")
+        raise ValueError(f"Invalid direction: '{direction}'. Use 'H2T' or 'T2H'.")

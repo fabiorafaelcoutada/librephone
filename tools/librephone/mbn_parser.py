@@ -47,14 +47,14 @@ __all__ = [
 
 
 class MBNParseError(ValueError):
-    """Error al parsear un archivo MBN — archivo corrupto o truncado."""
+    """MBN parsing error — corrupt or truncated file."""
 
 
 class MBNFormatError(ValueError):
-    """Formato MBN no soportado (no ELF, no PIL, o versión desconocida)."""
+    """Unsupported MBN format (not ELF, not PIL, or unknown version)."""
 
 
-# ── Constantes ELF ─────────────────────────────────────────────────────────
+# ── ELF constants ─────────────────────────────────────────────────────────
 
 _ELF_MAGIC = b"\x7fELF"
 _EI_CLASS_32 = 1
@@ -64,7 +64,7 @@ _EI_DATA_2MSB = 2  # big-endian
 _ET_EXEC = 2
 _ET_DYN = 3
 
-# Tipos de sección ELF comunes
+# Common ELF section types
 _SHT_TYPES = {
     0: "NULL",
     1: "PROGBITS",
@@ -79,7 +79,7 @@ _SHT_TYPES = {
     11: "DYNSYM",
 }
 
-# Marcas de segmentos PIL Qualcomm
+# Qualcomm PIL segment markers
 _PHDR_TYPE_LOAD = 1
 _PHDR_TYPE_DYNAMIC = 2
 
@@ -201,21 +201,21 @@ def _parse_phdr64(data: bytes, offset: int) -> Dict[str, Any]:
     }
 
 
-# ── API pública ────────────────────────────────────────────────────────────
+# ── Public API ────────────────────────────────────────────────────────────
 
 
 def parse_mbn(filepath: str) -> Dict[str, Any]:
-    """Parsea un archivo MBN extrayendo headers ELF y tabla de segmentos.
+    """Parse an MBN file, extracting ELF headers and segment table.
 
     Args:
-        filepath: Ruta al archivo .mbn.
+        filepath: Path to the .mbn file.
 
     Returns:
-        Diccionario con formato, entry_point, segmentos y certificados.
+        Dictionary with format, entry_point, segments, and certificates.
 
     Raises:
-        MBNFormatError: si el archivo no es ELF o PIL.
-        MBNParseError: si el archivo está corrupto o truncado.
+        MBNFormatError: if the file is not ELF or PIL.
+        MBNParseError: if the file is corrupt or truncated.
     """
     path = Path(filepath)
     raw = path.read_bytes()
@@ -224,17 +224,17 @@ def parse_mbn(filepath: str) -> Dict[str, Any]:
     elf_hdr = _parse_elf_header(raw)
     is_64bit = elf_hdr["format"] == "ELF64"
 
-    # Parsear segment headers (program headers)
+    # Parse segment headers (program headers)
     segments = []
     phoff = elf_hdr["e_phoff"]
     phentsize = elf_hdr["e_phentsize"]
     phnum = elf_hdr["e_phnum"]
 
-    # Detectar certificados X.509 v3 DER al final del archivo
+    # Detect X.509 v3 DER certificates at the end of the file
     cert_count = 0
     pos = file_size
     while pos >= 4:
-        # Buscar secuencia DER (0x30 0x82 ...)
+        # Search DER sequence (0x30 0x82 ...)
         if pos + 4 <= file_size and raw[pos : pos + 2] == b"\x30\x82":
             try:
                 cert_len = struct.unpack_from(">H", raw, pos + 2)[0] + 4
@@ -257,7 +257,7 @@ def parse_mbn(filepath: str) -> Dict[str, Any]:
         seg["segment_index"] = i
         segments.append(seg)
 
-    # Clasificar segmentos
+    # Classify segments
     pil_segments = []
     for seg in segments:
         seg_type_desc = _SHT_TYPES.get(seg["p_type"], f"0x{seg['p_type']:x}")
@@ -285,13 +285,13 @@ def parse_mbn(filepath: str) -> Dict[str, Any]:
 
 
 def extract_sections(parsed: Dict[str, Any]) -> Dict[str, List[Dict[str, Any]]]:
-    """Clasifica las secciones/segmentos de un MBN parseado.
+    """Classify sections/segments of a parsed MBN.
 
     Args:
-        parsed: Resultado de parse_mbn().
+        parsed: Result from parse_mbn().
 
     Returns:
-        Diccionario con listas de segmentos clasificados: code, data, bss, certs.
+        Dictionary of classified segment lists: code, data, bss, certs.
     """
     sections: Dict[str, List[Dict[str, Any]]] = {
         "code": [],
@@ -301,7 +301,7 @@ def extract_sections(parsed: Dict[str, Any]) -> Dict[str, List[Dict[str, Any]]]:
         "other": [],
     }
 
-    # Los certificados están al final del archivo
+    # Certificates are at the end of the file
     if parsed["certificates"] > 0:
         sections["certificates"].append({
             "count": parsed["certificates"],
@@ -319,7 +319,7 @@ def extract_sections(parsed: Dict[str, Any]) -> Dict[str, List[Dict[str, Any]]]:
         }
 
         if seg["is_load"]:
-            # .bss tiene file_size = 0 (solo ocupa memoria)
+            # .bss has file_size = 0 (memory-only, no file data)
             if seg["file_size"] == 0 and seg["mem_size"] > 0:
                 sections["bss"].append(entry)
             elif seg["flags"] & 1:  # PF_X = executable
@@ -333,13 +333,13 @@ def extract_sections(parsed: Dict[str, Any]) -> Dict[str, List[Dict[str, Any]]]:
 
 
 def get_mbn_metadata(filepath: str) -> Dict[str, Any]:
-    """Obtiene metadatos resumidos de un archivo MBN.
+    """Get summary metadata from an MBN file.
 
     Args:
-        filepath: Ruta al archivo .mbn.
+        filepath: Path to the .mbn file.
 
     Returns:
-        Diccionario con versión, checksum, firmware ID y tamaño.
+        Dictionary with version, checksum, firmware ID, and size.
     """
     parsed = parse_mbn(filepath)
     sections = extract_sections(parsed)

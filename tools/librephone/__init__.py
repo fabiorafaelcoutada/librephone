@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-"""LibrePhone tools — análisis de blobs, protocolos y dependencias.
+"""LibrePhone tools — blob, protocol, and dependency analysis.
 
-Módulos:
-    htt_protocol       — Lookup de mensajes HTT (Host-Target Transport) de ath11k/WCN6750
-    dependency_tracer  — Trazado de dependencias entre blobs WPSS y sus fuentes
-    tlv_decoder        — Decodificador de tags TLV del fw-api de WCN6750 (>400 tags)
-    mbn_parser         — Parser de archivos MBN/MDT (formato PIL Qualcomm)
+Modules:
+    htt_protocol       — HTT (Host-Target Transport) message lookup for ath11k/WCN6750
+    dependency_tracer  — WPSS blob dependency tracing and source mapping
+    tlv_decoder        — TLV tag decoder for WCN6750 fw-api (>400 tags)
+    mbn_parser         — MBN/MDT file parser (Qualcomm PIL format)
 """
 
 from __future__ import annotations

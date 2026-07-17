@@ -32,7 +32,7 @@ class TestLookupHTTMessage:
             lookup_htt_message(0xFF, "H2T")
 
     def test_lookup_invalid_direction(self) -> None:
-        with pytest.raises(ValueError, match="Dirección inválida"):
+        with pytest.raises(ValueError, match="Invalid direction"):
             lookup_htt_message(0x00, "XXX")  # type: ignore[arg-type]
 
     def test_lookup_h2t_last(self) -> None:
@@ -60,7 +60,7 @@ class TestListHTTMessages:
         assert len(msgs) == 43 + 64
 
     def test_list_invalid_direction(self) -> None:
-        with pytest.raises(ValueError, match="Dirección inválida"):
+        with pytest.raises(ValueError, match="Invalid direction"):
             list_htt_messages("BIDI")  # type: ignore[arg-type]
 
     def test_list_contains_known(self) -> None:

@@ -45,194 +45,194 @@ __all__ = [
 
 
 class BlobNotFound(LookupError):
-    """El blob solicitado no está en la base de conocimiento."""
+    """The requested blob is not in the knowledge base."""
 
 
 class SourceUnavailable(ValueError):
-    """No se conoce fuente disponible para este blob."""
+    """No known available source for this blob."""
 
 
-# ── Base de conocimiento de blobs ─────────────────────────────────────────
+# ── Blob knowledge base ────────────────────────────────────────────
 
 _KNOWN_BLOBS: Dict[str, Dict[str, Any]] = {
     "wlanmdsp.mbn": {
-        "description": "Firmware WPSS WCN6750. Blob principal del chip WiFi/BT.",
+        "description": "WPSS WCN6750 firmware. Main WiFi/BT chip blob.",
         "depends_on": ["wcnss.mbn", "qdsp6.mbn"],
         "depended_by": ["mcfg.mbn"],
         "source": {
             "location": "/data/vendor/firmware/wlanmdsp.mbn",
             "method": "ADB pull desde FP6 real",
             "available_in_ota": False,
-            "notes": "No incluido en OTA LineageOS. Extraer desde dispositivo físico.",
+            "notes": "Not included in LineageOS OTA. Extract from physical device.",
         },
-        "status": "propietario",
+        "status": "proprietary",
         "category": "firmware_wifi",
         "size_estimate": "~4-6 MB",
     },
     "wcnss.mbn": {
-        "description": "Wireless Connectivity Subsystem. Dependencia del firmware WiFi.",
+        "description": "Wireless Connectivity Subsystem. WiFi firmware dependency.",
         "depends_on": ["qdsp6.mbn"],
         "depended_by": ["wlanmdsp.mbn"],
         "source": {
             "location": "/firmware/image/wcnss.mbn",
             "method": "Stock firmware Fairphone o ADB pull",
             "available_in_ota": True,
-            "notes": "Disponible en partición firmware de OTA.",
+            "notes": "Available in OTA firmware partition.",
         },
-        "status": "propietario",
+        "status": "proprietary",
         "category": "firmware_wifi",
         "size_estimate": "~2-3 MB",
     },
     "qdsp6.mbn": {
-        "description": "DSP firmware (Qualcomm Hexagon). Procesamiento de señal digital.",
+        "description": "DSP firmware (Qualcomm Hexagon). Digital signal processing.",
         "depends_on": ["cmnlib.mbn"],
         "depended_by": ["wlanmdsp.mbn", "wcnss.mbn"],
         "source": {
             "location": "/firmware/image/qdsp6.mbn",
             "method": "Stock firmware Fairphone o ADB pull",
             "available_in_ota": True,
-            "notes": "Hexagon DSP. Esencial para iniciar WPSS.",
+            "notes": "Hexagon DSP. Essential for WPSS boot.",
         },
-        "status": "propietario",
+        "status": "proprietary",
         "category": "dsp",
         "size_estimate": "~8-12 MB",
     },
     "cmnlib.mbn": {
-        "description": "Common Library (TrustZone). Librería compartida del entorno seguro.",
+        "description": "Common Library (TrustZone). Shared library for the secure environment.",
         "depends_on": ["keymaster.mbn"],
         "depended_by": ["qdsp6.mbn"],
         "source": {
             "location": "/firmware/image/cmnlib.mbn",
             "method": "Stock firmware Fairphone",
             "available_in_ota": True,
-            "notes": "Parte del Secure World. Necesaria para PIL loading.",
+            "notes": "Part of the Secure World. Required for PIL loading.",
         },
-        "status": "propietario",
+        "status": "proprietary",
         "category": "trustzone",
         "size_estimate": "~256 KB",
     },
     "keymaster.mbn": {
-        "description": "Secure key storage. Gestión de claves criptográficas en TrustZone.",
+        "description": "Secure key storage. Cryptographic key management in TrustZone.",
         "depends_on": [],
         "depended_by": ["cmnlib.mbn"],
         "source": {
             "location": "/firmware/image/keymaster.mbn",
             "method": "Stock firmware Fairphone",
             "available_in_ota": True,
-            "notes": "Módulo de seguridad de claves.",
+            "notes": "Key security module.",
         },
-        "status": "propietario",
+        "status": "proprietary",
         "category": "trustzone",
         "size_estimate": "~128 KB",
     },
     "venus.mbn": {
-        "description": "VPU firmware (Video Processing Unit). Codificación/decodificación video.",
+        "description": "VPU firmware (Video Processing Unit). Video encoding/decoding.",
         "depends_on": ["cmnlib.mbn"],
         "depended_by": [],
         "source": {
             "location": "/firmware/image/venus.mbn",
             "method": "Stock firmware Fairphone",
             "available_in_ota": True,
-            "notes": "Firmware de VPU. No relacionado con WiFi.",
+            "notes": "VPU firmware. Not WiFi-related.",
         },
-        "status": "propietario",
+        "status": "proprietary",
         "category": "multimedia",
         "size_estimate": "~512 KB",
     },
     "mcfg.mbn": {
-        "description": "Modem configuration. Configuración de bandas y protocolos celulares.",
+        "description": "Modem configuration. Cellular band and protocol configuration.",
         "depends_on": ["qdsp6.mbn"],
         "depended_by": [],
         "source": {
             "location": "/firmware/image/mcfg.mbn",
             "method": "Stock firmware Fairphone",
             "available_in_ota": True,
-            "notes": "Configuración del módem celular.",
+            "notes": "Cellular modem configuration.",
         },
-        "status": "propietario",
+        "status": "proprietary",
         "category": "modem",
         "size_estimate": "~1-2 MB",
     },
     "CAMERA_ICP.mbn": {
-        "description": "Firmware de cámara ICP (Image Co-Processor).",
+        "description": "ICP (Image Co-Processor) camera firmware.",
         "depends_on": ["cmnlib.mbn"],
         "depended_by": [],
         "source": {
             "location": "vendor/firmware/ (OTA)",
             "method": "OTA LineageOS FP6 — ya extraído localmente",
             "available_in_ota": True,
-            "notes": "Extraído a blobs/fp6/. No relacionado con WiFi.",
+            "notes": "Extracted to blobs/fp6/. Not WiFi-related.",
         },
-        "status": "propietario",
+        "status": "proprietary",
         "category": "camera",
         "size_estimate": "~128 KB",
     },
     "gen70900_zap.mbn": {
-        "description": "GPU ZAP shader (Gen 7.9.0). Security blob para inicialización GPU.",
+        "description": "GPU ZAP shader (Gen 7.9.0). Security blob for GPU initialization.",
         "depends_on": ["cmnlib.mbn"],
         "depended_by": [],
         "source": {
             "location": "vendor/firmware/ (OTA)",
             "method": "OTA LineageOS FP6 — ya extraído localmente",
             "available_in_ota": True,
-            "notes": "Blob de seguridad GPU. Extraído a blobs/fp6/.",
+            "notes": "GPU security blob. Extracted to blobs/fp6/.",
         },
-        "status": "propietario",
+        "status": "proprietary",
         "category": "gpu",
         "size_estimate": "~64 KB",
     },
     "wpss.b12": {
-        "description": "Certificados Secure Boot WPSS. 3 × X.509 v3 DER concatenados.",
+        "description": "WPSS Secure Boot certificates. 3 × X.509 v3 DER concatenated.",
         "depends_on": [],
         "depended_by": ["wlanmdsp.mbn"],
         "source": {
-            "location": "wpss.b12 (dentro de wlanmdsp.mbn)",
-            "method": "Extracción desde wlanmdsp.mbn (no disponible aún)",
+            "location": "wpss.b12 (inside wlanmdsp.mbn)",
+            "method": "Extraction from wlanmdsp.mbn (not yet available)",
             "available_in_ota": False,
-            "notes": "No disponible sin wlanmdsp.mbn. Contiene Root CA, 3 certs.",
+            "notes": "Not available without wlanmdsp.mbn. Contains Root CA, 3 certs.",
         },
-        "status": "documentado",
+        "status": "documented",
         "category": "secure_boot",
         "size_estimate": "~4 KB",
     },
 }
 
-# ── Épocas de análisis ────────────────────────────────────────────────────
+# ── Analysis epochs ──────────────────────────────────────────────────────
 
 _COVERAGE_TIMESTAMP = "2026-07-15"
 
 
-# ── API pública ────────────────────────────────────────────────────────────
+# ── Public API ────────────────────────────────────────────────────────────
 
 def list_known_blobs() -> List[str]:
-    """Lista todos los blobs conocidos en la base de conocimiento.
+    """List all known blobs in the knowledge base.
 
     Returns:
-        Lista de nombres de blob.
+        List of blob names.
     """
     return sorted(_KNOWN_BLOBS.keys())
 
 
 def trace_dependencies(blob_name: str) -> Dict[str, Any]:
-    """Traza el árbol de dependencias de un blob.
+    """Trace the dependency tree of a blob.
 
     Args:
-        blob_name: Nombre del blob (ej. "wlanmdsp.mbn").
+        blob_name: Blob name (e.g. "wlanmdsp.mbn").
 
     Returns:
-        Diccionario con el blob, sus dependencias y dependientes.
+        Dictionary with blob, its dependencies, and dependents.
 
     Raises:
-        BlobNotFound: si el blob no está en la base de conocimiento.
+        BlobNotFound: if the blob is not in the knowledge base.
     """
     blob = _KNOWN_BLOBS.get(blob_name)
     if blob is None:
         raise BlobNotFound(
-            f"Blob '{blob_name}' no encontrado. "
-            f"Conocidos: {', '.join(list_known_blobs())}"
+            f"Blob '{blob_name}' not found. "
+            f"Known: {', '.join(list_known_blobs())}"
         )
 
-    # Resolver dependencias recursivas (un nivel)
+    # Resolve recursive dependencies (one level)
     resolved_deps = []
     for dep in blob["depends_on"]:
         if dep in _KNOWN_BLOBS:
@@ -242,7 +242,7 @@ def trace_dependencies(blob_name: str) -> Dict[str, Any]:
                 "status": _KNOWN_BLOBS[dep]["status"],
             })
         else:
-            resolved_deps.append({"name": dep, "description": "desconocido", "status": "desconocido"})
+            resolved_deps.append({"name": dep, "description": "unknown", "status": "unknown"})
 
     resolved_by = []
     for dep in blob["depended_by"]:
@@ -253,7 +253,7 @@ def trace_dependencies(blob_name: str) -> Dict[str, Any]:
                 "status": _KNOWN_BLOBS[dep]["status"],
             })
         else:
-            resolved_by.append({"name": dep, "description": "desconocido", "status": "desconocido"})
+            resolved_by.append({"name": dep, "description": "unknown", "status": "unknown"})
 
     return {
         "blob": blob_name,
@@ -267,33 +267,33 @@ def trace_dependencies(blob_name: str) -> Dict[str, Any]:
 
 
 def find_blob_source(blob_name: str) -> Dict[str, Any]:
-    """Encuentra la fuente de obtención recomendada para un blob.
+    """Find the recommended source for obtaining a blob.
 
     Args:
-        blob_name: Nombre del blob.
+        blob_name: Blob name.
 
     Returns:
-        Diccionario con location, method, available_in_ota, notes.
+        Dictionary with location, method, available_in_ota, notes.
 
     Raises:
-        BlobNotFound: si el blob no está en la base de conocimiento.
+        BlobNotFound: if the blob is not in the knowledge base.
     """
     blob = _KNOWN_BLOBS.get(blob_name)
     if blob is None:
-        raise BlobNotFound(f"Blob '{blob_name}' no encontrado.")
+        raise BlobNotFound(f"Blob '{blob_name}' not found.")
     return dict(blob["source"])
 
 
 def estimate_coverage() -> Dict[str, Any]:
-    """Estima el porcentaje de documentación y reemplazos libres.
+    """Estimate documentation and free replacement coverage percentage.
 
-    Clasifica blobs como:
-        - propietario: sin documentación pública suficiente
-        - documentado: estructura analizada, pero sin reemplazo libre
-        - libre: existe o se puede generar reemplazo libre
+    Classifies blobs as:
+        - proprietary: insufficient public documentation
+        - documented: structure analyzed, but no free replacement
+        - free: free replacement exists or can be generated
 
     Returns:
-        Diccionario con total, conteo por status, y porcentajes.
+        Dictionary with total, count by status, and percentages.
     """
     total = len(_KNOWN_BLOBS)
     counts: Dict[str, int] = {}
