@@ -701,59 +701,28 @@ class MDTTool(object):
         """
         # breakpoint()
         path = Path(filespec)
+        if path.suffix != ".mbn":
+            log.error(f"Only MDN files get split")
+            return
         file_size = os.stat(path).st_size
-        index = 0
-        file = None
         mdt, magic, prog_hdrs, seg_hdrs = self.read_mdt(path)
 
-        if not mdt:
-            log.error(f"Couldn't extrtact ELF header from {filespec}!")
-            return 0
-
-        # The file starts with the initial ELF header
-        out = f"{path.parent}/{path}.elf"
-        log.info(f"Creating output file {out}...")
-        file = open(f"{out}", 'wb')
-        breakpoint()
-        size = mdt["e_ehsize"] + (mdt["e_phnum"] * mdt["e_phentsize"]) + (mdt["e_shnum"] * mdt["e_shentsize"]) + mdt["e_shstrndx"]
-        file.truncate(size)
-        file.seek(0)
-        # Write the ELF magic number
-        file.write(magic["binary"])
-        # Write the ELF header
-        newhdr = mdt
-        newhdr["e_shoff"] = 0
-        newhdr["e_phnum"] = 9
-        newhdr["e_shentsize"] = 40
-        newhdr["e_shnum"] = 0
-        newhdr["e_shstrndx"] = 0
-
-        if magic["ei_class"] == 0x2:
-            file.write(self.create_elf_header64(newhdr))
-        elif magic["ei_class"] == 0x1:
-            file.write(self.create_elf_header32(newhdr))
-        file.close()
-
+        index = 0
+        infile = open(path, 'rb')
         for header in prog_hdrs:
             print("---------------------------------")
-            out = f"{path.parent}/{str(hex(header["p_offset"]))}"
-            log.info(f"Program Header {index} {out}")
+            outfile = f"{out}.{index}"
+            log.info(f"Program Header {outfile}")
             if header["p_flags"] & ProgFlags["PF_X"] > 0:
                 print(f"ELF file in header {index}: {header}")
-                subheader = self.read_mdt(path)
-                self.dump_header(subheader)
-                file = open(f"{out}", 'wb')
-                file.truncate(subheader["p_filesz"])
-                file.seek(0)
-                # # The magic number
-                # FIXME: these shouldn't use all default values for the headers
-                magic = self.create_magic(self.magic)
-                file.write(magic)
-                # FIXME: pad shouldn't be hardcoded
-                pad = b'\x00\x00\x00\x00\x00\x00\x00\x00'
-                binary = bytes()
-                file.write(pad)
-                file.write(elf_header["binary"])
+                loc = infile.seek(header["p_offset"])
+                if loc > file_size:
+                    log.error(f"Seeking past the end of the file!")
+                    return
+                data = infile.read(header["p_filesz"])
+                file = open(f"{outfile}", 'wb')
+                file.write(data)
+                file.close()
 
             # FIXME: write data
             index += 1
