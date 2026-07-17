@@ -204,7 +204,7 @@ class MDTTool(object):
                  mdtfile: str = None,
                  ):
         """
-        An MDT file contains an EL:F file that specifies the program segments,
+        An MDT file contains an ELF file that specifies the program segments,
         followed by 3 SSL certificates.
 
         Args:
@@ -246,11 +246,9 @@ class MDTTool(object):
                 data = self.read_section_header64()
             else:
                 data = self.read_section_header32()
-            # print("Dumping segment header")
-            # self.dump_header(data)
             self.seg_headers.append(data)
 
-        return self.elf_header
+        return self.elf_header, self.magic, self.prog_headers, self.seg_headers
 
     def read_magic(self,
                    ) -> dict:
@@ -259,13 +257,14 @@ class MDTTool(object):
         # The ELF header is always 16 bytes
         data = self.infile.read(16)
 
+        magic = dict()
+        magic["binary"] = data
+
         #print(f"MAGIC: {binascii.hexlify(data, bytes_per_sep=2)}")
         if data[:4].hex() != "7f454c46":
             log.error("Must supply an ELF file!")
-            return dict()
         else:
             offset = 4
-            magic = dict()
             magic["ei_class"] = struct.unpack_from('<B', data, offset)[0]
             magic["ei_data"] = struct.unpack_from('<B', data, offset + 1)[0]
             magic["ei_version"] = struct.unpack_from('<B', data, offset + 2)[0]
@@ -282,7 +281,7 @@ class MDTTool(object):
             elif magic["ei_data"] == 0x2:
                 print("\tBig endian")
 
-            return magic
+        return magic
         
     def read_elf64(self,
                  ) -> dict:
@@ -290,14 +289,16 @@ class MDTTool(object):
         An ELF file looks like this:
 
         ELF Header:
-        Program Header Table: Segment data for the loader
-        Segments: Data dumps foe memopry
-        Section Header Table: Used for linking
-        Sections: Code, symbols, etc...
-        Optional Data: symbol tables, relocatiopn data
+            Program Header Table: Segment data for the loader
+            Segments: Data dumps foe memopry
+            Section Header Table: Used for linking
+            Sections: Code, symbols, etc...
+            Optional Data: symbol tables, relocatiopn data
         """
         # An ELF 64 packet is always 64 bytes, ELF 32 is 52 bytes
         elf_header = self.infile.read(48)
+
+        elf64_hdr["binary"] = elf_header
 
         print(f"ELF64: {binascii.hexlify(elf_header, sep=' ', bytes_per_sep=8)}")
         elf64_hdr = dict()
@@ -368,18 +369,20 @@ class MDTTool(object):
         An ELF file looks like this:
 
         ELF Header:
-        Program Header Table: Segment data for the loader
-        Segments: Data dumps foe memopry
-        Section Header Table: Used for linking
-        Sections: Code, symbols, etc...
-        Optional Data: symbol tables, relocatiopn data
+            Program Header Table: Segment data for the loader
+            Segments: Data dumps foe memopry
+            Section Header Table: Used for linking
+            Sections: Code, symbols, etc...
+            Optional Data: symbol tables, relocatiopn data
         """
         # An ELF 32 packet is always 32 bytes, ELF 32 is 52 bytes
         # An ELF 64 packet is always 64 bytes, ELF 32 is 52 bytes
         elf_header = self.infile.read(36)
 
-        # int(f"ELF32: {binascii.hexlify(elf_header, sep=' ', bytes_per_sep=4)}")
         elf32_hdr = dict()
+        elf32_hdr["binary"] = elf_header
+
+        # int(f"ELF32: {binascii.hexlify(elf_header, sep=' ', bytes_per_sep=4)}")
 
         offset = 0
         elf32_hdr["e_type"] = struct.unpack_from(StructTypes["Elf32_Half"],
@@ -450,6 +453,8 @@ class MDTTool(object):
         offset = 0
         seg_header = self.infile.read(self.elf_header["e_shentsize"])
 
+        elf64_shdr["binary"] = seg_header
+
         # log.debug(f"SEGMENT64: {binascii.hexlify(seg_header, sep=' ', bytes_per_sep=8)}")
         elf64_shdr["sh_name"] = struct.unpack_from(StructTypes["Elf64_Word"],
                                                     seg_header, offset)[0]
@@ -501,6 +506,8 @@ class MDTTool(object):
         elf32_shdr = dict()
         offset = 0
         seg_header = self.infile.read(self.elf_header["e_shentsize"])
+
+        elf32_shdr["binary"] = seg_header
 
         # log.debug(f"SEGMENT32: {binascii.hexlify(seg_header, sep=' ', bytes_per_sep=4)}")
         elf32_shdr["sh_name"] = struct.unpack_from(StructTypes["Elf32_Word"],
@@ -585,6 +592,8 @@ class MDTTool(object):
         offset = 0
         prog_header = self.infile.read(self.elf_header["e_phentsize"])
 
+        elf64_phdr["binary"] = prog_header
+
         # log.debug(f"PROGRAM64: {binascii.hexlify(prog_header, sep=' ', bytes_per_sep=8)}")
         elf64_phdr["p_type"] = struct.unpack_from(StructTypes["Elf64_Word"],
                                                     prog_header, offset)[0]
@@ -642,6 +651,8 @@ class MDTTool(object):
         offset = 0 # self.elf_header["e_phoff"]
         prog_header = self.infile.read(self.elf_header["e_phentsize"])
 
+        elf32_phdr["binary"] = prog_header
+
         #log.debug(f"PROGRAM32: {binascii.hexlify(prog_header, sep=' ', bytes_per_sep=4)}")
         elf32_phdr["p_type"] = struct.unpack_from(StructTypes["Elf32_Word"],
                                                     prog_header, offset)[0]
@@ -689,30 +700,61 @@ class MDTTool(object):
             filespec (str): The MDN or MDT file to split
         """
         # breakpoint()
-        header = self.read_mdt(filespec)
         path = Path(filespec)
+        file_size = os.stat(path).st_size
         index = 0
-        for header in self.prog_headers:
+        file = None
+        mdt, magic, prog_hdrs, seg_hdrs = self.read_mdt(path)
+
+        if not mdt:
+            log.error(f"Couldn't extrtact ELF header from {filespec}!")
+            return 0
+
+        # The file starts with the initial ELF header
+        out = f"{path.parent}/{path}.elf"
+        log.info(f"Creating output file {out}...")
+        file = open(f"{out}", 'wb')
+        breakpoint()
+        size = mdt["e_ehsize"] + (mdt["e_phnum"] * mdt["e_phentsize"]) + (mdt["e_shnum"] * mdt["e_shentsize"]) + mdt["e_shstrndx"]
+        file.truncate(size)
+        file.seek(0)
+        # Write the ELF magic number
+        file.write(magic["binary"])
+        # Write the ELF header
+        newhdr = mdt
+        newhdr["e_shoff"] = 0
+        newhdr["e_phnum"] = 9
+        newhdr["e_shentsize"] = 40
+        newhdr["e_shnum"] = 0
+        newhdr["e_shstrndx"] = 0
+
+        if magic["ei_class"] == 0x2:
+            file.write(self.create_elf_header64(newhdr))
+        elif magic["ei_class"] == 0x1:
+            file.write(self.create_elf_header32(newhdr))
+        file.close()
+
+        for header in prog_hdrs:
             print("---------------------------------")
             out = f"{path.parent}/{str(hex(header["p_offset"]))}"
             log.info(f"Program Header {index} {out}")
             if header["p_flags"] & ProgFlags["PF_X"] > 0:
                 print(f"ELF file in header {index}: {header}")
-            self.dump_header(header)
-            file = open(f"{out}", 'wb')
-            file.truncate(header["p_filesz"])
-            file.seek(0)
-            # # The magic number
-            # FIXME: these shouldn't use all default values for the headers
-            magic = self.create_magic(self.magic)
-            file.write(magic)
-            pad = b'\x00\x00\x00\x00\x00\x00\x00\x00'
-            binary = bytes()
-            # FIXME: pad shouldn't be hardcoded
-            file.write(pad)
-            self.create_elf_header32(self.elf_header)
-            newhead = self.create_elf_header32(self.elf_header)
-            file.write(newhead)
+                subheader = self.read_mdt(path)
+                self.dump_header(subheader)
+                file = open(f"{out}", 'wb')
+                file.truncate(subheader["p_filesz"])
+                file.seek(0)
+                # # The magic number
+                # FIXME: these shouldn't use all default values for the headers
+                magic = self.create_magic(self.magic)
+                file.write(magic)
+                # FIXME: pad shouldn't be hardcoded
+                pad = b'\x00\x00\x00\x00\x00\x00\x00\x00'
+                binary = bytes()
+                file.write(pad)
+                file.write(elf_header["binary"])
+
             # FIXME: write data
             index += 1
 
@@ -730,6 +772,36 @@ class MDTTool(object):
         binary += struct.pack("<B", magic["ei_data"])
         binary += struct.pack("<B", magic["ei_version"])
         binary += struct.pack("<B", magic["ei_api"])
+
+        return binary
+
+    def create_program_header64(self,
+                                header,
+                                ):
+        binary = bytes()
+        binary = struct.pack(StructTypes["Elf32_Word"], elf_header["p_type"])
+        binary = struct.pack(StructTypes["Elf32_Word"], elf_header["p_flags"])
+        binary = struct.pack(StructTypes["Elf32_Off"], elf_header["p_offset"])
+        binary = struct.pack(StructTypes["Elf32_Addr"], elf_header["p_vaddr"])
+        binary = struct.pack(StructTypes["Elf32_Addr"], elf_header["p_paddr"])
+        binary = struct.pack(StructTypes["Elf32_XWord"], elf_header["p_filesz"])
+        binary = struct.pack(StructTypes["Elf32_XWord"], elf_header["p_memsz"])
+        binary = struct.pack(StructTypes["Elf32_XWord"], elf_header["p_align"])
+
+        return binary
+
+    def create_program_header32(self,
+                                header,
+                                ):
+        binary = bytes()
+        binary = struct.pack(StructTypes["Elf32_Word"], elf_header["p_type"])
+        binary = struct.pack(StructTypes["Elf32_Off"], elf_header["p_offset"])
+        binary = struct.pack(StructTypes["Elf32_Addr"], elf_header["p_vaddr"])
+        binary = struct.pack(StructTypes["Elf32_Addr"], elf_header["p_paddr"])
+        binary = struct.pack(StructTypes["Elf32_XWord"], elf_header["p_filesz"])
+        binary = struct.pack(StructTypes["Elf32_XWord"], elf_header["p_memsz"])
+        binary = struct.pack(StructTypes["Elf32_Word"], elf_header["p_flags"])
+        binary = struct.pack(StructTypes["Elf32_XWord"], elf_header["p_align"])
 
         return binary
 
@@ -833,8 +905,11 @@ class MDTTool(object):
         """
         for key, value in header.items():
             #print(f"KEY: {key}: {value}")
-            if key != "sh_name" and key != "sh_type":
+            if key != "sh_name" and key != "sh_type" and key != "binary":
                 print(f"\t{key} = {hex(value)} ({value})")
+            if key == "binary":
+                print(f"\t{binascii.hexlify(value, sep=' ', bytes_per_sep=4)}")
+
             if key == "e_machine":
                 out = ""
                 for name, val in MachineTypes.items():
