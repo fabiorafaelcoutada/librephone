@@ -298,10 +298,10 @@ class MDTTool(object):
         # An ELF 64 packet is always 64 bytes, ELF 32 is 52 bytes
         elf_header = self.infile.read(48)
 
+        elf64_hdr = dict()
         elf64_hdr["binary"] = elf_header
 
         print(f"ELF64: {binascii.hexlify(elf_header, sep=' ', bytes_per_sep=8)}")
-        elf64_hdr = dict()
 
         offset = 0
         elf64_hdr["e_type"] = struct.unpack_from(StructTypes["Elf64_Half"],
@@ -702,7 +702,7 @@ class MDTTool(object):
         # breakpoint()
         path = Path(filespec)
         if path.suffix != ".mbn":
-            log.error(f"Only MDN files get split")
+            log.warning(f"Only MBN files get split")
             return
         file_size = os.stat(path).st_size
         mdt, magic, prog_hdrs, seg_hdrs = self.read_mdt(path)
@@ -711,18 +711,17 @@ class MDTTool(object):
         infile = open(path, 'rb')
         for header in prog_hdrs:
             print("---------------------------------")
-            outfile = f"{out}.{index}"
+            outfile = f"{path}.elf{index}"
             log.info(f"Program Header {outfile}")
-            if header["p_flags"] & ProgFlags["PF_X"] > 0:
-                print(f"ELF file in header {index}: {header}")
-                loc = infile.seek(header["p_offset"])
-                if loc > file_size:
-                    log.error(f"Seeking past the end of the file!")
-                    return
-                data = infile.read(header["p_filesz"])
-                file = open(f"{outfile}", 'wb')
-                file.write(data)
-                file.close()
+            loc = infile.seek(header["p_offset"])
+            if path.suffix == ".mbn" and loc > file_size:
+                log.error(f"Seeking past the end of the file!")
+                breakpoint()
+                return
+            data = infile.read(header["p_filesz"])
+            file = open(f"{outfile}", 'wb')
+            file.write(data)
+            file.close()
 
             # FIXME: write data
             index += 1
