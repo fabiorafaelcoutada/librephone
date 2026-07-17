@@ -28,7 +28,7 @@ class TestTraceDependencies:
         deps = trace_dependencies("wlanmdsp.mbn")
         assert deps["blob"] == "wlanmdsp.mbn"
         assert deps["category"] == "firmware_wifi"
-        assert deps["status"] == "propietario"
+        assert deps["status"] == "proprietary"
         assert len(deps["depends_on"]) >= 1
         dep_names = [d["name"] for d in deps["depends_on"]]
         assert "wcnss.mbn" in dep_names
